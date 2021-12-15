@@ -10,13 +10,16 @@ import RegistForm from "../components/RegistFormStudent";
 
 const classes = {
     registPage: {
+        // height: 'auto',
         backgroundColor: yellow[200],
-        padding: '40px 140px',
+        padding: '5% 10%',
+        // minWidth: '300px'
+        minHeight: '80vh'
     },
     registContent: {
         backgroundColor: yellow[300],
-        height: '70%',
-        padding: '70px'
+        // height: '100%',
+        padding: '7% 2%'
     },
     registText: {
         fontWeight: 600,
@@ -33,12 +36,15 @@ const RegisterStudent = () => {
                     <Grid
                         item
                         container
-                        xs={6}
+                        xs={12}
+                        lg={6}
                         direction="column"
-                        spacing={3}
+                        spacing={2}
                         sx={{
                             textAlign: 'center'
                         }}
+                        justifyContent="center"
+                        alignItems="center"
                     >
                         <Grid item xs={2}>
                             <img src={logoInEdu} />
@@ -48,13 +54,11 @@ const RegisterStudent = () => {
                                 Register Your<br />Account
                             </Typography>
                         </Grid>
-                        <Grid item xs={5}>
-                            <img src={secureLogin} />
+                        <Grid item xs={2}>
+                            <img src={secureLogin} style={{ width: '80%' }} />
                         </Grid>
                     </Grid>
-                    <Grid item xs={6}>
-                        <RegistForm />
-                    </Grid>
+                    <RegistForm />
                 </Grid>
             </Paper>
         </Box >
