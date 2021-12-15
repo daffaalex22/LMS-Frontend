@@ -2,6 +2,7 @@ import './App.css';
 import LoginStudent from './pages/LoginStudent';
 import RegisterStudent from './pages/RegisterStudent'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Navigate } from 'react-router';
 
 function App() {
   return (

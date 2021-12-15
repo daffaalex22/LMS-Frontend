@@ -6,7 +6,7 @@ import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import secureLogin from '../assets/images/secureLogin.svg'
 import logoInEdu from '../assets/images/logoInEdu.svg'
-import RegistForm from "../components/RegistForm";
+import RegistForm from "../components/RegistFormStudent";
 
 const classes = {
     registPage: {
