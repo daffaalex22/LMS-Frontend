@@ -10,14 +10,14 @@ import LoginFormStudent from "../components/LoginFormStudent";
 
 const classes = {
     loginPage: {
-        height: 'auto',
+        height: '100vh',
         // width: '100%',
         backgroundColor: yellow_200,
-        padding: '50px 7vw'
+        padding: '35px 7vw'
     },
     loginSection: {
         width: '500px',
-        height: '800px',
+        height: '640px',
         backgroundColor: yellow_300,
         textAlign: 'center',
         paddingTop: '50px',
@@ -52,7 +52,7 @@ const LoginStudent = () => {
                     // verticalAlign: 'super',
                     // display: "inline-block"
                     left: '100px',
-                    bottom: '160px'
+                    bottom: '65px'
                 }} />
         </Box>
     );

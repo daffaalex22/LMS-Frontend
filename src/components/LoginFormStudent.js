@@ -100,13 +100,6 @@ const LoginFormStudent = () => {
             </Link>
             <br />
             <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
         </form>
     );
 }
