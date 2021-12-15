@@ -11,11 +11,11 @@ import RegistForm from "../components/RegistForm";
 const classes = {
     registPage: {
         backgroundColor: yellow[200],
-        padding: '40px 140px'
+        padding: '40px 140px',
     },
     registContent: {
         backgroundColor: yellow[300],
-        height: 'auto',
+        height: '70%',
         padding: '70px'
     },
     registText: {
