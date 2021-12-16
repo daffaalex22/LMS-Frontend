@@ -1,6 +1,7 @@
 import './App.css';
 import LoginStudent from './pages/LoginStudent';
-import RegisterStudent from './pages/RegisterStudent'
+import RegisterStudent from './pages/RegisterStudent';
+import CourseSearch from './pages/CourseSearch';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Navigate } from 'react-router';
 import {
@@ -21,6 +22,7 @@ function App() {
             <Route exact path="/" element={<Navigate to="/login" />} />
             <Route path="/login" element={<LoginStudent />} />
             <Route path="/register" element={<RegisterStudent />} />
+            <Route path="/courses" element={<CourseSearch />} />
           </Routes>
         </BrowserRouter>
       </div>
