@@ -42,7 +42,7 @@ const classes = {
     yellowBar: {
         height: 'auto',
         width: '100%',
-        borderRadius: '15px',
+        borderRadius: '10px',
         backgroundColor: yellow[600]
     },
     yellowBarTitle: {
@@ -65,7 +65,7 @@ const classes = {
     experienceBar: {
         height: 'auto',
         width: 'auto',
-        borderRadius: '15px',
+        borderRadius: '10px',
         backgroundColor: indigo[400],
         display: 'inline-block',
         position: 'relative',
@@ -79,7 +79,7 @@ const classes = {
     lightYellowBar: {
         // height: '200',
         // boxSizing: 'border-box',
-        width: '120%',
+        width: '100%',
         borderRadius: '25px',
         backgroundColor: yellow[200],
         margin: '0px 30px 20px 30px',
@@ -305,7 +305,11 @@ const CourseEnroll = () => {
                 <Grid
                     item
                     xs={12}
-                // justifySelf="center"
+                    container
+                    spacing={2}
+                    sx={{
+                        width: '100%'
+                    }}
                 >
                     <Paper
                         sx={{
@@ -313,246 +317,264 @@ const CourseEnroll = () => {
                         }}
                     >
                         <Grid
+                            item
+                            xs={12}
+                        >
+                            <Typography
+                                variant="h4"
+                                sx={{
+                                    ...classes.yellowBarTitle,
+                                }}
+                            >
+                                Student Feedback
+                            </Typography>
+                        </Grid>
+                        <Grid
+                            item
+                            xs={12}
                             container
                             spacing={2}
-                            sx={{
-                                width: '100%'
-                            }}
+                            justifyContent="center"
+                        // alignItems="center"
+                        // alignContent="center"
                         >
                             <Grid
                                 item
                                 xs={12}
+                                sm={6}
+                                md={4}
+                                lg={3}
+                                container
+                                spacing={0}
+                                justifyContent="center"
                             >
-                                <Typography
-                                    variant="h4"
-                                    sx={{
-                                        ...classes.yellowBarTitle,
-                                    }}
+                                <Paper
+                                    sx={classes.lightYellowBar}
                                 >
-                                    Student Feedback
-                                </Typography>
+                                    <Typography
+                                        variant="h3"
+                                        sx={{
+                                            fontWeight: 500,
+                                            lineHeight: '85px'
+                                        }}
+                                        component="div"
+                                    >
+                                        <StarRateRoundedIcon
+                                            sx={{
+                                                color: indigo[500],
+                                                height: '1.8em',
+                                                width: '1.8em',
+                                                position: 'relative',
+                                                top: '5px',
+                                                right: '5px'
+                                            }}
+                                        />
+                                        4.9
+                                    </Typography>
+                                </Paper>
                             </Grid>
                             <Grid
                                 item
-                                xs={12}
+                                lg={3}
                                 container
-                                spacing={5}
+                                spacing={0}
                                 justifyContent="center"
+                                // justifyItems="center"
+                                direction="row"
+                                sx={{
+                                    '&.MuiGrid-root': {
+                                        paddingLeft: 0
+                                    }
+                                }}
                             >
                                 <Grid
                                     item
-                                    xs={8}
-                                    sm={6}
-                                    md={4}
-                                    lg={3}
-                                    container
-                                    spacing={0}
-                                    justifyContent="center"
-                                // alignItems="center"
-                                >
-                                    <Grid
-                                        item
-                                        xs={12}
-                                    >
-                                        <Paper
-                                            sx={classes.lightYellowBar}
-                                        >
-                                            <Typography
-                                                variant="h3"
-                                                sx={{
-                                                    fontWeight: 500,
-                                                    lineHeight: '85px'
-                                                }}
-                                                component="div"
-                                            >
-                                                <StarRateRoundedIcon
-                                                    sx={{
-                                                        color: indigo[500],
-                                                        height: '1.8em',
-                                                        width: '1.8em',
-                                                        position: 'relative',
-                                                        top: '5px',
-                                                        right: '5px'
-                                                    }}
-                                                />
-                                                4.9
-                                            </Typography>
-                                        </Paper>
-                                    </Grid>
-                                </Grid>
-                                <Grid
-                                    item
-                                    lg={3}
+                                    xs={10}
                                     container
                                     justifyContent="center"
                                     sx={{
-                                        paddingLeft: 0
+                                        width: '80%',
+                                        '&.MuiGrid-root': {
+                                            paddingLeft: 0
+                                        }
                                     }}
                                 >
-                                    <Grid
-                                        item
+                                    <Paper
                                         sx={{
-                                            width: '70%',
+                                            // ...classes.lightYellowBar,
+                                            borderRadius: '10px',
+                                            width: '100%',
+                                            backgroundColor: yellow[200],
+                                            margin: '0px 30px 20px 30px',
+                                            padding: '100px auto',
+                                            textAlign: 'center'
                                         }}
                                     >
-                                        <Paper
-                                            sx={{
-                                                ...classes.lightYellowBar,
-                                                borderRadius: '15px',
-                                                width: '100%',
-                                                borderRadius: '25px',
-                                                backgroundColor: yellow[200],
-                                                margin: '0px 30px 20px 30px',
-                                                padding: '100px auto',
-                                                textAlign: 'center'
-                                            }}
+                                        <Typography
+                                            variant="h5"
                                         >
-                                            <Typography
-                                                variant="h5"
-                                            >
-                                                All
-                                            </Typography>
-                                        </Paper>
-                                    </Grid>
-                                    <Grid
-                                        item
-                                        sx={{
-                                            width: '70%'
-                                        }}
-                                    >
-                                        <Paper
-                                            sx={{
-                                                ...classes.lightYellowBar,
-                                                borderRadius: '15px',
-                                                width: '100%',
-                                                borderRadius: '25px',
-                                                backgroundColor: yellow[200],
-                                                margin: '0px 30px 20px 30px',
-                                                padding: '100px auto',
-                                                textAlign: 'center'
-                                            }}
-                                        >
-                                            <Typography
-                                                variant="h5"
-                                            >
-                                                All
-                                            </Typography>
-                                        </Paper>
-                                    </Grid>
+                                            All
+                                        </Typography>
+                                    </Paper>
                                 </Grid>
                                 <Grid
                                     item
-                                    lg={3}
+                                    xs={10}
                                     container
                                     justifyContent="center"
+                                    sx={{
+                                        width: '80%'
+                                    }}
                                 >
-                                    <Grid
-                                        item
+                                    <Paper
                                         sx={{
-                                            width: '70%'
+                                            // ...classes.lightYellowBar,
+                                            borderRadius: '10px',
+                                            width: '100%',
+                                            backgroundColor: yellow[200],
+                                            margin: '0px 30px 20px 30px',
+                                            padding: '100px auto',
+                                            textAlign: 'center'
                                         }}
                                     >
-                                        <Paper
-                                            sx={{
-                                                ...classes.lightYellowBar,
-                                                borderRadius: '15px',
-                                                width: '100%',
-                                                borderRadius: '25px',
-                                                backgroundColor: yellow[200],
-                                                margin: '0px 30px 20px 30px',
-                                                padding: '100px auto',
-                                                textAlign: 'center'
-                                            }}
+                                        <Typography
+                                            variant="h5"
                                         >
-                                            <Typography
-                                                variant="h5"
-                                            >
-                                                All
-                                            </Typography>
-                                        </Paper>
-                                    </Grid>
-                                    <Grid
-                                        item
+                                            All
+                                        </Typography>
+                                    </Paper>
+                                </Grid>
+                            </Grid>
+                            <Grid
+                                item
+                                lg={3}
+                                container
+                                justifyContent="center"
+                                sx={{
+                                    '&.MuiGrid-root': {
+                                        paddingLeft: 0
+                                    }
+                                }}
+                            >
+                                <Grid
+                                    item
+                                    xs={10}
+                                    container
+                                    justifyContent="center"
+                                    sx={{
+                                        width: '80%'
+                                    }}
+                                >
+                                    <Paper
                                         sx={{
-                                            width: '70%'
+                                            // ...classes.lightYellowBar,
+                                            borderRadius: '10px',
+                                            width: '100%',
+                                            backgroundColor: yellow[200],
+                                            margin: '0px 30px 20px 30px',
+                                            padding: '100px auto',
+                                            textAlign: 'center'
                                         }}
                                     >
-                                        <Paper
-                                            sx={{
-                                                ...classes.lightYellowBar,
-                                                borderRadius: '15px',
-                                                width: '100%',
-                                                borderRadius: '25px',
-                                                backgroundColor: yellow[200],
-                                                margin: '0px 30px 20px 30px',
-                                                padding: '100px auto',
-                                                textAlign: 'center'
-                                            }}
+                                        <Typography
+                                            variant="h5"
                                         >
-                                            <Typography
-                                                variant="h5"
-                                            >
-                                                All
-                                            </Typography>
-                                        </Paper>
-                                    </Grid>
+                                            All
+                                        </Typography>
+                                    </Paper>
                                 </Grid>
                                 <Grid
                                     item
-                                    lg={3}
+                                    xs={10}
                                     container
                                     justifyContent="center"
+                                    sx={{
+                                        width: '80%'
+                                    }}
                                 >
-                                    <Grid
-                                        item
+                                    <Paper
                                         sx={{
-                                            width: '70%'
+                                            // ...classes.lightYellowBar,
+                                            borderRadius: '10px',
+                                            width: '100%',
+                                            backgroundColor: yellow[200],
+                                            margin: '0px 30px 20px 30px',
+                                            padding: '100px auto',
+                                            textAlign: 'center'
                                         }}
                                     >
-                                        <Paper
-                                            sx={{
-                                                ...classes.lightYellowBar,
-                                                borderRadius: '15px',
-                                                width: '100%',
-                                                borderRadius: '25px',
-                                                backgroundColor: yellow[200],
-                                                margin: '0px 30px 20px 30px',
-                                                padding: '100px auto',
-                                                textAlign: 'center'
-                                            }}
+                                        <Typography
+                                            variant="h5"
                                         >
-                                            <Typography
-                                                variant="h5"
-                                            >
-                                                All
-                                            </Typography>
-                                        </Paper>
-                                    </Grid>
-                                    <Grid
-                                        item
+                                            All
+                                        </Typography>
+                                    </Paper>
+                                </Grid>
+                            </Grid>
+                            <Grid
+                                item
+                                lg={3}
+                                container
+                                justifyContent="center"
+                                sx={{
+                                    '&.MuiGrid-root': {
+                                        paddingLeft: 0
+                                    }
+                                }}
+                            >
+                                <Grid
+                                    item
+                                    xs={10}
+                                    container
+                                    justifyContent="center"
+                                    sx={{
+                                        width: '80%'
+                                    }}
+                                >
+                                    <Paper
                                         sx={{
-                                            width: '70%'
+                                            // ...classes.lightYellowBar,
+                                            borderRadius: '10px',
+                                            width: '100%',
+                                            backgroundColor: yellow[200],
+                                            margin: '0px 30px 20px 30px',
+                                            padding: '100px auto',
+                                            textAlign: 'center'
                                         }}
                                     >
-                                        <Paper
-                                            sx={{
-                                                ...classes.lightYellowBar,
-                                                borderRadius: '15px',
-                                                width: '100%',
-                                                borderRadius: '25px',
-                                                backgroundColor: yellow[200],
-                                                margin: '0px 30px 20px 30px',
-                                                padding: '100px auto',
-                                                textAlign: 'center'
-                                            }}
+                                        <Typography
+                                            variant="h5"
                                         >
-                                            <Typography
-                                                variant="h5"
-                                            >
-                                                All
-                                            </Typography>
-                                        </Paper>
-                                    </Grid>
+                                            All
+                                        </Typography>
+                                    </Paper>
+                                </Grid>
+                                <Grid
+                                    item
+                                    xs={10}
+                                    container
+                                    justifyContent="center"
+                                    sx={{
+                                        width: '80%'
+                                    }}
+                                >
+                                    <Paper
+                                        sx={{
+                                            // ...classes.lightYellowBar,
+                                            borderRadius: '10px',
+                                            width: '100%',
+                                            backgroundColor: yellow[200],
+                                            margin: '0px 30px 20px 30px',
+                                            padding: '100px auto',
+                                            textAlign: 'center'
+                                        }}
+                                    >
+                                        <Typography
+                                            variant="h5"
+                                        >
+                                            All
+                                        </Typography>
+                                    </Paper>
                                 </Grid>
                             </Grid>
                         </Grid>
