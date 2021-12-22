@@ -19,7 +19,7 @@ const CourseCard = () => {
                 borderRadius: '25px',
                 backgroundColor: yellow[400]
             }}>
-            <CardActionArea>
+            <CardActionArea onClick={() => console.log("clicked")}>
                 <CardMedia
                     component="img"
                     height="140"

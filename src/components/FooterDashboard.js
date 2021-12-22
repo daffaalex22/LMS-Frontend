@@ -40,8 +40,9 @@ const FooterDashboard = () => {
                     container
                     spacing={2}
                     direction="column"
-                    justifyContent="center"
-                    sx={{ textAlign: 'left' }}
+                    justifyContent="flex-start"
+                    alignItems="flex-start"
+                    sx={{ textAlign: 'left', marginTop: '40px' }}
                 >
                     <Typography variant="h6" sx={{ paddingBottom: '15px', color: indigo[800] }}>
                         Need Help ?
@@ -68,8 +69,9 @@ const FooterDashboard = () => {
                     container
                     spacing={2}
                     direction="column"
-                    justifyContent="center"
-                    sx={{ textAlign: 'left' }}
+                    justifyContent="flex-start"
+                    alignItems="flex-start"
+                    sx={{ textAlign: 'left', marginTop: '40px' }}
                 >
                     <Typography variant="h6" sx={{ paddingBottom: '15px', color: indigo[800] }}>
                         Partner With Us
@@ -99,8 +101,9 @@ const FooterDashboard = () => {
                     container
                     spacing={2}
                     direction="column"
-                    justifyContent="center"
-                    sx={{ textAlign: 'left' }}
+                    justifyContent="flex-start"
+                    alignItems="flex-start"
+                    sx={{ textAlign: 'left', marginTop: '40px' }}
                 >
                     <Typography variant="h6" sx={{ paddingBottom: '15px', color: indigo[800] }}>
                         Policy

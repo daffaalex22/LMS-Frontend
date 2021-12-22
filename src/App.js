@@ -9,6 +9,8 @@ import {
   responsiveFontSizes,
   ThemeProvider,
 } from '@mui/material/styles';
+import CourseEnroll from './pages/courseEnroll/CourseEnroll';
+import Layout from './components/Layout';
 
 let theme = createTheme();
 theme = responsiveFontSizes(theme);
@@ -22,7 +24,10 @@ function App() {
             <Route exact path="/" element={<Navigate to="/login" />} />
             <Route path="/login" element={<LoginStudent />} />
             <Route path="/register" element={<RegisterStudent />} />
-            <Route path="/courses" element={<CourseSearch />} />
+            <Route exact path="/home" element={<Layout />} />
+            <Route exact path="/courses" element={<Layout />} />
+            <Route path="/courses/enroll" element={<Layout />} />
+            <Route exact path="/about-us" element={<Layout />} />
           </Routes>
         </BrowserRouter>
       </div>

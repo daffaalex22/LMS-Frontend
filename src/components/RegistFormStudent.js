@@ -35,7 +35,7 @@ const classes = {
     checkbox: {
         color: indigo[500],
         '&.Mui-checked': {
-            color: indigo[500],
+            color: 'indigo[500],'
         },
     }
 }
