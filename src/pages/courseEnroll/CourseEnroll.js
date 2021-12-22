@@ -314,6 +314,7 @@ const CourseEnroll = () => {
                     <Paper
                         sx={{
                             ...classes.yellowBar,
+                            marginTop: '40px'
                         }}
                     >
                         <Grid
@@ -335,8 +336,6 @@ const CourseEnroll = () => {
                             container
                             spacing={2}
                             justifyContent="center"
-                        // alignItems="center"
-                        // alignContent="center"
                         >
                             <Grid
                                 item
@@ -375,11 +374,13 @@ const CourseEnroll = () => {
                             </Grid>
                             <Grid
                                 item
+                                xs={12}
+                                sm={6}
+                                md={2}
                                 lg={3}
                                 container
                                 spacing={0}
                                 justifyContent="center"
-                                // justifyItems="center"
                                 direction="row"
                                 sx={{
                                     '&.MuiGrid-root': {
@@ -447,6 +448,9 @@ const CourseEnroll = () => {
                             </Grid>
                             <Grid
                                 item
+                                xs={12}
+                                sm={6}
+                                md={2}
                                 lg={3}
                                 container
                                 justifyContent="center"
@@ -513,6 +517,9 @@ const CourseEnroll = () => {
                             </Grid>
                             <Grid
                                 item
+                                xs={12}
+                                sm={6}
+                                md={2}
                                 lg={3}
                                 container
                                 justifyContent="center"
