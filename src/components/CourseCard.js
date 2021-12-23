@@ -13,7 +13,7 @@ const CourseCard = () => {
         <Card
             sx={{
                 width: 345,
-                maxWidth: '60vw',
+                maxWidth: '55vw',
                 // maxWidth: 345,
                 margin: 'auto',
                 borderRadius: '25px',

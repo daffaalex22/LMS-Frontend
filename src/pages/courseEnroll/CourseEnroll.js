@@ -10,7 +10,12 @@ import Ava from "../../assets/images/avatar.jpg"
 import Star from "../../assets/images/star.svg"
 import { yellow, indigo } from "@mui/material/colors";
 import StarRateRoundedIcon from '@mui/icons-material/StarRateRounded';
-import './CourseEnroll.css'
+import StudentsFeedback from "../../components/StudentsFeedback";
+import TheInstructor from "../../components/TheInstructor";
+import CourseDescription from "../../components/CourseDescription";
+import StudentsReview from "../../components/StudentsReview";
+import CourseCarousel from "../../components/courseCarousel/CourseCarousel";
+import AddIcon from '@mui/icons-material/Add';
 
 const classes = {
     thumbnail: {
@@ -49,36 +54,12 @@ const classes = {
         padding: '20px 30px',
         fontWeight: 500
     },
-    ava: {
-        width: '17vw',
-        height: '17vw',
-        maxWidth: 100,
-        maxHeight: 100,
-        marginTop: '40px',
-        display: 'inline-block',
-    },
     description: {
         fontWeight: 300,
         marginTop: '30px',
         textAlign: 'justify'
     },
-    experienceBar: {
-        height: 'auto',
-        width: 'auto',
-        borderRadius: '10px',
-        backgroundColor: indigo[400],
-        display: 'inline-block',
-        position: 'relative',
-        top: '15px'
-    },
-    experienceBarTitle: {
-        padding: '15px 30px',
-        fontWeight: 500,
-        color: 'white'
-    },
     lightYellowBar: {
-        // height: '200',
-        // boxSizing: 'border-box',
         width: '100%',
         borderRadius: '25px',
         backgroundColor: yellow[200],
@@ -92,503 +73,105 @@ const classes = {
 
 const CourseEnroll = () => {
     return (
-        <Container>
+        <>
+            <Container>
+                <Grid
+                    container
+                    spacing={5}
+                >
+                    <Grid
+                        item
+                        xs={12}
+                        md={7}
+                    >
+                        <img
+                            src={Thumbnail}
+                            alt="A Photo About Studying"
+                            style={classes.thumbnail}
+                        />
+                    </Grid>
+                    <Grid
+                        item
+                        xs={12}
+                        md={5}
+                    >
+                        <Typography
+                            variant="h3"
+                            sx={{
+                                fontWeight: 500
+                            }}
+                        >
+                            Complete Blender
+                            Creator: Learn 3D
+                            Modelling for
+                            Beginners
+                        </Typography>
+                        <Box
+                            sx={{
+                                marginTop: '20px'
+                            }}
+                        >
+                            <Typography
+                                sx={{
+                                    display: 'inline'
+                                }}
+                                variant="h3"
+                                component="div"
+                            >
+                                <img
+                                    src={Star}
+                                    alt="a star"
+                                    style={classes.star}
+                                />
+                                <span>4.9</span>
+                                <Typography
+                                    variant="h5"
+                                    sx={classes.reviewCount}
+                                >
+                                    (557 Reviews)
+                                </Typography>
+                            </Typography>
+                        </Box>
+                        <Typography
+                            variant="h5"
+                            sx={{
+                                marginTop: '25px'
+                            }}
+                        >
+                            Use Blender to Create Beautiful 3D
+                            models for Video Games, 3D Printing
+                            & More. Beginners Level Course
+                        </Typography>
+                        <Typography
+                            variant="h6"
+                            sx={{
+                                marginTop: '25px'
+                            }}
+                        >
+                            Created by: Ilham T. W.
+                        </Typography>
+                        <Button
+                            variant="contained"
+                            sx={classes.btn}
+                        >
+                            <AddIcon />
+                            Enroll Course
+                        </Button>
+                    </Grid>
+                    <CourseDescription />
+                    <TheInstructor />
+                    <StudentsFeedback />
+                    <StudentsReview />
+                </Grid >
+            </Container >
             <Grid
                 container
-                spacing={5}
+                spacing={0}
+                justifyContent="flex-end"
             >
-                <Grid
-                    item
-                    xs={12}
-                    md={7}
-                >
-                    <img
-                        src={Thumbnail}
-                        alt="A Photo About Studying"
-                        style={classes.thumbnail}
-                    />
-                </Grid>
-                <Grid
-                    item
-                    xs={12}
-                    md={5}
-                >
-                    <Typography
-                        variant="h3"
-                        sx={{
-                            fontWeight: 500
-                        }}
-                    >
-                        Complete Blender
-                        Creator: Learn 3D
-                        Modelling for
-                        Beginners
-                    </Typography>
-                    <Box
-                        sx={{
-                            marginTop: '20px'
-                        }}
-                    >
-                        <Typography
-                            sx={{
-                                display: 'inline'
-                            }}
-                            variant="h3"
-                            component="div"
-                        >
-                            <img
-                                src={Star}
-                                alt="a star"
-                                style={classes.star}
-                            />
-                            <span>4.9</span>
-                            <Typography
-                                variant="h5"
-                                sx={classes.reviewCount}
-                            >
-                                (557 Reviews)
-                            </Typography>
-                        </Typography>
-                    </Box>
-                    <Typography
-                        variant="h5"
-                        sx={{
-                            marginTop: '25px'
-                        }}
-                    >
-                        Use Blender to Create Beautiful 3D
-                        models for Video Games, 3D Printing
-                        & More. Beginners Level Course
-                    </Typography>
-                    <Typography
-                        variant="h6"
-                        sx={{
-                            marginTop: '25px'
-                        }}
-                    >
-                        Created by: Ilham T. W.
-                    </Typography>
-                    <Button
-                        variant="contained"
-                        sx={classes.btn}
-                    >
-                        Enroll Course
-                    </Button>
-                </Grid>
-                <Grid
-                    item
-                    xs={12}
-                >
-                    <Paper
-                        sx={classes.yellowBar}
-                    >
-                        <Typography
-                            variant="h4"
-                            sx={classes.yellowBarTitle}
-                        >
-                            What You'll Learn
-                        </Typography>
-                    </Paper>
-                    <Typography
-                        variant="h4"
-                        sx={classes.description}
-                    >
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta recusandae laborum natus soluta fuga optio similique nam voluptate impedit quo? Eaque vitae sint voluptas error dignissimos maiores at non aliquid!
-                    </Typography>
-                </Grid>
-                <Grid
-                    item
-                    xs={12}
-                >
-                    <Paper
-                        sx={classes.yellowBar}
-                    >
-                        <Typography
-                            variant="h4"
-                            sx={classes.yellowBarTitle}
-                        >
-                            This Course Includes
-                        </Typography>
-                    </Paper>
-                    <Typography
-                        variant="h4"
-                        sx={classes.description}
-                    >
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta recusandae laborum natus soluta fuga optio similique nam voluptate impedit quo? Eaque vitae sint voluptas error dignissimos maiores at non aliquid!
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cupiditate repudiandae tempora aut facere ratione quis. Doloremque culpa veritatis expedita ipsam asperiores, corrupti, obcaecati earum modi exercitationem voluptas repellendus totam recusandae!
-                    </Typography>
-                </Grid>
-                <Grid
-                    item
-                    xs={12}
-                >
-                    <Paper
-                        sx={classes.yellowBar}
-                    >
-                        <Typography
-                            variant="h4"
-                            sx={classes.yellowBarTitle}
-                        >
-                            The Instructor
-                        </Typography>
-                    </Paper>
-                    <Grid container spacing={3}>
-                        <Grid
-                            item
-                            xs={12}
-                            sm={7}
-                            md={4}
-                            lg={3}
-                        >
-                            <Box>
-                                <Avatar
-                                    alt="Remy Sharp"
-                                    src={Ava}
-                                    sx={classes.ava}
-                                />
-                                <Box
-                                    sx={{
-                                        display: 'inline-block',
-                                        position: 'relative',
-                                        bottom: '1.2rem',
-                                        left: '20px'
-                                    }}
-                                >
-                                    <Typography
-                                        variant="h5"
-                                    >
-                                        Ilham T. W.
-                                    </Typography>
-                                    <Typography
-                                        variant="h5"
-                                        component="div"
-                                    >
-                                        <StarRateRoundedIcon
-                                            sx={{
-                                                color: indigo[500],
-                                                position: 'relative',
-                                                top: '3px',
-                                                right: '2px'
-                                            }}
-                                        />
-                                        5.0
-                                    </Typography>
-                                </Box>
-                            </Box>
-                        </Grid>
-                        <Grid
-                            item
-                            xs={12}
-                            sm={10}
-                            md={8}
-                            lg={7}
-                            container
-                            spacing={0}
-                            direction="column"
-                            justifyContent="center"
-                        >
-                            <Grid item>
-                                <Paper
-                                    sx={classes.experienceBar}
-                                >
-                                    <Typography
-                                        variant="h6"
-                                        sx={classes.experienceBarTitle}
-                                    >
-                                        Career Coach with 14+ years in the Video Game Industry
-                                    </Typography>
-                                </Paper>
-                            </Grid>
-                        </Grid>
-                    </Grid>
-                </Grid>
-                <Grid
-                    item
-                    xs={12}
-                    container
-                    spacing={2}
-                    sx={{
-                        width: '100%'
-                    }}
-                >
-                    <Paper
-                        sx={{
-                            ...classes.yellowBar,
-                            marginTop: '40px'
-                        }}
-                    >
-                        <Grid
-                            item
-                            xs={12}
-                        >
-                            <Typography
-                                variant="h4"
-                                sx={{
-                                    ...classes.yellowBarTitle,
-                                }}
-                            >
-                                Student Feedback
-                            </Typography>
-                        </Grid>
-                        <Grid
-                            item
-                            xs={12}
-                            container
-                            spacing={2}
-                            justifyContent="center"
-                        >
-                            <Grid
-                                item
-                                xs={12}
-                                sm={6}
-                                md={4}
-                                lg={3}
-                                container
-                                spacing={0}
-                                justifyContent="center"
-                            >
-                                <Paper
-                                    sx={classes.lightYellowBar}
-                                >
-                                    <Typography
-                                        variant="h3"
-                                        sx={{
-                                            fontWeight: 500,
-                                            lineHeight: '85px'
-                                        }}
-                                        component="div"
-                                    >
-                                        <StarRateRoundedIcon
-                                            sx={{
-                                                color: indigo[500],
-                                                height: '1.8em',
-                                                width: '1.8em',
-                                                position: 'relative',
-                                                top: '5px',
-                                                right: '5px'
-                                            }}
-                                        />
-                                        4.9
-                                    </Typography>
-                                </Paper>
-                            </Grid>
-                            <Grid
-                                item
-                                xs={12}
-                                sm={6}
-                                md={2}
-                                lg={3}
-                                container
-                                spacing={0}
-                                justifyContent="center"
-                                direction="row"
-                                sx={{
-                                    '&.MuiGrid-root': {
-                                        paddingLeft: 0
-                                    }
-                                }}
-                            >
-                                <Grid
-                                    item
-                                    xs={10}
-                                    container
-                                    justifyContent="center"
-                                    sx={{
-                                        width: '80%',
-                                        '&.MuiGrid-root': {
-                                            paddingLeft: 0
-                                        }
-                                    }}
-                                >
-                                    <Paper
-                                        sx={{
-                                            // ...classes.lightYellowBar,
-                                            borderRadius: '10px',
-                                            width: '100%',
-                                            backgroundColor: yellow[200],
-                                            margin: '0px 30px 20px 30px',
-                                            padding: '100px auto',
-                                            textAlign: 'center'
-                                        }}
-                                    >
-                                        <Typography
-                                            variant="h5"
-                                        >
-                                            All
-                                        </Typography>
-                                    </Paper>
-                                </Grid>
-                                <Grid
-                                    item
-                                    xs={10}
-                                    container
-                                    justifyContent="center"
-                                    sx={{
-                                        width: '80%'
-                                    }}
-                                >
-                                    <Paper
-                                        sx={{
-                                            // ...classes.lightYellowBar,
-                                            borderRadius: '10px',
-                                            width: '100%',
-                                            backgroundColor: yellow[200],
-                                            margin: '0px 30px 20px 30px',
-                                            padding: '100px auto',
-                                            textAlign: 'center'
-                                        }}
-                                    >
-                                        <Typography
-                                            variant="h5"
-                                        >
-                                            All
-                                        </Typography>
-                                    </Paper>
-                                </Grid>
-                            </Grid>
-                            <Grid
-                                item
-                                xs={12}
-                                sm={6}
-                                md={2}
-                                lg={3}
-                                container
-                                justifyContent="center"
-                                sx={{
-                                    '&.MuiGrid-root': {
-                                        paddingLeft: 0
-                                    }
-                                }}
-                            >
-                                <Grid
-                                    item
-                                    xs={10}
-                                    container
-                                    justifyContent="center"
-                                    sx={{
-                                        width: '80%'
-                                    }}
-                                >
-                                    <Paper
-                                        sx={{
-                                            // ...classes.lightYellowBar,
-                                            borderRadius: '10px',
-                                            width: '100%',
-                                            backgroundColor: yellow[200],
-                                            margin: '0px 30px 20px 30px',
-                                            padding: '100px auto',
-                                            textAlign: 'center'
-                                        }}
-                                    >
-                                        <Typography
-                                            variant="h5"
-                                        >
-                                            All
-                                        </Typography>
-                                    </Paper>
-                                </Grid>
-                                <Grid
-                                    item
-                                    xs={10}
-                                    container
-                                    justifyContent="center"
-                                    sx={{
-                                        width: '80%'
-                                    }}
-                                >
-                                    <Paper
-                                        sx={{
-                                            // ...classes.lightYellowBar,
-                                            borderRadius: '10px',
-                                            width: '100%',
-                                            backgroundColor: yellow[200],
-                                            margin: '0px 30px 20px 30px',
-                                            padding: '100px auto',
-                                            textAlign: 'center'
-                                        }}
-                                    >
-                                        <Typography
-                                            variant="h5"
-                                        >
-                                            All
-                                        </Typography>
-                                    </Paper>
-                                </Grid>
-                            </Grid>
-                            <Grid
-                                item
-                                xs={12}
-                                sm={6}
-                                md={2}
-                                lg={3}
-                                container
-                                justifyContent="center"
-                                sx={{
-                                    '&.MuiGrid-root': {
-                                        paddingLeft: 0
-                                    }
-                                }}
-                            >
-                                <Grid
-                                    item
-                                    xs={10}
-                                    container
-                                    justifyContent="center"
-                                    sx={{
-                                        width: '80%'
-                                    }}
-                                >
-                                    <Paper
-                                        sx={{
-                                            // ...classes.lightYellowBar,
-                                            borderRadius: '10px',
-                                            width: '100%',
-                                            backgroundColor: yellow[200],
-                                            margin: '0px 30px 20px 30px',
-                                            padding: '100px auto',
-                                            textAlign: 'center'
-                                        }}
-                                    >
-                                        <Typography
-                                            variant="h5"
-                                        >
-                                            All
-                                        </Typography>
-                                    </Paper>
-                                </Grid>
-                                <Grid
-                                    item
-                                    xs={10}
-                                    container
-                                    justifyContent="center"
-                                    sx={{
-                                        width: '80%'
-                                    }}
-                                >
-                                    <Paper
-                                        sx={{
-                                            // ...classes.lightYellowBar,
-                                            borderRadius: '10px',
-                                            width: '100%',
-                                            backgroundColor: yellow[200],
-                                            margin: '0px 30px 20px 30px',
-                                            padding: '100px auto',
-                                            textAlign: 'center'
-                                        }}
-                                    >
-                                        <Typography
-                                            variant="h5"
-                                        >
-                                            All
-                                        </Typography>
-                                    </Paper>
-                                </Grid>
-                            </Grid>
-                        </Grid>
-                    </Paper>
-                </Grid>
-            </Grid >
-        </Container >
+                <CourseCarousel />
+            </Grid>
+        </>
     );
 }
 
