@@ -42,7 +42,7 @@ const classes = {
     },
 }
 
-const TheInstructor = () => {
+const TheInstructor = ({ teacher }) => {
     return (
         <Grid
             item
@@ -69,7 +69,7 @@ const TheInstructor = () => {
                     <Box>
                         <Avatar
                             alt="Remy Sharp"
-                            src={Ava}
+                            src={teacher?.avatar}
                             sx={classes.ava}
                         />
                         <Box
@@ -83,7 +83,7 @@ const TheInstructor = () => {
                             <Typography
                                 variant="h5"
                             >
-                                Ilham T. W.
+                                {teacher?.name}
                             </Typography>
                             <Typography
                                 variant="h5"
@@ -121,7 +121,7 @@ const TheInstructor = () => {
                                 variant="h6"
                                 sx={classes.experienceBarTitle}
                             >
-                                Career Coach with 14+ years in the Video Game Industry
+                                {teacher?.background}
                             </Typography>
                         </Paper>
                     </Grid>

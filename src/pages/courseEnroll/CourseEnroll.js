@@ -16,6 +16,8 @@ import CourseDescription from "../../components/CourseDescription";
 import StudentsReview from "../../components/StudentsReview";
 import CourseCarousel from "../../components/courseCarousel/CourseCarousel";
 import AddIcon from '@mui/icons-material/Add';
+import useFetch from "../../customHooks/useFetch";
+import ReactLoading from 'react-loading';
 
 const classes = {
     thumbnail: {
@@ -72,105 +74,126 @@ const classes = {
 
 
 const CourseEnroll = () => {
+    const { data: course, isPending: coursePending, error: courseError } = useFetch('http://localhost:8000/courses/' + 1)
+    const { data: courses, isPending: coursesPending, error: coursesError } = useFetch('http://localhost:8000/courses')
+
     return (
         <>
-            <Container>
+            {coursePending || coursesPending ?
                 <Grid
                     container
-                    spacing={5}
+                    spacing={0}
+                    justifyContent="center"
                 >
-                    <Grid
-                        item
-                        xs={12}
-                        md={7}
-                    >
-                        <img
-                            src={Thumbnail}
-                            alt="A Photo About Studying"
-                            style={classes.thumbnail}
-                        />
-                    </Grid>
-                    <Grid
-                        item
-                        xs={12}
-                        md={5}
-                    >
-                        <Typography
-                            variant="h3"
-                            sx={{
-                                fontWeight: 500
-                            }}
+                    <ReactLoading
+                        type="balls"
+                        color={indigo[500]}
+                        height="auto"
+                        width="17%"
+                    />
+                </Grid> :
+                <>
+                    <Container>
+                        <Grid
+                            container
+                            spacing={5}
                         >
-                            Complete Blender
-                            Creator: Learn 3D
-                            Modelling for
-                            Beginners
-                        </Typography>
-                        <Box
-                            sx={{
-                                marginTop: '20px'
-                            }}
-                        >
-                            <Typography
-                                sx={{
-                                    display: 'inline'
-                                }}
-                                variant="h3"
-                                component="div"
+                            <Grid
+                                item
+                                xs={12}
+                                md={7}
                             >
                                 <img
-                                    src={Star}
-                                    alt="a star"
-                                    style={classes.star}
+                                    src={course?.thumbnail}
+                                    alt="A Photo About Studying"
+                                    style={classes.thumbnail}
                                 />
-                                <span>4.9</span>
+                            </Grid>
+                            <Grid
+                                item
+                                xs={12}
+                                md={5}
+                            >
+                                <Typography
+                                    variant="h3"
+                                    sx={{
+                                        fontWeight: 500
+                                    }}
+                                >
+                                    {course?.title}
+                                </Typography>
+                                <Box
+                                    sx={{
+                                        marginTop: '20px'
+                                    }}
+                                >
+                                    <Typography
+                                        sx={{
+                                            display: 'inline'
+                                        }}
+                                        variant="h3"
+                                        component="div"
+                                    >
+                                        <img
+                                            src={Star}
+                                            alt="a star"
+                                            style={classes.star}
+                                        />
+                                        <span>4.9</span>
+                                        <Typography
+                                            variant="h5"
+                                            sx={classes.reviewCount}
+                                        >
+                                            (557 Reviews)
+                                        </Typography>
+                                    </Typography>
+                                </Box>
                                 <Typography
                                     variant="h5"
-                                    sx={classes.reviewCount}
+                                    sx={{
+                                        marginTop: '25px'
+                                    }}
                                 >
-                                    (557 Reviews)
+                                    {course?.description}
                                 </Typography>
-                            </Typography>
-                        </Box>
-                        <Typography
-                            variant="h5"
-                            sx={{
-                                marginTop: '25px'
-                            }}
-                        >
-                            Use Blender to Create Beautiful 3D
-                            models for Video Games, 3D Printing
-                            & More. Beginners Level Course
-                        </Typography>
-                        <Typography
-                            variant="h6"
-                            sx={{
-                                marginTop: '25px'
-                            }}
-                        >
-                            Created by: Ilham T. W.
-                        </Typography>
-                        <Button
-                            variant="contained"
-                            sx={classes.btn}
-                        >
-                            <AddIcon />
-                            Enroll Course
-                        </Button>
+                                <Typography
+                                    variant="h6"
+                                    sx={{
+                                        marginTop: '25px'
+                                    }}
+                                >
+                                    Created by: {course?.teacher?.name}
+                                </Typography>
+                                <Button
+                                    variant="contained"
+                                    sx={classes.btn}
+                                >
+                                    <AddIcon />
+                                    Enroll Course
+                                </Button>
+                            </Grid>
+                            <CourseDescription
+                                description={course?.description}
+                                syllabus={course?.syllabus}
+                            />
+                            <TheInstructor
+                                teacher={course?.teacher}
+                            />
+                            <StudentsFeedback />
+                            <StudentsReview />
+                        </Grid >
+                    </Container >
+                    <Grid
+                        container
+                        spacing={0}
+                        justifyContent="flex-end"
+                    >
+                        <CourseCarousel
+                            courses={courses}
+                        />
                     </Grid>
-                    <CourseDescription />
-                    <TheInstructor />
-                    <StudentsFeedback />
-                    <StudentsReview />
-                </Grid >
-            </Container >
-            <Grid
-                container
-                spacing={0}
-                justifyContent="flex-end"
-            >
-                <CourseCarousel />
-            </Grid>
+                </>
+            }
         </>
     );
 }
