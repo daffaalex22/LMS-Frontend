@@ -7,7 +7,6 @@ import Button from "@mui/material/Button";
 import Avatar from '@mui/material/Avatar';
 import Thumbnail from "../../assets/images/white_laptop.jpg"
 import Ava from "../../assets/images/avatar.jpg"
-import Star from "../../assets/images/star.svg"
 import { yellow, indigo } from "@mui/material/colors";
 import StarRateRoundedIcon from '@mui/icons-material/StarRateRounded';
 import StudentsFeedback from "../../components/StudentsFeedback";
@@ -15,9 +14,10 @@ import TheInstructor from "../../components/TheInstructor";
 import CourseDescription from "../../components/CourseDescription";
 import StudentsReview from "../../components/StudentsReview";
 import CourseCarousel from "../../components/courseCarousel/CourseCarousel";
-import AddIcon from '@mui/icons-material/Add';
 import useFetch from "../../customHooks/useFetch";
 import ReactLoading from 'react-loading';
+import CourseOverview from "../../components/CourseOverview";
+import { useState, useEffect } from "react";
 
 const classes = {
     thumbnail: {
@@ -69,17 +69,36 @@ const classes = {
         padding: '100px auto',
         textAlign: 'center'
     },
-    smallRatingBar: {}
 }
 
 
 const CourseEnroll = () => {
+    const [filterReview, setFilterReview] = useState(0)
+    const [enrollments, setEnrollments] = useState(null)
+    const [reviewItems, setReviewItems] = useState(3)
+
     const { data: course, isPending: coursePending, error: courseError } = useFetch('http://localhost:8000/courses/' + 1)
     const { data: courses, isPending: coursesPending, error: coursesError } = useFetch('http://localhost:8000/courses')
+    const { data: enrollData, isPending: enrollmentsPending, error: enrollmentsError } = useFetch('http://localhost:8000/enrollments')
+
+    useEffect(() => {
+        if (enrollData) {
+            setEnrollments(enrollData)
+        }
+    }, [enrollData])
+
+    useEffect(() => {
+        let filtered = enrollData?.filter(enrollment => enrollment.rating === filterReview)
+        if (filterReview === 0) {
+            filtered = enrollData?.filter(enrollment => enrollment)
+        }
+        setEnrollments(filtered)
+        setReviewItems(3)
+    }, [filterReview])
 
     return (
         <>
-            {coursePending || coursesPending ?
+            {coursePending || coursesPending || enrollmentsPending ?
                 <Grid
                     container
                     spacing={0}
@@ -98,80 +117,9 @@ const CourseEnroll = () => {
                             container
                             spacing={5}
                         >
-                            <Grid
-                                item
-                                xs={12}
-                                md={7}
-                            >
-                                <img
-                                    src={course?.thumbnail}
-                                    alt="A Photo About Studying"
-                                    style={classes.thumbnail}
-                                />
-                            </Grid>
-                            <Grid
-                                item
-                                xs={12}
-                                md={5}
-                            >
-                                <Typography
-                                    variant="h3"
-                                    sx={{
-                                        fontWeight: 500
-                                    }}
-                                >
-                                    {course?.title}
-                                </Typography>
-                                <Box
-                                    sx={{
-                                        marginTop: '20px'
-                                    }}
-                                >
-                                    <Typography
-                                        sx={{
-                                            display: 'inline'
-                                        }}
-                                        variant="h3"
-                                        component="div"
-                                    >
-                                        <img
-                                            src={Star}
-                                            alt="a star"
-                                            style={classes.star}
-                                        />
-                                        <span>4.9</span>
-                                        <Typography
-                                            variant="h5"
-                                            sx={classes.reviewCount}
-                                        >
-                                            (557 Reviews)
-                                        </Typography>
-                                    </Typography>
-                                </Box>
-                                <Typography
-                                    variant="h5"
-                                    sx={{
-                                        marginTop: '25px'
-                                    }}
-                                >
-                                    {course?.description}
-                                </Typography>
-                                <Typography
-                                    variant="h6"
-                                    sx={{
-                                        marginTop: '25px'
-                                    }}
-                                >
-                                    Created by: {course?.teacher?.name}
-                                </Typography>
-                                <Button
-                                    variant="contained"
-                                    sx={classes.btn}
-                                >
-                                    <AddIcon />
-                                    Enroll Course
-                                </Button>
-                            </Grid>
+                            <CourseOverview
+                                course={course}
+                            />
                             <CourseDescription
                                 description={course?.description}
                                 syllabus={course?.syllabus}
@@ -179,8 +127,14 @@ const CourseEnroll = () => {
                             <TheInstructor
                                 teacher={course?.teacher}
                             />
-                            <StudentsFeedback />
-                            <StudentsReview />
+                            <StudentsFeedback
+                                setFilterReview={setFilterReview}
+                            />
+                            <StudentsReview
+                                enrollments={enrollments}
+                                reviewItems={reviewItems}
+                                setReviewItems={setReviewItems}
+                            />
                         </Grid >
                     </Container >
                     <Grid

@@ -6,7 +6,7 @@ import Avatar from '@mui/material/Avatar';
 import Ava from "../assets/images/avatar.jpg"
 import StarRateRoundedIcon from '@mui/icons-material/StarRateRounded';
 import { yellow, indigo } from "@mui/material/colors";
-
+import useFetch from "../customHooks/useFetch";
 const classes = {
     experienceBar: {
         height: 'auto',
@@ -32,7 +32,9 @@ const classes = {
     },
 }
 
-const ReviewItem = () => {
+const ReviewItem = ({ enroll }) => {
+    const { data: student, isPending: studentPending, error: studentError } = useFetch('http://localhost:8000/students/' + enroll.studentId)
+
     return (
         <Grid container spacing={1}>
             <Grid
@@ -45,7 +47,7 @@ const ReviewItem = () => {
                 <Box>
                     <Avatar
                         alt="Remy Sharp"
-                        src={Ava}
+                        src={student?.avatar}
                         sx={classes.ava}
                     />
                     <Box
@@ -59,7 +61,7 @@ const ReviewItem = () => {
                         <Typography
                             variant="h5"
                         >
-                            Ilham T. W.
+                            {student?.name}
                         </Typography>
                         <Typography
                             variant="h5"
@@ -73,7 +75,7 @@ const ReviewItem = () => {
                                     right: '2px'
                                 }}
                             />
-                            5.0
+                            {enroll?.rating}
                         </Typography>
                     </Box>
                 </Box>
@@ -97,7 +99,8 @@ const ReviewItem = () => {
                             variant="h6"
                             sx={classes.experienceBarTitle}
                         >
-                            Career Coach with 14+ years in the Video Game Industry
+
+                            {enroll.review}
                         </Typography>
                     </Paper>
                 </Grid>
