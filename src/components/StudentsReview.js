@@ -53,7 +53,7 @@ const StudentsReview = ({ enrollments, reviewItems, setReviewItems }) => {
             ))}
             <Grid
                 item
-                lg={11}
+                lg={12}
                 container
                 justifyContent="flex-end"
                 sx={{
