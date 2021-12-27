@@ -3,6 +3,7 @@ import Container from "@mui/material/Container";
 import CourseCard from "../CourseCard";
 import Masonry from 'react-masonry-css';
 import './CourseCardList.css';
+import useFetch from "../../customHooks/useFetch";
 
 const breakpointColumns = {
     default: 3,
@@ -10,9 +11,11 @@ const breakpointColumns = {
     700: 1
 };
 
-const array = [0, 1, 2, 3, 4]
+// const array = [0, 1, 2, 3, 4]
 
 const CourseCardList = () => {
+    const { data: courses, isPending: coursesPending, error: coursesError } = useFetch('http://localhost:8000/courses')
+
     return (
         <Container sx={{ paddingTop: '50px' }}>
             <Grid
@@ -21,9 +24,16 @@ const CourseCardList = () => {
                 justifyContent="flex-start"
                 alignItems="center"
             >
-                {array.map(item => (
-                    <Grid item xs={12} md={6} lg={4}>
-                        <CourseCard />
+                {courses?.map(course => (
+                    <Grid
+                        item
+                        xs={12}
+                        sm={6}
+                        lg={4}
+                    >
+                        <CourseCard
+                            course={course}
+                        />
                     </Grid>
                 ))}
             </Grid>
