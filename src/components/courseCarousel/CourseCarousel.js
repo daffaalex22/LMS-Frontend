@@ -76,7 +76,7 @@ const CourseCarousel = ({ courses }) => {
                             {courses?.slice(0, 10).map(course => (
                                 <Box
                                     sx={{
-                                        margin: '20px'
+                                        margin: '50px'
                                     }}
                                 >
                                     <CourseCard
