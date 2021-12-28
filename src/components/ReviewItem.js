@@ -10,7 +10,7 @@ import useFetch from "../customHooks/useFetch";
 const classes = {
     experienceBar: {
         height: 'auto',
-        width: 'auto',
+        width: '100%',
         borderRadius: '10px',
         backgroundColor: indigo[400],
         display: 'inline-block',
@@ -18,9 +18,10 @@ const classes = {
         top: '15px'
     },
     experienceBarTitle: {
-        padding: '15px 30px',
+        padding: '20px 30px',
         fontWeight: 500,
-        color: 'white'
+        color: 'white',
+        textAlign: 'center'
     },
     ava: {
         width: '17vw',
@@ -83,15 +84,19 @@ const ReviewItem = ({ enroll }) => {
             <Grid
                 item
                 xs={12}
-                sm={10}
-                md={8}
-                lg={7}
+                sm={12}
+                md={12}
+                lg={9}
                 container
                 spacing={0}
-                direction="column"
+                direction="row"
                 justifyContent="center"
+                alignItems="center"
             >
-                <Grid item>
+                <Grid
+                    item
+                    xs={12}
+                >
                     <Paper
                         sx={classes.experienceBar}
                     >
@@ -99,8 +104,7 @@ const ReviewItem = ({ enroll }) => {
                             variant="h6"
                             sx={classes.experienceBarTitle}
                         >
-
-                            {enroll.review}
+                            {enroll?.review}
                         </Typography>
                     </Paper>
                 </Grid>
