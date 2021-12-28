@@ -1,0 +1,340 @@
+{
+    "courses": [
+        {
+            "id": 1,
+            "title": "Fundamental of Physics",
+            "thumbnail": "https://cdn.kibrispdr.org/data/grid-hd-1.jpg",
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta recusandae laborum natus soluta fuga optio similique nam voluptate impedit quo? Eaque vitae sint voluptas error dignissimos maiores at non aliquid! ",
+            "syllabus": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta recusandae laborum natus soluta fuga optio similique nam voluptate impedit quo? Eaque vitae sint voluptas error dignissimos maiores at non aliquid! ",
+            "categoryId": 1,
+            "teacherId": 1,
+            "difficultyId": 1,
+            "categories": {
+                "id": 1,
+                "title": "Science",
+                "createdAt": "2021-12-23T16:06:02+07:00",
+                "updateAt": "0001-01-01T00:00:00Z"
+            },
+            "teacher": {
+                "id": 1,
+                "name": "Bambang",
+                "email": "bambang@alterra.id",
+                "avatar": "https://cdn.kibrispdr.org/data/grid-hd-1.jpg",
+                "background": "10 tahun belajar fisika, cucunya einstein",
+                "phone": 0,
+                "address": "",
+                "createAt": "2021-12-23T16:11:36.154+07:00",
+                "updateAt": "2021-12-23T16:11:36.154+07:00",
+                "deleteAt": null
+            },
+            "created_at": "2021-12-23T16:11:53.458+07:00",
+            "updated_at": "2021-12-23T16:11:53.472+07:00"
+        },
+        {
+            "id": 2,
+            "title": "Fundamental of Aerodynamics",
+            "thumbnail": "https://cdn.kibrispdr.org/data/grid-hd-1.jpg",
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta recusandae laborum natus soluta fuga optio similique nam voluptate impedit quo? Eaque vitae sint voluptas error dignissimos maiores at non aliquid! ",
+            "syllabus": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta recusandae laborum natus soluta fuga optio similique nam voluptate impedit quo? Eaque vitae sint voluptas error dignissimos maiores at non aliquid! ",
+            "categoryId": 1,
+            "teacherId": 1,
+            "difficultyId": 1,
+            "categories": {
+                "id": 1,
+                "title": "Science",
+                "createdAt": "2021-12-23T16:06:02+07:00",
+                "updateAt": "0001-01-01T00:00:00Z"
+            },
+            "teacher": {
+                "id": 1,
+                "name": "Bambang",
+                "email": "bambang@alterra.id",
+                "avatar": "https://cdn.kibrispdr.org/data/grid-hd-1.jpg",
+                "background": "10 tahun belajar fisika, cucunya einstein",
+                "phone": 0,
+                "address": "",
+                "createAt": "2021-12-23T16:11:36.154+07:00",
+                "updateAt": "2021-12-23T16:11:36.154+07:00",
+                "deleteAt": null
+            },
+            "created_at": "2021-12-23T16:12:03.704+07:00",
+            "updated_at": "2021-12-23T16:12:03.708+07:00"
+        },
+        {
+            "id": 3,
+            "title": "Fundamental of Aerodynamics",
+            "thumbnail": "https://cdn.kibrispdr.org/data/grid-hd-1.jpg",
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta recusandae laborum natus soluta fuga optio similique nam voluptate impedit quo? Eaque vitae sint voluptas error dignissimos maiores at non aliquid! ",
+            "syllabus": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta recusandae laborum natus soluta fuga optio similique nam voluptate impedit quo? Eaque vitae sint voluptas error dignissimos maiores at non aliquid! ",
+            "categoryId": 1,
+            "teacherId": 1,
+            "difficultyId": 1,
+            "categories": {
+                "id": 1,
+                "title": "Science",
+                "createdAt": "2021-12-23T16:06:02+07:00",
+                "updateAt": "0001-01-01T00:00:00Z"
+            },
+            "teacher": {
+                "id": 1,
+                "name": "Bambang",
+                "email": "bambang@alterra.id",
+                "avatar": "https://cdn.kibrispdr.org/data/grid-hd-1.jpg",
+                "background": "10 tahun belajar fisika, cucunya einstein",
+                "phone": 0,
+                "address": "",
+                "createAt": "2021-12-23T16:11:36.154+07:00",
+                "updateAt": "2021-12-23T16:11:36.154+07:00",
+                "deleteAt": null
+            },
+            "created_at": "2021-12-23T16:12:03.704+07:00",
+            "updated_at": "2021-12-23T16:12:03.708+07:00"
+        },
+        {
+            "id": 4,
+            "title": "Fundamental of Aerodynamics",
+            "thumbnail": "https://cdn.kibrispdr.org/data/grid-hd-1.jpg",
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta recusandae laborum natus soluta fuga optio similique nam voluptate impedit quo? Eaque vitae sint voluptas error dignissimos maiores at non aliquid! ",
+            "syllabus": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta recusandae laborum natus soluta fuga optio similique nam voluptate impedit quo? Eaque vitae sint voluptas error dignissimos maiores at non aliquid! ",
+            "categoryId": 1,
+            "teacherId": 1,
+            "difficultyId": 1,
+            "categories": {
+                "id": 1,
+                "title": "Science",
+                "createdAt": "2021-12-23T16:06:02+07:00",
+                "updateAt": "0001-01-01T00:00:00Z"
+            },
+            "teacher": {
+                "id": 1,
+                "name": "Bambang",
+                "email": "bambang@alterra.id",
+                "avatar": "https://cdn.kibrispdr.org/data/grid-hd-1.jpg",
+                "background": "10 tahun belajar fisika, cucunya einstein",
+                "phone": 0,
+                "address": "",
+                "createAt": "2021-12-23T16:11:36.154+07:00",
+                "updateAt": "2021-12-23T16:11:36.154+07:00",
+                "deleteAt": null
+            },
+            "created_at": "2021-12-23T16:12:03.704+07:00",
+            "updated_at": "2021-12-23T16:12:03.708+07:00"
+        },
+        {
+            "id": 5,
+            "title": "Fundamental of Aerodynamics",
+            "thumbnail": "https://cdn.kibrispdr.org/data/grid-hd-1.jpg",
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta recusandae laborum natus soluta fuga optio similique nam voluptate impedit quo? Eaque vitae sint voluptas error dignissimos maiores at non aliquid! ",
+            "syllabus": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta recusandae laborum natus soluta fuga optio similique nam voluptate impedit quo? Eaque vitae sint voluptas error dignissimos maiores at non aliquid! ",
+            "categoryId": 1,
+            "teacherId": 1,
+            "difficultyId": 1,
+            "categories": {
+                "id": 1,
+                "title": "Science",
+                "createdAt": "2021-12-23T16:06:02+07:00",
+                "updateAt": "0001-01-01T00:00:00Z"
+            },
+            "teacher": {
+                "id": 1,
+                "name": "Bambang",
+                "email": "bambang@alterra.id",
+                "avatar": "https://cdn.kibrispdr.org/data/grid-hd-1.jpg",
+                "background": "10 tahun belajar fisika, cucunya einstein",
+                "phone": 0,
+                "address": "",
+                "createAt": "2021-12-23T16:11:36.154+07:00",
+                "updateAt": "2021-12-23T16:11:36.154+07:00",
+                "deleteAt": null
+            },
+            "created_at": "2021-12-23T16:12:03.704+07:00",
+            "updated_at": "2021-12-23T16:12:03.708+07:00"
+        },
+        {
+            "id": 6,
+            "title": "Fundamental of Aerodynamics",
+            "thumbnail": "https://cdn.kibrispdr.org/data/grid-hd-1.jpg",
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta recusandae laborum natus soluta fuga optio similique nam voluptate impedit quo? Eaque vitae sint voluptas error dignissimos maiores at non aliquid! ",
+            "syllabus": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta recusandae laborum natus soluta fuga optio similique nam voluptate impedit quo? Eaque vitae sint voluptas error dignissimos maiores at non aliquid! ",
+            "categoryId": 1,
+            "teacherId": 1,
+            "difficultyId": 1,
+            "categories": {
+                "id": 1,
+                "title": "Science",
+                "createdAt": "2021-12-23T16:06:02+07:00",
+                "updateAt": "0001-01-01T00:00:00Z"
+            },
+            "teacher": {
+                "id": 1,
+                "name": "Bambang",
+                "email": "bambang@alterra.id",
+                "avatar": "https://cdn.kibrispdr.org/data/grid-hd-1.jpg",
+                "background": "10 tahun belajar fisika, cucunya einstein",
+                "phone": 0,
+                "address": "",
+                "createAt": "2021-12-23T16:11:36.154+07:00",
+                "updateAt": "2021-12-23T16:11:36.154+07:00",
+                "deleteAt": null
+            },
+            "created_at": "2021-12-23T16:12:03.704+07:00",
+            "updated_at": "2021-12-23T16:12:03.708+07:00"
+        },
+        {
+            "id": 7,
+            "title": "Fundamental of Aerodynamics",
+            "thumbnail": "https://cdn.kibrispdr.org/data/grid-hd-1.jpg",
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta recusandae laborum natus soluta fuga optio similique nam voluptate impedit quo? Eaque vitae sint voluptas error dignissimos maiores at non aliquid! ",
+            "syllabus": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta recusandae laborum natus soluta fuga optio similique nam voluptate impedit quo? Eaque vitae sint voluptas error dignissimos maiores at non aliquid! ",
+            "categoryId": 1,
+            "teacherId": 1,
+            "difficultyId": 1,
+            "categories": {
+                "id": 1,
+                "title": "Science",
+                "createdAt": "2021-12-23T16:06:02+07:00",
+                "updateAt": "0001-01-01T00:00:00Z"
+            },
+            "teacher": {
+                "id": 1,
+                "name": "Bambang",
+                "email": "bambang@alterra.id",
+                "avatar": "https://cdn.kibrispdr.org/data/grid-hd-1.jpg",
+                "background": "10 tahun belajar fisika, cucunya einstein",
+                "phone": 0,
+                "address": "",
+                "createAt": "2021-12-23T16:11:36.154+07:00",
+                "updateAt": "2021-12-23T16:11:36.154+07:00",
+                "deleteAt": null
+            },
+            "created_at": "2021-12-23T16:12:03.704+07:00",
+            "updated_at": "2021-12-23T16:12:03.708+07:00"
+        }
+    ],
+    "students": [
+        {
+            "id": 1,
+            "name": "Alexander",
+            "email": "alex@alterra.id",
+            "avatar": "https://cdn.kibrispdr.org/data/grid-hd-1.jpg",
+            "phone": 0,
+            "address": ""
+        },
+        {
+            "id": 2,
+            "name": "Alexander",
+            "email": "alexa@alterra.id",
+            "avatar": "https://cdn.kibrispdr.org/data/grid-hd-1.jpg",
+            "phone": 0,
+            "address": ""
+        },
+        {
+            "id": 3,
+            "name": "Alexander",
+            "email": "alexan@alterra.id",
+            "avatar": "https://cdn.kibrispdr.org/data/grid-hd-1.jpg",
+            "phone": 0,
+            "address": ""
+        },
+        {
+            "id": 4,
+            "name": "Alexander",
+            "email": "alexand@alterra.id",
+            "avatar": "https://cdn.kibrispdr.org/data/grid-hd-1.jpg",
+            "phone": 0,
+            "address": ""
+        },
+        {
+            "id": 5,
+            "name": "Alexander",
+            "email": "alexande@alterra.id",
+            "avatar": "https://cdn.kibrispdr.org/data/grid-hd-1.jpg",
+            "phone": 0,
+            "address": ""
+        },
+        {
+            "id": 6,
+            "name": "Alexander",
+            "email": "alexander@alterra.id",
+            "avatar": "https://cdn.kibrispdr.org/data/grid-hd-1.jpg",
+            "phone": 0,
+            "address": ""
+        },
+        {
+            "id": 7,
+            "name": "Alexander",
+            "email": "alexander@alterra.id",
+            "avatar": "https://cdn.kibrispdr.org/data/grid-hd-1.jpg",
+            "phone": 0,
+            "address": ""
+        },
+        {
+            "id": 8,
+            "name": "Alexander",
+            "email": "alexander@alterra.id",
+            "avatar": "https://cdn.kibrispdr.org/data/grid-hd-1.jpg",
+            "phone": 0,
+            "address": ""
+        },
+        {
+            "id": 9,
+            "name": "Alexander",
+            "email": "alexander@alterra.id",
+            "avatar": "https://cdn.kibrispdr.org/data/grid-hd-1.jpg",
+            "phone": 0,
+            "address": ""
+        },
+        {
+            "id": 10,
+            "name": "Alexander",
+            "email": "alexander@alterra.id",
+            "avatar": "https://cdn.kibrispdr.org/data/grid-hd-1.jpg",
+            "phone": 0,
+            "address": ""
+        }
+    ],
+    "enrollments": [
+        {
+            "studentId": 1,
+            "courseId": 1,
+            "rating": 4.0,
+            "review": "Seru banget sih gila belajar sama mas Bambang"
+        },
+        {
+            "studentId": 2,
+            "courseId": 1,
+            "rating": 4.0,
+            "review": "Seru banget sih gila belajar sama mas Bambang"
+        },
+        {
+            "studentId": 3,
+            "courseId": 1,
+            "rating": 4.0,
+            "review": "Seru banget sih gila belajar sama mas Bambang"
+        },
+        {
+            "studentId": 4,
+            "courseId": 1,
+            "rating": 4.0,
+            "review": "Seru banget sih gila belajar sama mas Bambang"
+        },
+        {
+            "studentId": 5,
+            "courseId": 1,
+            "rating": 4.0,
+            "review": "Seru banget sih gila belajar sama mas Bambang"
+        },
+        {
+            "studentId": 6,
+            "courseId": 1,
+            "rating": 4.0,
+            "review": "Seru banget sih gila belajar sama mas Bambang"
+        },
+        {
+            "studentId": 7,
+            "courseId": 1,
+            "rating": 4.0,
+            "review": "Seru banget sih gila belajar sama mas Bambang"
+        }
+    ]
+}

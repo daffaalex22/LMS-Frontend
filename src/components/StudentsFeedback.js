@@ -17,8 +17,6 @@ const classes = {
         fontWeight: 500
     },
     lightYellowBar: {
-        // height: '200',
-        // boxSizing: 'border-box',
         width: '100%',
         borderRadius: '25px',
         backgroundColor: yellow[200],
@@ -28,7 +26,32 @@ const classes = {
     },
 }
 
-const StudentsFeedback = () => {
+const StudentsFeedback = ({ setFilterReview }) => {
+
+    const handleFilterAll = () => {
+        setFilterReview(0)
+    }
+
+    const handleFilterOne = () => {
+        setFilterReview(1)
+    }
+
+    const handleFilterTwo = () => {
+        setFilterReview(2)
+    }
+
+    const handleFilterThree = () => {
+        setFilterReview(3)
+    }
+
+    const handleFilterFour = () => {
+        setFilterReview(4)
+    }
+
+    const handleFilterFive = () => {
+        setFilterReview(5)
+    }
+
     return (
         <Grid
             item
@@ -142,6 +165,7 @@ const StudentsFeedback = () => {
                                         color: 'black',
                                         padding: 0
                                     }}
+                                    onClick={handleFilterAll}
                                 >
                                     <Typography
                                         variant="h5"
@@ -182,6 +206,7 @@ const StudentsFeedback = () => {
                                         color: 'black',
                                         padding: 0
                                     }}
+                                    onClick={handleFilterFive}
                                 >
                                     <Typography
                                         variant="h5"
@@ -239,6 +264,7 @@ const StudentsFeedback = () => {
                                         color: 'black',
                                         padding: 0
                                     }}
+                                    onClick={handleFilterFour}
                                 >
                                     <Typography
                                         variant="h5"
@@ -287,6 +313,7 @@ const StudentsFeedback = () => {
                                         color: 'black',
                                         padding: 0
                                     }}
+                                    onClick={handleFilterThree}
                                 >
                                     <Typography
                                         variant="h5"
@@ -344,6 +371,7 @@ const StudentsFeedback = () => {
                                         color: 'black',
                                         padding: 0
                                     }}
+                                    onClick={handleFilterTwo}
                                 >
                                     <Typography
                                         variant="h5"
@@ -392,6 +420,7 @@ const StudentsFeedback = () => {
                                         color: 'black',
                                         padding: 0
                                     }}
+                                    onClick={handleFilterOne}
                                 >
                                     <Typography
                                         variant="h5"

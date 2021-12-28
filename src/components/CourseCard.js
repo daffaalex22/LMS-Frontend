@@ -8,30 +8,30 @@ import { Button, CardActionArea, CardActions } from '@mui/material';
 import { yellow, indigo } from '@mui/material/colors';
 import StarRoundedIcon from '@mui/icons-material/StarRounded';
 
-const CourseCard = () => {
+const CourseCard = ({ course }) => {
     return (
         <Card
             sx={{
                 width: 345,
                 maxWidth: '55vw',
-                // maxWidth: 345,
                 margin: 'auto',
                 borderRadius: '25px',
                 backgroundColor: yellow[400]
-            }}>
+            }}
+        >
             <CardActionArea onClick={() => console.log("clicked")}>
                 <CardMedia
                     component="img"
                     height="140"
-                    image={logoInEdu}
+                    image={course?.thumbnail}
                     alt="Course Thumbnail"
                 />
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="div" sx={{ fontWeight: 600, color: indigo[500] }}>
-                        Complete Blender Creator : Learn 3D Modeling for Beginners
+                        {course?.title}
                     </Typography>
                     <Typography variant="body2" color="text.primary">
-                        Use Blender to create beautifull 3D Models for video gamers, 3D printing & more beginers level course
+                        {course?.description}
                     </Typography>
                 </CardContent>
             </CardActionArea>

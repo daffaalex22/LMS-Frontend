@@ -27,7 +27,7 @@ const classes = {
     },
 }
 
-const CourseCarousel = () => {
+const CourseCarousel = ({ courses }) => {
     return (
         <Grid
             item
@@ -46,7 +46,6 @@ const CourseCarousel = () => {
                 <Grid
                     container
                     spacing={1}
-                    // justifyContent="flex-end"
                     sx={{
                         width: '100%'
                     }}
@@ -74,48 +73,17 @@ const CourseCarousel = () => {
                         }}
                     >
                         <Carousel breakPoints={breakPoints}>
-                            <Box
-                                sx={{
-                                    margin: '20px'
-                                }}
-                            >
-                                <CourseCard />
-                            </Box>
-                            <Box
-                                sx={{
-                                    margin: '20px'
-                                }}
-                            >
-                                <CourseCard />
-                            </Box>
-                            <Box
-                                sx={{
-                                    margin: '20px'
-                                }}
-                            >
-                                <CourseCard />
-                            </Box>
-                            <Box
-                                sx={{
-                                    margin: '20px'
-                                }}
-                            >
-                                <CourseCard />
-                            </Box>
-                            <Box
-                                sx={{
-                                    margin: '20px'
-                                }}
-                            >
-                                <CourseCard />
-                            </Box>
-                            <Box
-                                sx={{
-                                    margin: '20px'
-                                }}
-                            >
-                                <CourseCard />
-                            </Box>
+                            {courses?.slice(0, 10).map(course => (
+                                <Box
+                                    sx={{
+                                        margin: '20px'
+                                    }}
+                                >
+                                    <CourseCard
+                                        course={course}
+                                    />
+                                </Box>
+                            ))}
                         </Carousel>
                     </Grid>
 

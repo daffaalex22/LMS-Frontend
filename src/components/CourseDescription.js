@@ -21,7 +21,7 @@ const classes = {
     }
 }
 
-const CourseDescription = () => {
+const CourseDescription = ({ description, syllabus }) => {
     return (
         <>
             <Grid
@@ -42,7 +42,7 @@ const CourseDescription = () => {
                     variant="h5"
                     sx={classes.description}
                 >
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta recusandae laborum natus soluta fuga optio similique nam voluptate impedit quo? Eaque vitae sint voluptas error dignissimos maiores at non aliquid!
+                    {description}
                 </Typography>
             </Grid>
             <Grid
@@ -63,8 +63,7 @@ const CourseDescription = () => {
                     variant="h5"
                     sx={classes.description}
                 >
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta recusandae laborum natus soluta fuga optio similique nam voluptate impedit quo? Eaque vitae sint voluptas error dignissimos maiores at non aliquid!
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cupiditate repudiandae tempora aut facere ratione quis. Doloremque culpa veritatis expedita ipsam asperiores, corrupti, obcaecati earum modi exercitationem voluptas repellendus totam recusandae!
+                    {syllabus}
                 </Typography>
             </Grid>
         </>

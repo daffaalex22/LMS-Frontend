@@ -7,7 +7,6 @@ import Button from "@mui/material/Button";
 import Avatar from '@mui/material/Avatar';
 import Thumbnail from "../../assets/images/white_laptop.jpg"
 import Ava from "../../assets/images/avatar.jpg"
-import Star from "../../assets/images/star.svg"
 import { yellow, indigo } from "@mui/material/colors";
 import StarRateRoundedIcon from '@mui/icons-material/StarRateRounded';
 import StudentsFeedback from "../../components/StudentsFeedback";
@@ -15,7 +14,10 @@ import TheInstructor from "../../components/TheInstructor";
 import CourseDescription from "../../components/CourseDescription";
 import StudentsReview from "../../components/StudentsReview";
 import CourseCarousel from "../../components/courseCarousel/CourseCarousel";
-import AddIcon from '@mui/icons-material/Add';
+import useFetch from "../../customHooks/useFetch";
+import ReactLoading from 'react-loading';
+import CourseOverview from "../../components/CourseOverview";
+import { useState, useEffect } from "react";
 
 const classes = {
     thumbnail: {
@@ -67,110 +69,85 @@ const classes = {
         padding: '100px auto',
         textAlign: 'center'
     },
-    smallRatingBar: {}
 }
 
 
 const CourseEnroll = () => {
+    const [filterReview, setFilterReview] = useState(0)
+    const [enrollments, setEnrollments] = useState(null)
+    const [reviewItems, setReviewItems] = useState(3)
+
+    const { data: course, isPending: coursePending, error: courseError } = useFetch('http://localhost:8000/courses/' + 1)
+    const { data: courses, isPending: coursesPending, error: coursesError } = useFetch('http://localhost:8000/courses')
+    const { data: enrollData, isPending: enrollmentsPending, error: enrollmentsError } = useFetch('http://localhost:8000/enrollments')
+
+    useEffect(() => {
+        if (enrollData) {
+            setEnrollments(enrollData)
+        }
+    }, [enrollData])
+
+    useEffect(() => {
+        let filtered = enrollData?.filter(enrollment => enrollment.rating === filterReview)
+        if (filterReview === 0) {
+            filtered = enrollData?.filter(enrollment => enrollment)
+        }
+        setEnrollments(filtered)
+        setReviewItems(3)
+    }, [filterReview])
+
     return (
         <>
-            <Container>
+            {coursePending || coursesPending || enrollmentsPending ?
                 <Grid
                     container
-                    spacing={5}
+                    spacing={0}
+                    justifyContent="center"
                 >
+                    <ReactLoading
+                        type="balls"
+                        color={indigo[500]}
+                        height="auto"
+                        width="17%"
+                    />
+                </Grid> :
+                <>
+                    <Container>
+                        <Grid
+                            container
+                            spacing={5}
+                        >
+                            <CourseOverview
+                                course={course}
+                            />
+                            <CourseDescription
+                                description={course?.description}
+                                syllabus={course?.syllabus}
+                            />
+                            <TheInstructor
+                                teacher={course?.teacher}
+                            />
+                            <StudentsFeedback
+                                setFilterReview={setFilterReview}
+                            />
+                            <StudentsReview
+                                enrollments={enrollments}
+                                reviewItems={reviewItems}
+                                setReviewItems={setReviewItems}
+                            />
+                        </Grid >
+                    </Container >
                     <Grid
-                        item
-                        xs={12}
-                        md={7}
+                        container
+                        spacing={0}
+                        justifyContent="flex-end"
                     >
-                        <img
-                            src={Thumbnail}
-                            alt="A Photo About Studying"
-                            style={classes.thumbnail}
+                        <CourseCarousel
+                            courses={courses}
                         />
                     </Grid>
-                    <Grid
-                        item
-                        xs={12}
-                        md={5}
-                    >
-                        <Typography
-                            variant="h3"
-                            sx={{
-                                fontWeight: 500
-                            }}
-                        >
-                            Complete Blender
-                            Creator: Learn 3D
-                            Modelling for
-                            Beginners
-                        </Typography>
-                        <Box
-                            sx={{
-                                marginTop: '20px'
-                            }}
-                        >
-                            <Typography
-                                sx={{
-                                    display: 'inline'
-                                }}
-                                variant="h3"
-                                component="div"
-                            >
-                                <img
-                                    src={Star}
-                                    alt="a star"
-                                    style={classes.star}
-                                />
-                                <span>4.9</span>
-                                <Typography
-                                    variant="h5"
-                                    sx={classes.reviewCount}
-                                >
-                                    (557 Reviews)
-                                </Typography>
-                            </Typography>
-                        </Box>
-                        <Typography
-                            variant="h5"
-                            sx={{
-                                marginTop: '25px'
-                            }}
-                        >
-                            Use Blender to Create Beautiful 3D
-                            models for Video Games, 3D Printing
-                            & More. Beginners Level Course
-                        </Typography>
-                        <Typography
-                            variant="h6"
-                            sx={{
-                                marginTop: '25px'
-                            }}
-                        >
-                            Created by: Ilham T. W.
-                        </Typography>
-                        <Button
-                            variant="contained"
-                            sx={classes.btn}
-                        >
-                            <AddIcon />
-                            Enroll Course
-                        </Button>
-                    </Grid>
-                    <CourseDescription />
-                    <TheInstructor />
-                    <StudentsFeedback />
-                    <StudentsReview />
-                </Grid >
-            </Container >
-            <Grid
-                container
-                spacing={0}
-                justifyContent="flex-end"
-            >
-                <CourseCarousel />
-            </Grid>
+                </>
+            }
         </>
     );
 }

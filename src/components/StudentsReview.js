@@ -2,6 +2,7 @@ import ReviewItem from "./ReviewItem";
 import Grid from "@mui/material/Grid";
 import { yellow, indigo } from "@mui/material/colors";
 import Button from "@mui/material/Button";
+import { useState, useEffect } from "react";
 
 const classes = {
     btn: {
@@ -16,7 +17,26 @@ const classes = {
     },
 }
 
-const StudentsReview = () => {
+const StudentsReview = ({ enrollments, reviewItems, setReviewItems }) => {
+    const [maxReview, setMaxReview] = useState(false)
+    const [currentCount, setCurrentCount] = useState(3)
+
+    const handleMoreReview = async () => {
+        await setCurrentCount(reviewItems)
+        setReviewItems(currentCount + 3)
+    }
+
+    useEffect(() => {
+        if (reviewItems >= enrollments?.length) {
+            setMaxReview(true)
+        } else if (enrollments?.length === 0) {
+            setMaxReview(true)
+        } else {
+            setMaxReview(false)
+        }
+        console.log(maxReview)
+    }, [reviewItems, enrollments])
+
     return (
         <Grid
             item
@@ -24,15 +44,13 @@ const StudentsReview = () => {
             container
             spacing={0}
         >
-            <Grid item xs={12}>
-                <ReviewItem />
-            </Grid>
-            <Grid item xs={12}>
-                <ReviewItem />
-            </Grid>
-            <Grid item xs={12}>
-                <ReviewItem />
-            </Grid>
+            {enrollments?.slice(0, reviewItems).map((enroll) => (
+                <Grid item xs={12}>
+                    <ReviewItem
+                        enroll={enroll}
+                    />
+                </Grid>
+            ))}
             <Grid
                 item
                 lg={11}
@@ -42,12 +60,16 @@ const StudentsReview = () => {
                     marginTop: '25px'
                 }}
             >
-                <Button
-                    variant="contained"
-                    sx={classes.btn}
-                >
-                    See More
-                </Button>
+                {!maxReview ?
+                    <Button
+                        variant="contained"
+                        sx={classes.btn}
+                        onClick={handleMoreReview}
+                    >
+                        See More
+                    </Button>
+                    : null
+                }
             </Grid>
         </Grid>
     );
