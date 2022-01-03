@@ -10,6 +10,7 @@ import useWindowDimensions from '../customHooks/useWindowDimensions';
 import PropTypes from 'prop-types';
 import Typography from '@mui/material/Typography';
 import CourseSearch from '../pages/CourseSearch';
+import StudentReading from '../pages/StudentReading';
 import CourseEnroll from '../pages/courseEnroll/CourseEnroll';
 import AppBar from "./ResponsiveAppBar";
 import FooterDashboard from "./FooterDashboard";
@@ -76,6 +77,7 @@ export default function Layout() {
         '/courses': 1,
         '/courses/enroll': 2,
         '/about-us': 3,
+        '/reading': 4,
     }
 
     const valueToPathname = {
@@ -83,6 +85,7 @@ export default function Layout() {
         1: '/courses',
         2: '/courses/enroll',
         3: '/about-us',
+        4: '/reading',
     }
 
     return (
@@ -132,6 +135,9 @@ export default function Layout() {
                 </TabPanel>
                 <TabPanel value={value} index={2}>
                     <CourseEnroll />
+                </TabPanel>
+                <TabPanel value={value} index={4}>
+                    <StudentReading />
                 </TabPanel>
             </Box>
             <FooterDashboard />

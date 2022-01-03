@@ -1,5 +1,5 @@
 import FilterFields from "../components/FilterFields";
-import CourseCardList from "../components/courseCardList/CourseCardList";
+import CourseCardList from "../components/CourseCardList/CourseCardList";
 import Box from "@mui/material/Box";
 
 const CourseSearch = () => {

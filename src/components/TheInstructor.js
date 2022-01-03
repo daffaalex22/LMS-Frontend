@@ -3,7 +3,7 @@ import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import Avatar from '@mui/material/Avatar';
-import Ava from "../assets/images/avatar.jpg"
+import Ava from "../assets/images/avatar.jpg";
 import { yellow, indigo } from "@mui/material/colors";
 import StarRateRoundedIcon from '@mui/icons-material/StarRateRounded';
 

@@ -28,6 +28,7 @@ function App() {
             <Route exact path="/courses" element={<Layout />} />
             <Route path="/courses/enroll" element={<Layout />} />
             <Route exact path="/about-us" element={<Layout />} />
+            <Route exact path="/reading" element={<Layout />} />
           </Routes>
         </BrowserRouter>
       </div>
