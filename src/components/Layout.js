@@ -14,7 +14,8 @@ import StudentReading from "../pages/StudentReading";
 import CourseEnroll from "../pages/courseEnroll/CourseEnroll";
 import AppBar from "./ResponsiveAppBar";
 import FooterDashboard from "./FooterDashboard";
-import { useLocation } from "react-router-dom";
+import { useLocation } from 'react-router-dom';
+import HomePage from '../pages/homePage/HomePage';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -35,11 +36,10 @@ function TabPanel(props) {
             minHeight: "50vh",
           }}
         >
-          <Typography>{children}</Typography>
-        </Box>
-      )}
-    </div>
-  );
+          </Box>
+            )}
+        </div>
+    );
 }
 
 TabPanel.propTypes = {
@@ -82,70 +82,58 @@ export default function Layout() {
     "/courses": 1,
     "/courses/enroll": 2,
     "/about-us": 3,
-    "/module/1": 4,
   };
 
-  const valueToPathname = {
-    0: "/home",
-    1: "/courses",
-    2: "/courses/enroll",
-    3: "/about-us",
-    4: "/module/1",
-  };
-
-  return (
-    <>
-      <AppBar />
-      <Box sx={{ width: "100%", backgroundColor: yellow[600] }}>
-        <Box>
-          <Tabs
-            centered={width >= 389 ? true : false}
-            variant={width > 370 ? "standard" : "scrollable"}
-            scrollButtons="auto"
-            allowScrollButtonsMobile
-            value={value}
-            onChange={handleChange}
-            aria-label="nav tabs example"
-            centered
-          >
-            <Tab
-              label="Home"
-              sx={{ paddingLeft: "5%", paddingRight: "5%" }}
-              {...a11yProps(0)}
-            />
-            <Tab
-              label="Courses"
-              sx={{ paddingLeft: "5%", paddingRight: "5%" }}
-              {...a11yProps(0)}
-            />
-            <Tab
-              label="Help"
-              sx={{ paddingLeft: "5%", paddingRight: "5%" }}
-              {...a11yProps(0)}
-            />
-            <Tab
-              label="About Us"
-              sx={{ paddingLeft: "5%", paddingRight: "5%" }}
-              {...a11yProps(0)}
-            />
-          </Tabs>
-        </Box>
-        <TabPanel value={value} index={0}>
-          Home Page
-        </TabPanel>
-        <TabPanel value={value} index={1}>
-          <>
-            <CourseSearch />
-          </>
-        </TabPanel>
-        <TabPanel value={value} index={2}>
-          <CourseEnroll />
-        </TabPanel>
-        <TabPanel value={value} index={4}>
-          <StudentReading />
-        </TabPanel>
-      </Box>
-      <FooterDashboard />
-    </>
-  );
+    return (
+        <>
+            <AppBar />
+            <Box sx={{ width: '100%', backgroundColor: yellow[600] }}>
+                <Box>
+                    <Tabs
+                        centered={width >= 389 ? true : false}
+                        variant={width > 370 ? "standard" : "scrollable"}
+                        scrollButtons="auto"
+                        allowScrollButtonsMobile
+                        value={value}
+                        onChange={handleChange}
+                        aria-label="nav tabs example"
+                        centered
+                    >
+                        <Tab
+                            label="Home"
+                            sx={{ paddingLeft: '5%', paddingRight: '5%' }}
+                            {...a11yProps(0)}
+                        />
+                        <Tab
+                            label="Courses"
+                            sx={{ paddingLeft: '5%', paddingRight: '5%' }}
+                            {...a11yProps(0)}
+                        />
+                        <Tab
+                            label="Help"
+                            sx={{ paddingLeft: '5%', paddingRight: '5%' }}
+                            {...a11yProps(0)}
+                        />
+                        <Tab
+                            label="About Us"
+                            sx={{ paddingLeft: '5%', paddingRight: '5%' }}
+                            {...a11yProps(0)}
+                        />
+                    </Tabs>
+                </Box>
+                <TabPanel value={value} index={0}>
+                    <HomePage />
+                </TabPanel>
+                <TabPanel value={value} index={1}>
+                    <>
+                        <CourseSearch />
+                    </>
+                </TabPanel>
+                <TabPanel value={value} index={2}>
+                    <CourseEnroll />
+                </TabPanel>
+            </Box>
+            <FooterDashboard />
+        </>
+    );
 }
