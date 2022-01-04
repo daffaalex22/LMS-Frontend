@@ -37,7 +37,7 @@ const CourseCard = ({ course }) => {
             >
                 <CardMedia
                     component="img"
-                    height="200"
+                    height="240"
                     image={course?.thumbnail}
                     alt="Course Thumbnail"
                 />
@@ -66,7 +66,7 @@ const CourseCard = ({ course }) => {
                     </Box>
                     <Box
                         sx={{
-                            height: '80px',
+                            height: '40px',
                             overflowY: 'hidden'
                         }}
                     >
@@ -78,8 +78,8 @@ const CourseCard = ({ course }) => {
                                 // overflow: 'auto'
                             }}
                         >
-                            {course?.description?.length >= 175 ?
-                                course?.description?.substring(0, 177) + "..." :
+                            {course?.description?.length >= 88 ?
+                                course?.description?.substring(0, 85) + "..." :
                                 course?.description
                             }
                         </Typography>
