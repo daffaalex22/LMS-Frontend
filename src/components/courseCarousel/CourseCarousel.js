@@ -27,7 +27,7 @@ const classes = {
     },
 }
 
-const CourseCarousel = ({ courses }) => {
+const CourseCarousel = ({ title, courses }) => {
     return (
         <Grid
             item
@@ -60,7 +60,7 @@ const CourseCarousel = ({ courses }) => {
                             variant="h2"
                             sx={classes.yellowBarTitle}
                         >
-                            Students Also Bought
+                            {title}
                         </Typography>
                     </Grid>
                     <Grid
@@ -86,7 +86,6 @@ const CourseCarousel = ({ courses }) => {
                             ))}
                         </Carousel>
                     </Grid>
-
                 </Grid>
             </Paper >
         </Grid >

@@ -143,6 +143,7 @@ const CourseEnroll = () => {
                         justifyContent="flex-end"
                     >
                         <CourseCarousel
+                            title="Students Also Bought"
                             courses={courses}
                         />
                     </Grid>
