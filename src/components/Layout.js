@@ -15,6 +15,9 @@ import FooterDashboard from "./FooterDashboard";
 import { useLocation } from 'react-router-dom';
 import HomePage from '../pages/homePage/HomePage';
 import AboutUs from '../pages/AboutUs';
+import { GeneralContext } from '../contexts/GeneralContext';
+import { useContext } from 'react';
+import HelpFAQ from '../pages/HelpFAQ';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -31,11 +34,10 @@ function TabPanel(props) {
         <Box
           sx={{
             backgroundColor: yellow[200],
-            padding: "70px 0",
-            minHeight: "50vh",
+            minHeight: '50vh'
           }}
         >
-          <Typography>{children}</Typography>
+          {children}
         </Box>
       )}
     </div>
@@ -60,36 +62,37 @@ export default function Layout() {
   const navigate = useNavigate();
   const location = useLocation();
   const { height, width } = useWindowDimensions();
-  const [openEnrollment, setOpenEnrollment] = useState(false);
+  const { openEnrollment, setOpenEnrollment } = useContext(GeneralContext)
 
   const handleChange = (event, newValue) => {
-    navigate(valueToPathname[newValue]);
+    navigate(valueToPathname[newValue])
     setValue(newValue);
   };
 
   useEffect(() => {
-    setValue(pathnameToValue[location.pathname]);
-  }, []);
+    setValue(pathnameToValue[location.pathname])
+  }, [location])
 
   useEffect(() => {
     if (location.pathname === "/courses") {
       setOpenEnrollment(false);
     }
-  }, [location]);
+  }, [location])
 
   const pathnameToValue = {
-    "/home": 0,
-    "/courses": 1,
-    "/courses/enroll": 2,
-    "/about-us": 3,
-  };
+    '/home': 0,
+    '/courses': 1,
+    '/courses/enroll': 1,
+    '/help-faq': 2,
+    '/about-us': 3,
+  }
 
   const valueToPathname = {
-    0: "/home",
-    1: "/courses",
-    2: "/courses/enroll",
-    3: "/about-us",
-  };
+    0: '/home',
+    1: '/courses',
+    2: '/help-faq',
+    3: '/about-us',
+  }
 
   return (
     <>
@@ -132,12 +135,13 @@ export default function Layout() {
           <HomePage />
         </TabPanel>
         <TabPanel value={value} index={1}>
-          <>
+          {openEnrollment ?
+            <CourseEnroll /> :
             <CourseSearch />
-          </>
+          }
         </TabPanel>
         <TabPanel value={value} index={2}>
-          <CourseEnroll />
+          <HelpFAQ />
         </TabPanel>
         <TabPanel value={value} index={3}>
           <AboutUs />
