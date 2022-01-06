@@ -14,6 +14,7 @@ import CourseEnroll from '../pages/courseEnroll/CourseEnroll';
 import AppBar from "./ResponsiveAppBar";
 import FooterDashboard from "./FooterDashboard";
 import { useLocation } from 'react-router-dom';
+import HomePage from '../pages/homePage/HomePage';
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -27,7 +28,7 @@ function TabPanel(props) {
             {...other}
         >
             {value === index && (
-                <Box sx={{ backgroundColor: yellow[200], padding: '70px 0', minHeight: '50vh' }}>
+                <Box sx={{ backgroundColor: yellow[200], minHeight: '50vh' }}>
                     <Typography>{children}</Typography>
                 </Box>
             )}
@@ -123,7 +124,7 @@ export default function Layout() {
                     </Tabs>
                 </Box>
                 <TabPanel value={value} index={0}>
-                    Home Page
+                    <HomePage />
                 </TabPanel>
                 <TabPanel value={value} index={1}>
                     <>

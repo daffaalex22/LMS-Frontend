@@ -97,7 +97,7 @@ const CourseEnroll = () => {
     }, [filterReview])
 
     return (
-        <>
+        <Box sx={{ padding: '70px 0', }}>
             {coursePending || coursesPending || enrollmentsPending ?
                 <Grid
                     container
@@ -143,12 +143,13 @@ const CourseEnroll = () => {
                         justifyContent="flex-end"
                     >
                         <CourseCarousel
+                            title="Students Also Bought"
                             courses={courses}
                         />
                     </Grid>
                 </>
             }
-        </>
+        </Box>
     );
 }
 

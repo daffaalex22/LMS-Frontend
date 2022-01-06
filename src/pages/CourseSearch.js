@@ -4,7 +4,7 @@ import Box from "@mui/material/Box";
 
 const CourseSearch = () => {
     return (
-        <Box sx={{ padding: 0 }}>
+        <Box sx={{ padding: '70px 0', }}>
             <FilterFields />
             <CourseCardList />
         </Box>
