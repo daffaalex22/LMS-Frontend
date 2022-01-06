@@ -5,6 +5,7 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import { indigo, yellow } from '@mui/material/colors'
 import education from '../assets/images/education.png'
+import { Navigate, useNavigate } from 'react-router';
 
 const classes = {
     btn: {
@@ -22,6 +23,10 @@ const classes = {
 }
 
 const FirstSlide = () => {
+
+    const navigate = useNavigate();
+
+
     return (
         <Box
             sx={{
@@ -62,6 +67,7 @@ const FirstSlide = () => {
                 <Button
                     variant="contained"
                     sx={classes.btn}
+                    onClick={() => navigate('/courses')}
                 >
                     Explore
                 </Button>
