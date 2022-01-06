@@ -100,7 +100,11 @@ export default function RegisterTeacher() {
                 />
               </Grid>
             </Grid>
-            <RegistForm error={error} handleSubmit={handleSubmit} />
+            <RegistForm
+              error={error}
+              handleSubmit={handleSubmit}
+              loginLink="/teacher/login"
+            />
           </Grid>
         </Paper>
       </Box>
