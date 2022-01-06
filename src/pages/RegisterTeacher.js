@@ -7,7 +7,7 @@ import Grid from "@mui/material/Grid";
 import secureLogin from "../assets/images/secureLogin.svg";
 import logoInEdu from "../assets/images/logoInEdu.svg";
 import RegistForm from "../components/RegistForm";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import { Alert, Snackbar, IconButton } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
@@ -33,7 +33,7 @@ const classes = {
   },
 };
 
-const RegisterStudent = () => {
+export default function RegisterTeacher() {
   const [error, setError] = useState([]);
 
   const [successOpen, setSuccessOpen] = useState(false);
@@ -41,7 +41,7 @@ const RegisterStudent = () => {
   const handleSubmit = (e, data) => {
     e.preventDefault();
     axios
-      .post("http://localhost:8080/api/v1/students/register", data)
+      .post("http://localhost:8080/api/v1/teachers/register", data)
       .then((resp) => {
         console.log(resp);
         if (resp.data.meta.status !== 200) {
@@ -61,7 +61,7 @@ const RegisterStudent = () => {
   };
 
   if (successOpen) {
-    <Navigate to="/student/login" />;
+    return <Navigate to="/teacher/login" />;
   }
 
   return (
@@ -83,13 +83,13 @@ const RegisterStudent = () => {
               alignItems="center"
             >
               <Grid item xs={2}>
-                <img src={logoInEdu} alt="logoInEdu" />
+                <img src={logoInEdu} alt="LogoInEdu" />
               </Grid>
               <Grid item xs={2}>
                 <Typography variant="h3" sx={classes.registText}>
                   Register Your
                   <br />
-                  Student Account
+                  Teacher Account
                 </Typography>
               </Grid>
               <Grid item xs={2}>
@@ -132,6 +132,4 @@ const RegisterStudent = () => {
       </Snackbar>
     </>
   );
-};
-
-export default RegisterStudent;
+}

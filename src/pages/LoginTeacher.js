@@ -6,14 +6,13 @@ import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 import LoginForm from "../components/LoginForm";
 import Grid from "@mui/material/Grid";
-import axios from "axios";
 import { useState } from "react";
+import axios from "axios";
 import { Navigate } from "react-router";
 
 const classes = {
   loginPage: {
-    height: "100%",
-    margin: "0 auto",
+    height: "auto",
     backgroundColor: yellow[200],
     padding: "35px 7vw",
   },
@@ -33,7 +32,7 @@ const classes = {
   },
 };
 
-export default function LoginStudent() {
+const LoginStudent = () => {
   const [error, setError] = useState([]);
 
   const [sucessLogin, setSucessLogin] = useState(false);
@@ -41,14 +40,14 @@ export default function LoginStudent() {
   const handleSubmit = (e, data) => {
     e.preventDefault();
     axios
-      .post("http://localhost:8080/api/v1/students/login", data)
+      .post("http://localhost:8080/api/v1/teachers/login", data)
       .then((resp) => {
         console.log(resp);
         if (resp.data.meta.status !== 200) {
           setError(resp.data.meta.messages);
         } else {
           localStorage.setItem("token", resp.data.data.token);
-          localStorage.setItem("user", "student");
+          localStorage.setItem("user", "teacher");
           setSucessLogin(true);
         }
       })
@@ -86,7 +85,7 @@ export default function LoginStudent() {
           <Grid item>
             <img
               alt="login"
-              src={login}
+              src="/assets/other/teacherIcon.svg"
               style={{
                 width: "100%",
                 height: "auto",
@@ -107,12 +106,12 @@ export default function LoginStudent() {
             <Paper sx={classes.loginSection} elevation={0}>
               <img alt="logo" src={logoInEdu} />
               <Typography sx={classes.loginText} variant="h4">
-                Login Student
+                Login Teacher
               </Typography>
               <LoginForm
+                registerLink="/teacher/register"
                 handleSubmit={handleSubmit}
                 error={error}
-                registerLink="/student/register"
               />
               <Typography variant="body2" color="textSecondary">
                 Copyright ©InEdu 2021
@@ -123,4 +122,6 @@ export default function LoginStudent() {
       </Grid>
     </Box>
   );
-}
+};
+
+export default LoginStudent;
