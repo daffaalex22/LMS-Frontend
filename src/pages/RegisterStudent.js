@@ -100,7 +100,11 @@ const RegisterStudent = () => {
                 />
               </Grid>
             </Grid>
-            <RegistForm error={error} handleSubmit={handleSubmit} />
+            <RegistForm
+              error={error}
+              handleSubmit={handleSubmit}
+              loginLink="/student/login"
+            />
           </Grid>
         </Paper>
       </Box>

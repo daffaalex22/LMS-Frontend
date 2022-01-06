@@ -148,7 +148,7 @@ const RegistForm = (props) => {
               REGISTER
             </Button>
             <br />
-            <Link href="/student/login">
+            <Link href={props.loginLink}>
               <Typography
                 variant="body2"
                 sx={{
