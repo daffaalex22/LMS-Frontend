@@ -1,12 +1,6 @@
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
-import Paper from "@mui/material/Paper";
-import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Avatar from '@mui/material/Avatar';
-import Thumbnail from "../../assets/images/white_laptop.jpg"
-import Ava from "../../assets/images/avatar.jpg"
 import { yellow, indigo } from "@mui/material/colors";
 import StarRateRoundedIcon from '@mui/icons-material/StarRateRounded';
 import StudentsFeedback from "../../components/StudentsFeedback";

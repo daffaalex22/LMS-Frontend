@@ -12,8 +12,9 @@ import CourseSearch from "../pages/CourseSearch";
 import CourseEnroll from "../pages/courseEnroll/CourseEnroll";
 import AppBar from "./ResponsiveAppBar";
 import FooterDashboard from "./FooterDashboard";
-import { useLocation } from "react-router-dom";
-import HomePage from "../pages/homePage/HomePage";
+import { useLocation } from 'react-router-dom';
+import HomePage from '../pages/homePage/HomePage';
+import AboutUs from '../pages/AboutUs';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -93,7 +94,7 @@ export default function Layout() {
   return (
     <>
       <AppBar />
-      <Box sx={{ width: "100%", backgroundColor: yellow[600] }}>
+      <Box sx={{ width: '100%', backgroundColor: yellow[600] }}>
         <Box>
           <Tabs
             centered={width >= 389 ? true : false}
@@ -107,22 +108,22 @@ export default function Layout() {
           >
             <Tab
               label="Home"
-              sx={{ paddingLeft: "5%", paddingRight: "5%" }}
+              sx={{ paddingLeft: '5%', paddingRight: '5%' }}
               {...a11yProps(0)}
             />
             <Tab
               label="Courses"
-              sx={{ paddingLeft: "5%", paddingRight: "5%" }}
+              sx={{ paddingLeft: '5%', paddingRight: '5%' }}
               {...a11yProps(0)}
             />
             <Tab
               label="Help"
-              sx={{ paddingLeft: "5%", paddingRight: "5%" }}
+              sx={{ paddingLeft: '5%', paddingRight: '5%' }}
               {...a11yProps(0)}
             />
             <Tab
               label="About Us"
-              sx={{ paddingLeft: "5%", paddingRight: "5%" }}
+              sx={{ paddingLeft: '5%', paddingRight: '5%' }}
               {...a11yProps(0)}
             />
           </Tabs>
@@ -137,6 +138,9 @@ export default function Layout() {
         </TabPanel>
         <TabPanel value={value} index={2}>
           <CourseEnroll />
+        </TabPanel>
+        <TabPanel value={value} index={3}>
+          <AboutUs />
         </TabPanel>
       </Box>
       <FooterDashboard />
