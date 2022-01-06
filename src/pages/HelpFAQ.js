@@ -57,6 +57,7 @@ const HelpFAQ = () => {
                         sx={{
                             marginTop: '30px'
                         }}
+                        textAlign="center"
                     >
                         Frequently Asked Questions
                     </Typography>
