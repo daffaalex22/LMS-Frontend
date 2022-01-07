@@ -1,6 +1,5 @@
 import LoginTeacher from "./pages/LoginTeacher";
 import RegisterTeacher from "./pages/RegisterTeacher";
-import './App.css';
 import LoginStudent from './pages/LoginStudent';
 import RegisterStudent from './pages/RegisterStudent';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -19,7 +18,7 @@ function App() {
         <div className="App">
           <BrowserRouter>
             <Routes>
-              <Route exact path="/" element={<Navigate to="/login" />} />
+              <Route exact path="/" element={<Navigate to="/student/login" />} />
               <Route path="/student/login" element={<LoginStudent />} />
               <Route path="/teacher/login" element={<LoginTeacher />} />
               <Route path="/student/register" element={<RegisterStudent />} />
