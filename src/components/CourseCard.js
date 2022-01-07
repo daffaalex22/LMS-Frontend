@@ -3,13 +3,21 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import logoInEdu from '../assets/images/logoInEdu.svg';
 import { Button, CardActionArea, CardActions } from '@mui/material';
 import { yellow, indigo } from '@mui/material/colors';
 import StarRoundedIcon from '@mui/icons-material/StarRounded';
+import { GeneralContext } from '../contexts/GeneralContext';
+import { useContext } from 'react';
+import { useNavigate } from 'react-router';
 
 const CourseCard = ({ course }) => {
+    const { setOpenEnrollment, openEnrollment } = useContext(GeneralContext)
+    const navigate = useNavigate()
 
+    const handleClickCard = () => {
+        navigate("/courses/enroll")
+        setOpenEnrollment(true)
+    }
 
     let lineMultiplier = 1
     let descMultiplier = 1
@@ -30,7 +38,7 @@ const CourseCard = ({ course }) => {
             }}
         >
             <CardActionArea
-                onClick={() => console.log("clicked")}
+                onClick={handleClickCard}
                 sx={{
                     height: '89%'
                 }}
