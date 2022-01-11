@@ -7,17 +7,16 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router";
 import useWindowDimensions from "../customHooks/useWindowDimensions";
 import PropTypes from "prop-types";
-import Typography from "@mui/material/Typography";
 import CourseSearch from "../pages/CourseSearch";
 import CourseEnroll from "../pages/courseEnroll/CourseEnroll";
-import AppBar from "./ResponsiveAppBar";
+import AppBar from "./responsiveAppBar/ResponsiveAppBar";
 import FooterDashboard from "./FooterDashboard";
-import { useLocation } from 'react-router-dom';
-import HomePage from '../pages/homePage/HomePage';
-import AboutUs from '../pages/AboutUs';
-import { GeneralContext } from '../contexts/GeneralContext';
-import { useContext } from 'react';
-import HelpFAQ from '../pages/HelpFAQ';
+import { useLocation } from "react-router-dom";
+import HomePage from "../pages/homePage/HomePage";
+import AboutUs from "../pages/AboutUs";
+import { GeneralContext } from "../contexts/GeneralContext";
+import { useContext } from "react";
+import HelpFAQ from "../pages/HelpFAQ";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -34,7 +33,7 @@ function TabPanel(props) {
         <Box
           sx={{
             backgroundColor: yellow[200],
-            minHeight: '50vh'
+            minHeight: "50vh",
           }}
         >
           {children}
@@ -62,42 +61,42 @@ export default function Layout() {
   const navigate = useNavigate();
   const location = useLocation();
   const { height, width } = useWindowDimensions();
-  const { openEnrollment, setOpenEnrollment } = useContext(GeneralContext)
+  const { openEnrollment, setOpenEnrollment } = useContext(GeneralContext);
 
   const handleChange = (event, newValue) => {
-    navigate(valueToPathname[newValue])
+    navigate(valueToPathname[newValue]);
     setValue(newValue);
   };
 
   useEffect(() => {
-    setValue(pathnameToValue[location.pathname])
-  }, [location])
+    setValue(pathnameToValue[location.pathname]);
+  }, [location]);
 
   useEffect(() => {
     if (location.pathname === "/courses") {
       setOpenEnrollment(false);
     }
-  }, [location])
+  }, [location]);
 
   const pathnameToValue = {
-    '/home': 0,
-    '/courses': 1,
-    '/courses/enroll': 1,
-    '/help-faq': 2,
-    '/about-us': 3,
-  }
+    "/home": 0,
+    "/courses": 1,
+    "/courses/enroll": 1,
+    "/help-faq": 2,
+    "/about-us": 3,
+  };
 
   const valueToPathname = {
-    0: '/home',
-    1: '/courses',
-    2: '/help-faq',
-    3: '/about-us',
-  }
+    0: "/home",
+    1: "/courses",
+    2: "/help-faq",
+    3: "/about-us",
+  };
 
   return (
     <>
       <AppBar />
-      <Box sx={{ width: '100%', backgroundColor: yellow[600] }}>
+      <Box sx={{ width: "100%", backgroundColor: yellow[600] }}>
         <Box>
           <Tabs
             centered={width >= 389 ? true : false}
@@ -107,26 +106,25 @@ export default function Layout() {
             value={value}
             onChange={handleChange}
             aria-label="nav tabs example"
-            centered
           >
             <Tab
               label="Home"
-              sx={{ paddingLeft: '5%', paddingRight: '5%' }}
+              sx={{ paddingLeft: "5%", paddingRight: "5%" }}
               {...a11yProps(0)}
             />
             <Tab
               label="Courses"
-              sx={{ paddingLeft: '5%', paddingRight: '5%' }}
+              sx={{ paddingLeft: "5%", paddingRight: "5%" }}
               {...a11yProps(0)}
             />
             <Tab
               label="Help"
-              sx={{ paddingLeft: '5%', paddingRight: '5%' }}
+              sx={{ paddingLeft: "5%", paddingRight: "5%" }}
               {...a11yProps(0)}
             />
             <Tab
               label="About Us"
-              sx={{ paddingLeft: '5%', paddingRight: '5%' }}
+              sx={{ paddingLeft: "5%", paddingRight: "5%" }}
               {...a11yProps(0)}
             />
           </Tabs>
@@ -135,10 +133,7 @@ export default function Layout() {
           <HomePage />
         </TabPanel>
         <TabPanel value={value} index={1}>
-          {openEnrollment ?
-            <CourseEnroll /> :
-            <CourseSearch />
-          }
+          {openEnrollment ? <CourseEnroll /> : <CourseSearch />}
         </TabPanel>
         <TabPanel value={value} index={2}>
           <HelpFAQ />

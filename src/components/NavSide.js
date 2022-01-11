@@ -27,7 +27,6 @@ function NavSidebar(props) {
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const namaTeacher = "krisna";
   const location = useLocation();
-  console.log(location);
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -190,7 +189,7 @@ function NavSidebar(props) {
         component="main"
         sx={{
           flexGrow: 1,
-          p: 3,
+          p: mobileOpen? 3 : 1,
           width: { sm: `calc(100% - ${drawerWidth}px)` },
         }}
       >
