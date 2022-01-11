@@ -5,19 +5,27 @@ export const useTeacherCourseData = (refresh) => {
   const [courseData, setCourseData] = useState([]);
   const [errorResponse, setErrorResponse] = useState(null);
 
+  const token = localStorage.getItem("token");
+
+  const config = {
+    headers: { Authorization: `Bearer ${token}` },
+  };
+
   useEffect(() => {
     console.log("Getting Data Course Teacher");
     const getData = async () => {
       let newDatas;
       try {
         newDatas = await Axios.get(
-          "http://localhost:8080/api/v1/teachers/courses"
+          "http://localhost:8080/api/v1/teachers/courses",
+          config
         );
       } catch (e) {
         console.error(e);
         if (e.response) {
           console.log(e.response);
-          setErrorResponse(e.response.data.message);
+          setCourseData([]);
+          setErrorResponse(e.response.data.meta.message);
         } else if (e.request) {
           console.log(e.request);
           setErrorResponse("Server Error");
@@ -25,7 +33,11 @@ export const useTeacherCourseData = (refresh) => {
       }
       if (newDatas) {
         console.log(newDatas);
-        setCourseData(newDatas.data.data);
+        if (newDatas.data.meta.status !== 200) {
+          setErrorResponse(newDatas.data.meta.message);
+        } else {
+          setCourseData(newDatas.data.data);
+        }
       }
     };
     getData();
@@ -33,7 +45,7 @@ export const useTeacherCourseData = (refresh) => {
   return { courseData, errorResponse };
 };
 
-export const useGetAllCategoryData = (refresh) => {
+export const useGetAllCategoryData = () => {
   const [categoryData, setCategoryData] = useState([]);
   const [errorResponse, setErrorResponse] = useState(null);
 
@@ -59,6 +71,36 @@ export const useGetAllCategoryData = (refresh) => {
       }
     };
     getData();
-  }, [refresh]);
+  }, []);
   return { categoryData, errorResponse };
+};
+
+export const useGetAllDifficultiesData = () => {
+  const [difficultiesData, setDifficultiesData] = useState([]);
+  const [errorResponse, setErrorResponse] = useState(null);
+
+  useEffect(() => {
+    console.log("Getting Data Categories");
+    const getData = async () => {
+      let newDatas;
+      try {
+        newDatas = await Axios.get("http://localhost:8080/api/v1/difficulties");
+      } catch (e) {
+        console.error(e);
+        if (e.response) {
+          console.log(e.response);
+          setErrorResponse(e.response.data.message);
+        } else if (e.request) {
+          console.log(e.request);
+          setErrorResponse("Server Error");
+        }
+      }
+      if (newDatas) {
+        console.log(newDatas);
+        setDifficultiesData(newDatas.data.data);
+      }
+    };
+    getData();
+  }, []);
+  return { difficultiesData, errorResponse };
 };

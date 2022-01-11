@@ -5,18 +5,14 @@ import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import Menu from "@mui/material/Menu";
-import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
-import Avatar from "@mui/material/Avatar";
-import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
-import logoInEdu from "../assets/images/logoInEdu.svg";
+import logoInEdu from "../../assets/images/logoInEdu.svg";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { yellow, indigo } from "@mui/material/colors";
-import Paper from "@mui/material/Paper";
-import { Link, MenuList } from "@mui/material";
-import { TokenSharp } from "@mui/icons-material";
+import jwt_decode from "jwt-decode";
+import { Link } from "react-router-dom";
 
 const classes = {
   menuPaper: {
@@ -34,14 +30,20 @@ const ResponsiveAppBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
-  const [token, setToken] = React.useState("");
+  const [jwtDecode, setJwtDecode] = React.useState(null);
+  const [user, setUser] = React.useState("");
   const [refresh, setRefresh] = React.useState(1);
 
   useEffect(() => {
-    if (localStorage.getItem("token")) {
-      setToken(localStorage.getItem("token"));
+    //asking if using params for frontend route profile and myCourses
+    if (localStorage.getItem("token") && jwtDecode === null) {
+      let decode = jwt_decode(localStorage.getItem("token"));
+      let user = localStorage.getItem("user");
+      setJwtDecode(decode);
+      setUser(user);
     } else {
-      setToken("");
+      setJwtDecode(null);
+      setUser("");
     }
   }, [refresh]);
 
@@ -87,42 +89,7 @@ const ResponsiveAppBar = () => {
             />
           </Typography>
 
-          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
-            {/* <IconButton
-                            size="large"
-                            aria-label="account of current user"
-                            aria-controls="menu-appbar"
-                            aria-haspopup="true"
-                            onClick={handleOpenNavMenu}
-                            color="inherit"
-                        >
-                            <MenuIcon />
-                        </IconButton>
-                        <Menu
-                            id="menu-appbar"
-                            anchorEl={anchorElNav}
-                            anchorOrigin={{
-                                vertical: 'bottom',
-                                horizontal: 'left',
-                            }}
-                            keepMounted
-                            transformOrigin={{
-                                vertical: 'top',
-                                horizontal: 'left',
-                            }}
-                            open={Boolean(anchorElNav)}
-                            onClose={handleCloseNavMenu}
-                            sx={{
-                                display: { xs: 'block', md: 'none' },
-                            }}
-                        >
-                            {pages.map((page) => (
-                                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                                    <Typography textAlign="center">{page}</Typography>
-                                </MenuItem>
-                            ))}
-                        </Menu> */}
-          </Box>
+          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}></Box>
           <Typography
             variant="h6"
             noWrap
@@ -135,17 +102,7 @@ const ResponsiveAppBar = () => {
               alt="logo InEdu"
             />
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            {/* {pages.map((page) => (
-                            <Button
-                                key={page}
-                                onClick={handleCloseNavMenu}
-                                sx={{ my: 2, color: 'white', display: 'block' }}
-                            >
-                                {page}
-                            </Button>
-                        ))} */}
-          </Box>
+          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}></Box>
 
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
@@ -156,7 +113,7 @@ const ResponsiveAppBar = () => {
               </IconButton>
             </Tooltip>
 
-            {token !== "" ? (
+            {jwtDecode !== null ? (
               <Menu
                 sx={classes.menuPaper}
                 id="menu-appbar"
@@ -175,15 +132,44 @@ const ResponsiveAppBar = () => {
               >
                 <MenuItem
                   onClick={handleCloseNavMenu}
-                  sx={{ backgroundColor: indigo[500], color: "white" }}
+                  sx={{
+                    backgroundColor: indigo[500],
+                    color: "white",
+                    "&:hover": {
+                      backgroundColor: "secondary.main",
+                      color: "primary.main",
+                    },
+                  }}
                 >
-                  <Typography textAlign="center">Profile</Typography>
+                  <Link
+                    to={"/teacher/profile"}
+                    style={{
+                      color: "white",
+                      textDecoration: "none",
+                    }}
+                  >
+                    <Typography textAlign="center">Profile</Typography>
+                  </Link>
                 </MenuItem>
                 <MenuItem
                   onClick={handleCloseNavMenu}
-                  sx={{ backgroundColor: indigo[500], color: "white" }}
+                  sx={{
+                    backgroundColor: indigo[500],
+                    "&:hover": {
+                      backgroundColor: "secondary.main",
+                      color: "primary.main",
+                    },
+                  }}
                 >
-                  <Typography textAlign="center">MyCourse</Typography>
+                  <Link
+                    to={"/teacher/courses"}
+                    style={{
+                      color: "primary.main",
+                      textDecoration: "none",
+                    }}
+                  >
+                    <Typography textAlign="center">MyCourse</Typography>
+                  </Link>
                 </MenuItem>
                 <MenuItem
                   onClick={handleLogout}
@@ -211,19 +197,43 @@ const ResponsiveAppBar = () => {
               >
                 <MenuItem
                   onClick={handleCloseNavMenu}
-                  sx={{ backgroundColor: indigo[500], color: "white" }}
+                  sx={{
+                    backgroundColor: indigo[500],
+                    color: "white",
+                    "&:hover": {
+                      backgroundColor: "secondary.main",
+                      color: "primary.main",
+                    },
+                  }}
                 >
-                  <Link href="/student/login" underline="none">
-                    <Typography textAlign="center" color={"white"}>
-                      Login Student
-                    </Typography>
+                  <Link
+                    to="/student/login"
+                    style={{
+                      color: "white",
+                      textDecoration: "none",
+                    }}
+                  >
+                    <Typography textAlign="center">Login Student</Typography>
                   </Link>
                 </MenuItem>
                 <MenuItem
                   onClick={handleCloseNavMenu}
-                  sx={{ backgroundColor: indigo[500], color: "white" }}
+                  sx={{
+                    backgroundColor: indigo[500],
+                    color: "white",
+                    "&:hover": {
+                      backgroundColor: "secondary.main",
+                      color: "primary.main",
+                    },
+                  }}
                 >
-                  <Link href="/teacher/login" underline="none" color={"white"}>
+                  <Link
+                    to="/teacher/login"
+                    style={{
+                      color: "primary.main",
+                      textDecoration: "none",
+                    }}
+                  >
                     <Typography textAlign="center">Login Teacher</Typography>
                   </Link>
                 </MenuItem>

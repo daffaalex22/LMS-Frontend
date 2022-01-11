@@ -1,20 +1,13 @@
 import { Box, Fab, Typography, Breadcrumbs, Link } from "@mui/material";
 import React from "react";
 import AddIcon from "@mui/icons-material/Add";
-import Divider from "@mui/material/Divider";
 
 import NavSidebar from "../components/NavSide";
-import CourseCard from "../components/CourseCard";
 
 export default function TeacherProfile() {
   document.title = "Teacher - Profile";
   return (
-    <Box
-      sx={{
-        height: "100vh",
-        bgcolor: "secondary.200",
-      }}
-    >
+    <Box sx={{ height: "100vh", bgcolor: "secondary.200" }}>
       <NavSidebar>
         <Box
           sx={{
@@ -30,6 +23,10 @@ export default function TeacherProfile() {
                 mb: "10px",
                 bgcolor: "primary.main",
                 color: "white",
+                "&:hover": {
+                  backgroundColor: "secondary.main",
+                  color: "primary.main",
+                },
               }}
             >
               <AddIcon sx={{ mr: 1 }} />

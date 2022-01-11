@@ -3,16 +3,28 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import { Button, CardActionArea, CardActions, Grid } from "@mui/material";
 import { yellow, indigo } from "@mui/material/colors";
+import {
+  Button,
+  CardActionArea,
+  CardActions,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
+  Grid,
+} from "@mui/material";
 import StarRoundedIcon from "@mui/icons-material/StarRounded";
 import { GeneralContext } from "../contexts/GeneralContext";
 import { useContext } from "react";
 import { useNavigate } from "react-router";
 import DeleteSweepIcon from "@mui/icons-material/DeleteSweep";
 import CreateIcon from "@mui/icons-material/Create";
+import { useState } from "react";
 
-const CourseCard = ({ course, role }) => {
+const CourseCard = ({ course, role, openEdit, onDelete }) => {
+  const [deleteAlert, setDeleteAlert] = useState(false);
   const { setOpenEnrollment, openEnrollment } = useContext(GeneralContext);
   const navigate = useNavigate();
 
@@ -24,126 +36,160 @@ const CourseCard = ({ course, role }) => {
   let lineMultiplier = 1;
   let descMultiplier = 1;
 
-  if (course?.id === 1) {
-    lineMultiplier = 2;
-    descMultiplier = 4;
-  }
+  const openAlert = () => {
+    setDeleteAlert(true);
+  };
+  const closeAlert = () => {
+    setDeleteAlert(false);
+  };
 
   return (
-    <Card
-      sx={{
-        width: 345,
-        maxWidth: "55vw",
-        margin: "auto",
-        borderRadius: "25px",
-        backgroundColor: yellow[400],
-      }}
-    >
-      <CardActionArea
-        onClick={handleClickCard}
+    <>
+      <Card
         sx={{
-          height: "89%",
+          width: 345,
+          maxWidth: "55vw",
+          margin: "auto",
+          borderRadius: "25px",
+          backgroundColor: yellow[400],
         }}
       >
-        <CardMedia
-          component="img"
-          height="200"
-          image={course?.thumbnail}
-          alt="Course Thumbnail"
-        />
-        <CardContent
+        <CardActionArea
+          onClick={handleClickCard}
           sx={{
-            height: "40%",
+            height: "89%",
           }}
         >
-          <Box
+          <CardMedia
+            component="img"
+            height="200"
+            image={course?.thumbnail}
+            alt="Course Thumbnail"
+          />
+          <CardContent
             sx={{
-              overflowY: "hidden",
+              height: "40%",
             }}
           >
-            <Typography
-              gutterBottom
-              variant="h5"
-              component="div"
+            <Box
               sx={{
-                height: "2.5em",
-                fontWeight: 600,
-                color: indigo[500],
+                overflowY: "hidden",
               }}
             >
-              {course?.title}
-            </Typography>
-          </Box>
-          <Box
-            sx={{
-              height: "80px",
-              overflowY: "hidden",
-            }}
-          >
-            <Typography
-              variant="body2"
-              color="text.primary"
-              textAlign="justify"
-              sx={
-                {
-                  // overflow: 'auto'
+              <Typography
+                gutterBottom
+                variant="h5"
+                component="div"
+                sx={{
+                  height: "2.5em",
+                  fontWeight: 600,
+                  color: indigo[500],
+                }}
+              >
+                {course?.title}
+              </Typography>
+            </Box>
+            <Box
+              sx={{
+                height: "80px",
+                overflowY: "hidden",
+              }}
+            >
+              <Typography
+                variant="body2"
+                color="text.primary"
+                textAlign="justify"
+                sx={
+                  {
+                    // overflow: 'auto'
+                  }
                 }
-              }
-            >
-              {course?.description?.length >= 175
-                ? course?.description?.substring(0, 177) + "..."
-                : course?.description}
-            </Typography>
-          </Box>
-        </CardContent>
-      </CardActionArea>
-      <CardActions sx={{ textAlign: "center", height: "9%" }}>
-        <Grid container sx={{ paddingLeft: "12px" }}>
-          <Grid item>
-            <StarRoundedIcon
-              sx={{ color: indigo[500], marginBottom: "-5px" }}
-            />
-            <Typography
-              variant="body2"
-              component="span"
-              sx={{ fontWeight: 600, color: indigo[500], lineHeight: "2em" }}
-            >
-              {course?.rating}
-            </Typography>
-            <Button
-              size="small"
-              sx={{ fontWeight: 600, color: indigo[500], marginLeft: "5px" }}
-            >
-              See More
-            </Button>
-          </Grid>
-          {role === "teacher" && (
-            <Grid item direction="row-reverse">
+              >
+                {course?.description?.length >= 175
+                  ? course?.description?.substring(0, 177) + "..."
+                  : course?.description}
+              </Typography>
+            </Box>
+          </CardContent>
+        </CardActionArea>
+        <CardActions sx={{ textAlign: "center", height: "9%" }}>
+          <Grid container sx={{ paddingLeft: "12px" }}>
+            <Grid item>
+              <StarRoundedIcon
+                sx={{ color: indigo[500], marginBottom: "-5px" }}
+              />
+              <Typography
+                variant="body2"
+                component="span"
+                sx={{ fontWeight: 600, color: indigo[500], lineHeight: "2em" }}
+              >
+                {course?.rating}
+              </Typography>
               <Button
                 size="small"
-                sx={{
-                  fontWeight: 600,
-                  color: "error.main",
-                  marginLeft: "5px",
-                }}
+                sx={{ fontWeight: 600, color: indigo[500], marginLeft: "5px" }}
               >
-                <DeleteSweepIcon />
-              </Button>
-              <Button
-                size="small"
-                sx={{
-                  fontWeight: 600,
-                  color: "info.main",
-                  marginLeft: "5px",
-                }}
-              >
-                <CreateIcon />
+                See More
               </Button>
             </Grid>
-          )}
-        </Grid>
-      </CardActions>
-    </Card>
+            {role === "teacher" && (
+              <Grid item direction="row-reverse">
+                <Button
+                  size="small"
+                  onClick={openAlert}
+                  sx={{
+                    fontWeight: 600,
+                    color: "error.main",
+                    marginLeft: "5px",
+                  }}
+                >
+                  <DeleteSweepIcon />
+                </Button>
+                <Button
+                  size="small"
+                  onClick={() => openEdit(course)}
+                  sx={{
+                    fontWeight: 600,
+                    color: "info.main",
+                    marginLeft: "5px",
+                  }}
+                >
+                  <CreateIcon />
+                </Button>
+              </Grid>
+            )}
+          </Grid>
+        </CardActions>
+      </Card>
+      <Dialog
+        open={deleteAlert}
+        onClose={closeAlert}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
+        <DialogTitle id="alert-dialog-title">"Delete Alert"</DialogTitle>
+        <DialogContent>
+          <DialogContentText id="alert-dialog-description">
+            Apakah anda yakin akan menghapus course {course.title} ?
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={closeAlert} color="error">
+            Tidak
+          </Button>
+          <Button
+            onClick={() => {
+              closeAlert();
+              onDelete(course.id);
+            }}
+            color="success"
+            autoFocus
+          >
+            Iya
+          </Button>
+        </DialogActions>
+      </Dialog>
+    </>
   );
 };
 
