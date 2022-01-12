@@ -63,7 +63,7 @@ const CourseCard = ({ course, role, openEdit, onDelete }) => {
         >
           <CardMedia
             component="img"
-            height="200"
+            height="240"
             image={course?.thumbnail}
             alt="Course Thumbnail"
           />
@@ -106,8 +106,8 @@ const CourseCard = ({ course, role, openEdit, onDelete }) => {
                   }
                 }
               >
-                {course?.description?.length >= 175
-                  ? course?.description?.substring(0, 177) + "..."
+                {course?.description?.length >= 88
+                  ? course?.description?.substring(0, 85) + "..."
                   : course?.description}
               </Typography>
             </Box>
