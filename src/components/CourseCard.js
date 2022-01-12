@@ -92,7 +92,7 @@ const CourseCard = ({ course, role, openEdit, onDelete }) => {
             </Box>
             <Box
               sx={{
-                height: "80px",
+                height: "40px",
                 overflowY: "hidden",
               }}
             >
