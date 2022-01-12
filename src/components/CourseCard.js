@@ -14,6 +14,7 @@ import {
   DialogContentText,
   DialogTitle,
   Grid,
+  IconButton,
 } from "@mui/material";
 import StarRoundedIcon from "@mui/icons-material/StarRounded";
 import { GeneralContext } from "../contexts/GeneralContext";
@@ -114,48 +115,60 @@ const CourseCard = ({ course, role, openEdit, onDelete }) => {
         </CardActionArea>
         <CardActions sx={{ textAlign: "center", height: "9%" }}>
           <Grid container sx={{ paddingLeft: "12px" }}>
-            <Grid item>
-              <StarRoundedIcon
-                sx={{ color: indigo[500], marginBottom: "-5px" }}
-              />
-              <Typography
-                variant="body2"
-                component="span"
-                sx={{ fontWeight: 600, color: indigo[500], lineHeight: "2em" }}
-              >
-                {course?.rating}
-              </Typography>
-              <Button
-                size="small"
-                sx={{ fontWeight: 600, color: indigo[500], marginLeft: "5px" }}
-              >
-                See More
-              </Button>
-            </Grid>
-            {role === "teacher" && (
-              <Grid item direction="row-reverse">
-                <Button
-                  size="small"
-                  onClick={openAlert}
+            <Grid container item xs={5}>
+              <Grid item xs={3}>
+                <StarRoundedIcon
+                  sx={{
+                    color: indigo[500],
+                    position: "relative",
+                    top: "10%",
+                  }}
+                />
+                <Typography
+                  variant="body2"
+                  component="span"
                   sx={{
                     fontWeight: 600,
-                    color: "error.main",
+                    color: indigo[500],
+                    position: "relative",
+                    top: "-5%",
+                  }}
+                >
+                  {course.rating ? course.rating : "0"}
+                </Typography>
+              </Grid>
+              <Grid item xs={8}>
+                <Button
+                  size="small"
+                  sx={{
+                    fontWeight: 600,
+                    color: indigo[500],
                     marginLeft: "5px",
+                  }}
+                >
+                  See More
+                </Button>
+              </Grid>
+            </Grid>
+            {role === "teacher" && (
+              <Grid container item xs={7} justifyContent="flex-end">
+                <IconButton
+                  onClick={openAlert}
+                  sx={{
+                    color: "error.main",
                   }}
                 >
                   <DeleteSweepIcon />
-                </Button>
-                <Button
+                </IconButton>
+                <IconButton
                   size="small"
                   onClick={() => openEdit(course)}
                   sx={{
-                    fontWeight: 600,
                     color: "info.main",
-                    marginLeft: "5px",
                   }}
                 >
                   <CreateIcon />
-                </Button>
+                </IconButton>
               </Grid>
             )}
           </Grid>
@@ -167,7 +180,7 @@ const CourseCard = ({ course, role, openEdit, onDelete }) => {
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
-        <DialogTitle id="alert-dialog-title">"Delete Alert"</DialogTitle>
+        <DialogTitle id="alert-dialog-title">Delete Alert</DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
             Apakah anda yakin akan menghapus course {course.title} ?
