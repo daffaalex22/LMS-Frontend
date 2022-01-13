@@ -45,7 +45,7 @@ export default function RegisterTeacher() {
       .then((resp) => {
         console.log(resp);
         if (resp.data.meta.status !== 200) {
-          setError(resp.data.meta.messages);
+          setError("try using different account");
         } else {
           setSuccessOpen(true);
         }

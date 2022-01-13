@@ -45,8 +45,9 @@ export default function LoginStudent() {
       .then((resp) => {
         console.log(resp);
         if (resp.data.meta.status !== 200) {
-          setError(resp.data.meta.messages);
+          setError("Email atau Password salah, mohon check kembali");
         } else {
+          setError("");
           localStorage.setItem("token", resp.data.data.token);
           localStorage.setItem("user", "student");
           setSucessLogin(true);
@@ -57,7 +58,8 @@ export default function LoginStudent() {
         if (e.response) {
           console.log(e.response);
         } else if (e.request) {
-          console.log(e.request);
+          //server didn't catched
+          setError("Server Down, coba lagi nanti");
         }
       });
   };
