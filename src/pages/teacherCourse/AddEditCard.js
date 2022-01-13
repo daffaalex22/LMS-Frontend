@@ -29,6 +29,13 @@ export default function AddEditCard(props) {
     categoryId: null,
     difficultyId: null,
   });
+  const [errorInput, setErrorInput] = useState({
+    title: false,
+    thumbnail: false,
+    description: false,
+    categoryId: false,
+    difficultyId: false,
+  });
   const [error, setError] = useState(null);
 
   const theme = useTheme();
@@ -45,6 +52,12 @@ export default function AddEditCard(props) {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setData({ ...data, [name]: value });
+    if (value !== "") {
+      setErrorInput({ ...errorInput, [name]: false });
+    }
+    if (value === "") {
+      setErrorInput({ ...errorInput, [name]: true });
+    }
   };
 
   const handleSave = (e) => {
@@ -109,7 +122,6 @@ export default function AddEditCard(props) {
     }
   }, [props.editData]);
 
-
   return (
     <Dialog
       fullScreen={fullScreen}
@@ -123,11 +135,13 @@ export default function AddEditCard(props) {
         </Typography>
         <Stack spacing={2}>
           <Typography variant="body1" component="h2">
-            Title :
+            Title :<span style={{ color: "red" }}>*</span>
             <TextField
               fullWidth
               value={data?.title}
               name="title"
+              error={errorInput.title}
+              helperText={errorInput.title ? "please fill the title" : ""}
               onChange={handleChange}
             />
           </Typography>
@@ -155,7 +169,7 @@ export default function AddEditCard(props) {
             onChange={handleChange}
           />
           <Typography variant="body1" component="h2">
-            Category :
+            Category : <span style={{ color: "red" }}>*</span>
             <FormControl fullWidth>
               <Select
                 id="categoryId"
@@ -172,7 +186,7 @@ export default function AddEditCard(props) {
             </FormControl>
           </Typography>
           <Typography variant="body1" component="h2">
-            Difficulties :
+            Difficulties : <span style={{ color: "red" }}>*</span>
             <FormControl fullWidth>
               <Select
                 name="difficultyId"
@@ -193,8 +207,16 @@ export default function AddEditCard(props) {
         <Button autoFocus onClick={closeOnly}>
           Cancel
         </Button>
-        <Button onClick={handleSave} autoFocus>
-          {props.title}
+        <Button
+          disabled={
+            errorInput.title ||
+            data.categoryId === null ||
+            data.difficultyId === null
+          }
+          onClick={handleSave}
+          autoFocus
+        >
+          Save
         </Button>
       </DialogActions>
     </Dialog>
