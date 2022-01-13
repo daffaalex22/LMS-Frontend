@@ -25,6 +25,7 @@ import Layout from "./components/Layout";
 import GeneralContextProvider from "./contexts/GeneralContext";
 import TeacherCourse from "./pages/teacherCourse/TeacherCourse";
 import TeacherProfile from "./pages/TeacherProfile";
+import InternalServerError from "./pages/internalServerError/InternalServerError";
 
 let theme = createTheme({
   palette: {
@@ -79,6 +80,7 @@ function App() {
               <Route path="/teacher/courses" element={<TeacherCourse />} />
               <Route path="/teacher/profile" element={<TeacherProfile />} />
               <Route path="/help-faq" element={<Layout />} />
+              <Route path="/server-error" element={<InternalServerError />} />
             </Routes>
           </BrowserRouter>
         </div>

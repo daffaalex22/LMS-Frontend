@@ -3,7 +3,7 @@ import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import InputLabel from "@mui/material/InputLabel";
-import { Button, TextField } from "@mui/material";
+import { Button, FormHelperText, TextField } from "@mui/material";
 import InputAdornment from "@mui/material/InputAdornment";
 import IconButton from "@mui/material/IconButton";
 import Link from "@mui/material/Link";
@@ -39,6 +39,10 @@ const LoginFormStudent = (props) => {
     email: "",
     password: "",
   });
+  const [error, setError] = useState({
+    email: false,
+    password: false,
+  });
 
   const handleClickShowPassword = () => {
     setShowPassword(!showPassword);
@@ -47,6 +51,11 @@ const LoginFormStudent = (props) => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setLoginData({ ...loginData, [name]: value });
+    if (value !== "") {
+      setError({ ...error, [name]: false });
+    } else {
+      setError({ ...error, [name]: true });
+    }
   };
 
   return (
@@ -59,15 +68,25 @@ const LoginFormStudent = (props) => {
         name="email"
         value={loginData.email}
         onChange={(e) => handleChange(e)}
+        error={error.email}
+        helperText={error.email ? "please fill the email" : ""}
       />
       <br />
       <FormControl sx={classes.formItem} variant="outlined" name>
-        <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
+        <InputLabel
+          htmlFor="outlined-adornment-password"
+          error={error.password}
+          helperText="mohon masukan password"
+        >
+          Password
+        </InputLabel>
         <OutlinedInput
           id="outlined-adornment-password"
           type={showPassword ? "text" : "password"}
           name="password"
           onChange={(e) => handleChange(e)}
+          label="Password"
+          error={error.password}
           endAdornment={
             <InputAdornment position="end">
               <IconButton
@@ -79,16 +98,36 @@ const LoginFormStudent = (props) => {
               </IconButton>
             </InputAdornment>
           }
-          label="Password"
         />
+        {error.password && (
+          <FormHelperText
+            id="outlined-adornment-password"
+            sx={{ color: "error.main" }}
+          >
+            please fill the password
+          </FormHelperText>
+        )}
       </FormControl>
       <br />
-      {props.error?.map((item, key) => (
+      <Typography color="red" marginBottom="5px">
+        {props.error}
+      </Typography>
+      {/* {props.error?.map((item, key) => (
         <Typography color="red" key={key} marginBottom="5px">
           {item}
         </Typography>
-      ))}
-      <Button sx={classes.btn} variant="contained" type="submit">
+      ))} */}
+      <Button
+        disabled={
+          loginData.email === "" ||
+          loginData.password === "" ||
+          error.email ||
+          error.password
+        }
+        sx={classes.btn}
+        variant="contained"
+        type="submit"
+      >
         LOGIN
       </Button>
       <br />

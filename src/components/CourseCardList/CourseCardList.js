@@ -1,10 +1,10 @@
+import React from "react";
 import Grid from "@mui/material/Grid";
 import Container from "@mui/material/Container";
 import CourseCard from "../CourseCard";
 import Masonry from "react-masonry-css";
 import "./CourseCardList.css";
 import useFetch from "../../customHooks/useFetch";
-import React from "react";
 
 const breakpointColumns = {
   default: 3,
