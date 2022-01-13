@@ -44,8 +44,9 @@ const LoginStudent = () => {
       .then((resp) => {
         console.log(resp);
         if (resp.data.meta.status !== 200) {
-          setError(resp.data.meta.messages);
+          setError("Email atau Password salah, mohon check kembali");
         } else {
+          setError("");
           localStorage.setItem("token", resp.data.data.token);
           localStorage.setItem("user", "teacher");
           setSucessLogin(true);
@@ -54,9 +55,11 @@ const LoginStudent = () => {
       .catch((e) => {
         console.error(e);
         if (e.response) {
+          console.log("If masuk");
           console.log(e.response);
         } else if (e.request) {
-          console.log(e.request);
+          //server didn't catched
+          setError("Server Down, coba lagi nanti");
         }
       });
   };

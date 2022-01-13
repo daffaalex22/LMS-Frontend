@@ -3,7 +3,7 @@ import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import InputLabel from "@mui/material/InputLabel";
-import { Box, Button, TextField } from "@mui/material";
+import { Box, Button, FormHelperText, TextField } from "@mui/material";
 import InputAdornment from "@mui/material/InputAdornment";
 import IconButton from "@mui/material/IconButton";
 import { indigo } from "@mui/material/colors";
@@ -42,11 +42,18 @@ const classes = {
 
 const RegistForm = (props) => {
   const [showPassword, setShowPassword] = useState(false);
+  const emailRegex =
+    /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
 
   const [data, setData] = useState({
     name: "",
     email: "",
     password: "",
+  });
+  const [error, setError] = useState({
+    name: false,
+    email: false,
+    password: false,
   });
 
   const handleClickShowPassword = () => {
@@ -56,6 +63,25 @@ const RegistForm = (props) => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setData({ ...data, [name]: value });
+    if (value !== "") {
+      setError({ ...error, [name]: false });
+      if (name === "email") {
+        let errorCheck = emailRegex.test(value);
+        if (!errorCheck) {
+          setError({ ...error, [name]: true });
+        }
+      }
+      // //case of password has minimum length
+      // if (name === "password") {
+      //   let panjang = value.length;
+      //   if (panjang < 8) {
+      //     setError({ ...error, [name]: true });
+      //   }
+      // }
+    }
+    if (value === "") {
+      setError({ ...error, [name]: true });
+    }
   };
 
   return (
@@ -71,30 +97,35 @@ const RegistForm = (props) => {
     >
       <Grid item xs={12} sx={{ width: "80%" }}>
         <Box sx={{ paddingTop: "75px", textAlign: "center" }}>
-          <form onSubmit={(e) => props.handleSubmit(e, data)}>
+          <form noValidate onSubmit={(e) => props.handleSubmit(e, data)}>
             <TextField
-              required
               label="Full Name"
               sx={classes.formItem}
               variant="outlined"
               type="text"
               name="name"
+              error={error.name}
+              helperText={error.name ? "please fill the name field" : ""}
               onChange={handleChange}
             />
             <br />
             <TextField
-              required
               label="Email"
               sx={classes.formItem}
               variant="outlined"
               type="email"
               name="email"
+              error={error.email}
+              helperText={error.email ? "please fill the email correctly" : ""}
               onChange={handleChange}
               // inputRef={emailRef}
             />
             <br />
             <FormControl sx={classes.formItem} variant="outlined">
-              <InputLabel htmlFor="outlined-adornment-password" required>
+              <InputLabel
+                htmlFor="outlined-adornment-password"
+                error={error.password}
+              >
                 Password
               </InputLabel>
               <OutlinedInput
@@ -102,6 +133,7 @@ const RegistForm = (props) => {
                 type={showPassword ? "text" : "password"}
                 name="password"
                 onChange={handleChange}
+                error={error.password}
                 endAdornment={
                   <InputAdornment position="end">
                     <IconButton
@@ -119,6 +151,14 @@ const RegistForm = (props) => {
 
                 // inputRef={passwordRef}
               />
+              {error.password && (
+                <FormHelperText
+                  id="outlined-adornment-password"
+                  sx={{ color: "error.main" }}
+                >
+                  please fill the password field
+                </FormHelperText>
+              )}
             </FormControl>
             <br />
             <FormGroup>
@@ -134,12 +174,20 @@ const RegistForm = (props) => {
               />
             </FormGroup>
             <br />
-            {props.error?.map((item, key) => (
-              <Typography color="red" key={key} marginBottom="5px">
-                {item}
+            {props.error && (
+              <Typography color="red" marginBottom="5px">
+                {props.error}
               </Typography>
-            ))}
+            )}
             <Button
+              disabled={
+                error.email ||
+                error.password ||
+                error.name ||
+                data.email === "" ||
+                data.password === "" ||
+                data.name === ""
+              }
               sx={classes.btn}
               variant="contained"
               type="submit"

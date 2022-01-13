@@ -136,7 +136,7 @@ const ResponsiveAppBar = () => {
                     backgroundColor: indigo[500],
                     color: "white",
                     "&:hover": {
-                      backgroundColor: "secondary.main",
+                      backgroundColor: yellow[500],
                       color: "primary.main",
                     },
                   }}
@@ -155,8 +155,9 @@ const ResponsiveAppBar = () => {
                   onClick={handleCloseNavMenu}
                   sx={{
                     backgroundColor: indigo[500],
+                    color: "white",
                     "&:hover": {
-                      backgroundColor: "secondary.main",
+                      backgroundColor: yellow[500],
                       color: "primary.main",
                     },
                   }}
@@ -173,7 +174,14 @@ const ResponsiveAppBar = () => {
                 </MenuItem>
                 <MenuItem
                   onClick={handleLogout}
-                  sx={{ backgroundColor: indigo[500], color: "white" }}
+                  sx={{
+                    backgroundColor: indigo[500],
+                    color: "white",
+                    "&:hover": {
+                      backgroundColor: "secondary.main",
+                      color: "primary.main",
+                    },
+                  }}
                 >
                   <Typography textAlign="center">Logout</Typography>
                 </MenuItem>
@@ -195,27 +203,23 @@ const ResponsiveAppBar = () => {
                 open={Boolean(anchorElUser)}
                 onClose={handleCloseUserMenu}
               >
-                <MenuItem
-                  onClick={handleCloseNavMenu}
-                  sx={{
-                    backgroundColor: indigo[500],
-                    color: "white",
-                    "&:hover": {
-                      backgroundColor: "secondary.main",
-                      color: "primary.main",
-                    },
-                  }}
-                >
-                  <Link
-                    to="/student/login"
-                    style={{
+                <Link href="/student/login" underline="none">
+                  <MenuItem
+                    onClick={handleCloseNavMenu}
+                    sx={{
+                      backgroundColor: indigo[500],
                       color: "white",
-                      textDecoration: "none",
+                      "&:hover": {
+                        backgroundColor: yellow[500],
+                        color: "primary.main",
+                      },
                     }}
                   >
-                    <Typography textAlign="center">Login Student</Typography>
-                  </Link>
-                </MenuItem>
+                    <Typography textAlign="center" sx={{ color: "white" }}>
+                      Login Student
+                    </Typography>
+                  </MenuItem>
+                </Link>
                 <MenuItem
                   onClick={handleCloseNavMenu}
                   sx={{
