@@ -1,25 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import Grid from "@mui/material/Grid";
 import Container from "@mui/material/Container";
 import CourseCard from "../CourseCard";
-import Masonry from "react-masonry-css";
 import "./CourseCardList.css";
-import useFetch from "../../customHooks/useFetch";
-
-const breakpointColumns = {
-  default: 3,
-  1100: 2,
-  700: 1,
-};
-
-// const array = [0, 1, 2, 3, 4]
+import { useGetCourseData } from "./CourseHook";
 
 const CourseCardList = () => {
-  const {
-    data: courses,
-    isPending: coursesPending,
-    error: coursesError,
-  } = useFetch("/courses");
+  const [refresh, setRefresh] = useState(1);
+  const { courseData: courses, errorResponse } = useGetCourseData(refresh);
 
   return (
     <Container sx={{ paddingTop: "50px" }}>

@@ -26,17 +26,18 @@ export default function AddEditCard(props) {
     title: "",
     thumbnail: "",
     description: "",
-    categoryId: null,
-    difficultyId: null,
+    categoryId: 0,
+    difficultyId: 0,
   });
+
   const [errorInput, setErrorInput] = useState({
     title: false,
-    thumbnail: false,
-    description: false,
-    categoryId: false,
-    difficultyId: false,
+    categoryId: true,
+    difficultyId: true,
   });
   const [error, setError] = useState(null);
+
+  const [disable, setDisable] = useState(null);
 
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down("md"));
@@ -64,7 +65,7 @@ export default function AddEditCard(props) {
     e.preventDefault();
     if (props.title === "Create") {
       axios
-        .post("http://localhost:8080/api/v1/courses", {
+        .post("http://13.59.7.136:8080/api/v1/courses", {
           ...data,
           teacherId: decode.idt,
         })
@@ -72,6 +73,13 @@ export default function AddEditCard(props) {
           console.log(resp);
           if (resp.data.meta.status !== 200) {
             setError(resp.data.meta.messages);
+            setData({
+              title: "",
+              thumbnail: "",
+              description: "",
+              categoryId: 0,
+              difficultyId: 0,
+            });
           } else {
             props.setOpen(false);
             props.setRefresh(props.refresh + 1);
@@ -87,7 +95,7 @@ export default function AddEditCard(props) {
         });
     } else {
       axios
-        .put("http://localhost:8080/api/v1/courses/" + data.id, data)
+        .put("http://13.59.7.136:8080/api/v1/courses/" + data.id, data)
         .then((resp) => {
           console.log(resp);
           if (resp.data.meta.status !== 200) {
@@ -109,9 +117,11 @@ export default function AddEditCard(props) {
   };
 
   useEffect(() => {
-    if (props.editData !== null) {
+    console.log(props.editData);
+    if (props.editData !== undefined) {
       setData(props.editData);
     } else {
+      console.log("test props");
       setData({
         title: "",
         thumbnail: "",
@@ -208,11 +218,7 @@ export default function AddEditCard(props) {
           Cancel
         </Button>
         <Button
-          disabled={
-            errorInput.title ||
-            data.categoryId === null ||
-            data.difficultyId === null
-          }
+          disabled={errorInput.title || data?.title === ""}
           onClick={handleSave}
           autoFocus
         >

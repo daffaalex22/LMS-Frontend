@@ -142,7 +142,7 @@ const ResponsiveAppBar = () => {
                   }}
                 >
                   <Link
-                    to={"/teacher/profile"}
+                    to="/teacher/profile"
                     style={{
                       color: "white",
                       textDecoration: "none",
@@ -163,9 +163,9 @@ const ResponsiveAppBar = () => {
                   }}
                 >
                   <Link
-                    to={"/teacher/courses"}
+                    to="/teacher/courses"
                     style={{
-                      color: "primary.main",
+                      color: "white",
                       textDecoration: "none",
                     }}
                   >
@@ -203,7 +203,13 @@ const ResponsiveAppBar = () => {
                 open={Boolean(anchorElUser)}
                 onClose={handleCloseUserMenu}
               >
-                <Link href="/student/login" underline="none">
+                <Link
+                  to="/student/login"
+                  style={{
+                    color: "primary.main",
+                    textDecoration: "none",
+                  }}
+                >
                   <MenuItem
                     onClick={handleCloseNavMenu}
                     sx={{
@@ -234,7 +240,7 @@ const ResponsiveAppBar = () => {
                   <Link
                     to="/teacher/login"
                     style={{
-                      color: "primary.main",
+                      color: "white",
                       textDecoration: "none",
                     }}
                   >

@@ -44,6 +44,9 @@ const LoginFormStudent = (props) => {
     password: false,
   });
 
+  const emailRegex =
+    /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+
   const handleClickShowPassword = () => {
     setShowPassword(!showPassword);
   };
@@ -53,6 +56,20 @@ const LoginFormStudent = (props) => {
     setLoginData({ ...loginData, [name]: value });
     if (value !== "") {
       setError({ ...error, [name]: false });
+      // if (name === "email") {
+      //   let errorCheck = emailRegex.test(value);
+      //   if (!errorCheck) {
+      //     setError({ ...error, [name]: true });
+      //   }
+      // }
+
+      //password minimum length
+      if (name === "password") {
+        let panjang = value.length;
+        if (panjang < 6) {
+          setError({ ...error, [name]: true });
+        }
+      }
     } else {
       setError({ ...error, [name]: true });
     }
@@ -69,14 +86,13 @@ const LoginFormStudent = (props) => {
         value={loginData.email}
         onChange={(e) => handleChange(e)}
         error={error.email}
-        helperText={error.email ? "please fill the email" : ""}
+        helperText={error.email ? "please fill the email correctly" : ""}
       />
       <br />
       <FormControl sx={classes.formItem} variant="outlined" name>
         <InputLabel
           htmlFor="outlined-adornment-password"
           error={error.password}
-          helperText="mohon masukan password"
         >
           Password
         </InputLabel>

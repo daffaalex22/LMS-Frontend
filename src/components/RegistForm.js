@@ -71,13 +71,13 @@ const RegistForm = (props) => {
           setError({ ...error, [name]: true });
         }
       }
-      // //case of password has minimum length
-      // if (name === "password") {
-      //   let panjang = value.length;
-      //   if (panjang < 8) {
-      //     setError({ ...error, [name]: true });
-      //   }
-      // }
+      //case of password has minimum length
+      if (name === "password") {
+        let panjang = value.length;
+        if (panjang < 6) {
+          setError({ ...error, [name]: true });
+        }
+      }
     }
     if (value === "") {
       setError({ ...error, [name]: true });
@@ -156,7 +156,7 @@ const RegistForm = (props) => {
                   id="outlined-adornment-password"
                   sx={{ color: "error.main" }}
                 >
-                  please fill the password field
+                  please fill password minimum 6 length
                 </FormHelperText>
               )}
             </FormControl>
