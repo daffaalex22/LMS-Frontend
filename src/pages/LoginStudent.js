@@ -12,7 +12,7 @@ import { Navigate } from "react-router";
 
 const classes = {
   loginPage: {
-    height: "100%",
+    height: "100vh",
     margin: "0 auto",
     backgroundColor: yellow[200],
     padding: "35px 7vw",
@@ -41,7 +41,7 @@ export default function LoginStudent() {
   const handleSubmit = (e, data) => {
     e.preventDefault();
     axios
-      .post("http://localhost:8080/api/v1/students/login", data)
+      .post("http://13.59.7.136:8080/api/v1/students/login", data)
       .then((resp) => {
         console.log(resp);
         if (resp.data.meta.status !== 200) {
