@@ -84,9 +84,7 @@ export const useGetAllDifficultiesData = () => {
     const getData = async () => {
       let newDatas;
       try {
-        newDatas = await Axios.get(
-          "http://13.59.7.136:8080/api/v1/difficulties"
-        );
+        newDatas = await Axios.get("http://13.59.7.136:8080/api/v1/difficulties");
       } catch (e) {
         console.error(e);
         if (e.response) {

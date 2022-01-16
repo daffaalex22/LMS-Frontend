@@ -46,7 +46,7 @@ function App() {
         <div className="App">
           <BrowserRouter>
             <Routes>
-              <Route exact path="/" element={<Navigate to="/home" />} />
+              <Route exact path="/" element={<Navigate to="/student/login" />} />
               <Route path="/student/login" element={<LoginStudent />} />
               <Route path="/teacher/login" element={<LoginTeacher />} />
               <Route path="/student/register" element={<RegisterStudent />} />
