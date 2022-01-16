@@ -6,6 +6,8 @@ import { yellow, indigo } from "@mui/material/colors";
 import CourseCard from "../CourseCard";
 import Carousel from "react-elastic-carousel";
 import './CourseCarousel.css'
+import useFetch from "../../customHooks/useFetch";
+
 
 const breakPoints = [
     { width: 1, itemsToShow: 1 },
@@ -27,7 +29,14 @@ const classes = {
     },
 }
 
-const CourseCarousel = ({ title, courses }) => {
+const CourseCarousel = ({ title }) => {
+
+    const {
+        data: courses,
+        isPending: coursesPending,
+        error: coursesError,
+    } = useFetch("http://13.59.7.136:8080/api/v1/courses");
+
     return (
         <Grid
             item
@@ -73,7 +82,7 @@ const CourseCarousel = ({ title, courses }) => {
                         }}
                     >
                         <Carousel breakPoints={breakPoints}>
-                            {courses?.slice(0, 10).map(course => (
+                            {courses?.data?.slice(0, 10).map(course => (
                                 <Box
                                     sx={{
                                         margin: '50px'

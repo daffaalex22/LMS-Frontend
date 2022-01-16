@@ -53,7 +53,7 @@ function App() {
               <Route path="/teacher/register" element={<RegisterTeacher />} />
               <Route exact path="/home" element={<Layout />} />
               <Route exact path="/courses" element={<Layout />} />
-              <Route path="/courses/enroll" element={<Layout />} />
+              <Route path="/courses/enroll/:id" element={<Layout />} />
               <Route exact path="/about-us" element={<Layout />} />
               <Route path="/teacher/courses" element={<TeacherCourse />} />
               <Route path="/teacher/profile" element={<TeacherProfile />} />

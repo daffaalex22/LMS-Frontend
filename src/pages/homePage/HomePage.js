@@ -19,16 +19,9 @@ import CarouselHome from "../../components/CarouselHome";
 import InEduDesc from "../../components/InEduDesc";
 import ValuesHome from "../../components/ValuesHome";
 import CourseCarousel from "../../components/courseCarousel/CourseCarousel";
-import useFetch from "../../customHooks/useFetch";
-
 SwiperCore.use([Navigation, Pagination]);
 
 const HomePage = () => {
-  const {
-    data: courses,
-    isPending: coursesPending,
-    error: coursesError,
-  } = useFetch("http://13.59.7.136:8080/courses");
 
   return (
     <Box
@@ -49,7 +42,7 @@ const HomePage = () => {
           marginBottom: "200px",
         }}
       >
-        <CourseCarousel title="Courses" courses={courses} />
+        <CourseCarousel title="Courses" />
       </Grid>
     </Box>
   );
