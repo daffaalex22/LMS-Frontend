@@ -11,8 +11,9 @@ import { useState } from "react";
 
 const classes = {
     thumbnail: {
+        objectFit: 'cover',
         width: '100%',
-        height: '100%',
+        maxHeight: '655px',
         borderRadius: '20px',
     },
     star: {
@@ -45,12 +46,19 @@ const CourseOverview = ({ course }) => {
                 item
                 xs={12}
                 md={7}
+                container
+                spacing={0}
             >
-                <img
-                    src={course?.thumbnail}
-                    alt="A Photo About Studying"
-                    style={classes.thumbnail}
-                />
+                <Grid
+                    item
+                    xs={12}
+                >
+                    <img
+                        src={course?.thumbnail}
+                        alt="A Photo About Studying"
+                        style={classes.thumbnail}
+                    />
+                </Grid>
             </Grid>
             <Grid
                 item
@@ -97,7 +105,7 @@ const CourseOverview = ({ course }) => {
                         marginTop: '25px'
                     }}
                 >
-                    {course?.description}
+                    {course?.description?.slice(0, 150)}
                 </Typography>
                 <Typography
                     variant="h6"
