@@ -13,6 +13,7 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { yellow, indigo } from "@mui/material/colors";
 import jwt_decode from "jwt-decode";
 import { Link } from "react-router-dom";
+import { RotateLeft } from "@mui/icons-material";
 
 const classes = {
   menuPaper: {
@@ -142,7 +143,11 @@ const ResponsiveAppBar = () => {
                   }}
                 >
                   <Link
-                    to="/teacher/profile"
+                    to={
+                      user === "student"
+                        ? "/student/profile"
+                        : "/teacher/profile"
+                    }
                     style={{
                       color: "white",
                       textDecoration: "none",
@@ -163,7 +168,11 @@ const ResponsiveAppBar = () => {
                   }}
                 >
                   <Link
-                    to="/teacher/courses"
+                    to={
+                      user === "student"
+                        ? "/student/courses"
+                        : "/teacher/courses"
+                    }
                     style={{
                       color: "white",
                       textDecoration: "none",
