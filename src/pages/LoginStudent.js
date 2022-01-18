@@ -49,7 +49,7 @@ export default function LoginStudent() {
         } else {
           setError("");
           localStorage.setItem("token", resp.data.data.token);
-          localStorage.setItem("user", "student");
+          localStorage.setItem("user", "Student");
           setSucessLogin(true);
         }
       })

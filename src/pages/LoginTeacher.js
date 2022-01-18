@@ -48,7 +48,7 @@ const LoginStudent = () => {
         } else {
           setError("");
           localStorage.setItem("token", resp.data.data.token);
-          localStorage.setItem("user", "teacher");
+          localStorage.setItem("user", "Teacher");
           setSucessLogin(true);
         }
       })
