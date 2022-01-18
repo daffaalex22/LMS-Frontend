@@ -28,7 +28,7 @@ function NavSidebar(props) {
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const [refresh, setRefresh] = React.useState(1);
   const { teacherData, errorResponse } = useGetTeacherData(refresh);
-  const namaTeacher = "krisna";
+  const role = localStorage.getItem("user");
   const location = useLocation();
 
   const handleDrawerToggle = () => {
@@ -42,7 +42,7 @@ function NavSidebar(props) {
       </Box>
       <Box m="40px">
         <Typography variant="h5" component="h2" textAlign="center">
-          Teacher
+          {role}
         </Typography>
       </Box>
       <Box
