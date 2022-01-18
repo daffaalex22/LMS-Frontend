@@ -1,7 +1,12 @@
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
 import { yellow, indigo } from "@mui/material/colors";
+import Accordion from '@mui/material/Accordion';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 const classes = {
     yellowBar: {
@@ -18,10 +23,21 @@ const classes = {
         fontWeight: 300,
         marginTop: '30px',
         lineHeight: '1.5em',
+    },
+    accordion: {
+        color: 'black',
+        backgroundColor: yellow[300],
+        '&:first-child': {
+            borderRadius: '13px 13px 0 0'
+        },
+        '&:last-child': {
+            borderRadius: '0 0 13px 13px'
+        },
+        padding: '10px 20px'
     }
 }
 
-const CourseDescription = ({ description, syllabus }) => {
+const CourseDescription = ({ description, modules }) => {
     return (
         <>
             <Grid
@@ -59,12 +75,39 @@ const CourseDescription = ({ description, syllabus }) => {
                         This Course Includes
                     </Typography>
                 </Paper>
-                <Typography
-                    variant="h5"
-                    sx={classes.description}
-                >
-                    {syllabus}
-                </Typography>
+                <br />
+                <br />
+                <Box>
+                    {modules?.map((module) => (
+                        <Accordion
+                            sx={classes.accordion}
+                            key={module?.id}
+                        >
+                            <AccordionSummary
+                                expandIcon={<ExpandMoreIcon sx={{ color: 'black' }} />}
+                                aria-controls={"panel" + module?.id + "a-content"}
+                                id={"panel" + module?.id + "a-header"}
+                            >
+                                <Typography
+                                    variant="h6"
+                                    fontWeight="medium"
+                                >
+                                    {module?.title}
+                                </Typography>
+                            </AccordionSummary>
+                            <AccordionDetails>
+                                <Typography
+                                    variant="h6"
+                                    fontWeight="light"
+                                >
+                                    {module?.title}
+                                </Typography>
+                            </AccordionDetails>
+                        </Accordion>
+                    ))}
+                </Box>
+
+
             </Grid>
         </>
     );

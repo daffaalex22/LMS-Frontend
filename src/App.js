@@ -46,14 +46,14 @@ function App() {
         <div className="App">
           <BrowserRouter>
             <Routes>
-              <Route exact path="/" element={<Navigate to="/home" />} />
+              <Route exact path="/" element={<Navigate to="/student/login" />} />
               <Route path="/student/login" element={<LoginStudent />} />
               <Route path="/teacher/login" element={<LoginTeacher />} />
               <Route path="/student/register" element={<RegisterStudent />} />
               <Route path="/teacher/register" element={<RegisterTeacher />} />
               <Route exact path="/home" element={<Layout />} />
               <Route exact path="/courses" element={<Layout />} />
-              <Route path="/courses/enroll" element={<Layout />} />
+              <Route path="/courses/enroll/:id" element={<Layout />} />
               <Route exact path="/about-us" element={<Layout />} />
               <Route path="/teacher/courses" element={<TeacherCourse />} />
               <Route path="/teacher/profile" element={<TeacherProfile />} />

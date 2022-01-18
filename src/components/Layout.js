@@ -70,6 +70,10 @@ export default function Layout() {
 
   useEffect(() => {
     setValue(pathnameToValue[location.pathname]);
+    if (location.pathname.includes("/enroll/")) {
+      setValue(1)
+      setOpenEnrollment(true)
+    }
   }, [location]);
 
   useEffect(() => {
@@ -81,7 +85,7 @@ export default function Layout() {
   const pathnameToValue = {
     "/home": 0,
     "/courses": 1,
-    "/courses/enroll": 1,
+    "/courses/:id/enroll": 1,
     "/help-faq": 2,
     "/about-us": 3,
   };

@@ -34,17 +34,17 @@ const classes = {
 };
 
 const ReviewItem = ({ enroll }) => {
-  const {
-    data: student,
-    isPending: studentPending,
-    error: studentError,
-  } = useFetch("http://13.59.7.136:8080/students/" + enroll.studentId);
+  // const {
+  //   data: student,
+  //   isPending: studentPending,
+  //   error: studentError,
+  // } = useFetch("http://13.59.7.136:8080/api/v1/students/" + enroll?.studentId);
 
   return (
     <Grid container spacing={1}>
-      <Grid item xs={12} sm={7} md={4} lg={3}>
+      <Grid item xs={12} sm={7} md={5}>
         <Box>
-          <Avatar alt="Remy Sharp" src={student?.avatar} sx={classes.ava} />
+          <Avatar alt="Remy Sharp" src={enroll?.student?.avatar} sx={classes.ava} />
           <Box
             sx={{
               display: "inline-block",
@@ -53,7 +53,7 @@ const ReviewItem = ({ enroll }) => {
               left: "20px",
             }}
           >
-            <Typography variant="h5">{student?.name}</Typography>
+            <Typography variant="h5">{enroll?.student?.name}</Typography>
             <Typography variant="h5" component="div">
               <StarRateRoundedIcon
                 sx={{
@@ -72,8 +72,7 @@ const ReviewItem = ({ enroll }) => {
         item
         xs={12}
         sm={12}
-        md={12}
-        lg={9}
+        md={7}
         container
         spacing={0}
         direction="row"

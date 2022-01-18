@@ -23,14 +23,20 @@ import { useNavigate } from "react-router";
 import DeleteSweepIcon from "@mui/icons-material/DeleteSweep";
 import CreateIcon from "@mui/icons-material/Create";
 import { useState } from "react";
+import useFetch from "../customHooks/useFetch";
 
 const CourseCard = ({ course, role, openEdit, onDelete }) => {
   const [deleteAlert, setDeleteAlert] = useState(false);
   const { setOpenEnrollment, openEnrollment } = useContext(GeneralContext);
   const navigate = useNavigate();
+  const {
+    data: enrollData,
+    isPending: enrollmentsPending,
+    error: enrollmentsError,
+  } = useFetch("http://13.59.7.136:8080/api/v1/courses/" + 1 + "/enrollments");
 
   const handleClickCard = () => {
-    navigate("/courses/enroll");
+    navigate("/courses/enroll/" + course?.id);
     setOpenEnrollment(true);
   };
 
@@ -100,11 +106,6 @@ const CourseCard = ({ course, role, openEdit, onDelete }) => {
                 variant="body2"
                 color="text.primary"
                 textAlign="justify"
-                sx={
-                  {
-                    // overflow: 'auto'
-                  }
-                }
               >
                 {course?.description?.length >= 88
                   ? course?.description?.substring(0, 85) + "..."

@@ -12,6 +12,7 @@ import useFetch from "../../customHooks/useFetch";
 import ReactLoading from "react-loading";
 import CourseOverview from "../../components/CourseOverview";
 import { useState, useEffect } from "react";
+import { useParams } from "react-router";
 
 const classes = {
   thumbnail: {
@@ -66,38 +67,59 @@ const classes = {
 };
 
 const CourseEnroll = () => {
+  const { id } = useParams()
   const [filterReview, setFilterReview] = useState(0);
-  const [enrollments, setEnrollments] = useState(null);
+  const [enrollments, setEnrollments] = useState([]);
+  const [course, setCourse] = useState({})
+  const [courses, setCourses] = useState([])
   const [reviewItems, setReviewItems] = useState(3);
 
   const {
-    data: course,
+    data: courseData,
     isPending: coursePending,
     error: courseError,
-  } = useFetch("http://13.59.7.136:8080/courses/" + 1);
+  } = useFetch("http://13.59.7.136:8080/api/v1/courses/" + id);
   const {
-    data: courses,
+    data: coursesData,
     isPending: coursesPending,
     error: coursesError,
-  } = useFetch("http://13.59.7.136:8080/courses");
+  } = useFetch("http://13.59.7.136:8080/api/v1/courses/");
   const {
     data: enrollData,
     isPending: enrollmentsPending,
     error: enrollmentsError,
-  } = useFetch("http://13.59.7.136:8080/enrollments");
+  } = useFetch("http://13.59.7.136:8080/api/v1/courses/" + id + "/enrollments");
+  const {
+    data: modulesData,
+    isPending: modulesPending,
+    error: modulesError,
+  } = useFetch("http://13.59.7.136:8080/api/v1/courses/" + id + "/modules");
+
 
   useEffect(() => {
     if (enrollData) {
-      setEnrollments(enrollData);
+      setEnrollments(enrollData?.data);
     }
   }, [enrollData]);
 
   useEffect(() => {
-    let filtered = enrollData?.filter(
+    if (coursesData) {
+      setCourses(coursesData?.data);
+    }
+  }, [coursesData]);
+
+  useEffect(() => {
+    if (courseData) {
+      setCourse(courseData?.data);
+    }
+  }, [courseData]);
+
+  useEffect(() => {
+    let filtered = enrollData?.data?.filter(
       (enrollment) => enrollment.rating === filterReview
     );
     if (filterReview === 0) {
-      filtered = enrollData?.filter((enrollment) => enrollment);
+      filtered = enrollData?.data?.filter((enrollment) => enrollment);
     }
     setEnrollments(filtered);
     setReviewItems(3);
@@ -121,7 +143,7 @@ const CourseEnroll = () => {
               <CourseOverview course={course} />
               <CourseDescription
                 description={course?.description}
-                syllabus={course?.syllabus}
+                modules={modulesData?.data}
               />
               <TheInstructor teacher={course?.teacher} />
               <StudentsFeedback setFilterReview={setFilterReview} />
