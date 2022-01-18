@@ -10,19 +10,53 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { GeneralContext } from "../contexts/GeneralContext";
+import useFetch from "../customHooks/useFetch";
 
 const FilterFields = () => {
-    const [categories, setCategories] = useState('');
-    const [difficulties, setDifficulties] = useState('');
+    const [category, setCategory] = useState('')
+    const [difficulty, setDifficulty] = useState('')
+    const [search, setSearch] = useState('')
+
+    const {
+        data: categoriesData,
+        isPending: categoriesPending,
+        error: categoriesError,
+    } = useFetch("http://13.59.7.136:8080/api/v1/categories");
+
+    const {
+        data: difficultiesData,
+        isPending: difficultiesPending,
+        error: difficultiesError,
+    } = useFetch("http://13.59.7.136:8080/api/v1/difficulties");
+
+    const {
+        searchQuery,
+        setSearchQuery,
+        difficultyQuery,
+        setDifficultyQuery,
+        categoryQuery,
+        setCategoryQuery,
+    } = useContext(GeneralContext)
 
     const handleChangeCategory = (event) => {
-        setCategories(event.target.value);
+        setCategory(event.target.value);
     };
 
     const handleChangeDifficulty = (event) => {
-        setDifficulties(event.target.value);
+        setDifficulty(event.target.value);
     };
+
+    const handleChangeSearch = (event) => {
+        setSearch(event.target.value)
+    }
+
+    const handleClick = () => {
+        setSearchQuery(search)
+        setCategoryQuery(category)
+        setDifficultyQuery(difficulty)
+    }
 
 
     return (
@@ -33,7 +67,9 @@ const FilterFields = () => {
                         InputProps={{
                             endAdornment: (
                                 <InputAdornment position="end">
-                                    <IconButton>
+                                    <IconButton
+                                        onClick={handleClick}
+                                    >
                                         <SearchIcon />
                                     </IconButton>
                                 </InputAdornment>
@@ -42,6 +78,8 @@ const FilterFields = () => {
                         variant="outlined"
                         placeholder="Search Courses"
                         fullWidth
+                        value={search}
+                        onChange={handleChangeSearch}
                     />
                 </Grid>
                 <Grid item xs={12} md={6} lg={3}>
@@ -50,16 +88,18 @@ const FilterFields = () => {
                         <Select
                             labelId="demo-simple-select-label"
                             id="demo-simple-select"
-                            value={categories}
+                            value={category}
                             label="Category"
                             onChange={handleChangeCategory}
                         >
                             <MenuItem value="">
                                 <em>None</em>
                             </MenuItem>
-                            <MenuItem value="IT">IT</MenuItem>
-                            <MenuItem value="Bussiness">Bussiness</MenuItem>
-                            <MenuItem value="Science">Science</MenuItem>
+                            {categoriesData?.data?.map((category) => (
+                                <MenuItem value={category?.title}>
+                                    {category?.title}
+                                </MenuItem>
+                            ))}
                         </Select>
                     </FormControl>
                 </Grid>
@@ -69,16 +109,18 @@ const FilterFields = () => {
                         <Select
                             labelId="demo-simple-select-label"
                             id="demo-simple-select"
-                            value={difficulties}
+                            value={difficulty}
                             label="Difficulties"
                             onChange={handleChangeDifficulty}
                         >
                             <MenuItem value="">
                                 <em>None</em>
                             </MenuItem>
-                            <MenuItem value="Beginner">Beginner</MenuItem>
-                            <MenuItem value="Intermediate">Intermediate</MenuItem>
-                            <MenuItem value="Advanced">Advanced</MenuItem>
+                            {difficultiesData?.data?.map((difficulty) => (
+                                <MenuItem value={difficulty?.title}>
+                                    {difficulty?.title}
+                                </MenuItem>
+                            ))}
                         </Select>
                     </FormControl>
                 </Grid>
