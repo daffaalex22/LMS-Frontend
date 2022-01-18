@@ -90,13 +90,21 @@ function NavSidebar(props) {
         <Box
           sx={{
             bgcolor:
-              location.pathname === "/teacher/courses" ? "primary.main" : "",
+              location.pathname === "/teacher/courses" ||
+              location.pathname === "/student/courses"
+                ? "primary.main"
+                : "",
           }}
         >
           <Link
             href="/teacher/courses"
             underline="none"
-            color={location.pathname === "/teacher/courses" ? "white" : "black"}
+            color={
+              location.pathname === "/teacher/courses" ||
+              location.pathname === "/student/courses"
+                ? "white"
+                : "black"
+            }
           >
             <ListItem button>
               <ListItemIcon>
