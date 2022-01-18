@@ -1,13 +1,18 @@
-import { Box, Fab, Typography, Breadcrumbs, Link } from "@mui/material";
-import React from "react";
-import AddIcon from "@mui/icons-material/Add";
-
-import NavSidebar from "../components/NavSide";
+import { Box, Typography, Breadcrumbs, Link } from "@mui/material";
+import React, { useState } from "react";
+import NavSidebar from "../../components/NavSide";
+import FormEdit from "./FormEdit";
+import { useGetTeacherData } from "./TeacherHook";
 
 export default function TeacherProfile() {
   document.title = "Teacher - Profile";
+
+  const [refresh, setRefresh] = useState(1);
+
+  const { teacherData, errorResponse } = useGetTeacherData(refresh);
+
   return (
-    <Box sx={{ height: "100vh", bgcolor: "secondary.200" }}>
+    <Box sx={{ minHeight: "100vh", bgcolor: "secondary.200" }}>
       <NavSidebar>
         <Box
           sx={{
@@ -16,22 +21,6 @@ export default function TeacherProfile() {
         >
           <Typography variant="h3" component="h2" ml={2}>
             Profile
-            <Fab
-              variant="extended"
-              sx={{
-                ml: "15px",
-                mb: "10px",
-                bgcolor: "primary.main",
-                color: "white",
-                "&:hover": {
-                  backgroundColor: "secondary.main",
-                  color: "primary.main",
-                },
-              }}
-            >
-              <AddIcon sx={{ mr: 1 }} />
-              CREATE
-            </Fab>
           </Typography>
           <hr
             sx={{
@@ -49,6 +38,9 @@ export default function TeacherProfile() {
             </Link>
             <Typography color="text.primary">Profile</Typography>
           </Breadcrumbs>
+          <Box sx={{ marginLeft: "17px", marginTop: "30px" }}>
+            <FormEdit teacher={teacherData} />
+          </Box>
         </Box>
       </NavSidebar>
     </Box>

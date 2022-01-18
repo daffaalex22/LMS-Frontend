@@ -24,8 +24,9 @@ import GeneralContextProvider from "./contexts/GeneralContext";
 import Layout from "./components/Layout";
 import GeneralContextProvider from "./contexts/GeneralContext";
 import TeacherCourse from "./pages/teacherCourse/TeacherCourse";
-import TeacherProfile from "./pages/TeacherProfile";
+import TeacherProfile from "./pages/teacherProfile/TeacherProfile";
 import InternalServerError from "./pages/internalServerError/InternalServerError";
+import { storage } from "./firebase/firebase";
 
 let theme = createTheme({
   palette: {
