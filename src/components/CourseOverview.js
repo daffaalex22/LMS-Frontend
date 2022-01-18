@@ -8,6 +8,8 @@ import AddIcon from '@mui/icons-material/Add';
 import Star from "../assets/images/star.svg"
 import { yellow, indigo } from "@mui/material/colors";
 import { useState } from "react";
+import EnrolledModal from "./EnrolledModal";
+import { useNavigate } from "react-router";
 
 const classes = {
     thumbnail: {
@@ -34,12 +36,22 @@ const classes = {
         borderRadius: '20px',
         '&:hover': {
             backgroundColor: indigo[400],
-            borderColor: indigo[500],
         }
     },
 }
 
 const CourseOverview = ({ course }) => {
+    const navigate = useNavigate()
+    const [enrolled, setEnrolled] = useState(false)
+    const [open, setOpen] = useState(false);
+    const handleOpen = () => {
+        if (enrolled) {
+            navigate("/modules/1/videos/1")
+        }
+        setOpen(true)
+        setEnrolled(true)
+    };
+
     return (
         <>
             <Grid
@@ -117,12 +129,24 @@ const CourseOverview = ({ course }) => {
                 </Typography>
                 <Button
                     variant="contained"
-                    sx={classes.btn}
+                    sx={{
+                        ...classes.btn,
+                        backgroundColor: enrolled ? "secondary" : "primary",
+                        '&:hover': {
+                            backgroundColor: enrolled ? "secondary.400" : "primary.400",
+                        }
+                    }}
+                    onClick={handleOpen}
+                    color={enrolled ? "secondary" : "primary"}
                 >
                     <AddIcon />
-                    Enroll Course
+                    {enrolled ? "Open Course" : "Enroll Course"}
                 </Button>
             </Grid>
+            <EnrolledModal
+                open={open}
+                setOpen={setOpen}
+            />
         </>
 
     );

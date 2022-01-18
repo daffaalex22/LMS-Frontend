@@ -20,6 +20,7 @@ import { storage } from "./firebase/firebase";
 import StudentCourse from "./pages/studentCourse/StudentCourse";
 import StudentProfile from "./pages/studentProfile/StudentProfile";
 import RequestMail from "./pages/requestMail/RequestMail";
+import VideosPage from "./pages/VideosPage";
 
 let theme = createTheme({
   palette: {
@@ -72,6 +73,7 @@ function App() {
               <Route path="/student/request" element={<RequestMail />} />
               <Route path="/teacher/request" element={<RequestMail />} />
               <Route path="/help-faq" element={<Layout />} />
+              <Route path="/modules/:moduleId/videos/:videoId" element={<VideosPage />} />
               <Route path="/server-error" element={<InternalServerError />} />
               <Route
                 exact
