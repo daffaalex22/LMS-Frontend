@@ -140,13 +140,19 @@ const CourseEnroll = () => {
         <>
           <Container>
             <Grid container spacing={5}>
-              <CourseOverview course={course} />
+              <CourseOverview
+                course={course}
+                enroll={enrollments}
+              />
               <CourseDescription
                 description={course?.description}
                 modules={modulesData?.data}
               />
               <TheInstructor teacher={course?.teacher} />
-              <StudentsFeedback setFilterReview={setFilterReview} />
+              <StudentsFeedback
+                setFilterReview={setFilterReview}
+                course={course}
+              />
               <StudentsReview
                 enrollments={enrollments}
                 reviewItems={reviewItems}

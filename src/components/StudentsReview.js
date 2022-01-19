@@ -45,11 +45,13 @@ const StudentsReview = ({ enrollments, reviewItems, setReviewItems }) => {
             spacing={0}
         >
             {enrollments?.slice(0, reviewItems).map((enroll) => (
-                <Grid item xs={12}>
-                    <ReviewItem
-                        enroll={enroll}
-                    />
-                </Grid>
+                (enroll?.rating && enroll?.review) ? (
+                    <Grid item xs={12}>
+                        <ReviewItem
+                            enroll={enroll}
+                        />
+                    </Grid>
+                ) : null
             ))}
             <Grid
                 item
