@@ -14,11 +14,10 @@ import AddIcon from "@mui/icons-material/Add";
 
 import CourseCard from "../../components/CourseCard";
 import { useTeacherCourseData } from "./Course.hook";
-import AddEditCard from "./AddEditCard";
 import axios from "axios";
 import NavSidebar from "../../components/navSideBar/NavSide";
 
-export default function TeacherCourse() {
+export default function StudentCourse() {
   document.title = "Teacher - Courses";
 
   const mobileVersion = useMediaQuery("(min-width:600px)");
@@ -84,23 +83,6 @@ export default function TeacherCourse() {
           >
             <Typography variant="h3" component="h2" ml={2}>
               MyCourse
-              <Fab
-                variant="extended"
-                onClick={() => setCreateOpen(true)}
-                sx={{
-                  ml: "15px",
-                  mb: "10px",
-                  bgcolor: "primary.main",
-                  color: "white",
-                  "&:hover": {
-                    backgroundColor: "secondary.main",
-                    color: "primary.main",
-                  },
-                }}
-              >
-                <AddIcon sx={{ mr: 1 }} />
-                {mobileVersion && "CREATE"}
-              </Fab>
             </Typography>
             <hr
               sx={{
@@ -134,7 +116,7 @@ export default function TeacherCourse() {
               {data?.map((course, key) => (
                 <Grid item lg={4} md={6} xs={12}>
                   <CourseCard
-                    role="teacher"
+                    role="student"
                     course={course}
                     openEdit={openEdit}
                     onDelete={onDelete}
@@ -161,21 +143,6 @@ export default function TeacherCourse() {
             </Alert>
           </Snackbar>
         )}
-        <AddEditCard
-          setOpen={setCreateOpen}
-          createOpen={createOpen}
-          title="Create"
-          setRefresh={setRefresh}
-          refresh={refresh}
-        />
-        <AddEditCard
-          setOpen={setEditOpen}
-          editOpen={editOpen}
-          title="Edit"
-          setRefresh={setRefresh}
-          refresh={refresh}
-          editData={editData}
-        />
       </Box>
     </Box>
   );

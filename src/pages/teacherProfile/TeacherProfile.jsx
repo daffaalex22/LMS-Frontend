@@ -1,6 +1,6 @@
 import { Box, Typography, Breadcrumbs, Link } from "@mui/material";
 import React, { useState } from "react";
-import NavSidebar from "../../components/NavSide";
+import NavSidebar from "../../components/navSideBar/NavSide";
 import FormEdit from "./FormEdit";
 import { useGetTeacherData } from "./TeacherHook";
 
