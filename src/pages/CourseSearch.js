@@ -28,15 +28,13 @@ const CourseSearch = () => {
     refetch] = useAxios("http://13.59.7.136:8080/api/v1/courses/search" + queryString)
 
   useEffect(() => {
-    if (searchQuery || difficultyQuery || categoryQuery) {
-      navigate({
-        search: `?${createSearchParams({
-          category: categoryQuery,
-          search: searchQuery,
-          difficulty: difficultyQuery,
-        })}`
-      })
-    }
+    navigate({
+      search: `?${createSearchParams({
+        category: categoryQuery,
+        title: searchQuery,
+        difficulty: difficultyQuery,
+      })}`
+    })
   }, [searchQuery, difficultyQuery, categoryQuery])
 
   useEffect(() => {
