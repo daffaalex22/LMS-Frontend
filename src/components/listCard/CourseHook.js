@@ -1,7 +1,7 @@
 import Axios from "axios";
 import { useEffect, useState } from "react";
 
-export const useGetCourseData = (refresh) => {
+export const useGetCourseData = (refresh, query) => {
   const [courseData, setCourseData] = useState([]);
   const [errorResponse, setErrorResponse] = useState(null);
 
@@ -10,7 +10,7 @@ export const useGetCourseData = (refresh) => {
     const getData = async () => {
       let newDatas;
       try {
-        newDatas = await Axios.get("http://13.59.7.136:8080/api/v1/courses");
+        newDatas = await Axios.get("http://13.59.7.136:8080/api/v1/courses" + query);
       } catch (e) {
         console.error(e);
         if (e.response) {

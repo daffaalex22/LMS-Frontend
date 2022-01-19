@@ -5,6 +5,7 @@ import { useNavigate } from "react-router";
 import { GeneralContext } from "../contexts/GeneralContext";
 import { useContext } from "react";
 import { useEffect, useState } from "react";
+import useAxios from 'axios-hooks'
 import { createSearchParams, useSearchParams, useLocation } from "react-router-dom";
 
 const CourseSearch = () => {
@@ -19,6 +20,12 @@ const CourseSearch = () => {
     queryString,
     setQueryString
   } = useContext(GeneralContext)
+
+  const [{
+    data: coursesData,
+    loading: coursesLoading,
+    error: coursesError },
+    refetch] = useAxios("http://13.59.7.136:8080/api/v1/courses/search" + queryString)
 
   useEffect(() => {
     if (searchQuery || difficultyQuery || categoryQuery) {
@@ -36,14 +43,22 @@ const CourseSearch = () => {
     setQueryString(location.search)
   }, [searchParams])
 
-  useEffect(() => {
-    console.log("querystring", queryString)
+  useEffect(async () => {
+    try {
+      await refetch()
+    } catch (e) {
+      console.log('Error Refetch')
+    }
   }, [queryString])
+
+
 
   return (
     <Box sx={{ padding: "70px 0" }}>
       <FilterFields />
-      <CourseCardList />
+      <CourseCardList
+        courses={coursesData?.data}
+      />
     </Box>
   );
 };

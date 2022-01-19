@@ -1,13 +1,18 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Grid from "@mui/material/Grid";
 import Container from "@mui/material/Container";
 import CourseCard from "../CourseCard";
 import "./CourseCardList.css";
 import { useGetCourseData } from "./CourseHook";
+import { GeneralContext } from "../../contexts/GeneralContext";
+import { useContext } from "react";
 
-const CourseCardList = () => {
+const CourseCardList = ({ courses }) => {
   const [refresh, setRefresh] = useState(1);
-  const { courseData: courses, errorResponse } = useGetCourseData(refresh);
+  const {
+    queryString,
+    setQueryString
+  } = useContext(GeneralContext)
 
   return (
     <Container sx={{ paddingTop: "50px" }}>
