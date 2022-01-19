@@ -16,6 +16,7 @@ import AppBar from "./ResponsiveAppBar";
 import FooterDashboard from "./FooterDashboard";
 import { useLocation } from 'react-router-dom';
 
+
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
 
@@ -77,7 +78,7 @@ export default function Layout() {
         '/courses': 1,
         '/courses/enroll': 2,
         '/about-us': 3,
-        '/reading': 4,
+        '/reading/1': 4,
     }
 
     const valueToPathname = {
@@ -85,7 +86,7 @@ export default function Layout() {
         1: '/courses',
         2: '/courses/enroll',
         3: '/about-us',
-        4: '/reading',
+        4: '/reading/1',
     }
 
     return (
@@ -137,7 +138,8 @@ export default function Layout() {
                     <CourseEnroll />
                 </TabPanel>
                 <TabPanel value={value} index={4}>
-                    <StudentReading />
+                    <StudentReading
+                    />
                 </TabPanel>
             </Box>
             <FooterDashboard />

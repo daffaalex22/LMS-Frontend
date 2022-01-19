@@ -1,608 +1,949 @@
 {
-    "courses": [
-        {
-            "id": 1,
-            "title": "Fundamental of Physics",
-            "thumbnail": "https://cdn.kibrispdr.org/data/grid-hd-1.jpg",
-            "description": "Eaque vitae sint voluptas error dignissimos maiores at non aliquid! ",
-            "syllabus": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta recusandae laborum natus soluta fuga optio similique nam voluptate impedit quo? Eaque vitae sint voluptas error dignissimos maiores at non aliquid! ",
-            "categoryId": 1,
-            "teacherId": 1,
-            "difficultyId": 1,
-            "categories": {
-                "id": 1,
-                "title": "Science",
-                "createdAt": "2021-12-23T16:06:02+07:00",
-                "updateAt": "0001-01-01T00:00:00Z"
-            },
-            "teacher": {
-                "id": 1,
-                "name": "Bambang",
-                "email": "bambang@alterra.id",
-                "avatar": "https://cdn.kibrispdr.org/data/grid-hd-1.jpg",
-                "background": "10 tahun belajar fisika, cucunya einstein",
-                "phone": 0,
-                "address": "",
-                "createAt": "2021-12-23T16:11:36.154+07:00",
-                "updateAt": "2021-12-23T16:11:36.154+07:00",
-                "deleteAt": null
-            },
-            "created_at": "2021-12-23T16:11:53.458+07:00",
-            "updated_at": "2021-12-23T16:11:53.472+07:00"
-        },
-        {
-            "id": 2,
-            "title": "Fundamental of Aerodynamics",
-            "thumbnail": "https://cdn.kibrispdr.org/data/grid-hd-1.jpg",
-            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta recusandae laborum natus soluta fuga optio similique nam voluptate impedit quo? Eaque vitae sint voluptas error dignissimos maiores at non aliquid! Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta recusandae laborum natus soluta fuga optio similique nam voluptate impedit quo? Eaque vitae sint voluptas error dignissimos maiores at non aliquid!",
-            "syllabus": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta recusandae laborum natus soluta fuga optio similique nam voluptate impedit quo? Eaque vitae sint voluptas error dignissimos maiores at non aliquid! ",
-            "categoryId": 1,
-            "teacherId": 1,
-            "difficultyId": 1,
-            "categories": {
-                "id": 1,
-                "title": "Science",
-                "createdAt": "2021-12-23T16:06:02+07:00",
-                "updateAt": "0001-01-01T00:00:00Z"
-            },
-            "teacher": {
-                "id": 1,
-                "name": "Bambang",
-                "email": "bambang@alterra.id",
-                "avatar": "https://cdn.kibrispdr.org/data/grid-hd-1.jpg",
-                "background": "10 tahun belajar fisika, cucunya einstein",
-                "phone": 0,
-                "address": "",
-                "createAt": "2021-12-23T16:11:36.154+07:00",
-                "updateAt": "2021-12-23T16:11:36.154+07:00",
-                "deleteAt": null
-            },
-            "created_at": "2021-12-23T16:12:03.704+07:00",
-            "updated_at": "2021-12-23T16:12:03.708+07:00"
-        },
-        {
-            "id": 3,
-            "title": "Fundamental of Aerodynamics",
-            "thumbnail": "https://cdn.kibrispdr.org/data/grid-hd-1.jpg",
-            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta recusandae laborum natus soluta fuga optio similique nam voluptate impedit quo? Eaque vitae sint voluptas error dignissimos maiores at non aliquid! ",
-            "syllabus": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta recusandae laborum natus soluta fuga optio similique nam voluptate impedit quo? Eaque vitae sint voluptas error dignissimos maiores at non aliquid! ",
-            "categoryId": 1,
-            "teacherId": 1,
-            "difficultyId": 1,
-            "categories": {
-                "id": 1,
-                "title": "Science",
-                "createdAt": "2021-12-23T16:06:02+07:00",
-                "updateAt": "0001-01-01T00:00:00Z"
-            },
-            "teacher": {
-                "id": 1,
-                "name": "Bambang",
-                "email": "bambang@alterra.id",
-                "avatar": "https://cdn.kibrispdr.org/data/grid-hd-1.jpg",
-                "background": "10 tahun belajar fisika, cucunya einstein",
-                "phone": 0,
-                "address": "",
-                "createAt": "2021-12-23T16:11:36.154+07:00",
-                "updateAt": "2021-12-23T16:11:36.154+07:00",
-                "deleteAt": null
-            },
-            "created_at": "2021-12-23T16:12:03.704+07:00",
-            "updated_at": "2021-12-23T16:12:03.708+07:00"
-        },
-        {
-            "id": 4,
-            "title": "Fundamental of Aerodynamics",
-            "thumbnail": "https://cdn.kibrispdr.org/data/grid-hd-1.jpg",
-            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta recusandae laborum natus soluta fuga optio similique nam voluptate impedit quo? Eaque vitae sint voluptas error dignissimos maiores at non aliquid! ",
-            "syllabus": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta recusandae laborum natus soluta fuga optio similique nam voluptate impedit quo? Eaque vitae sint voluptas error dignissimos maiores at non aliquid! ",
-            "categoryId": 1,
-            "teacherId": 1,
-            "difficultyId": 1,
-            "categories": {
-                "id": 1,
-                "title": "Science",
-                "createdAt": "2021-12-23T16:06:02+07:00",
-                "updateAt": "0001-01-01T00:00:00Z"
-            },
-            "teacher": {
-                "id": 1,
-                "name": "Bambang",
-                "email": "bambang@alterra.id",
-                "avatar": "https://cdn.kibrispdr.org/data/grid-hd-1.jpg",
-                "background": "10 tahun belajar fisika, cucunya einstein",
-                "phone": 0,
-                "address": "",
-                "createAt": "2021-12-23T16:11:36.154+07:00",
-                "updateAt": "2021-12-23T16:11:36.154+07:00",
-                "deleteAt": null
-            },
-            "created_at": "2021-12-23T16:12:03.704+07:00",
-            "updated_at": "2021-12-23T16:12:03.708+07:00"
-        },
-        {
-            "id": 5,
-            "title": "Fundamental of Aerodynamics",
-            "thumbnail": "https://cdn.kibrispdr.org/data/grid-hd-1.jpg",
-            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta recusandae laborum natus soluta fuga optio similique nam voluptate impedit quo? Eaque vitae sint voluptas error dignissimos maiores at non aliquid! ",
-            "syllabus": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta recusandae laborum natus soluta fuga optio similique nam voluptate impedit quo? Eaque vitae sint voluptas error dignissimos maiores at non aliquid! ",
-            "categoryId": 1,
-            "teacherId": 1,
-            "difficultyId": 1,
-            "categories": {
-                "id": 1,
-                "title": "Science",
-                "createdAt": "2021-12-23T16:06:02+07:00",
-                "updateAt": "0001-01-01T00:00:00Z"
-            },
-            "teacher": {
-                "id": 1,
-                "name": "Bambang",
-                "email": "bambang@alterra.id",
-                "avatar": "https://cdn.kibrispdr.org/data/grid-hd-1.jpg",
-                "background": "10 tahun belajar fisika, cucunya einstein",
-                "phone": 0,
-                "address": "",
-                "createAt": "2021-12-23T16:11:36.154+07:00",
-                "updateAt": "2021-12-23T16:11:36.154+07:00",
-                "deleteAt": null
-            },
-            "created_at": "2021-12-23T16:12:03.704+07:00",
-            "updated_at": "2021-12-23T16:12:03.708+07:00"
-        },
-        {
-            "id": 6,
-            "title": "Fundamental of Aerodynamics",
-            "thumbnail": "https://cdn.kibrispdr.org/data/grid-hd-1.jpg",
-            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta recusandae laborum natus soluta fuga optio similique nam voluptate impedit quo? Eaque vitae sint voluptas error dignissimos maiores at non aliquid! ",
-            "syllabus": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta recusandae laborum natus soluta fuga optio similique nam voluptate impedit quo? Eaque vitae sint voluptas error dignissimos maiores at non aliquid! ",
-            "categoryId": 1,
-            "teacherId": 1,
-            "difficultyId": 1,
-            "categories": {
-                "id": 1,
-                "title": "Science",
-                "createdAt": "2021-12-23T16:06:02+07:00",
-                "updateAt": "0001-01-01T00:00:00Z"
-            },
-            "teacher": {
-                "id": 1,
-                "name": "Bambang",
-                "email": "bambang@alterra.id",
-                "avatar": "https://cdn.kibrispdr.org/data/grid-hd-1.jpg",
-                "background": "10 tahun belajar fisika, cucunya einstein",
-                "phone": 0,
-                "address": "",
-                "createAt": "2021-12-23T16:11:36.154+07:00",
-                "updateAt": "2021-12-23T16:11:36.154+07:00",
-                "deleteAt": null
-            },
-            "created_at": "2021-12-23T16:12:03.704+07:00",
-            "updated_at": "2021-12-23T16:12:03.708+07:00"
-        },
-        {
-            "id": 7,
-            "title": "Fundamental of Aerodynamics",
-            "thumbnail": "https://cdn.kibrispdr.org/data/grid-hd-1.jpg",
-            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta recusandae laborum natus soluta fuga optio similique nam voluptate impedit quo? Eaque vitae sint voluptas error dignissimos maiores at non aliquid! ",
-            "syllabus": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta recusandae laborum natus soluta fuga optio similique nam voluptate impedit quo? Eaque vitae sint voluptas error dignissimos maiores at non aliquid! ",
-            "categoryId": 1,
-            "teacherId": 1,
-            "difficultyId": 1,
-            "categories": {
-                "id": 1,
-                "title": "Science",
-                "createdAt": "2021-12-23T16:06:02+07:00",
-                "updateAt": "0001-01-01T00:00:00Z"
-            },
-            "teacher": {
-                "id": 1,
-                "name": "Bambang",
-                "email": "bambang@alterra.id",
-                "avatar": "https://cdn.kibrispdr.org/data/grid-hd-1.jpg",
-                "background": "10 tahun belajar fisika, cucunya einstein",
-                "phone": 0,
-                "address": "",
-                "createAt": "2021-12-23T16:11:36.154+07:00",
-                "updateAt": "2021-12-23T16:11:36.154+07:00",
-                "deleteAt": null
-            },
-            "created_at": "2021-12-23T16:12:03.704+07:00",
-            "updated_at": "2021-12-23T16:12:03.708+07:00"
-        }
-    ],
-    "students": [
-        {
-            "id": 1,
-            "name": "Alexander",
-            "email": "alex@alterra.id",
-            "avatar": "https://cdn.kibrispdr.org/data/grid-hd-1.jpg",
-            "phone": 0,
-            "address": ""
-        },
-        {
-            "id": 2,
-            "name": "Alexander",
-            "email": "alexa@alterra.id",
-            "avatar": "https://cdn.kibrispdr.org/data/grid-hd-1.jpg",
-            "phone": 0,
-            "address": ""
-        },
-        {
-            "id": 3,
-            "name": "Alexander",
-            "email": "alexan@alterra.id",
-            "avatar": "https://cdn.kibrispdr.org/data/grid-hd-1.jpg",
-            "phone": 0,
-            "address": ""
-        },
-        {
-            "id": 4,
-            "name": "Alexander",
-            "email": "alexand@alterra.id",
-            "avatar": "https://cdn.kibrispdr.org/data/grid-hd-1.jpg",
-            "phone": 0,
-            "address": ""
-        },
-        {
-            "id": 5,
-            "name": "Alexander",
-            "email": "alexande@alterra.id",
-            "avatar": "https://cdn.kibrispdr.org/data/grid-hd-1.jpg",
-            "phone": 0,
-            "address": ""
-        },
-        {
-            "id": 6,
-            "name": "Alexander",
-            "email": "alexander@alterra.id",
-            "avatar": "https://cdn.kibrispdr.org/data/grid-hd-1.jpg",
-            "phone": 0,
-            "address": ""
-        },
-        {
-            "id": 7,
-            "name": "Alexander",
-            "email": "alexander@alterra.id",
-            "avatar": "https://cdn.kibrispdr.org/data/grid-hd-1.jpg",
-            "phone": 0,
-            "address": ""
-        },
-        {
-            "id": 8,
-            "name": "Alexander",
-            "email": "alexander@alterra.id",
-            "avatar": "https://cdn.kibrispdr.org/data/grid-hd-1.jpg",
-            "phone": 0,
-            "address": ""
-        },
-        {
-            "id": 9,
-            "name": "Alexander",
-            "email": "alexander@alterra.id",
-            "avatar": "https://cdn.kibrispdr.org/data/grid-hd-1.jpg",
-            "phone": 0,
-            "address": ""
-        },
-        {
-            "id": 10,
-            "name": "Alexander",
-            "email": "alexander@alterra.id",
-            "avatar": "https://cdn.kibrispdr.org/data/grid-hd-1.jpg",
-            "phone": 0,
-            "address": ""
-        }
-    ],
-    "enrollments": [
-        {
-            "studentId": 1,
-            "courseId": 1,
-            "rating": 4.0,
-            "review": "Seru banget sih gila belajar sama mas Bambang"
-        },
-        {
-            "studentId": 2,
-            "courseId": 1,
-            "rating": 4.0,
-            "review": "Seru banget sih gila belajar sama mas Bambang"
-        },
-        {
-            "studentId": 3,
-            "courseId": 1,
-            "rating": 4.0,
-            "review": "Seru banget sih gila belajar sama mas Bambang"
-        },
-        {
-            "studentId": 4,
-            "courseId": 1,
-            "rating": 4.0,
-            "review": "Seru banget sih gila belajar sama mas Bambang"
-        },
-        {
-            "studentId": 5,
-            "courseId": 1,
-            "rating": 4.0,
-            "review": "Seru banget sih gila belajar sama mas Bambang"
-        },
-        {
-            "studentId": 6,
-            "courseId": 1,
-            "rating": 4.0,
-            "review": "Seru banget sih gila belajar sama mas Bambang"
-        },
-        {
-            "studentId": 7,
-            "courseId": 1,
-            "rating": 4.0,
-            "review": "Seru banget sih gila belajar sama mas Bambang"
-        }
-    ],
-    "readings": [
-        {
-            "id": 1,
-            "moduleId": 1,
-            "categories": {
-                "id": 1,
-                "title": "Science",
-                "order": 1,
-                "createdAt": "2021-12-23T16:06:02+07:00",
-                "updateAt": "0001-01-01T00:00:00Z"
-            },
-            "title": "Reading : Complete Blender Creator: Learn 3D Modelling for Beginners",
-            "content":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
-            "order": 1,
-            "created_at": "2021-12-23T16:11:53.458+07:00",
-            "updated_at": "2021-12-23T16:11:53.472+07:00"
-        },
-        {
-            "id": 2,
-            "moduleId": 1,
-            "categories": {
-                "id": 1,
-                "title": "Science",
-                "order": 1,
-                "createdAt": "2021-12-23T16:06:02+07:00",
-                "updateAt": "0001-01-01T00:00:00Z"
-            },
-            "title": 4.0,
-            "content": "Seru banget sih gila belajar sama mas Bambang",
-            "order": 1,
-            "created_at": "2021-12-23T16:11:53.458+07:00",
-            "updated_at": "2021-12-23T16:11:53.472+07:00"
-        },
-        {
-            "id": 3,
-            "moduleId": 1,
-            "categories": {
-                "id": 1,
-                "title": "Science",
-                "order": 1,
-                "createdAt": "2021-12-23T16:06:02+07:00",
-                "updateAt": "0001-01-01T00:00:00Z"
-            },
-            "title": 4.0,
-            "content": "Seru banget sih gila belajar sama mas Bambang",
-            "order": 1,
-            "created_at": "2021-12-23T16:11:53.458+07:00",
-            "updated_at": "2021-12-23T16:11:53.472+07:00"
-        },
-        {
-            "id": 4,
-            "moduleId": 1,
-            "categories": {
-                "id": 1,
-                "title": "Science",
-                "order": 1,
-                "createdAt": "2021-12-23T16:06:02+07:00",
-                "updateAt": "0001-01-01T00:00:00Z"
-            },
-            "title": 4.0,
-            "content": "Seru banget sih gila belajar sama mas Bambang",
-            "order": 1,
-            "created_at": "2021-12-23T16:11:53.458+07:00",
-            "updated_at": "2021-12-23T16:11:53.472+07:00"
-        },
-        {
-            "id": 5,
-            "moduleId": 1,
-            "categories": {
-                "id": 1,
-                "title": "Science",
-                "order": 1,
-                "createdAt": "2021-12-23T16:06:02+07:00",
-                "updateAt": "0001-01-01T00:00:00Z"
-            },
-            "title": 4.0,
-            "content": "Seru banget sih gila belajar sama mas Bambang",
-            "order": 1,
-            "created_at": "2021-12-23T16:11:53.458+07:00",
-            "updated_at": "2021-12-23T16:11:53.472+07:00"
-        },
-        {
-            "id": 5,
-            "moduleId": 1,
-            "categories": {
-                "id": 1,
-                "title": "Science",
-                "order": 1,
-                "createdAt": "2021-12-23T16:06:02+07:00",
-                "updateAt": "0001-01-01T00:00:00Z"
-            },
-            "title": 4.0,
-            "content": "Seru banget sih gila belajar sama mas Bambang",
-            "order": 1,
-            "created_at": "2021-12-23T16:11:53.458+07:00",
-            "updated_at": "2021-12-23T16:11:53.472+07:00"
-        },
-        {
-            "id": 6,
-            "moduleId": 1,
-            "categories": {
-                "id": 1,
-                "title": "Science",
-                "order": 1,
-                "createdAt": "2021-12-23T16:06:02+07:00",
-                "updateAt": "0001-01-01T00:00:00Z"
-            },
-            "title": 4.0,
-            "content": "Seru banget sih gila belajar sama mas Bambang",
-            "order": 1,
-            "created_at": "2021-12-23T16:11:53.458+07:00",
-            "updated_at": "2021-12-23T16:11:53.472+07:00"
-        }
-    ],
-    "threads": [
-        {
-            "id": 1,
-            "contentType": "type1",
-            "readingId": 1,
-            "userType": "student",
-            "userId": 1,
-            "message": "ini apaan mas?",
-            "created_at": "2021-12-23T16:11:53.458+07:00",
-            "updated_at": "2021-12-23T16:11:53.472+07:00"
-        },
-        {
-            "id": 2,
-            "contentType": "type1",
-            "readingId": 2,
-            "userType": "teacher",
-            "userId": 2,
-            "message": "ini apaan mas?",
-            "created_at": "2021-12-23T16:11:53.458+07:00",
-            "updated_at": "2021-12-23T16:11:53.472+07:00"
-        },
-        {
-            "id": 3,
-            "contentType": "type1",
-            "readingId": 1,
-            "userType": "teacher",
-            "userId": 3,
-            "message": "ini apaan mas?",
-            "created_at": "2021-12-23T16:11:53.458+07:00",
-            "updated_at": "2021-12-23T16:11:53.472+07:00"
-        },
-        {
-            "id": 4,
-            "contentType": "type1",
-            "readingId": 1,
-            "userType": "student",
-            "userId": 4,
-            "message": "ini apaan mas?",
-            "created_at": "2021-12-23T16:11:53.458+07:00",
-            "updated_at": "2021-12-23T16:11:53.472+07:00"
-        },
-        {
-            "id": 5,
-            "contentType": "type1",
-            "readingId": 1,
-            "userType": "student",
-            "userId": 5,
-            "message": "ini apaan mas?",
-            "created_at": "2021-12-23T16:11:53.458+07:00",
-            "updated_at": "2021-12-23T16:11:53.472+07:00"
-        },
-        {
-            "id": 6,
-            "contentType": "type1",
-            "readingId": 1,
-            "userType": "teacher",
-            "userId": 6,
-            "message": "ini apaan mas?",
-            "created_at": "2021-12-23T16:11:53.458+07:00",
-            "updated_at": "2021-12-23T16:11:53.472+07:00"
-        },
-        {
-            "id": 7,
-            "contentType": "type1",
-            "readingId": 1,
-            "userType": "teacher",
-            "userId": 7,
-            "message": "ini apaan mas?",
-            "created_at": "2021-12-23T16:11:53.458+07:00",
-            "updated_at": "2021-12-23T16:11:53.472+07:00"
-        }
-    ],
-    "teachers": [
-        {
-            "id": 1,
-            "name": "Ilham",
-            "email": "alex@alterra.id",
-            "avatar": "https://cdn.kibrispdr.org/data/grid-hd-1.jpg",
-            "phone": 0,
-            "address": ""
-        },
-        {
-            "id": 2,
-            "name": "Ilham",
-            "email": "alexa@alterra.id",
-            "avatar": "https://cdn.kibrispdr.org/data/grid-hd-1.jpg",
-            "phone": 0,
-            "address": ""
-        },
-        {
-            "id": 3,
-            "name": "Ilham",
-            "email": "alexan@alterra.id",
-            "avatar": "https://cdn.kibrispdr.org/data/grid-hd-1.jpg",
-            "phone": 0,
-            "address": ""
-        },
-        {
-            "id": 4,
-            "name": "Ilham",
-            "email": "alexand@alterra.id",
-            "avatar": "https://cdn.kibrispdr.org/data/grid-hd-1.jpg",
-            "phone": 0,
-            "address": ""
-        },
-        {
-            "id": 5,
-            "name": "Ilham",
-            "email": "alexande@alterra.id",
-            "avatar": "https://cdn.kibrispdr.org/data/grid-hd-1.jpg",
-            "phone": 0,
-            "address": ""
-        },
-        {
-            "id": 6,
-            "name": "Ilham",
-            "email": "Ilham@alterra.id",
-            "avatar": "https://cdn.kibrispdr.org/data/grid-hd-1.jpg",
-            "phone": 0,
-            "address": ""
-        },
-        {
-            "id": 7,
-            "name": "Ilham",
-            "email": "Ilham@alterra.id",
-            "avatar": "https://cdn.kibrispdr.org/data/grid-hd-1.jpg",
-            "phone": 0,
-            "address": ""
-        },
-        {
-            "id": 8,
-            "name": "Ilham",
-            "email": "Ilham@alterra.id",
-            "avatar": "https://cdn.kibrispdr.org/data/grid-hd-1.jpg",
-            "phone": 0,
-            "address": ""
-        },
-        {
-            "id": 9,
-            "name": "Ilham",
-            "email": "Ilham@alterra.id",
-            "avatar": "https://cdn.kibrispdr.org/data/grid-hd-1.jpg",
-            "phone": 0,
-            "address": ""
-        },
-        {
-            "id": 10,
-            "name": "Ilham",
-            "email": "Ilham@alterra.id",
-            "avatar": "https://cdn.kibrispdr.org/data/grid-hd-1.jpg",
-            "phone": 0,
-            "address": ""
-        }
-    ]
+  "courses": [
+    {
+      "id": 1,
+      "title": "Fundamental of Physics",
+      "thumbnail": "https://cdn.kibrispdr.org/data/grid-hd-1.jpg",
+      "description": "Eaque vitae sint voluptas error dignissimos maiores at non aliquid! ",
+      "syllabus": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta recusandae laborum natus soluta fuga optio similique nam voluptate impedit quo? Eaque vitae sint voluptas error dignissimos maiores at non aliquid! ",
+      "categoryId": 1,
+      "teacherId": 1,
+      "difficultyId": 1,
+      "categories": {
+        "id": 1,
+        "title": "Science",
+        "createdAt": "2021-12-23T16:06:02+07:00",
+        "updateAt": "0001-01-01T00:00:00Z"
+      },
+      "teacher": {
+        "id": 1,
+        "name": "Bambang",
+        "email": "bambang@alterra.id",
+        "avatar": "https://cdn.kibrispdr.org/data/grid-hd-1.jpg",
+        "background": "10 tahun belajar fisika, cucunya einstein",
+        "phone": 0,
+        "address": "",
+        "createAt": "2021-12-23T16:11:36.154+07:00",
+        "updateAt": "2021-12-23T16:11:36.154+07:00",
+        "deleteAt": null
+      },
+      "created_at": "2021-12-23T16:11:53.458+07:00",
+      "updated_at": "2021-12-23T16:11:53.472+07:00"
+    },
+    {
+      "id": 2,
+      "title": "Fundamental of Aerodynamics",
+      "thumbnail": "https://cdn.kibrispdr.org/data/grid-hd-1.jpg",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta recusandae laborum natus soluta fuga optio similique nam voluptate impedit quo? Eaque vitae sint voluptas error dignissimos maiores at non aliquid! Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta recusandae laborum natus soluta fuga optio similique nam voluptate impedit quo? Eaque vitae sint voluptas error dignissimos maiores at non aliquid!",
+      "syllabus": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta recusandae laborum natus soluta fuga optio similique nam voluptate impedit quo? Eaque vitae sint voluptas error dignissimos maiores at non aliquid! ",
+      "categoryId": 1,
+      "teacherId": 1,
+      "difficultyId": 1,
+      "categories": {
+        "id": 1,
+        "title": "Science",
+        "createdAt": "2021-12-23T16:06:02+07:00",
+        "updateAt": "0001-01-01T00:00:00Z"
+      },
+      "teacher": {
+        "id": 1,
+        "name": "Bambang",
+        "email": "bambang@alterra.id",
+        "avatar": "https://cdn.kibrispdr.org/data/grid-hd-1.jpg",
+        "background": "10 tahun belajar fisika, cucunya einstein",
+        "phone": 0,
+        "address": "",
+        "createAt": "2021-12-23T16:11:36.154+07:00",
+        "updateAt": "2021-12-23T16:11:36.154+07:00",
+        "deleteAt": null
+      },
+      "created_at": "2021-12-23T16:12:03.704+07:00",
+      "updated_at": "2021-12-23T16:12:03.708+07:00"
+    },
+    {
+      "id": 3,
+      "title": "Fundamental of Aerodynamics",
+      "thumbnail": "https://cdn.kibrispdr.org/data/grid-hd-1.jpg",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta recusandae laborum natus soluta fuga optio similique nam voluptate impedit quo? Eaque vitae sint voluptas error dignissimos maiores at non aliquid! ",
+      "syllabus": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta recusandae laborum natus soluta fuga optio similique nam voluptate impedit quo? Eaque vitae sint voluptas error dignissimos maiores at non aliquid! ",
+      "categoryId": 1,
+      "teacherId": 1,
+      "difficultyId": 1,
+      "categories": {
+        "id": 1,
+        "title": "Science",
+        "createdAt": "2021-12-23T16:06:02+07:00",
+        "updateAt": "0001-01-01T00:00:00Z"
+      },
+      "teacher": {
+        "id": 1,
+        "name": "Bambang",
+        "email": "bambang@alterra.id",
+        "avatar": "https://cdn.kibrispdr.org/data/grid-hd-1.jpg",
+        "background": "10 tahun belajar fisika, cucunya einstein",
+        "phone": 0,
+        "address": "",
+        "createAt": "2021-12-23T16:11:36.154+07:00",
+        "updateAt": "2021-12-23T16:11:36.154+07:00",
+        "deleteAt": null
+      },
+      "created_at": "2021-12-23T16:12:03.704+07:00",
+      "updated_at": "2021-12-23T16:12:03.708+07:00"
+    },
+    {
+      "id": 4,
+      "title": "Fundamental of Aerodynamics",
+      "thumbnail": "https://cdn.kibrispdr.org/data/grid-hd-1.jpg",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta recusandae laborum natus soluta fuga optio similique nam voluptate impedit quo? Eaque vitae sint voluptas error dignissimos maiores at non aliquid! ",
+      "syllabus": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta recusandae laborum natus soluta fuga optio similique nam voluptate impedit quo? Eaque vitae sint voluptas error dignissimos maiores at non aliquid! ",
+      "categoryId": 1,
+      "teacherId": 1,
+      "difficultyId": 1,
+      "categories": {
+        "id": 1,
+        "title": "Science",
+        "createdAt": "2021-12-23T16:06:02+07:00",
+        "updateAt": "0001-01-01T00:00:00Z"
+      },
+      "teacher": {
+        "id": 1,
+        "name": "Bambang",
+        "email": "bambang@alterra.id",
+        "avatar": "https://cdn.kibrispdr.org/data/grid-hd-1.jpg",
+        "background": "10 tahun belajar fisika, cucunya einstein",
+        "phone": 0,
+        "address": "",
+        "createAt": "2021-12-23T16:11:36.154+07:00",
+        "updateAt": "2021-12-23T16:11:36.154+07:00",
+        "deleteAt": null
+      },
+      "created_at": "2021-12-23T16:12:03.704+07:00",
+      "updated_at": "2021-12-23T16:12:03.708+07:00"
+    },
+    {
+      "id": 5,
+      "title": "Fundamental of Aerodynamics",
+      "thumbnail": "https://cdn.kibrispdr.org/data/grid-hd-1.jpg",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta recusandae laborum natus soluta fuga optio similique nam voluptate impedit quo? Eaque vitae sint voluptas error dignissimos maiores at non aliquid! ",
+      "syllabus": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta recusandae laborum natus soluta fuga optio similique nam voluptate impedit quo? Eaque vitae sint voluptas error dignissimos maiores at non aliquid! ",
+      "categoryId": 1,
+      "teacherId": 1,
+      "difficultyId": 1,
+      "categories": {
+        "id": 1,
+        "title": "Science",
+        "createdAt": "2021-12-23T16:06:02+07:00",
+        "updateAt": "0001-01-01T00:00:00Z"
+      },
+      "teacher": {
+        "id": 1,
+        "name": "Bambang",
+        "email": "bambang@alterra.id",
+        "avatar": "https://cdn.kibrispdr.org/data/grid-hd-1.jpg",
+        "background": "10 tahun belajar fisika, cucunya einstein",
+        "phone": 0,
+        "address": "",
+        "createAt": "2021-12-23T16:11:36.154+07:00",
+        "updateAt": "2021-12-23T16:11:36.154+07:00",
+        "deleteAt": null
+      },
+      "created_at": "2021-12-23T16:12:03.704+07:00",
+      "updated_at": "2021-12-23T16:12:03.708+07:00"
+    },
+    {
+      "id": 6,
+      "title": "Fundamental of Aerodynamics",
+      "thumbnail": "https://cdn.kibrispdr.org/data/grid-hd-1.jpg",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta recusandae laborum natus soluta fuga optio similique nam voluptate impedit quo? Eaque vitae sint voluptas error dignissimos maiores at non aliquid! ",
+      "syllabus": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta recusandae laborum natus soluta fuga optio similique nam voluptate impedit quo? Eaque vitae sint voluptas error dignissimos maiores at non aliquid! ",
+      "categoryId": 1,
+      "teacherId": 1,
+      "difficultyId": 1,
+      "categories": {
+        "id": 1,
+        "title": "Science",
+        "createdAt": "2021-12-23T16:06:02+07:00",
+        "updateAt": "0001-01-01T00:00:00Z"
+      },
+      "teacher": {
+        "id": 1,
+        "name": "Bambang",
+        "email": "bambang@alterra.id",
+        "avatar": "https://cdn.kibrispdr.org/data/grid-hd-1.jpg",
+        "background": "10 tahun belajar fisika, cucunya einstein",
+        "phone": 0,
+        "address": "",
+        "createAt": "2021-12-23T16:11:36.154+07:00",
+        "updateAt": "2021-12-23T16:11:36.154+07:00",
+        "deleteAt": null
+      },
+      "created_at": "2021-12-23T16:12:03.704+07:00",
+      "updated_at": "2021-12-23T16:12:03.708+07:00"
+    },
+    {
+      "id": 7,
+      "title": "Fundamental of Aerodynamics",
+      "thumbnail": "https://cdn.kibrispdr.org/data/grid-hd-1.jpg",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta recusandae laborum natus soluta fuga optio similique nam voluptate impedit quo? Eaque vitae sint voluptas error dignissimos maiores at non aliquid! ",
+      "syllabus": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta recusandae laborum natus soluta fuga optio similique nam voluptate impedit quo? Eaque vitae sint voluptas error dignissimos maiores at non aliquid! ",
+      "categoryId": 1,
+      "teacherId": 1,
+      "difficultyId": 1,
+      "categories": {
+        "id": 1,
+        "title": "Science",
+        "createdAt": "2021-12-23T16:06:02+07:00",
+        "updateAt": "0001-01-01T00:00:00Z"
+      },
+      "teacher": {
+        "id": 1,
+        "name": "Bambang",
+        "email": "bambang@alterra.id",
+        "avatar": "https://cdn.kibrispdr.org/data/grid-hd-1.jpg",
+        "background": "10 tahun belajar fisika, cucunya einstein",
+        "phone": 0,
+        "address": "",
+        "createAt": "2021-12-23T16:11:36.154+07:00",
+        "updateAt": "2021-12-23T16:11:36.154+07:00",
+        "deleteAt": null
+      },
+      "created_at": "2021-12-23T16:12:03.704+07:00",
+      "updated_at": "2021-12-23T16:12:03.708+07:00"
+    }
+  ],
+  "students": [
+    {
+      "id": 1,
+      "name": "Alexander",
+      "email": "alex@alterra.id",
+      "avatar": "https://cdn.kibrispdr.org/data/grid-hd-1.jpg",
+      "phone": 0,
+      "address": ""
+    },
+    {
+      "id": 2,
+      "name": "Alexander",
+      "email": "alexa@alterra.id",
+      "avatar": "https://cdn.kibrispdr.org/data/grid-hd-1.jpg",
+      "phone": 0,
+      "address": ""
+    },
+    {
+      "id": 3,
+      "name": "Alexander",
+      "email": "alexan@alterra.id",
+      "avatar": "https://cdn.kibrispdr.org/data/grid-hd-1.jpg",
+      "phone": 0,
+      "address": ""
+    },
+    {
+      "id": 4,
+      "name": "Alexander",
+      "email": "alexand@alterra.id",
+      "avatar": "https://cdn.kibrispdr.org/data/grid-hd-1.jpg",
+      "phone": 0,
+      "address": ""
+    },
+    {
+      "id": 5,
+      "name": "Alexander",
+      "email": "alexande@alterra.id",
+      "avatar": "https://cdn.kibrispdr.org/data/grid-hd-1.jpg",
+      "phone": 0,
+      "address": ""
+    },
+    {
+      "id": 6,
+      "name": "Alexander",
+      "email": "alexander@alterra.id",
+      "avatar": "https://cdn.kibrispdr.org/data/grid-hd-1.jpg",
+      "phone": 0,
+      "address": ""
+    },
+    {
+      "id": 7,
+      "name": "Alexander",
+      "email": "alexander@alterra.id",
+      "avatar": "https://cdn.kibrispdr.org/data/grid-hd-1.jpg",
+      "phone": 0,
+      "address": ""
+    },
+    {
+      "id": 8,
+      "name": "Alexander",
+      "email": "alexander@alterra.id",
+      "avatar": "https://cdn.kibrispdr.org/data/grid-hd-1.jpg",
+      "phone": 0,
+      "address": ""
+    },
+    {
+      "id": 9,
+      "name": "Alexander",
+      "email": "alexander@alterra.id",
+      "avatar": "https://cdn.kibrispdr.org/data/grid-hd-1.jpg",
+      "phone": 0,
+      "address": ""
+    },
+    {
+      "id": 10,
+      "name": "Alexander",
+      "email": "alexander@alterra.id",
+      "avatar": "https://cdn.kibrispdr.org/data/grid-hd-1.jpg",
+      "phone": 0,
+      "address": ""
+    }
+  ],
+  "enrollments": [
+    {
+      "studentId": 1,
+      "courseId": 1,
+      "rating": 4,
+      "review": "Seru banget sih gila belajar sama mas Bambang"
+    },
+    {
+      "studentId": 2,
+      "courseId": 1,
+      "rating": 4,
+      "review": "Seru banget sih gila belajar sama mas Bambang"
+    },
+    {
+      "studentId": 3,
+      "courseId": 1,
+      "rating": 4,
+      "review": "Seru banget sih gila belajar sama mas Bambang"
+    },
+    {
+      "studentId": 4,
+      "courseId": 1,
+      "rating": 4,
+      "review": "Seru banget sih gila belajar sama mas Bambang"
+    },
+    {
+      "studentId": 5,
+      "courseId": 1,
+      "rating": 4,
+      "review": "Seru banget sih gila belajar sama mas Bambang"
+    },
+    {
+      "studentId": 6,
+      "courseId": 1,
+      "rating": 4,
+      "review": "Seru banget sih gila belajar sama mas Bambang"
+    },
+    {
+      "studentId": 7,
+      "courseId": 1,
+      "rating": 4,
+      "review": "Seru banget sih gila belajar sama mas Bambang"
+    }
+  ],
+  "threads": [
+    {
+      "id": 1,
+      "contentType": "type1",
+      "readingId": 1,
+      "userType": "student",
+      "userId": 1,
+      "message": "ini apaan mas?",
+      "created_at": "2021-12-23T16:11:53.458+07:00",
+      "updated_at": "2021-12-23T16:11:53.472+07:00"
+    },
+    {
+      "id": 2,
+      "contentType": "type1",
+      "readingId": 2,
+      "userType": "teacher",
+      "userId": 2,
+      "message": "ini apaan mas?",
+      "created_at": "2021-12-23T16:11:53.458+07:00",
+      "updated_at": "2021-12-23T16:11:53.472+07:00"
+    },
+    {
+      "id": 3,
+      "contentType": "type1",
+      "readingId": 1,
+      "userType": "teacher",
+      "userId": 3,
+      "message": "ini apaan mas?",
+      "created_at": "2021-12-23T16:11:53.458+07:00",
+      "updated_at": "2021-12-23T16:11:53.472+07:00"
+    },
+    {
+      "id": 4,
+      "contentType": "type1",
+      "readingId": 1,
+      "userType": "student",
+      "userId": 4,
+      "message": "ini apaan mas?",
+      "created_at": "2021-12-23T16:11:53.458+07:00",
+      "updated_at": "2021-12-23T16:11:53.472+07:00"
+    },
+    {
+      "id": 5,
+      "contentType": "type1",
+      "readingId": 1,
+      "userType": "student",
+      "userId": 5,
+      "message": "ini apaan mas?",
+      "created_at": "2021-12-23T16:11:53.458+07:00",
+      "updated_at": "2021-12-23T16:11:53.472+07:00"
+    },
+    {
+      "id": 6,
+      "contentType": "type1",
+      "readingId": 1,
+      "userType": "teacher",
+      "userId": 6,
+      "message": "ini apaan mas?",
+      "created_at": "2021-12-23T16:11:53.458+07:00",
+      "updated_at": "2021-12-23T16:11:53.472+07:00"
+    },
+    {
+      "id": 7,
+      "contentType": "type1",
+      "readingId": 1,
+      "userType": "teacher",
+      "userId": 7,
+      "message": "ini apaan mas?",
+      "created_at": "2021-12-23T16:11:53.458+07:00",
+      "updated_at": "2021-12-23T16:11:53.472+07:00"
+    }
+  ],
+  "teachers": [
+    {
+      "id": 1,
+      "name": "Ilham",
+      "email": "alex@alterra.id",
+      "avatar": "https://cdn.kibrispdr.org/data/grid-hd-1.jpg",
+      "phone": 0,
+      "address": ""
+    },
+    {
+      "id": 2,
+      "name": "Ilham",
+      "email": "alexa@alterra.id",
+      "avatar": "https://cdn.kibrispdr.org/data/grid-hd-1.jpg",
+      "phone": 0,
+      "address": ""
+    },
+    {
+      "id": 3,
+      "name": "Ilham",
+      "email": "alexan@alterra.id",
+      "avatar": "https://cdn.kibrispdr.org/data/grid-hd-1.jpg",
+      "phone": 0,
+      "address": ""
+    },
+    {
+      "id": 4,
+      "name": "Ilham",
+      "email": "alexand@alterra.id",
+      "avatar": "https://cdn.kibrispdr.org/data/grid-hd-1.jpg",
+      "phone": 0,
+      "address": ""
+    },
+    {
+      "id": 5,
+      "name": "Ilham",
+      "email": "alexande@alterra.id",
+      "avatar": "https://cdn.kibrispdr.org/data/grid-hd-1.jpg",
+      "phone": 0,
+      "address": ""
+    },
+    {
+      "id": 6,
+      "name": "Ilham",
+      "email": "Ilham@alterra.id",
+      "avatar": "https://cdn.kibrispdr.org/data/grid-hd-1.jpg",
+      "phone": 0,
+      "address": ""
+    },
+    {
+      "id": 7,
+      "name": "Ilham",
+      "email": "Ilham@alterra.id",
+      "avatar": "https://cdn.kibrispdr.org/data/grid-hd-1.jpg",
+      "phone": 0,
+      "address": ""
+    },
+    {
+      "id": 8,
+      "name": "Ilham",
+      "email": "Ilham@alterra.id",
+      "avatar": "https://cdn.kibrispdr.org/data/grid-hd-1.jpg",
+      "phone": 0,
+      "address": ""
+    },
+    {
+      "id": 9,
+      "name": "Ilham",
+      "email": "Ilham@alterra.id",
+      "avatar": "https://cdn.kibrispdr.org/data/grid-hd-1.jpg",
+      "phone": 0,
+      "address": ""
+    },
+    {
+      "id": 10,
+      "name": "Ilham",
+      "email": "Ilham@alterra.id",
+      "avatar": "https://cdn.kibrispdr.org/data/grid-hd-1.jpg",
+      "phone": 0,
+      "address": ""
+    }
+  ],
+  "modules": [
+    {
+      "id": 1,
+      "courseId": 1,
+      "courses": {
+        "id": 1,
+        "title": "Fundamental of Physics",
+        "thumbnail": "https://cdn.kibrispdr.org/data/grid-hd-1.jpg",
+        "description": "Eaque vitae sint voluptas error dignissimos maiores at non aliquid! ",
+        "syllabus": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta recusandae laborum natus soluta fuga optio similique nam voluptate impedit quo? Eaque vitae sint voluptas error dignissimos maiores at non aliquid! ",
+        "categoryId": 1,
+        "teacherId": 1,
+        "difficultyId": 1,
+        "created_at": "2021-12-23T16:11:53.458+07:00",
+        "updated_at": "2021-12-23T16:11:53.472+07:00"
+      },
+      "title": "Reading : Complete Blender Creator: Learn 3D Modelling for Beginners",
+      "order": 1,
+      "created_at": "2021-12-23T16:11:53.458+07:00",
+      "updated_at": "2021-12-23T16:11:53.472+07:00"
+    },
+    {
+      "id": 2,
+      "courseId": 1,
+      "courses": {
+        "id": 1,
+        "title": "Fundamental of Physics",
+        "thumbnail": "https://cdn.kibrispdr.org/data/grid-hd-1.jpg",
+        "description": "Eaque vitae sint voluptas error dignissimos maiores at non aliquid! ",
+        "syllabus": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta recusandae laborum natus soluta fuga optio similique nam voluptate impedit quo? Eaque vitae sint voluptas error dignissimos maiores at non aliquid! ",
+        "categoryId": 1,
+        "teacherId": 1,
+        "difficultyId": 1,
+        "created_at": "2021-12-23T16:11:53.458+07:00",
+        "updated_at": "2021-12-23T16:11:53.472+07:00"
+      },
+      "title": "Reading : Complete Blender Creator: Learn 3D Modelling for Beginners",
+      "order": 2,
+      "created_at": "2021-12-23T16:11:53.458+07:00",
+      "updated_at": "2021-12-23T16:11:53.472+07:00"
+    },
+    {
+      "id": 3,
+      "courseId": 1,
+      "courses": {
+        "id": 1,
+        "title": "Fundamental of Physics",
+        "thumbnail": "https://cdn.kibrispdr.org/data/grid-hd-1.jpg",
+        "description": "Eaque vitae sint voluptas error dignissimos maiores at non aliquid! ",
+        "syllabus": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta recusandae laborum natus soluta fuga optio similique nam voluptate impedit quo? Eaque vitae sint voluptas error dignissimos maiores at non aliquid! ",
+        "categoryId": 1,
+        "teacherId": 1,
+        "difficultyId": 1,
+        "created_at": "2021-12-23T16:11:53.458+07:00",
+        "updated_at": "2021-12-23T16:11:53.472+07:00"
+      },
+      "title": "Reading : Complete Blender Creator: Learn 3D Modelling for Beginners",
+      "order": 3,
+      "created_at": "2021-12-23T16:11:53.458+07:00",
+      "updated_at": "2021-12-23T16:11:53.472+07:00"
+    },
+    {
+      "id": 4,
+      "courseId": 1,
+      "courses": {
+        "id": 1,
+        "title": "Fundamental of Physics",
+        "thumbnail": "https://cdn.kibrispdr.org/data/grid-hd-1.jpg",
+        "description": "Eaque vitae sint voluptas error dignissimos maiores at non aliquid! ",
+        "syllabus": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta recusandae laborum natus soluta fuga optio similique nam voluptate impedit quo? Eaque vitae sint voluptas error dignissimos maiores at non aliquid! ",
+        "categoryId": 1,
+        "teacherId": 1,
+        "difficultyId": 1,
+        "created_at": "2021-12-23T16:11:53.458+07:00",
+        "updated_at": "2021-12-23T16:11:53.472+07:00"
+      },
+      "title": "Reading : Complete Blender Creator: Learn 3D Modelling for Beginners",
+      "order": 4,
+      "created_at": "2021-12-23T16:11:53.458+07:00",
+      "updated_at": "2021-12-23T16:11:53.472+07:00"
+    },
+    {
+      "id": 5,
+      "courseId": 1,
+      "courses": {
+        "id": 1,
+        "title": "Fundamental of Physics",
+        "thumbnail": "https://cdn.kibrispdr.org/data/grid-hd-1.jpg",
+        "description": "Eaque vitae sint voluptas error dignissimos maiores at non aliquid! ",
+        "syllabus": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta recusandae laborum natus soluta fuga optio similique nam voluptate impedit quo? Eaque vitae sint voluptas error dignissimos maiores at non aliquid! ",
+        "categoryId": 1,
+        "teacherId": 1,
+        "difficultyId": 1,
+        "created_at": "2021-12-23T16:11:53.458+07:00",
+        "updated_at": "2021-12-23T16:11:53.472+07:00"
+      },
+      "title": "Reading : Complete Blender Creator: Learn 3D Modelling for Beginners",
+      "order": 5,
+      "created_at": "2021-12-23T16:11:53.458+07:00",
+      "updated_at": "2021-12-23T16:11:53.472+07:00"
+    },
+    {
+      "id": 6,
+      "courseId": 1,
+      "courses": {
+        "id": 1,
+        "title": "Fundamental of Physics",
+        "thumbnail": "https://cdn.kibrispdr.org/data/grid-hd-1.jpg",
+        "description": "Eaque vitae sint voluptas error dignissimos maiores at non aliquid! ",
+        "syllabus": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta recusandae laborum natus soluta fuga optio similique nam voluptate impedit quo? Eaque vitae sint voluptas error dignissimos maiores at non aliquid! ",
+        "categoryId": 1,
+        "teacherId": 1,
+        "difficultyId": 1,
+        "created_at": "2021-12-23T16:11:53.458+07:00",
+        "updated_at": "2021-12-23T16:11:53.472+07:00"
+      },
+      "title": "Reading : Complete Blender Creator: Learn 3D Modelling for Beginners",
+      "order": 6,
+      "created_at": "2021-12-23T16:11:53.458+07:00",
+      "updated_at": "2021-12-23T16:11:53.472+07:00"
+    },
+    {
+      "id": 7,
+      "courseId": 1,
+      "courses": {
+        "id": 1,
+        "title": "Fundamental of Physics",
+        "thumbnail": "https://cdn.kibrispdr.org/data/grid-hd-1.jpg",
+        "description": "Eaque vitae sint voluptas error dignissimos maiores at non aliquid! ",
+        "syllabus": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta recusandae laborum natus soluta fuga optio similique nam voluptate impedit quo? Eaque vitae sint voluptas error dignissimos maiores at non aliquid! ",
+        "categoryId": 1,
+        "teacherId": 1,
+        "difficultyId": 1,
+        "created_at": "2021-12-23T16:11:53.458+07:00",
+        "updated_at": "2021-12-23T16:11:53.472+07:00"
+      },
+      "title": "Reading : Complete Blender Creator: Learn 3D Modelling for Beginners",
+      "order": 7,
+      "created_at": "2021-12-23T16:11:53.458+07:00",
+      "updated_at": "2021-12-23T16:11:53.472+07:00"
+    }
+  ],
+  "readings": [
+    {
+      "id": 1,
+      "moduleId": 1,
+      "modules": {
+        "id": 1,
+        "title": "Reading : Complete Blender Creator: Learn 3D Modelling for Beginners",
+        "order": 1,
+        "created_at": "2021-12-23T16:11:53.458+07:00",
+        "updated_at": "2021-12-23T16:11:53.472+07:00"
+      },
+      "title": "Reading : Complete Blender Creator: Learn 3D Modelling for Beginners",
+      "content": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
+      "order": 1,
+      "created_at": "2021-12-23T16:11:53.458+07:00",
+      "updated_at": "2021-12-23T16:11:53.472+07:00"
+    },
+    {
+      "id": 2,
+      "moduleId": 1,
+      "modules": {
+        "id": 1,
+        "title": "Reading : Complete Blender Creator: Learn 3D Modelling for Beginners",
+        "order": 1,
+        "created_at": "2021-12-23T16:11:53.458+07:00",
+        "updated_at": "2021-12-23T16:11:53.472+07:00"
+      },
+      "title": 4,
+      "content": "Seru banget sih gila belajar sama mas Bambang",
+      "order": 1,
+      "created_at": "2021-12-23T16:11:53.458+07:00",
+      "updated_at": "2021-12-23T16:11:53.472+07:00"
+    },
+    {
+      "id": 3,
+      "moduleId": 1,
+      "modules": {
+        "id": 1,
+        "title": "Reading : Complete Blender Creator: Learn 3D Modelling for Beginners",
+        "order": 1,
+        "created_at": "2021-12-23T16:11:53.458+07:00",
+        "updated_at": "2021-12-23T16:11:53.472+07:00"
+      },
+      "title": 4,
+      "content": "Seru banget sih gila belajar sama mas Bambang",
+      "order": 1,
+      "created_at": "2021-12-23T16:11:53.458+07:00",
+      "updated_at": "2021-12-23T16:11:53.472+07:00"
+    },
+    {
+      "id": 4,
+      "moduleId": 1,
+      "modules": {
+        "id": 1,
+        "title": "Reading : Complete Blender Creator: Learn 3D Modelling for Beginners",
+        "order": 1,
+        "created_at": "2021-12-23T16:11:53.458+07:00",
+        "updated_at": "2021-12-23T16:11:53.472+07:00"
+      },
+      "title": 4,
+      "content": "Seru banget sih gila belajar sama mas Bambang",
+      "order": 1,
+      "created_at": "2021-12-23T16:11:53.458+07:00",
+      "updated_at": "2021-12-23T16:11:53.472+07:00"
+    },
+    {
+      "id": 5,
+      "moduleId": 1,
+      "modules": {
+        "id": 1,
+        "title": "Reading : Complete Blender Creator: Learn 3D Modelling for Beginners",
+        "order": 1,
+        "created_at": "2021-12-23T16:11:53.458+07:00",
+        "updated_at": "2021-12-23T16:11:53.472+07:00"
+      },
+      "title": 4,
+      "content": "Seru banget sih gila belajar sama mas Bambang",
+      "order": 1,
+      "created_at": "2021-12-23T16:11:53.458+07:00",
+      "updated_at": "2021-12-23T16:11:53.472+07:00"
+    },
+    {
+      "id": 5,
+      "moduleId": 1,
+      "modules": {
+        "id": 1,
+        "title": "Reading : Complete Blender Creator: Learn 3D Modelling for Beginners",
+        "order": 1,
+        "created_at": "2021-12-23T16:11:53.458+07:00",
+        "updated_at": "2021-12-23T16:11:53.472+07:00"
+      },
+      "title": 4,
+      "content": "Seru banget sih gila belajar sama mas Bambang",
+      "order": 1,
+      "created_at": "2021-12-23T16:11:53.458+07:00",
+      "updated_at": "2021-12-23T16:11:53.472+07:00"
+    },
+    {
+      "id": 6,
+      "moduleId": 1,
+      "modules": {
+        "id": 1,
+        "title": "Reading : Complete Blender Creator: Learn 3D Modelling for Beginners",
+        "order": 1,
+        "created_at": "2021-12-23T16:11:53.458+07:00",
+        "updated_at": "2021-12-23T16:11:53.472+07:00"
+      },
+      "title": 4,
+      "content": "Seru banget sih gila belajar sama mas Bambang",
+      "order": 1,
+      "created_at": "2021-12-23T16:11:53.458+07:00",
+      "updated_at": "2021-12-23T16:11:53.472+07:00"
+    }
+  ],
+  "videos": [
+    {
+      "id": 1,
+      "moduleId": 1,
+      "modules": {
+        "id": 1,
+        "title": "Reading : Complete Blender Creator: Learn 3D Modelling for Beginners",
+        "order": 1,
+        "created_at": "2021-12-23T16:11:53.458+07:00",
+        "updated_at": "2021-12-23T16:11:53.472+07:00"
+      },
+      "title": "Reading : Complete Blender Creator: Learn 3D Modelling for Beginners",
+      "caption": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
+      "url": "balbal",
+      "order": 1,
+      "created_at": "2021-12-23T16:11:53.458+07:00",
+      "updated_at": "2021-12-23T16:11:53.472+07:00"
+    },
+    {
+      "id": 2,
+      "moduleId": 1,
+      "modules": {
+        "id": 1,
+        "title": "Reading : Complete Blender Creator: Learn 3D Modelling for Beginners",
+        "order": 1,
+        "created_at": "2021-12-23T16:11:53.458+07:00",
+        "updated_at": "2021-12-23T16:11:53.472+07:00"
+      },
+      "title": 4,
+      "caption": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
+      "url": "balbal",
+      "order": 1,
+      "created_at": "2021-12-23T16:11:53.458+07:00",
+      "updated_at": "2021-12-23T16:11:53.472+07:00"
+    },
+    {
+      "id": 3,
+      "moduleId": 1,
+      "modules": {
+        "id": 1,
+        "title": "Reading : Complete Blender Creator: Learn 3D Modelling for Beginners",
+        "order": 1,
+        "created_at": "2021-12-23T16:11:53.458+07:00",
+        "updated_at": "2021-12-23T16:11:53.472+07:00"
+      },
+      "title": 4,
+      "caption": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
+      "url": "balbal",
+      "order": 1,
+      "created_at": "2021-12-23T16:11:53.458+07:00",
+      "updated_at": "2021-12-23T16:11:53.472+07:00"
+    },
+    {
+      "id": 4,
+      "moduleId": 1,
+      "modules": {
+        "id": 1,
+        "title": "Reading : Complete Blender Creator: Learn 3D Modelling for Beginners",
+        "order": 1,
+        "created_at": "2021-12-23T16:11:53.458+07:00",
+        "updated_at": "2021-12-23T16:11:53.472+07:00"
+      },
+      "title": 4,
+      "caption": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
+      "url": "balbal",
+      "order": 1,
+      "created_at": "2021-12-23T16:11:53.458+07:00",
+      "updated_at": "2021-12-23T16:11:53.472+07:00"
+    },
+    {
+      "id": 5,
+      "moduleId": 1,
+      "modules": {
+        "id": 1,
+        "title": "Reading : Complete Blender Creator: Learn 3D Modelling for Beginners",
+        "order": 1,
+        "created_at": "2021-12-23T16:11:53.458+07:00",
+        "updated_at": "2021-12-23T16:11:53.472+07:00"
+      },
+      "title": 4,
+      "caption": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
+      "url": "balbal",
+      "order": 1,
+      "created_at": "2021-12-23T16:11:53.458+07:00",
+      "updated_at": "2021-12-23T16:11:53.472+07:00"
+    },
+    {
+      "id": 5,
+      "moduleId": 1,
+      "modules": {
+        "id": 1,
+        "title": "Reading : Complete Blender Creator: Learn 3D Modelling for Beginners",
+        "order": 1,
+        "created_at": "2021-12-23T16:11:53.458+07:00",
+        "updated_at": "2021-12-23T16:11:53.472+07:00"
+      },
+      "title": 4,
+      "caption": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
+      "url": "balbal",
+      "order": 1,
+      "created_at": "2021-12-23T16:11:53.458+07:00",
+      "updated_at": "2021-12-23T16:11:53.472+07:00"
+    },
+    {
+      "id": 6,
+      "moduleId": 1,
+      "modules": {
+        "id": 1,
+        "title": "Reading : Complete Blender Creator: Learn 3D Modelling for Beginners",
+        "order": 1,
+        "created_at": "2021-12-23T16:11:53.458+07:00",
+        "updated_at": "2021-12-23T16:11:53.472+07:00"
+      },
+      "title": 4,
+      "caption": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
+      "url": "balbal",
+      "order": 1,
+      "created_at": "2021-12-23T16:11:53.458+07:00",
+      "updated_at": "2021-12-23T16:11:53.472+07:00"
+    },
+    {
+      "titleVid": "Judul Coba Coba",
+      "moduleIdVid": 0,
+      "captionVid": "caption coba coba",
+      "orderVid": "1",
+      "urlVid": "url coba coba",
+      "body": [
+        "Judul Coba Coba",
+        0,
+        "caption coba coba",
+        "1",
+        "url coba coba"
+      ],
+      "id": 7
+    },
+    {
+      "titleVid": "adsaaddsadas",
+      "moduleIdVid": 0,
+      "captionVid": "dsasadsa",
+      "orderVid": "2",
+      "urlVid": "dsasaas",
+      "body": [
+        "adsaaddsadas",
+        0,
+        "dsasadsa",
+        "2",
+        "dsasaas"
+      ],
+      "id": 8
+    },
+    {
+      "titleVid": "sada",
+      "moduleIdVid": 0,
+      "captionVid": "dsaada",
+      "orderVid": "1",
+      "urlVid": "dsaadas",
+      "id": 9
+    },
+    {
+      "titleVid": "hai",
+      "moduleIdVid": 0,
+      "captionVid": "hai",
+      "orderVid": "10",
+      "urlVid": "hai",
+      "id": 10
+    },
+    {
+      "titleVid": "nama video",
+      "moduleIdVid": "1",
+      "captionVid": "sadadd",
+      "orderVid": "1",
+      "urlVid": "dsasa",
+      "id": 11
+    },
+    {
+      "titleVid": "",
+      "moduleIdVid": "1",
+      "captionVid": "",
+      "orderVid": 0,
+      "urlVid": "",
+      "id": 12
+    },
+    {
+      "titleVid": "voba1",
+      "moduleIdVid": "1",
+      "captionVid": "sdadsa",
+      "orderVid": "1",
+      "urlVid": "sads",
+      "id": 13
+    },
+    {
+      "titleVid": "video1",
+      "moduleIdVid": "1",
+      "captionVid": "dsaa",
+      "orderVid": "1",
+      "urlVid": "dsaadas",
+      "id": 14
+    }
+  ]
 }

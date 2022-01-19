@@ -83,7 +83,7 @@ const CourseEnroll = () => {
 
     useEffect(() => {
         if (enrollData) {
-            setEnrollments(enrollData)
+            setEnrollments(enrollData) 
         }
     }, [enrollData])
 

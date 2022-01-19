@@ -1,14 +1,38 @@
-import { Grid } from "@mui/material";
-
+import { Button, Grid } from "@mui/material";
+import SideBar from "../components/SideBar";
 import Typography from "@mui/material/Typography";
+import { yellow, indigo } from "@mui/material/colors";
+
+const classes = {
+    buttonn: {
+        backgroundColor: indigo[500],
+        borderRadius: '50%',
+        paddingTop: '12px',
+        width : '60px',
+        height: '60px',
+    },
+}
 
 const Title = ({ reading }) => {
     return (
         <>
             <Grid
                 item
-                xs={12}
-                md={12}
+                xs={2}
+                md={2}
+            >
+                <Button
+                    variant="contained"
+                    sx={classes.buttonn}
+                >
+                    <SideBar
+                    />
+                </Button>
+            </Grid>
+            <Grid
+                item
+                xs={10}
+                md={10}
                 sx={{
                 textAlign: 'center'
                 }}
@@ -19,7 +43,7 @@ const Title = ({ reading }) => {
                         fontWeight: 500
                     }}
                 >
-                    {reading?.title}
+                    {reading}
                 </Typography>
             </Grid>
         </>
