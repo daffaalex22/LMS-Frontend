@@ -19,7 +19,7 @@ import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { Avatar, Grid, Link } from "@mui/material";
 import { useLocation } from "react-router";
-import { useGetTeacherData } from "../pages/teacherProfile/TeacherHook";
+import { useGetUserData } from "./getDataUser";
 
 const drawerWidth = 240;
 
@@ -27,7 +27,7 @@ function NavSidebar(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const [refresh, setRefresh] = React.useState(1);
-  const { teacherData, errorResponse } = useGetTeacherData(refresh);
+  const { teacherData, errorResponse } = useGetUserData(refresh);
   const role = localStorage.getItem("user");
   const location = useLocation();
 
@@ -72,7 +72,7 @@ function NavSidebar(props) {
           }}
         >
           <Link
-            href="/teacher/profile"
+            href={role === "Teacher" ? "/teacher/profile" : "/student/profile"}
             underline="none"
             color={location.pathname === "/teacher/profile" ? "white" : "black"}
           >
@@ -97,7 +97,7 @@ function NavSidebar(props) {
           }}
         >
           <Link
-            href="/teacher/courses"
+            href={role === "Teacher" ? "/teacher/courses" : "/student/courses"}
             underline="none"
             color={
               location.pathname === "/teacher/courses" ||

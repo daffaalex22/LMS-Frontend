@@ -12,11 +12,11 @@ import {
 } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 
-import NavSidebar from "../../components/NavSide";
 import CourseCard from "../../components/CourseCard";
 import { useTeacherCourseData } from "./Course.hook";
 import AddEditCard from "./AddEditCard";
 import axios from "axios";
+import NavSidebar from "../../components/navSideBar/NavSide";
 
 export default function TeacherCourse() {
   document.title = "Teacher - Courses";
