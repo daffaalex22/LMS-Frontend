@@ -11,6 +11,7 @@ import YouTube from 'react-youtube';
 import useWindowDimensions from '../../customHooks/useWindowDimensions';
 import { Link } from 'react-router-dom'
 import './VideosPage.css'
+import { useState } from 'react';
 
 const classes = {
     yellowBar: {
@@ -21,7 +22,6 @@ const classes = {
     },
     yellowBarTitle: {
         margin: '20px 0px 20px 30px',
-        // padding: '20px 30px',
         width: 'fit-content',
         fontWeight: 500
     },
@@ -29,10 +29,19 @@ const classes = {
 
 const VideosPage = () => {
     const { width, height } = useWindowDimensions()
+    const [openFiles, setOpenFiles] = useState(false)
 
     const onVideoReady = (e) => {
         // access to player in all event handlers via event.target
         e.target.pauseVideo();
+    }
+
+    const handleOpenFiles = () => {
+        setOpenFiles(true)
+    }
+
+    const handleOpenDesc = () => {
+        setOpenFiles(false)
     }
 
     const opts = {
@@ -115,7 +124,7 @@ const VideosPage = () => {
                                                 variant="h5"
                                                 sx={classes.yellowBarTitle}
                                             >
-                                                <Link to="#">
+                                                <Link to="#" onClick={handleOpenDesc}>
                                                     Description
                                                 </Link>
                                             </Typography>
@@ -130,7 +139,7 @@ const VideosPage = () => {
                                                 variant="h5"
                                                 sx={classes.yellowBarTitle}
                                             >
-                                                <Link to="#">
+                                                <Link to="#" onClick={handleOpenFiles}>
                                                     Files
                                                 </Link>
                                             </Typography>
@@ -139,32 +148,79 @@ const VideosPage = () => {
                                 </Paper>
                             </Grid>
                         </Grid>
-                        <Grid
-                            item
-                            xs={12}
-                            container
-                            spacing={1}
-                        >
-                            <Typography
-                                variant="h5"
-                                fontWeight="light"
-                                margin="40px 20px"
-                                lineHeight="1.5em"
-                                textAlign="justify"
+                        {openFiles ?
+                            <Grid
+                                item
+                                xs={12}
+                                container
+                                spacing={1}
+                                justifyContent="center"
+                                sx={{
+                                    marginTop: '15px',
+                                    marginBottom: '28px'
+                                }}
                             >
-                                Lorem Ipsum is simply dummy text of the printing and
-                                typesetting industry. Lorem Ipsum has been the industry's
-                                standard dummy text ever since the 1500s, when an
-                                unknown printer took a galley of type and scrambled
-                                it to make a type specimen book. It has survived not
-                                only five centuries, but also the leap into electronic
-                                typesetting, remaining essentially unchanged. It was
-                                popularised in the 1960s with the release of Letraset
-                                sheets containing Lorem Ipsum passages, and more recently
-                                with desktop publishing software like Aldus PageMaker
-                                including versions of Lorem Ipsum
-                            </Typography>
-                        </Grid>
+                                {[0, 1, 2, 3].map((item) => (
+                                    <Grid
+                                        item
+                                        xs={12}
+                                        md={6}
+                                    >
+                                        <Paper
+                                            sx={{
+                                                height: 'auto',
+                                                width: '100%',
+                                                borderRadius: '10px',
+                                                backgroundColor: yellow[400],
+                                                paddingTop: '1px',
+                                                paddingBottom: '1px'
+                                            }}
+                                        >
+                                            <Typography
+                                                variant="h6"
+                                                sx={{
+                                                    margin: '15px auto 15px auto',
+                                                    width: 'fit-content',
+                                                    fontWeight: "regular"
+                                                }}
+                                                textAlign="center"
+                                            >
+                                                <Link to="#">
+                                                    {`Slides ${item + 1}`}
+                                                </Link>
+                                            </Typography>
+                                        </Paper>
+                                    </Grid>
+                                ))}
+                            </Grid>
+                            :
+                            <Grid
+                                item
+                                xs={12}
+                                container
+                                spacing={1}
+                            >
+                                <Typography
+                                    variant="h5"
+                                    fontWeight="light"
+                                    margin="40px 20px"
+                                    lineHeight="1.5em"
+                                    textAlign="justify"
+                                >
+                                    Lorem Ipsum is simply dummy text of the printing and
+                                    typesetting industry. Lorem Ipsum has been the industry's
+                                    standard dummy text ever since the 1500s, when an
+                                    unknown printer took a galley of type and scrambled
+                                    it to make a type specimen book. It has survived not
+                                    only five centuries, but also the leap into electronic
+                                    typesetting, remaining essentially unchanged. It was
+                                    popularised in the 1960s with the release of Letraset
+                                    sheets containing Lorem Ipsum passages, and more recently
+                                    with desktop publishing software like Aldus PageMaker
+                                    including versions of Lorem Ipsum
+                                </Typography>
+                            </Grid>
+                        }
                         <Grid
                             item
                             xs={12}
