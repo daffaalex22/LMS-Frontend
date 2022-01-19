@@ -117,7 +117,7 @@ const CourseCard = ({ course, role, openEdit, onDelete }) => {
         <CardActions sx={{ textAlign: "center", height: "9%" }}>
           <Grid container sx={{ paddingLeft: "12px" }}>
             <Grid container item xs={5}>
-              <Grid item xs={3}>
+              <Grid item xs={4}>
                 <StarRoundedIcon
                   sx={{
                     color: indigo[500],
@@ -132,7 +132,7 @@ const CourseCard = ({ course, role, openEdit, onDelete }) => {
                     fontWeight: 600,
                     color: indigo[500],
                     position: "relative",
-                    top: "-5%",
+                    top: "-10%",
                   }}
                 >
                   {course.rating ? course.rating : "0"}
