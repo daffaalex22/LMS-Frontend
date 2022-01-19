@@ -144,7 +144,7 @@ const ResponsiveAppBar = () => {
                 >
                   <Link
                     to={
-                      user === "student"
+                      user === "Student"
                         ? "/student/profile"
                         : "/teacher/profile"
                     }
@@ -169,7 +169,7 @@ const ResponsiveAppBar = () => {
                 >
                   <Link
                     to={
-                      user === "student"
+                      user === "Student"
                         ? "/student/courses"
                         : "/teacher/courses"
                     }
