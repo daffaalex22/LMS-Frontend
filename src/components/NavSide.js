@@ -19,13 +19,16 @@ import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { Avatar, Grid, Link } from "@mui/material";
 import { useLocation } from "react-router";
+import { useGetTeacherData } from "../pages/teacherProfile/TeacherHook";
 
 const drawerWidth = 240;
 
 function NavSidebar(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
-  const namaTeacher = "krisna";
+  const [refresh, setRefresh] = React.useState(1);
+  const { teacherData, errorResponse } = useGetTeacherData(refresh);
+  const role = localStorage.getItem("user");
   const location = useLocation();
 
   const handleDrawerToggle = () => {
@@ -39,7 +42,7 @@ function NavSidebar(props) {
       </Box>
       <Box m="40px">
         <Typography variant="h5" component="h2" textAlign="center">
-          Teacher
+          {role}
         </Typography>
       </Box>
       <Box
@@ -50,13 +53,14 @@ function NavSidebar(props) {
       >
         <Avatar
           alt="avatar"
+          src={teacherData.avatar}
           sx={{ width: "150px", height: "150px", margin: "0" }}
         />
         {/* <img src="/assets/images/blankProfile.png" alt="logo LMS" width="70%" /> */}
       </Box>
       <Box m="10px">
         <Typography variant="h5" component="h2" textAlign="center">
-          {namaTeacher}
+          {teacherData.name}
         </Typography>
       </Box>
       <Divider />
@@ -189,7 +193,7 @@ function NavSidebar(props) {
         component="main"
         sx={{
           flexGrow: 1,
-          p: mobileOpen? 3 : 1,
+          p: mobileOpen ? 3 : 1,
           width: { sm: `calc(100% - ${drawerWidth}px)` },
         }}
       >

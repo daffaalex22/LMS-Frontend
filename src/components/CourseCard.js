@@ -151,7 +151,7 @@ const CourseCard = ({ course, role, openEdit, onDelete }) => {
                 </Button>
               </Grid>
             </Grid>
-            {role === "teacher" && (
+            {role === "Teacher" && (
               <Grid container item xs={7} justifyContent="flex-end">
                 <IconButton
                   onClick={openAlert}
