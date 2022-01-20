@@ -1,16 +1,17 @@
-import './App.css';
-import LoginStudent from './pages/LoginStudent';
-import RegisterStudent from './pages/RegisterStudent';
-import CourseSearch from './pages/CourseSearch';
+import "./App.css";
+import LoginStudent from "./pages/LoginStudent";
+import RegisterStudent from "./pages/RegisterStudent";
+import CourseSearch from "./pages/CourseSearch";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Navigate } from 'react-router';
+import { Navigate } from "react-router";
 import {
   createTheme,
   responsiveFontSizes,
   ThemeProvider,
-} from '@mui/material/styles';
-import CourseEnroll from './pages/courseEnroll/CourseEnroll';
-import Layout from './components/Layout';
+} from "@mui/material/styles";
+import CourseEnroll from "./pages/courseEnroll/CourseEnroll";
+import Layout from "./components/Layout";
+import Content from "./components/Content";
 
 let theme = createTheme();
 theme = responsiveFontSizes(theme);
@@ -28,7 +29,19 @@ function App() {
             <Route exact path="/courses" element={<Layout />} />
             <Route path="/courses/enroll" element={<Layout />} />
             <Route exact path="/about-us" element={<Layout />} />
-            <Route exact path="/reading/:moduleId" element={<Layout />} />
+            {/* <Route exact path="/module/:moduleId" element={<Content />} /> */}
+            <Route
+              exact
+              path="/module/:moduleId/readings/:id"
+              element={<Content />}
+            />
+            {/* <Route
+              exact
+              path="/module/:moduleId/video/:id"
+              element={<Content />}
+            /> */}
+
+            {/* // /module/moudule/content/video/videoId */}
           </Routes>
         </BrowserRouter>
       </div>

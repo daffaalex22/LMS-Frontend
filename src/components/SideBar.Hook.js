@@ -4,16 +4,19 @@ import { useParams } from "react-router";
 
 export const useVideoData = () => {
   const { moduleId } = useParams();
+  console.log(moduleId);
   const [videosData, setVideosData] = useState([]);
   const [errorResponse, setErrorResponse] = useState(null);
 
   useEffect(() => {
     console.log("Getting Data Video by");
+    console.log(moduleId);
     const getData = async () => {
       let newDatas;
       try {
         newDatas = await Axios.get(
-          `http://13.59.7.136:8080/api/v1/modules/${moduleId}/videos`);
+          `http://13.59.7.136:8080/api/v1/modules/${moduleId}/videos`
+        );
       } catch (e) {
         console.error(e);
         if (e.response) {
@@ -43,13 +46,17 @@ export const useReadingData = () => {
   const { moduleId } = useParams();
   const [readingsData, setReadingsData] = useState([]);
   const [errorResponse, setErrorResponse] = useState(null);
+  // const intModule = parseInt(moduleId);
 
   useEffect(() => {
     console.log("Getting Data Reading by module Id");
+    console.log(moduleId);
     const getData = async () => {
       let newDatas;
       try {
-        newDatas = await Axios.get(`http://13.59.7.136:8080/api/v1/modules/${moduleId}/readings`);
+        newDatas = await Axios.get(
+          `http://13.59.7.136:8080/api/v1/modules/${moduleId}/readings`
+        );
       } catch (e) {
         console.error(e);
         if (e.response) {
@@ -68,10 +75,11 @@ export const useReadingData = () => {
     };
     getData();
   }, []);
-  return { readingsData, errorResponse,moduleId };
+  return { readingsData, errorResponse, moduleId };
 };
 
 export const useModuleData = () => {
+  const { moduleId } = useParams();
   const [moduleData, setModuleData] = useState([]);
   const [errorResponse, setErrorResponse] = useState(null);
 
@@ -81,7 +89,7 @@ export const useModuleData = () => {
       let newDatas;
       try {
         newDatas = await Axios.get(
-          "http://13.59.7.136:8080/api/v1/modules"
+          `http://13.59.7.136:8080/api/v1/modules/${moduleId}`
         );
       } catch (e) {
         console.error(e);
@@ -101,4 +109,37 @@ export const useModuleData = () => {
     getData();
   }, []);
   return { moduleData, errorResponse };
+};
+
+export const useReadData = () => {
+  const { id } = useParams();
+  const [readData, setReadData] = useState([]);
+  const [errorResponse, setErrorResponse] = useState(null);
+
+  useEffect(() => {
+    console.log("Getting Reading By Id");
+    const getData = async () => {
+      let newDatas;
+      try {
+        newDatas = await Axios.get(
+          `http://13.59.7.136:8080/api/v1/readings/${id}`
+        );
+      } catch (e) {
+        console.error(e);
+        if (e.response) {
+          console.log(e.response);
+          setErrorResponse(e.response.data.message);
+        } else if (e.request) {
+          console.log(e.request);
+          setErrorResponse("Server Error");
+        }
+      }
+      if (newDatas) {
+        console.log(newDatas);
+        setReadData(newDatas.data.data);
+      }
+    };
+    getData();
+  }, []);
+  return { readData, errorResponse };
 };
