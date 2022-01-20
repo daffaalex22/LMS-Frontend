@@ -2,7 +2,7 @@ import Box from "@mui/material/Box";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import { useState } from "react";
-import { yellow, indigo } from "@mui/material/colors";
+import { yellow } from "@mui/material/colors";
 import { useEffect } from "react";
 import { useNavigate } from "react-router";
 import useWindowDimensions from "../customHooks/useWindowDimensions";
@@ -71,8 +71,8 @@ export default function Layout() {
   useEffect(() => {
     setValue(pathnameToValue[location.pathname]);
     if (location.pathname.includes("/enroll/")) {
-      setValue(1)
-      setOpenEnrollment(true)
+      setValue(1);
+      setOpenEnrollment(true);
     }
   }, [location]);
 

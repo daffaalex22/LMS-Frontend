@@ -1,6 +1,5 @@
 import LoginTeacher from "./pages/LoginTeacher";
 import RegisterTeacher from "./pages/RegisterTeacher";
-import "./App.css";
 import LoginStudent from "./pages/LoginStudent";
 import RegisterStudent from "./pages/RegisterStudent";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
