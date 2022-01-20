@@ -140,10 +140,19 @@ export default function FormEdit(props) {
 
   useEffect(() => {
     if (props.teacher === null) {
-      setData({ name: "", email: "", phone: 0, address: "" });
+      setData({
+        name: "",
+        email: "",
+        phone: 1,
+        address: "",
+        background: "",
+        password: "",
+        newPassword: "",
+      });
     } else {
       setData(props.teacher);
     }
+    console.log(data);
   }, [props.teacher]);
 
   return (
