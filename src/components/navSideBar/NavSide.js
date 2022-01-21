@@ -27,7 +27,7 @@ function NavSidebar(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const [refresh, setRefresh] = React.useState(1);
-  const { teacherData, errorResponse } = useGetUserData(refresh);
+  const { userData, errorResponse } = useGetUserData(refresh);
   const role = localStorage.getItem("user");
   const location = useLocation();
 
@@ -53,14 +53,14 @@ function NavSidebar(props) {
       >
         <Avatar
           alt="avatar"
-          src={teacherData.avatar}
+          src={userData?.avatar}
           sx={{ width: "150px", height: "150px", margin: "0" }}
         />
         {/* <img src="/assets/images/blankProfile.png" alt="logo LMS" width="70%" /> */}
       </Box>
       <Box m="10px">
         <Typography variant="h5" component="h2" textAlign="center">
-          {teacherData.name}
+          {userData?.name}
         </Typography>
       </Box>
       <Divider />
@@ -68,13 +68,21 @@ function NavSidebar(props) {
         <Box
           sx={{
             bgcolor:
-              location.pathname === "/teacher/profile" ? "primary.main" : "",
+              location.pathname === "/teacher/profile" ||
+              location.pathname === "/student/profile"
+                ? "primary.main"
+                : "",
           }}
         >
           <Link
             href={role === "Teacher" ? "/teacher/profile" : "/student/profile"}
             underline="none"
-            color={location.pathname === "/teacher/profile" ? "white" : "black"}
+            color={
+              location.pathname === "/teacher/profile" ||
+              location.pathname === "/student/profile"
+                ? "white"
+                : "black"
+            }
           >
             <ListItem button>
               <ListItemIcon>

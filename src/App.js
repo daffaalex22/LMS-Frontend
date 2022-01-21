@@ -27,6 +27,7 @@ import TeacherProfile from "./pages/teacherProfile/TeacherProfile";
 import InternalServerError from "./pages/internalServerError/InternalServerError";
 import { storage } from "./firebase/firebase";
 import StudentCourse from "./pages/studentCourse/StudentCourse";
+import StudentProfile from "./pages/studentProfile/StudentProfile";
 
 let theme = createTheme({
   palette: {
@@ -75,6 +76,7 @@ function App() {
               <Route path="/teacher/courses" element={<TeacherCourse />} />
               <Route path="/student/courses" element={<StudentCourse />} />
               <Route path="/teacher/profile" element={<TeacherProfile />} />
+              <Route path="/student/profile" element={<StudentProfile />} />
               <Route path="/help-faq" element={<Layout />} />
               <Route path="/server-error" element={<InternalServerError />} />
               <Route
