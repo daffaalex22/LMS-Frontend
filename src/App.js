@@ -12,15 +12,6 @@ import {
 import CourseEnroll from "./pages/courseEnroll/CourseEnroll";
 import Layout from "./components/Layout";
 import Content from "./components/Content";
-import { Navigate } from "react-router";
-import {
-  createTheme,
-  responsiveFontSizes,
-  ThemeProvider,
-} from "@mui/material/styles";
-import Layout from "./components/Layout";
-import GeneralContextProvider from "./contexts/GeneralContext";
-import Layout from "./components/Layout";
 import GeneralContextProvider from "./contexts/GeneralContext";
 import TeacherCourse from "./pages/teacherCourse/TeacherCourse";
 import TeacherProfile from "./pages/teacherProfile/TeacherProfile";
@@ -28,6 +19,7 @@ import InternalServerError from "./pages/internalServerError/InternalServerError
 import { storage } from "./firebase/firebase";
 import StudentCourse from "./pages/studentCourse/StudentCourse";
 import StudentProfile from "./pages/studentProfile/StudentProfile";
+import RequestMail from "./pages/requestMail/RequestMail";
 
 let theme = createTheme({
   palette: {
@@ -77,6 +69,8 @@ function App() {
               <Route path="/student/courses" element={<StudentCourse />} />
               <Route path="/teacher/profile" element={<TeacherProfile />} />
               <Route path="/student/profile" element={<StudentProfile />} />
+              <Route path="/student/request" element={<RequestMail />} />
+              <Route path="/teacher/request" element={<RequestMail />} />
               <Route path="/help-faq" element={<Layout />} />
               <Route path="/server-error" element={<InternalServerError />} />
               <Route
