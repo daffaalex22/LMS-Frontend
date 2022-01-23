@@ -421,10 +421,10 @@ const TitleSideBar = () => {
               <ListItem
                 key={key}
                 disablePadding
-                //   onClick={}
+              //   onClick={}
               >
                 <Link
-                  to={`/module/${moduleId}/videos/${item.id}`}
+                  to={`/modules/${moduleId}/videos/${item.id}`}
                   style={{ textDecoration: "none", color: "black" }}
                   onClick={refreshPage}
                 >
@@ -443,10 +443,10 @@ const TitleSideBar = () => {
                 key={item.id}
                 disablePadding
 
-                //   onClick={}
+              //   onClick={}
               >
                 <Link
-                  to={`/module/${moduleId}/readings/${item.id}`}
+                  to={`/modules/${moduleId}/readings/${item.id}`}
                   style={{ textDecoration: "none", color: "black" }}
                   onClick={refreshPage}
                 >

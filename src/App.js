@@ -80,7 +80,7 @@ function App() {
               <Route path="/server-error" element={<InternalServerError />} />
               <Route
                 exact
-                path="/module/:moduleId/readings/:id"
+                path="/modules/:moduleId/readings/:id"
                 element={<Content />}
               />
             </Routes>

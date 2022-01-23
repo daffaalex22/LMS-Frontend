@@ -3,6 +3,8 @@ import { yellow } from "@mui/material/colors";
 import PropTypes from "prop-types";
 import Typography from "@mui/material/Typography";
 import StudentReading from "../pages/StudentReading";
+import CourseEnroll from "../pages/courseEnroll/CourseEnroll";
+import AppBar from "./responsiveAppBar/ResponsiveAppBar";
 import FooterDashboard from "./FooterDashboard";
 import ResponsiveAppBar from "./responsiveAppBar/ResponsiveAppBar";
 
