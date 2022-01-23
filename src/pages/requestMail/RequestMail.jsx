@@ -1,5 +1,5 @@
 import { Box, Typography, Breadcrumbs, Link, Fab, Stack } from "@mui/material";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import NavSidebar from "../../components/navSideBar/NavSide";
 import RequestCard from "../../components/card/requestCard/RequestCard";
 import { useGetRequestUser } from "./requestHook";
@@ -14,6 +14,8 @@ export default function RequestMail() {
   const [createOpen, setCreateOpen] = useState(false);
 
   const { requestUser, errorResponse } = useGetRequestUser(refresh);
+
+  useEffect(() => console.log("reload"), [requestUser]);
 
   return (
     <Box sx={{ minHeight: "100vh", bgcolor: "secondary.200" }}>
@@ -79,6 +81,8 @@ export default function RequestMail() {
                   key={key}
                   teacher={user === "Teacher" ? true : false}
                   data={item}
+                  setRefresh={setRefresh}
+                  refresh={refresh}
                 />
               ))}
             </Stack>

@@ -29,11 +29,21 @@ export default function RowTypeStatus(props) {
       <br />
       {props.teacher && (
         <Box>
-          <Button variant="contained" fullWidth color="error">
+          <Button
+            variant="contained"
+            fullWidth
+            color="error"
+            onClick={() => props.updateReq("Rejected")}
+          >
             Reject
           </Button>
           <br />
-          <Button variant="contained" fullWidth color="success">
+          <Button
+            variant="contained"
+            fullWidth
+            color="success"
+            onClick={() => props.updateReq("Accepted")}
+          >
             Accept
           </Button>
         </Box>

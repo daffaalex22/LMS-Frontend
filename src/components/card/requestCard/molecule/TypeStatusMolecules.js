@@ -42,12 +42,20 @@ export default function TypeStatusMolecules(props) {
           alignContent="center"
         >
           <Grid item>
-            <Button variant="contained" color="error">
+            <Button
+              variant="contained"
+              color="error"
+              onClick={() => props.updateReq("Rejected")}
+            >
               Reject
             </Button>
           </Grid>
           <Grid item>
-            <Button variant="contained" color="success">
+            <Button
+              variant="contained"
+              color="success"
+              onClick={() => props.updateReq("Accepted")}
+            >
               Accept
             </Button>
           </Grid>

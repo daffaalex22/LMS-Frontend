@@ -1,12 +1,4 @@
-import {
-  Button,
-  Card,
-  CardContent,
-  Grid,
-  Typography,
-  useMediaQuery,
-} from "@mui/material";
-import { Box } from "@mui/system";
+import { Card, CardContent, Typography, useMediaQuery } from "@mui/material";
 import axios from "axios";
 import React from "react";
 import RowTypeStatus from "./molecule/RowTypeStatus";
@@ -17,12 +9,11 @@ export default function RequestCard(props) {
 
   const updateReq = (status) => {
     axios
-      .put(`http://13.59.7.136:8080/api/v1/requests/` + props.id, {
+      .put(`http://13.59.7.136:8080/api/v1/requests/` + props.data.id, {
         status: status,
       })
       .then((resp) => {
         console.log(resp);
-        props.setOpen(false);
         props.setRefresh(props.refresh + 1);
       })
       .catch((e) => {
@@ -60,6 +51,7 @@ export default function RequestCard(props) {
             teacher={props.teacher}
             type={props.data?.type.title}
             status={props.data?.status}
+            updateReq={updateReq}
           />
         )}
         {mobileVersion && (
@@ -67,6 +59,7 @@ export default function RequestCard(props) {
             teacher={props.teacher}
             status={props.data?.status}
             type={props.data?.type.title}
+            updateReq={updateReq}
           />
         )}
       </CardContent>
