@@ -106,7 +106,7 @@ export default function CreateRequest(props) {
     >
       <Box sx={{ backgroundColor: "primary.main" }}>
         <DialogContent sx={{ color: "white" }}>
-          <Typography variant="h3" component="h2" mb={2} textAlign="center">
+          <Typography variant="h4" component="h2" mb={2} textAlign="center">
             Add Request Mail
           </Typography>
           <Stack spacing={2}>
