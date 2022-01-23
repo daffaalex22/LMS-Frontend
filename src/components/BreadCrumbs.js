@@ -22,7 +22,7 @@ export default function BasicBreadcrumbs() {
         >
           Trigono
         </Link>
-        <Typography color="text.primary">Capter I</Typography>
+        <Typography color="text.primary">Chapter I</Typography>
       </Breadcrumbs>
     </div>
   );

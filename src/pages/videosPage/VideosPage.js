@@ -12,6 +12,7 @@ import useWindowDimensions from '../../customHooks/useWindowDimensions';
 import { Link } from 'react-router-dom'
 import './VideosPage.css'
 import { useState } from 'react';
+import Discussion from '../../components/Discussion';
 
 const classes = {
     yellowBar: {
@@ -55,10 +56,9 @@ const VideosPage = () => {
 
     return (
         <>
-            <ResponsiveAppBar />
             <Box
                 sx={{
-                    padding: '100px 0px',
+                    padding: '77px 0px',
                     backgroundColor: yellow[200]
                 }}
             >
@@ -67,19 +67,6 @@ const VideosPage = () => {
                         container
                         spacing={1}
                     >
-                        <Grid
-                            item
-                            xs={12}
-                            sx={{
-                                height: '770px'
-                            }}
-                        >
-                            <YouTube
-                                videoId="_nBlN9yp9R8"
-                                opts={opts}
-                                onReady={onVideoReady}
-                            />
-                        </Grid>
                         <Grid
                             item
                             xs={12}
@@ -95,6 +82,19 @@ const VideosPage = () => {
                                 Video : Complete Blender Creator:
                                 Learn 3D Modelling for Beginners
                             </Typography>
+                        </Grid>
+                        <Grid
+                            item
+                            xs={12}
+                            sx={{
+                                height: '770px'
+                            }}
+                        >
+                            <YouTube
+                                videoId="_nBlN9yp9R8"
+                                opts={opts}
+                                onReady={onVideoReady}
+                            />
                         </Grid>
                         <Grid
                             item
@@ -221,7 +221,7 @@ const VideosPage = () => {
                                 </Typography>
                             </Grid>
                         }
-                        <Grid
+                        {/* <Grid
                             item
                             xs={12}
                             container
@@ -239,11 +239,11 @@ const VideosPage = () => {
                                     Discussions
                                 </Typography>
                             </Paper>
-                        </Grid>
+                        </Grid> */}
+                        <Discussion />
                     </Grid>
                 </Container>
             </Box >
-            <FooterDashboard />
         </>
     );
 }

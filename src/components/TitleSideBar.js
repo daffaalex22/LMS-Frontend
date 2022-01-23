@@ -423,19 +423,24 @@ const TitleSideBar = () => {
                 disablePadding
               //   onClick={}
               >
-                <Link
-                  to={`/modules/${moduleId}/videos/${item.id}`}
-                  style={{ textDecoration: "none", color: "black" }}
-                  onClick={refreshPage}
-                >
-                  <ListItemButton>
-                    <ListItemIcon>
-                      <SwitchVideoOutlinedIcon />
-                    </ListItemIcon>
 
+                <ListItemButton
+                  sx={{
+                    width: '100%'
+                  }}
+                >
+                  <ListItemIcon>
+                    <SwitchVideoOutlinedIcon />
+                  </ListItemIcon>
+                  <Link
+                    to={`/modules/${moduleId}/videos/${item.id}`}
+                    style={{ textDecoration: "none", color: "black" }}
+                    onClick={refreshPage}
+                  >
                     <ListItemText primary={item.title} />
-                  </ListItemButton>
-                </Link>
+                  </Link>
+                </ListItemButton>
+
               </ListItem>
             ))}
             {dataVideo?.map((item) => (
@@ -445,18 +450,19 @@ const TitleSideBar = () => {
 
               //   onClick={}
               >
-                <Link
-                  to={`/modules/${moduleId}/readings/${item.id}`}
-                  style={{ textDecoration: "none", color: "black" }}
-                  onClick={refreshPage}
-                >
-                  <ListItemButton>
-                    <ListItemIcon>
-                      <MenuBookOutlinedIcon />
-                    </ListItemIcon>
+
+                <ListItemButton>
+                  <ListItemIcon>
+                    <MenuBookOutlinedIcon />
+                  </ListItemIcon>
+                  <Link
+                    to={`/modules/${moduleId}/readings/${item.id}`}
+                    style={{ textDecoration: "none", color: "black" }}
+                    onClick={refreshPage}
+                  >
                     <ListItemText primary={item.title} />
-                  </ListItemButton>
-                </Link>
+                  </Link>
+                </ListItemButton>
               </ListItem>
             ))}
           </List>

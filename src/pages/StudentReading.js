@@ -3,6 +3,7 @@ import Title from "../components/Title";
 import Discussion from "../components/Discussion";
 import ReactLoading from "react-loading";
 import { Grid } from "@mui/material";
+import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import useFetch from "../customHooks/useFetch";
 import { yellow, indigo } from "@mui/material/colors";
@@ -37,7 +38,13 @@ const StudentReading = () => {
   console.log("title woii ::", dataRead?.title);
 
   return (
-    <>
+    <Box
+      sx={{
+        backgroundColor: yellow[200],
+        padding: "70px 0",
+        minHeight: "50vh",
+      }}
+    >
       {threadsPending ? (
         <Grid container spacing={0} justifyContent="center">
           <ReactLoading
@@ -63,7 +70,7 @@ const StudentReading = () => {
           <Grid container spacing={0} justifyContent="flex-end"></Grid>
         </>
       )}
-    </>
+    </Box>
   );
 };
 
