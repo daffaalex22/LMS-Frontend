@@ -142,7 +142,11 @@ const TitleSideBar = () => {
     console.log("order :", reading.order);
     axios
       .post("http://13.59.7.136:8080/api/v1/readings", {
-        ...reading,
+        // ...reading,
+        title: reading?.title,
+        moduleId: intModule,
+        content: reading?.content,
+        order: parseInt(reading?.order),
       })
       .then((resp) => {
         console.log(resp);
