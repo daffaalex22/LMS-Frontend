@@ -12,8 +12,8 @@ const Title = (props) => {
     <>
       <Grid
         item
-        xs={12}
-        md={12}
+        xs={9}
+        md={9}
         sx={{
           textAlign: "center",
         }}

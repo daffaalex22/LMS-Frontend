@@ -13,6 +13,9 @@ import { Link } from 'react-router-dom'
 import './VideosPage.css'
 import { useState } from 'react';
 import Discussion from '../../components/Discussion';
+import { useLocation } from 'react-router';
+import useFetch from '../../customHooks/useFetch';
+import { useParams } from 'react-router';
 
 const classes = {
     yellowBar: {
@@ -29,6 +32,13 @@ const classes = {
 }
 
 const VideosPage = () => {
+    const location = useLocation()
+    const { videoId } = useParams();
+    const {
+        data: videoData,
+        isPending: videoPending,
+        error: videoError,
+    } = useFetch("http://13.59.7.136:8080/api/v1/videos/" + videoId);
     const { width, height } = useWindowDimensions()
     const [openFiles, setOpenFiles] = useState(false)
 
@@ -54,11 +64,14 @@ const VideosPage = () => {
         },
     };
 
+    console.log("videoData", videoData)
+    console.log("videoId", videoId)
+
     return (
         <>
             <Box
                 sx={{
-                    padding: '77px 0px',
+                    padding: '50px 0px',
                     backgroundColor: yellow[200]
                 }}
             >
@@ -66,10 +79,11 @@ const VideosPage = () => {
                     <Grid
                         container
                         spacing={1}
+                        justifyContent="center"
                     >
                         <Grid
                             item
-                            xs={12}
+                            xs={9}
                             sx={{
                                 marginBottom: '40px'
                             }}
@@ -79,8 +93,7 @@ const VideosPage = () => {
                                 fontWeight="medium"
                                 textAlign="center"
                             >
-                                Video : Complete Blender Creator:
-                                Learn 3D Modelling for Beginners
+                                {videoData?.data?.title}
                             </Typography>
                         </Grid>
                         <Grid
@@ -90,11 +103,15 @@ const VideosPage = () => {
                                 height: '770px'
                             }}
                         >
-                            <YouTube
-                                videoId="_nBlN9yp9R8"
-                                opts={opts}
-                                onReady={onVideoReady}
-                            />
+                            {videoData?.data?.url ?
+                                <YouTube
+                                    videoId={videoData?.data?.url}
+                                    opts={opts}
+                                    onReady={onVideoReady}
+                                />
+                                :
+                                null
+                            }
                         </Grid>
                         <Grid
                             item
@@ -160,7 +177,7 @@ const VideosPage = () => {
                                     marginBottom: '28px'
                                 }}
                             >
-                                {[0, 1, 2, 3].map((item) => (
+                                {videoData?.data?.attachment ?
                                     <Grid
                                         item
                                         xs={12}
@@ -185,13 +202,47 @@ const VideosPage = () => {
                                                 }}
                                                 textAlign="center"
                                             >
-                                                <Link to="#">
-                                                    {`Slides ${item + 1}`}
+                                                <Link to={videoData?.data?.attachment}>
+                                                    Slides
                                                 </Link>
                                             </Typography>
                                         </Paper>
                                     </Grid>
-                                ))}
+                                    : null
+                                }
+                                {videoData?.data?.quiz ?
+                                    <Grid
+                                        item
+                                        xs={12}
+                                        md={6}
+                                    >
+                                        <Paper
+                                            sx={{
+                                                height: 'auto',
+                                                width: '100%',
+                                                borderRadius: '10px',
+                                                backgroundColor: yellow[400],
+                                                paddingTop: '1px',
+                                                paddingBottom: '1px'
+                                            }}
+                                        >
+                                            <Typography
+                                                variant="h6"
+                                                sx={{
+                                                    margin: '15px auto 15px auto',
+                                                    width: 'fit-content',
+                                                    fontWeight: "regular"
+                                                }}
+                                                textAlign="center"
+                                            >
+                                                <Link to={videoData?.data?.quiz}>
+                                                    Quiz
+                                                </Link>
+                                            </Typography>
+                                        </Paper>
+                                    </Grid>
+                                    : null
+                                }
                             </Grid>
                             :
                             <Grid
@@ -207,39 +258,10 @@ const VideosPage = () => {
                                     lineHeight="1.5em"
                                     textAlign="justify"
                                 >
-                                    Lorem Ipsum is simply dummy text of the printing and
-                                    typesetting industry. Lorem Ipsum has been the industry's
-                                    standard dummy text ever since the 1500s, when an
-                                    unknown printer took a galley of type and scrambled
-                                    it to make a type specimen book. It has survived not
-                                    only five centuries, but also the leap into electronic
-                                    typesetting, remaining essentially unchanged. It was
-                                    popularised in the 1960s with the release of Letraset
-                                    sheets containing Lorem Ipsum passages, and more recently
-                                    with desktop publishing software like Aldus PageMaker
-                                    including versions of Lorem Ipsum
+                                    {videoData?.data?.caption}
                                 </Typography>
                             </Grid>
                         }
-                        {/* <Grid
-                            item
-                            xs={12}
-                            container
-                            spacing={1}
-                        >
-                            <Paper
-                                sx={classes.yellowBar}
-                            >
-                                <Typography
-                                    variant="h4"
-                                    sx={{
-                                        ...classes.yellowBarTitle
-                                    }}
-                                >
-                                    Discussions
-                                </Typography>
-                            </Paper>
-                        </Grid> */}
                         <Discussion />
                     </Grid>
                 </Container>

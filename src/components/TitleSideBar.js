@@ -72,7 +72,7 @@ const classes = {
 function refreshPage() {
   setTimeout(() => {
     window.location.reload(false);
-  }, 500);
+  }, 200);
   console.log("page to reload");
 }
 
@@ -81,6 +81,7 @@ const TitleSideBar = () => {
   const [open, setOpen] = React.useState(false);
   const [open1, setOpen1] = React.useState(false);
   const openin = Boolean(anchorEl);
+  const [contentTitles, setContentTitles] = useState([]);
   const { moduleId } = useParams();
   // const [module, setModule] = useState([])
   const intModule = parseInt(moduleId);
@@ -215,6 +216,70 @@ const TitleSideBar = () => {
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+  let dataContent = [];
+
+  useEffect(() => {
+
+    let length = dataRead.length >= dataVideo.length ? dataRead.length : dataVideo.length
+    if (dataRead && dataVideo) {
+      for (let i = 0; i < length; i++) {
+        if (dataRead[i]) {
+          dataContent.push(dataRead[i])
+        }
+        if (dataVideo[i]) {
+          dataContent.push(dataVideo[i])
+        }
+      }
+    }
+    console.log("dataContent", dataContent)
+    console.log("dataVideo", dataVideo)
+    setContentTitles(dataContent?.map((item, key) => (
+      item?.url ?
+        <ListItem
+          key={item.id}
+          disablePadding
+        >
+          <ListItemButton>
+            <ListItemIcon>
+              <SwitchVideoOutlinedIcon />
+            </ListItemIcon>
+            <Link
+              to={`/modules/${moduleId}/videos/${item.id}`}
+              style={{ textDecoration: "none", color: "black" }}
+              onClick={refreshPage}
+            >
+              <ListItemText primary={item.title} />
+            </Link>
+          </ListItemButton>
+        </ListItem>
+        :
+        <ListItem
+          key={key}
+          disablePadding
+        //   onClick={}
+        >
+          <ListItemButton
+            sx={{
+              width: '100%'
+            }}
+          >
+            <ListItemIcon>
+              <MenuBookOutlinedIcon />
+            </ListItemIcon>
+            <Link
+              to={`/modules/${moduleId}/readings/${item.id}`}
+              style={{ textDecoration: "none", color: "black" }}
+              onClick={refreshPage}
+            >
+              <ListItemText primary={item.title} />
+            </Link>
+          </ListItemButton>
+
+        </ListItem>
+    )))
+  }, [dataRead, dataVideo]);
+
   return (
     <>
       <Grid container sx={classes.container}>
@@ -417,7 +482,8 @@ const TitleSideBar = () => {
       <Box sx={{ width: "100%", maxWidth: 360, bgcolor: yellow[600] }}>
         <nav aria-label="main mailbox folders">
           <List>
-            {dataRead?.map((item, key) => (
+            {contentTitles}
+            {/* {dataRead?.map((item, key) => (
               <ListItem
                 key={key}
                 disablePadding
@@ -430,29 +496,6 @@ const TitleSideBar = () => {
                   }}
                 >
                   <ListItemIcon>
-                    <SwitchVideoOutlinedIcon />
-                  </ListItemIcon>
-                  <Link
-                    to={`/modules/${moduleId}/videos/${item.id}`}
-                    style={{ textDecoration: "none", color: "black" }}
-                    onClick={refreshPage}
-                  >
-                    <ListItemText primary={item.title} />
-                  </Link>
-                </ListItemButton>
-
-              </ListItem>
-            ))}
-            {dataVideo?.map((item) => (
-              <ListItem
-                key={item.id}
-                disablePadding
-
-              //   onClick={}
-              >
-
-                <ListItemButton>
-                  <ListItemIcon>
                     <MenuBookOutlinedIcon />
                   </ListItemIcon>
                   <Link
@@ -463,8 +506,32 @@ const TitleSideBar = () => {
                     <ListItemText primary={item.title} />
                   </Link>
                 </ListItemButton>
+
               </ListItem>
-            ))}
+            ))} */}
+            {/* {dataVideo?.map((item) => (
+              <ListItem
+                key={item.id}
+                disablePadding
+
+              //   onClick={}
+              >
+
+                <ListItemButton>
+                  <ListItemIcon>
+                    <SwitchVideoOutlinedIcon />
+                  </ListItemIcon>
+                  <Link
+                    to={`/modules/${moduleId}/videos/${item.id}`}
+
+                    style={{ textDecoration: "none", color: "black" }}
+                    onClick={refreshPage}
+                  >
+                    <ListItemText primary={item.title} />
+                  </Link>
+                </ListItemButton>
+              </ListItem>
+            ))} */}
           </List>
         </nav>
       </Box>

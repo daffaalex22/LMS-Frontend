@@ -57,7 +57,7 @@ const StudentReading = () => {
       ) : (
         <>
           <Container>
-            <Grid container spacing={5}>
+            <Grid container spacing={5} justifyContent="center">
               <Title reading={dataRead?.title} />
               <ReadingDescription description={dataRead?.content} />
               <Discussion

@@ -58,20 +58,26 @@ function a11yProps(index) {
   };
 }
 
-const classes = {
-  buttonn: {
-    backgroundColor: indigo[500],
-    borderRadius: "50%",
-    padding: "14px",
-    width: "60px",
-    height: "64px",
-    position: 'relative',
-    top: '135px',
-    left: '190px'
-  },
-};
+
+
+
 
 export default function Layout() {
+  const { width, height } = useWindowDimensions()
+
+  const classes = {
+    buttonn: {
+      backgroundColor: indigo[500],
+      borderRadius: "50%",
+      padding: "14px",
+      width: "60px",
+      height: "64px",
+      position: 'relative',
+      top: '128px',
+      left: width >= 1200 ? '13vw' : '25px'
+    },
+  };
+
   const location = useLocation();
   const [openReadings, setOpenReadings] = useState(true);
 
