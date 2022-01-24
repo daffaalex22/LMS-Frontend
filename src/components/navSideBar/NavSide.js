@@ -14,6 +14,7 @@ import Typography from "@mui/material/Typography";
 
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
+import AssignmentIndIcon from "@mui/icons-material/AssignmentInd";
 import InsertEmoticonIcon from "@mui/icons-material/InsertEmoticon";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
@@ -86,7 +87,15 @@ function NavSidebar(props) {
           >
             <ListItem button>
               <ListItemIcon>
-                <InsertEmoticonIcon />
+                <InsertEmoticonIcon
+                  sx={{
+                    color:
+                      location.pathname === "/teacher/profile" ||
+                      location.pathname === "/student/profile"
+                        ? "white"
+                        : "",
+                  }}
+                />
               </ListItemIcon>
               <ListItemText primary="Profile" />
             </ListItem>
@@ -116,9 +125,56 @@ function NavSidebar(props) {
           >
             <ListItem button>
               <ListItemIcon>
-                <CheckCircleOutlineIcon />
+                <CheckCircleOutlineIcon
+                  sx={{
+                    color:
+                      location.pathname === "/teacher/courses" ||
+                      location.pathname === "/student/courses"
+                        ? "white"
+                        : "",
+                  }}
+                />
               </ListItemIcon>
               <ListItemText primary="MyCourse" color="" />
+              {/* isi number of total course */}
+            </ListItem>
+          </Link>
+        </Box>
+      </List>
+      <Divider />
+      <List>
+        <Box
+          sx={{
+            bgcolor:
+              location.pathname === "/teacher/request" ||
+              location.pathname === "/student/request"
+                ? "primary.main"
+                : "",
+          }}
+        >
+          <Link
+            href={role === "Teacher" ? "/teacher/request" : "/student/request"}
+            underline="none"
+            color={
+              location.pathname === "/teacher/request" ||
+              location.pathname === "/student/request"
+                ? "white"
+                : "black"
+            }
+          >
+            <ListItem button>
+              <ListItemIcon>
+                <AssignmentIndIcon
+                  sx={{
+                    color:
+                      location.pathname === "/teacher/request" ||
+                      location.pathname === "/student/request"
+                        ? "white"
+                        : "",
+                  }}
+                />
+              </ListItemIcon>
+              <ListItemText primary="Requests" />
               {/* isi number of total course */}
             </ListItem>
           </Link>
@@ -153,7 +209,7 @@ function NavSidebar(props) {
           </IconButton>
           <Grid container justifyContent="flex-end">
             <Box sx={{ justifyContent: "flex-end" }}>
-              <a href="/">
+              <a href="/home">
                 <Box color="white">
                   <ArrowBackIcon />
                 </Box>

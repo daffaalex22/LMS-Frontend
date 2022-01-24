@@ -134,7 +134,7 @@ export default function TeacherCourse() {
               {data?.map((course, key) => (
                 <Grid item lg={4} md={6} xs={12}>
                   <CourseCard
-                    role="teacher"
+                    role="Teacher"
                     course={course}
                     openEdit={openEdit}
                     onDelete={onDelete}

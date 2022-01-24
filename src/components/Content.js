@@ -1,20 +1,10 @@
 import Box from "@mui/material/Box";
-import Tabs from "@mui/material/Tabs";
-import Tab from "@mui/material/Tab";
-import { useState } from "react";
-import { yellow, indigo } from "@mui/material/colors";
-import { Grid } from "@mui/material";
-import { useEffect } from "react";
-import { useNavigate } from "react-router";
-import useWindowDimensions from "../customHooks/useWindowDimensions";
+import { yellow } from "@mui/material/colors";
 import PropTypes from "prop-types";
 import Typography from "@mui/material/Typography";
-import CourseSearch from "../pages/CourseSearch";
 import StudentReading from "../pages/StudentReading";
-import CourseEnroll from "../pages/courseEnroll/CourseEnroll";
-import AppBar from "./ResponsiveAppBar";
 import FooterDashboard from "./FooterDashboard";
-import { useLocation } from "react-router-dom";
+import ResponsiveAppBar from "./responsiveAppBar/ResponsiveAppBar";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -58,7 +48,7 @@ function a11yProps(index) {
 export default function Layout() {
   return (
     <>
-      <AppBar />
+      <ResponsiveAppBar />
       <Box sx={{ width: "100%", backgroundColor: yellow[600] }}>
         <TabPanel>
           <StudentReading />
