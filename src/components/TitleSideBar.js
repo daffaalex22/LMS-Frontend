@@ -483,55 +483,6 @@ const TitleSideBar = () => {
         <nav aria-label="main mailbox folders">
           <List>
             {contentTitles}
-            {/* {dataRead?.map((item, key) => (
-              <ListItem
-                key={key}
-                disablePadding
-              //   onClick={}
-              >
-
-                <ListItemButton
-                  sx={{
-                    width: '100%'
-                  }}
-                >
-                  <ListItemIcon>
-                    <MenuBookOutlinedIcon />
-                  </ListItemIcon>
-                  <Link
-                    to={`/modules/${moduleId}/readings/${item.id}`}
-                    style={{ textDecoration: "none", color: "black" }}
-                    onClick={refreshPage}
-                  >
-                    <ListItemText primary={item.title} />
-                  </Link>
-                </ListItemButton>
-
-              </ListItem>
-            ))} */}
-            {/* {dataVideo?.map((item) => (
-              <ListItem
-                key={item.id}
-                disablePadding
-
-              //   onClick={}
-              >
-
-                <ListItemButton>
-                  <ListItemIcon>
-                    <SwitchVideoOutlinedIcon />
-                  </ListItemIcon>
-                  <Link
-                    to={`/modules/${moduleId}/videos/${item.id}`}
-
-                    style={{ textDecoration: "none", color: "black" }}
-                    onClick={refreshPage}
-                  >
-                    <ListItemText primary={item.title} />
-                  </Link>
-                </ListItemButton>
-              </ListItem>
-            ))} */}
           </List>
         </nav>
       </Box>
