@@ -41,16 +41,17 @@ const classes = {
     },
 }
 
-const CourseOverview = ({ course, enroll }) => {
+const CourseOverview = ({ course, enroll, enrolled, setEnrolled, modulesRef }) => {
     const navigate = useNavigate()
-    const [enrolled, setEnrolled] = useState(false)
+
     const [open, setOpen] = useState(false);
     const handleOpen = () => {
-        if (enrolled) {
-            navigate("/modules/1/videos/1")
+        if (!enrolled) {
+            setOpen(true)
+            setEnrolled(true)
+        } else {
+            modulesRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' })
         }
-        setOpen(true)
-        setEnrolled(true)
     };
 
     return (
@@ -128,21 +129,25 @@ const CourseOverview = ({ course, enroll }) => {
                 >
                     Created by: {course?.teacher?.name}
                 </Typography>
-                <Button
-                    variant="contained"
-                    sx={{
-                        ...classes.btn,
-                        backgroundColor: enrolled ? "secondary" : "primary",
-                        '&:hover': {
-                            backgroundColor: enrolled ? "secondary.400" : "primary.400",
-                        }
-                    }}
-                    onClick={handleOpen}
-                    color={enrolled ? "secondary" : "primary"}
+                <a
+                    href="#modules"
                 >
-                    {enrolled ? <LaunchIcon /> : <AddIcon />}
-                    {enrolled ? "Open Course" : "Enroll Course"}
-                </Button>
+                    <Button
+                        variant="contained"
+                        sx={{
+                            ...classes.btn,
+                            backgroundColor: enrolled ? "secondary" : "primary",
+                            '&:hover': {
+                                backgroundColor: enrolled ? "secondary.400" : "primary.400",
+                            }
+                        }}
+                        onClick={handleOpen}
+                        color={enrolled ? "secondary" : "primary"}
+                    >
+                        {enrolled ? <LaunchIcon /> : <AddIcon />}
+                        {enrolled ? "Open Course" : "Enroll Course"}
+                    </Button>
+                </a>
             </Grid>
             <EnrolledModal
                 open={open}

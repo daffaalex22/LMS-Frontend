@@ -11,7 +11,7 @@ import CourseCarousel from "../../components/courseCarousel/CourseCarousel";
 import useFetch from "../../customHooks/useFetch";
 import ReactLoading from "react-loading";
 import CourseOverview from "../../components/CourseOverview";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useParams } from "react-router";
 
 const classes = {
@@ -67,12 +67,14 @@ const classes = {
 };
 
 const CourseEnroll = () => {
+  const modulesRef = useRef(null)
   const { id } = useParams()
   const [filterReview, setFilterReview] = useState(0);
   const [enrollments, setEnrollments] = useState([]);
   const [course, setCourse] = useState({})
   const [courses, setCourses] = useState([])
   const [reviewItems, setReviewItems] = useState(3);
+  const [enrolled, setEnrolled] = useState(false)
 
   const {
     data: courseData,
@@ -141,12 +143,18 @@ const CourseEnroll = () => {
           <Container>
             <Grid container spacing={5}>
               <CourseOverview
+                modulesRef={modulesRef}
                 course={course}
                 enroll={enrollments}
+                enrolled={enrolled}
+                setEnrolled={setEnrolled}
               />
               <CourseDescription
+                modulesRef={modulesRef}
                 description={course?.description}
                 modules={modulesData?.data}
+                enrolled={enrolled}
+                setEnrolled={setEnrolled}
               />
               <TheInstructor teacher={course?.teacher} />
               <StudentsFeedback

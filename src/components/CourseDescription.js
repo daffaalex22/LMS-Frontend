@@ -2,11 +2,14 @@ import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
 import { yellow, indigo } from "@mui/material/colors";
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import LaunchIcon from '@mui/icons-material/Launch';
+import { useNavigate } from "react-router";
 
 const classes = {
     yellowBar: {
@@ -37,7 +40,9 @@ const classes = {
     }
 }
 
-const CourseDescription = ({ description, modules }) => {
+const CourseDescription = ({ description, modules, enrolled, setEnrolled, modulesRef }) => {
+    const navigate = useNavigate()
+
     return (
         <>
             <Grid
@@ -67,6 +72,7 @@ const CourseDescription = ({ description, modules }) => {
             >
                 <Paper
                     sx={classes.yellowBar}
+                    ref={modulesRef}
                 >
                     <Typography
                         variant="h4"
@@ -88,6 +94,7 @@ const CourseDescription = ({ description, modules }) => {
                                 aria-controls={"panel" + module?.id + "a-content"}
                                 id={"panel" + module?.id + "a-header"}
                             >
+
                                 <Typography
                                     variant="h6"
                                     fontWeight="medium"
@@ -96,12 +103,28 @@ const CourseDescription = ({ description, modules }) => {
                                 </Typography>
                             </AccordionSummary>
                             <AccordionDetails>
-                                <Typography
-                                    variant="h6"
-                                    fontWeight="light"
+                                <Button
+                                    sx={{
+                                        width: '100%',
+                                        height: '45px',
+                                        color: 'white',
+                                        backgroundColor: indigo[500],
+                                        '&:hover': {
+                                            color: 'white',
+                                            backgroundColor: indigo[400],
+                                        },
+                                        '&:disabled': {
+                                            backgroundColor: indigo[100]
+                                        }
+                                    }}
+                                    disabled={enrolled ? false : true}
+                                    onClick={() => {
+                                        navigate("/modules/" + module?.id + "/readings/1")
+                                    }}
                                 >
-                                    {module?.title}
-                                </Typography>
+                                    <LaunchIcon sx={{ marginRight: '12px' }} />
+                                    {`Open ${module?.title}`}
+                                </Button>
                             </AccordionDetails>
                         </Accordion>
                     ))}
