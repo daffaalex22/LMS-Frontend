@@ -13,17 +13,31 @@ import { yellow, indigo, white } from "@mui/material/colors";
 import { storage } from "../firebase/firebase";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { useState } from "react";
+import { GeneralContext } from "../contexts/GeneralContext";
+import { useContext } from "react";
 
-const VideoFormDialogue = ({
-    errorInput,
-    handleVideo,
-    handleClickClose,
-    addNewVideos,
-    classes,
-    open,
-    video,
-    setVideo
-}) => {
+const classes = {
+    button: {
+        backgroundColor: indigo[600],
+        color: "#fff",
+    },
+}
+
+const VideoFormDialogue = ({ submitVideoForm }) => {
+
+    const {
+        video,
+        setVideo,
+        handleCloseVideoForm,
+        openVideoForm,
+        errorInput,
+        handleVideo,
+        isEditingVideo,
+        setIsEditingVideo
+    } = useContext(GeneralContext);
+
+    const [loadingUploadQuiz, setLoadingUploadQuiz] = useState(false);
+    const [loadingUploadAttachment, setLoadingUploadAttachment] = useState(false);
 
     const handleFileAttachment = (e) => {
         if (e.target.files[0] !== undefined) {
@@ -63,12 +77,10 @@ const VideoFormDialogue = ({
         }
     };
 
-    const [loadingUploadQuiz, setLoadingUploadQuiz] = useState(false);
-    const [loadingUploadAttachment, setLoadingUploadAttachment] = useState(false);
     return (
         <Dialog
-            open={open}
-            onClose={handleClickClose}
+            open={openVideoForm}
+            onClose={handleCloseVideoForm}
             sx={{
                 "& .MuiDialog-paper": {
                     border: `2px solid ${indigo[800]}`,
@@ -184,10 +196,10 @@ const VideoFormDialogue = ({
                     )}
                 </DialogContent>
                 <DialogActions>
-                    <Button onClick={handleClickClose} sx={classes.button}>
+                    <Button onClick={handleCloseVideoForm} sx={classes.button}>
                         Cancel
                     </Button>
-                    <Button onClick={addNewVideos} sx={classes.button}>
+                    <Button onClick={submitVideoForm} sx={classes.button}>
                         Submit
                     </Button>
                 </DialogActions>

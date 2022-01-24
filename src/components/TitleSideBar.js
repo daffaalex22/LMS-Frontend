@@ -29,7 +29,8 @@ import {
 } from "./SideBar.Hook";
 import axios from "axios";
 import { useParams } from "react-router";
-// import { useParams } from "react-router";
+import { GeneralContext } from "../contexts/GeneralContext";
+import { useContext } from "react";
 import VideoFormDialogue from "./VideoFormDialogue";
 
 const classes = {
@@ -78,8 +79,16 @@ function refreshPage() {
 }
 
 const TitleSideBar = () => {
+  const { video, setVideo } = useContext(GeneralContext);
   const [anchorEl, setAnchorEl] = React.useState(null);
-  const [open, setOpen] = React.useState(false);
+  const {
+    openVideoForm,
+    setOpenVideoForm,
+    handleOpenVideoForm,
+    errorInput,
+    setErrorInput,
+    handleVideo
+  } = useContext(GeneralContext);
   const [open1, setOpen1] = React.useState(false);
   const openin = Boolean(anchorEl);
   const [contentTitles, setContentTitles] = useState([]);
@@ -99,36 +108,12 @@ const TitleSideBar = () => {
     order: 0,
   });
 
-  const [video, setVideo] = useState({
-    title: "",
-    moduleId: 0,
-    url: "",
-    caption: "",
-    order: 0,
-    attachment: "",
-    quiz: ""
-  });
-
-  const [errorInput, setErrorInput] = useState({
-    title: false,
-  });
   const [error, setError] = useState(null);
 
   const handleReading = (e) => {
     console.log(reading);
     const { name, value } = e.target;
     setReading({ ...reading, [name]: value });
-    if (value !== "") {
-      setErrorInput({ ...errorInput, [name]: false });
-    }
-    if (value === "") {
-      setErrorInput({ ...errorInput, [name]: true });
-    }
-  };
-
-  const handleVideo = (e) => {
-    const { name, value } = e.target;
-    setVideo({ ...video, [name]: value });
     if (value !== "") {
       setErrorInput({ ...errorInput, [name]: false });
     }
@@ -173,7 +158,7 @@ const TitleSideBar = () => {
       });
   };
 
-  const addNewVideos = (e) => {
+  const submitVideoForm = (e) => {
     e.preventDefault();
     console.log("video Data: ", video);
     console.log("order :", video.order);
@@ -198,7 +183,7 @@ const TitleSideBar = () => {
             caption: "",
             order: 0,
           });
-          setOpen(false);
+          setOpenVideoForm(false);
         }
       })
       .catch((e) => {
@@ -211,12 +196,6 @@ const TitleSideBar = () => {
       });
   };
 
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-  const handleClickClose = () => {
-    setOpen(false);
-  };
   const handleClickOpen1 = () => {
     setOpen1(true);
   };
@@ -323,19 +302,16 @@ const TitleSideBar = () => {
                 <Button
                   variant="text"
                   sx={{ color: "black" }}
-                  onClick={handleClickOpen}
+                  onClick={handleOpenVideoForm}
                 >
                   Create Video
                 </Button>
                 <VideoFormDialogue
                   errorInput={errorInput}
                   handleVideo={handleVideo}
-                  handleClickClose={handleClickClose}
-                  addNewVideos={addNewVideos}
+                  submitVideoForm={submitVideoForm}
                   classes={classes}
-                  open={open}
-                  video={video}
-                  setVideo={setVideo}
+                  open={openVideoForm}
                 />
               </MenuItem>
               <MenuItem>

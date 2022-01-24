@@ -11,13 +11,15 @@ import YouTube from 'react-youtube';
 import useWindowDimensions from '../../customHooks/useWindowDimensions';
 import { Link } from 'react-router-dom'
 import './VideosPage.css'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Discussion from '../../components/Discussion';
 import { useLocation } from 'react-router';
 import useFetch from '../../customHooks/useFetch';
 import { useParams } from 'react-router';
 import FilesDescription from '../../components/FilesDescription';
 import YellowBarContent from '../../components/YellowBarContent';
+import { GeneralContext } from "../../contexts/GeneralContext";
+import { useContext } from 'react';
 
 const classes = {
     yellowBar: {
@@ -34,6 +36,7 @@ const classes = {
 }
 
 const VideosPage = () => {
+    const { video, setVideo } = useContext(GeneralContext);
     const [isTeacher, setIsTeacher] = useState(false);
     const location = useLocation()
     const { videoId } = useParams();
@@ -67,8 +70,11 @@ const VideosPage = () => {
         },
     };
 
-    console.log("videoData", videoData)
-    console.log("videoId", videoId)
+    useEffect(() => {
+        if (videoData) {
+            setVideo(videoData?.data)
+        }
+    }, [videoData]);
 
     return (
         <>
