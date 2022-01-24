@@ -55,6 +55,7 @@ const CourseSearch = () => {
     <Box sx={{ padding: "70px 0" }}>
       <FilterFields />
       <CourseCardList
+        loading={coursesLoading}
         courses={coursesData?.data}
       />
     </Box>
