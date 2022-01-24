@@ -176,7 +176,11 @@ const TitleSideBar = () => {
     console.log("order :", video.order);
     axios
       .post("http://13.59.7.136:8080/api/v1/videos", {
-        ...video,
+        title: video?.title,
+        moduleId: intModule,
+        url: video?.url,
+        caption: video?.caption,
+        order: parseInt(video?.order),
       })
       .then((resp) => {
         console.log(resp);

@@ -11,10 +11,6 @@ import ReactLoading from "react-loading";
 
 const CourseCardList = ({ courses, loading }) => {
   const [refresh, setRefresh] = useState(1);
-  const {
-    queryString,
-    setQueryString
-  } = useContext(GeneralContext)
 
   return (
     <>
