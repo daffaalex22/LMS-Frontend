@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -14,6 +14,8 @@ import { yellow, indigo } from "@mui/material/colors";
 import jwt_decode from "jwt-decode";
 import { Link } from "react-router-dom";
 import { RotateLeft } from "@mui/icons-material";
+import { GeneralContext } from "../../contexts/GeneralContext";
+import { Navigate } from "react-router-dom";
 
 const classes = {
   menuPaper: {
@@ -33,7 +35,8 @@ const ResponsiveAppBar = () => {
 
   const [jwtDecode, setJwtDecode] = React.useState(null);
   const [user, setUser] = React.useState("");
-  const [refresh, setRefresh] = React.useState(1);
+  const [loginPage, setLoginPage] = React.useState(false);
+  const { refresh } = useContext(GeneralContext);
 
   useEffect(() => {
     //asking if using params for frontend route profile and myCourses
@@ -52,7 +55,7 @@ const ResponsiveAppBar = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
     setAnchorElNav(null);
-    setRefresh(refresh + 1);
+    setLoginPage(true);
   };
 
   const handleOpenNavMenu = (event) => {
@@ -69,6 +72,10 @@ const ResponsiveAppBar = () => {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
+
+  if (loginPage) {
+    return <Navigate to="/" />;
+  }
 
   return (
     <AppBar

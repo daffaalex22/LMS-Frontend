@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import {
@@ -24,6 +24,7 @@ import AlertPopUp from "../../components/alertPopUp/AlertPopUp";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import Visibility from "@mui/icons-material/Visibility";
 import PasswordInput from "../../components/costumInput/PasswordInput";
+import { GeneralContext } from "../../contexts/GeneralContext";
 
 export default function FormEdit(props) {
   const [data, setData] = useState({
@@ -31,7 +32,6 @@ export default function FormEdit(props) {
     email: "",
     phone: 1,
     address: "",
-    background: "",
     password: "",
     newPassword: "",
   });
@@ -41,15 +41,14 @@ export default function FormEdit(props) {
     phone: false,
     avatar: false,
     address: false,
-    background: false,
     password: true,
     newPassword: false,
     confirmPassword: false,
   });
 
   const token = localStorage.getItem("token");
+  const { refresh, setRefresh } = useContext(GeneralContext);
   const [openAlert, setOpenAlert] = useState(false);
-  const [peekPassword, setPeekPassword] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirm, setShowConfirm] = useState(false);
   const [loadingUpload, setLoadingUpload] = useState(false);
@@ -77,6 +76,7 @@ export default function FormEdit(props) {
     axios
       .put(`http://13.59.7.136:8080/api/v1/students/profile`, data, config)
       .then((resp) => {
+        setRefresh(refresh + 1);
         console.log(resp);
         if (resp.data.meta.status !== 200) {
           console.log(resp);
@@ -90,6 +90,8 @@ export default function FormEdit(props) {
       })
       .catch((e) => {
         console.error(e);
+        setErrorAlert(true);
+        setErrorResponse("Error Update, Please Check Your Requirement");
         if (e.response) {
           console.log(e.response);
         } else if (e.request) {
@@ -208,19 +210,6 @@ export default function FormEdit(props) {
                 value={data.address}
                 error={error.address}
                 helperText={error.address ? "please fill address field" : ""}
-              />
-            </Grid>
-            <Grid item>
-              <TextField
-                fullWidth
-                label="Background"
-                onChange={handleChange}
-                name="background"
-                value={data.background}
-                error={error.background}
-                helperText={
-                  error.background ? "please fill background field" : ""
-                }
               />
             </Grid>
           </Grid>
@@ -356,8 +345,6 @@ export default function FormEdit(props) {
               error.email ||
               error.name ||
               error.phone ||
-              error.background ||
-              data.background === "" ||
               data.address === "" ||
               data.name === "" ||
               data.avatar === "" ||

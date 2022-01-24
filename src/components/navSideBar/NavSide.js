@@ -21,13 +21,14 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { Avatar, Grid, Link } from "@mui/material";
 import { useLocation } from "react-router";
 import { useGetUserData } from "./getDataUser";
+import { GeneralContext } from "../../contexts/GeneralContext";
 
 const drawerWidth = 240;
 
 function NavSidebar(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
-  const [refresh, setRefresh] = React.useState(1);
+  const { refresh } = React.useContext(GeneralContext);
   const { userData, errorResponse } = useGetUserData(refresh);
   const role = localStorage.getItem("user");
   const location = useLocation();
