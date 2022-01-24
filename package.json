@@ -25,6 +25,7 @@
     "react-router-dom": "^6.2.1",
     "react-scripts": "4.0.3",
     "use-http": "^1.0.26",
+    "react-youtube": "^7.14.0",
     "swiper": "^7.4.1",
     "web-vitals": "^1.1.2"
   },

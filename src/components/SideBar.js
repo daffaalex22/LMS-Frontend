@@ -33,13 +33,19 @@ const SideBar = () => {
   );
 
   return (
-    <div>
+    <>
       {["left"].map((anchor) => (
         <React.Fragment key={anchor}>
           <MenuIcon
             bgcolor="info.main"
             fontSize="large"
             onClick={toggleDrawer(anchor, true)}
+            sx={{
+              // width: '40px',
+              // height: '40px',
+              // posisiton: 'relative',
+              // top: '20px'
+            }}
           >
             {anchor}
           </MenuIcon>
@@ -60,7 +66,7 @@ const SideBar = () => {
           </Drawer>
         </React.Fragment>
       ))}
-    </div>
+    </>
   );
 };
 export default SideBar;

@@ -40,9 +40,6 @@ const CourseCard = ({ course, role, openEdit, onDelete }) => {
     setOpenEnrollment(true);
   };
 
-  let lineMultiplier = 1;
-  let descMultiplier = 1;
-
   const openAlert = () => {
     setDeleteAlert(true);
   };
@@ -117,38 +114,32 @@ const CourseCard = ({ course, role, openEdit, onDelete }) => {
         <CardActions sx={{ textAlign: "center", height: "9%" }}>
           <Grid container sx={{ paddingLeft: "12px" }}>
             <Grid container item xs={5}>
+              <Grid item xs={1}>
+                {course.rating ?
+                  <StarRoundedIcon
+                    sx={{
+                      color: indigo[500],
+                      position: "relative",
+                      top: "-1%",
+                    }}
+                  />
+                  : null
+                }
+              </Grid>
               <Grid item xs={4}>
-                <StarRoundedIcon
-                  sx={{
-                    color: indigo[500],
-                    position: "relative",
-                    top: "10%",
-                  }}
-                />
                 <Typography
                   variant="body2"
                   component="span"
                   sx={{
                     fontWeight: 600,
                     color: indigo[500],
-                    position: "relative",
-                    top: "-10%",
+                    position: 'relative',
+                    left: '9px'
                   }}
+                  textAlign="left"
                 >
-                  {course.rating ? course.rating : "0"}
+                  {course.rating ? course.rating : "Unrated"}
                 </Typography>
-              </Grid>
-              <Grid item xs={8}>
-                <Button
-                  size="small"
-                  sx={{
-                    fontWeight: 600,
-                    color: indigo[500],
-                    marginLeft: "5px",
-                  }}
-                >
-                  See More
-                </Button>
               </Grid>
             </Grid>
             {role === "Teacher" && (

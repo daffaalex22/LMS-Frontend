@@ -26,7 +26,7 @@ const classes = {
     },
 }
 
-const StudentsFeedback = ({ setFilterReview }) => {
+const StudentsFeedback = ({ setFilterReview, course }) => {
 
     const handleFilterAll = () => {
         setFilterReview(0)
@@ -119,7 +119,7 @@ const StudentsFeedback = ({ setFilterReview }) => {
                                         right: '5px'
                                     }}
                                 />
-                                4.9
+                                {course?.rating}
                             </Typography>
                         </Paper>
                     </Grid>

@@ -12,7 +12,8 @@ import { Navigate } from "react-router";
 
 const classes = {
   loginPage: {
-    height: "100vh",
+    minHeight: '100vh',
+    height: '100%',
     margin: "0 auto",
     backgroundColor: yellow[200],
     padding: "35px 7vw",
