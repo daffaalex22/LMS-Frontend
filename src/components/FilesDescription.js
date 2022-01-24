@@ -45,9 +45,9 @@ const FilesDescription = ({ openFiles, videoData }) => {
                                     }}
                                     textAlign="center"
                                 >
-                                    <Link to={videoData?.data?.attachment}>
+                                    <a href={videoData?.data?.attachment} target="_blank" >
                                         Slides
-                                    </Link>
+                                    </a>
                                 </Typography>
                             </Paper>
                         </Grid>
@@ -78,9 +78,9 @@ const FilesDescription = ({ openFiles, videoData }) => {
                                     }}
                                     textAlign="center"
                                 >
-                                    <Link to={videoData?.data?.quiz}>
+                                    <a href={videoData?.data?.quiz} target="_blank">
                                         Quiz
-                                    </Link>
+                                    </a>
                                 </Typography>
                             </Paper>
                         </Grid>

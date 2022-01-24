@@ -4,8 +4,9 @@ import { useNavigate } from "react-router";
 import Grid from "@mui/material/Grid";
 import IconButton from "@mui/material/IconButton";
 import Paper from "@mui/material/Paper";
-import { yellow, indigo } from "@mui/material/colors";
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
+import EditIcon from '@mui/icons-material/Edit';
+import { yellow, indigo, white } from "@mui/material/colors";
 
 const YellowBarContent = ({ handleOpenDesc, handleOpenFiles, classes }) => {
     return (
@@ -26,11 +27,10 @@ const YellowBarContent = ({ handleOpenDesc, handleOpenFiles, classes }) => {
                         container
                         spacing={1}
                         justifyContent="space-between"
-                    // columns={{ xs: 12, sm: 16, md: 18 }}
                     >
                         <Grid
                             item
-                            xs={10}
+                            xs={8}
                             sm={10}
                             md={10}
                             container
@@ -38,7 +38,7 @@ const YellowBarContent = ({ handleOpenDesc, handleOpenFiles, classes }) => {
                         >
                             <Grid
                                 item
-                                xs={4}
+                                xs={6}
                                 sm={4}
                                 md={3}
                             >
@@ -53,7 +53,7 @@ const YellowBarContent = ({ handleOpenDesc, handleOpenFiles, classes }) => {
                             </Grid>
                             <Grid
                                 item
-                                xs={4}
+                                xs={6}
                                 sm={3}
                                 md={3}
                             >
@@ -69,18 +69,19 @@ const YellowBarContent = ({ handleOpenDesc, handleOpenFiles, classes }) => {
                         </Grid>
                         <Grid
                             item
-                            xs={2}
+                            xs={4}
                             sm={2}
                             md={2}
                             container
                             justifyContent="flex-end"
                             alignItems="center"
                             direction="row"
+                            spacing={0}
                         >
                             <Grid
                                 item
-                                xs={12}
-                                sm={8}
+                                xs={6}
+                                // sm={5}
                                 md={6}
                                 lg={5}
                                 container
@@ -88,7 +89,32 @@ const YellowBarContent = ({ handleOpenDesc, handleOpenFiles, classes }) => {
                                 <IconButton
                                     sx={{
                                         height: '50px',
-                                        width: '50px'
+                                        width: '50px',
+                                        color: '#4fc3f7'
+                                    }}
+                                >
+                                    <EditIcon
+                                        sx={{
+                                            height: '100%',
+                                            width: '100%',
+                                            color: '#4fc3f7'
+                                        }}
+                                    />
+                                </IconButton>
+                            </Grid>
+                            <Grid
+                                item
+                                xs={6}
+                                // sm={5}
+                                md={6}
+                                lg={5}
+                                container
+                            >
+                                <IconButton
+                                    sx={{
+                                        height: '50px',
+                                        width: '50px',
+                                        color: 'red'
                                     }}
                                 >
                                     <DeleteForeverIcon

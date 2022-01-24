@@ -30,6 +30,7 @@ import {
 import axios from "axios";
 import { useParams } from "react-router";
 // import { useParams } from "react-router";
+import VideoFormDialogue from "./VideoFormDialogue";
 
 const classes = {
   container: {
@@ -104,6 +105,8 @@ const TitleSideBar = () => {
     url: "",
     caption: "",
     order: 0,
+    attachment: "",
+    quiz: ""
   });
 
   const [errorInput, setErrorInput] = useState({
@@ -181,6 +184,8 @@ const TitleSideBar = () => {
         url: video?.url,
         caption: video?.caption,
         order: parseInt(video?.order),
+        attachment: video?.attachment,
+        quiz: video?.quiz
       })
       .then((resp) => {
         console.log(resp);
@@ -322,87 +327,16 @@ const TitleSideBar = () => {
                 >
                   Create Video
                 </Button>
-                <Dialog open={open} onClose={handleClickClose}>
-                  <Grid
-                    item
-                    xs={12}
-                    md={12}
-                    sx={{
-                      backgroundColor: indigo[500],
-                    }}
-                  >
-                    <DialogTitle>
-                      <Typography
-                        variant="h4"
-                        sx={{
-                          fontWeight: 500,
-                          color: "#fff",
-                        }}
-                      >
-                        Create Video
-                      </Typography>
-                    </DialogTitle>
-                    <DialogContent>
-                      <TextField
-                        id="title"
-                        label="title"
-                        type="title"
-                        multiline
-                        margin="dense"
-                        fullWidth
-                        value={video?.title}
-                        name="title"
-                        error={errorInput.title}
-                        helperText={
-                          errorInput.title ? "please fill the title" : ""
-                        }
-                        onChange={handleVideo}
-                      />
-
-                      <TextField
-                        id="order"
-                        label="order"
-                        type="order"
-                        multiline
-                        margin="dense"
-                        fullWidth
-                        value={video?.order}
-                        name="order"
-                        onChange={handleVideo}
-                      />
-                      <TextField
-                        id="url"
-                        label="url"
-                        type="url"
-                        multiline
-                        margin="dense"
-                        fullWidth
-                        value={video?.url}
-                        name="url"
-                        onChange={handleVideo}
-                      />
-                      <TextField
-                        id="caption"
-                        label="caption"
-                        type="caption"
-                        multiline
-                        margin="dense"
-                        fullWidth
-                        value={video?.caption}
-                        name="caption"
-                        onChange={handleVideo}
-                      />
-                    </DialogContent>
-                    <DialogActions>
-                      <Button onClick={handleClickClose} sx={classes.button}>
-                        Cancel
-                      </Button>
-                      <Button onClick={addNewVideos} sx={classes.button}>
-                        Submit
-                      </Button>
-                    </DialogActions>
-                  </Grid>
-                </Dialog>
+                <VideoFormDialogue
+                  errorInput={errorInput}
+                  handleVideo={handleVideo}
+                  handleClickClose={handleClickClose}
+                  addNewVideos={addNewVideos}
+                  classes={classes}
+                  open={open}
+                  video={video}
+                  setVideo={setVideo}
+                />
               </MenuItem>
               <MenuItem>
                 <Button
