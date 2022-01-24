@@ -56,6 +56,11 @@ const CourseSearch = () => {
     }
   }, [queryString])
 
+  useEffect(() => {
+    setCourses(coursesData?.data)
+  }, [coursesData]);
+
+
 
 
   return (

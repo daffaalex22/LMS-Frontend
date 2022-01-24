@@ -228,7 +228,6 @@ const TitleSideBar = () => {
   let dataContent = [];
 
   useEffect(() => {
-
     let length = dataRead.length >= dataVideo.length ? dataRead.length : dataVideo.length
     if (dataRead && dataVideo) {
       for (let i = 0; i < length; i++) {
