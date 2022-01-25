@@ -59,8 +59,8 @@ const classes = {
   buttonn: {
     backgroundColor: indigo[500],
     borderRadius: "50%",
-    width: "60px",
-    height: "60px",
+    maxWidth: "60px",
+    height: "64px",
   },
   button: {
     backgroundColor: indigo[600],
