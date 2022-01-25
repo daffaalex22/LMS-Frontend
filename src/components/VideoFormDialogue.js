@@ -12,9 +12,12 @@ import LinearProgress from "@mui/material/LinearProgress";
 import { yellow, indigo, white } from "@mui/material/colors";
 import { storage } from "../firebase/firebase";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
-import { useState } from "react";
 import { GeneralContext } from "../contexts/GeneralContext";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
+import axios from "axios";
+import { useParams } from "react-router";
+import useFetch from "../customHooks/useFetch";
+
 
 const classes = {
     button: {
@@ -23,26 +26,142 @@ const classes = {
     },
 }
 
-const VideoFormDialogue = ({ submitVideoForm }) => {
+const VideoFormDialogue = () => {
+
+    const { moduleId, videoId } = useParams();
+    const intModule = parseInt(moduleId);
+    const {
+        data: videoData,
+        isPending: videoPending,
+        error: videoError,
+    } = useFetch("http://13.59.7.136:8080/api/v1/videos/" + videoId);
 
     const {
         video,
         setVideo,
         handleCloseVideoForm,
         openVideoForm,
+        setOpenVideoForm,
         errorInput,
+        setErrorInput,
         handleVideo,
         isEditingVideo,
-        setIsEditingVideo
+        setIsEditingVideo,
+        error,
+        setError
     } = useContext(GeneralContext);
+
+    function refreshPage() {
+        setTimeout(() => {
+            window.location.reload(false);
+        }, 200);
+        console.log("page to reload");
+    }
+
+    const submitVideoForm = (e) => {
+        e.preventDefault();
+        if (!video?.title) {
+            setErrorInput({ ...errorInput, title: true })
+        } else if (!video?.url) {
+            setErrorInput({ ...errorInput, url: true })
+        } else if (!video?.order) {
+            setErrorInput({ ...errorInput, order: true })
+        } else if (isEditingVideo) {
+            axios
+                .put("http://13.59.7.136:8080/api/v1/videos/" + videoId, {
+                    title: video?.title,
+                    moduleId: intModule,
+                    url: video?.url,
+                    caption: video?.caption,
+                    order: parseInt(video?.order),
+                    attachment: video?.attachment,
+                    quiz: video?.quiz
+                })
+                .then((resp) => {
+                    console.log(resp);
+                    if (resp.data.meta.status !== 200) {
+                        setError(resp.data.meta.messages);
+                        setVideo({
+                            title: "",
+                            moduleId,
+                            url: "",
+                            caption: "",
+                            order: 0,
+                        });
+                    }
+                    setOpenVideoForm(false);
+                    refreshPage()
+                })
+                .catch((e) => {
+                    console.error(e);
+                    if (e.response) {
+                        console.log(e.response);
+                    } else if (e.request) {
+                        console.log(e.request);
+                    }
+                });
+        } else {
+            axios
+                .post("http://13.59.7.136:8080/api/v1/videos", {
+                    title: video?.title,
+                    moduleId: intModule,
+                    url: video?.url,
+                    caption: video?.caption,
+                    order: parseInt(video?.order),
+                    attachment: video?.attachment,
+                    quiz: video?.quiz
+                })
+                .then((resp) => {
+                    console.log(resp);
+                    if (resp.data.meta.status !== 200) {
+                        setError(resp.data.meta.messages);
+                        setVideo({
+                            title: "",
+                            moduleId,
+                            url: "",
+                            caption: "",
+                            order: 0,
+                        });
+                    }
+                    setOpenVideoForm(false);
+                    refreshPage()
+                })
+                .catch((e) => {
+                    console.error(e);
+                    if (e.response) {
+                        console.log(e.response);
+                    } else if (e.request) {
+                        console.log(e.request);
+                    }
+                });
+        }
+    };
 
     const [loadingUploadQuiz, setLoadingUploadQuiz] = useState(false);
     const [loadingUploadAttachment, setLoadingUploadAttachment] = useState(false);
 
+    useEffect(() => {
+        if (!isEditingVideo) {
+            setVideo({
+                title: "",
+                moduleId: 0,
+                url: "",
+                caption: "",
+                order: 0,
+                attachment: "",
+                quiz: ""
+            })
+        } else {
+            setVideo(videoData?.data)
+        }
+    }, [openVideoForm]);
+
+
+
     const handleFileAttachment = (e) => {
         if (e.target.files[0] !== undefined) {
             setLoadingUploadAttachment(true);
-            const profileRef = ref(storage, "/profile/" + e.target.files[0].name);
+            const profileRef = ref(storage, "/attachment/" + e.target.files[0].name);
             uploadBytes(profileRef, e.target.files[0]).then((snapshot) => {
                 console.log("uploading file");
                 console.log(snapshot);
@@ -61,7 +180,7 @@ const VideoFormDialogue = ({ submitVideoForm }) => {
     const handleFileQuiz = (e) => {
         if (e.target.files[0] !== undefined) {
             setLoadingUploadQuiz(true);
-            const profileRef = ref(storage, "/profile/" + e.target.files[0].name);
+            const profileRef = ref(storage, "/quiz/" + e.target.files[0].name);
             uploadBytes(profileRef, e.target.files[0]).then((snapshot) => {
                 console.log("uploading file");
                 console.log(snapshot);
@@ -137,6 +256,7 @@ const VideoFormDialogue = ({ submitVideoForm }) => {
                         value={video?.order}
                         name="order"
                         onChange={handleVideo}
+                        error={errorInput.order}
                     />
                     <TextField
                         id="url"
@@ -148,6 +268,7 @@ const VideoFormDialogue = ({ submitVideoForm }) => {
                         value={video?.url}
                         name="url"
                         onChange={handleVideo}
+                        error={errorInput.url}
                     />
                     <TextField
                         id="caption"

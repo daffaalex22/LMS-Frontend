@@ -87,12 +87,16 @@ const TitleSideBar = () => {
     handleOpenVideoForm,
     errorInput,
     setErrorInput,
-    handleVideo
+    handleVideo,
+    isEditingVideo,
+    setIsEditingVideo,
+    error,
+    setError
   } = useContext(GeneralContext);
   const [open1, setOpen1] = React.useState(false);
   const openin = Boolean(anchorEl);
   const [contentTitles, setContentTitles] = useState([]);
-  const { moduleId } = useParams();
+  const { moduleId, videoId } = useParams();
   // const [module, setModule] = useState([])
   const intModule = parseInt(moduleId);
 
@@ -107,8 +111,6 @@ const TitleSideBar = () => {
     content: "",
     order: 0,
   });
-
-  const [error, setError] = useState(null);
 
   const handleReading = (e) => {
     console.log(reading);
@@ -160,40 +162,81 @@ const TitleSideBar = () => {
 
   const submitVideoForm = (e) => {
     e.preventDefault();
-    console.log("video Data: ", video);
-    console.log("order :", video.order);
-    axios
-      .post("http://13.59.7.136:8080/api/v1/videos", {
-        title: video?.title,
-        moduleId: intModule,
-        url: video?.url,
-        caption: video?.caption,
-        order: parseInt(video?.order),
-        attachment: video?.attachment,
-        quiz: video?.quiz
-      })
-      .then((resp) => {
-        console.log(resp);
-        if (resp.data.meta.status !== 200) {
-          setError(resp.data.meta.messages);
-          setVideo({
-            title: "",
-            moduleId,
-            url: "",
-            caption: "",
-            order: 0,
-          });
+    if (!video?.title) {
+      setErrorInput({ ...errorInput, title: true })
+    } else if (!video?.url) {
+      setErrorInput({ ...errorInput, url: true })
+    } else if (!video?.order) {
+      setErrorInput({ ...errorInput, order: true })
+    } else if (isEditingVideo) {
+      axios
+        .put("http://13.59.7.136:8080/api/v1/videos/" + videoId, {
+          title: video?.title,
+          moduleId: intModule,
+          url: video?.url,
+          caption: video?.caption,
+          order: parseInt(video?.order),
+          attachment: video?.attachment,
+          quiz: video?.quiz
+        })
+        .then((resp) => {
+          console.log(resp);
+          if (resp.data.meta.status !== 200) {
+            setError(resp.data.meta.messages);
+            setVideo({
+              title: "",
+              moduleId,
+              url: "",
+              caption: "",
+              order: 0,
+            });
+          }
           setOpenVideoForm(false);
-        }
-      })
-      .catch((e) => {
-        console.error(e);
-        if (e.response) {
-          console.log(e.response);
-        } else if (e.request) {
-          console.log(e.request);
-        }
-      });
+          refreshPage()
+        })
+        .catch((e) => {
+          console.error(e);
+          if (e.response) {
+            console.log(e.response);
+          } else if (e.request) {
+            console.log(e.request);
+          }
+        });
+    } else {
+      axios
+        .post("http://13.59.7.136:8080/api/v1/videos", {
+          title: video?.title,
+          moduleId: intModule,
+          url: video?.url,
+          caption: video?.caption,
+          order: parseInt(video?.order),
+          attachment: video?.attachment,
+          quiz: video?.quiz
+        })
+        .then((resp) => {
+          console.log(resp);
+          if (resp.data.meta.status !== 200) {
+            setError(resp.data.meta.messages);
+            setVideo({
+              title: "",
+              moduleId,
+              url: "",
+              caption: "",
+              order: 0,
+            });
+          }
+          setOpenVideoForm(false);
+          refreshPage()
+        })
+        .catch((e) => {
+          console.error(e);
+          if (e.response) {
+            console.log(e.response);
+          } else if (e.request) {
+            console.log(e.request);
+          }
+        });
+    }
   };
 
   const handleClickOpen1 = () => {
@@ -306,13 +349,7 @@ const TitleSideBar = () => {
                 >
                   Create Video
                 </Button>
-                <VideoFormDialogue
-                  errorInput={errorInput}
-                  handleVideo={handleVideo}
-                  submitVideoForm={submitVideoForm}
-                  classes={classes}
-                  open={openVideoForm}
-                />
+                <VideoFormDialogue />
               </MenuItem>
               <MenuItem>
                 <Button

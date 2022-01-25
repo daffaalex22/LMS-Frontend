@@ -7,8 +7,21 @@ import Paper from "@mui/material/Paper";
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import EditIcon from '@mui/icons-material/Edit';
 import { yellow, indigo, white } from "@mui/material/colors";
+import { GeneralContext } from "../contexts/GeneralContext";
+import { useContext } from 'react';
 
 const YellowBarContent = ({ handleOpenDesc, handleOpenFiles, classes }) => {
+    const {
+        isEditingVideo,
+        setIsEditingVideo,
+        setOpenVideoForm,
+    } = useContext(GeneralContext);
+
+    const handleEdit = () => {
+        setIsEditingVideo(true)
+        setOpenVideoForm(true)
+    }
+
     return (
         <Grid
             item
@@ -92,6 +105,7 @@ const YellowBarContent = ({ handleOpenDesc, handleOpenFiles, classes }) => {
                                         width: '50px',
                                         color: '#4fc3f7'
                                     }}
+                                    onClick={handleEdit}
                                 >
                                     <EditIcon
                                         sx={{

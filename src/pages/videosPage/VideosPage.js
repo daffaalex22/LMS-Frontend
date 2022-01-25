@@ -20,6 +20,7 @@ import FilesDescription from '../../components/FilesDescription';
 import YellowBarContent from '../../components/YellowBarContent';
 import { GeneralContext } from "../../contexts/GeneralContext";
 import { useContext } from 'react';
+import VideoFormDialogue from "../../components/VideoFormDialogue";
 
 const classes = {
     yellowBar: {
@@ -36,7 +37,7 @@ const classes = {
 }
 
 const VideosPage = () => {
-    const { video, setVideo } = useContext(GeneralContext);
+    const { video, setVideo, isEditingVideo, setIsEditingVideo } = useContext(GeneralContext);
     const [isTeacher, setIsTeacher] = useState(false);
     const location = useLocation()
     const { videoId } = useParams();
@@ -135,6 +136,7 @@ const VideosPage = () => {
                     </Grid>
                 </Container>
             </Box >
+            <VideoFormDialogue />
         </>
     );
 }

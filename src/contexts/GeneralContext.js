@@ -44,8 +44,10 @@ const GeneralContextProvider = ({ children }) => {
   };
   const handleCloseVideoForm = () => {
     setOpenVideoForm(false);
+    setIsEditingVideo(false)
   };
   const [isEditingVideo, setIsEditingVideo] = useState(false);
+  const [error, setError] = useState(null);
 
   const value = {
     openEnrollment,
@@ -68,7 +70,9 @@ const GeneralContextProvider = ({ children }) => {
     setErrorInput,
     handleVideo,
     isEditingVideo,
-    setIsEditingVideo
+    setIsEditingVideo,
+    error,
+    setError
   }
 
   return (
