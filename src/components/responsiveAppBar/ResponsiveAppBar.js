@@ -16,6 +16,8 @@ import { Link } from "react-router-dom";
 import { RotateLeft } from "@mui/icons-material";
 import { GeneralContext } from "../../contexts/GeneralContext";
 import { Navigate } from "react-router-dom";
+import HomeIcon from '@mui/icons-material/Home';
+import { useNavigate } from "react-router";
 
 const classes = {
   menuPaper: {
@@ -30,6 +32,7 @@ const classes = {
 };
 
 const ResponsiveAppBar = () => {
+  const navigate = useNavigate()
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -76,6 +79,9 @@ const ResponsiveAppBar = () => {
   if (loginPage) {
     return <Navigate to="/" />;
   }
+  const handleGoHome = () => {
+    navigate('/home')
+  }
 
   return (
     <AppBar
@@ -113,7 +119,23 @@ const ResponsiveAppBar = () => {
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}></Box>
 
           <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
+            <Tooltip title="Go to Home Page">
+              <IconButton onClick={handleGoHome}
+                sx={{
+                  p: 0,
+                  backgroundColor: indigo[500],
+                  marginRight: '20px',
+                  '&:hover': {
+                    backgroundColor: indigo[500],
+                  }
+                }}
+              >
+                <HomeIcon
+                  sx={{ width: "43px", height: "auto", color: yellow[400] }}
+                />
+              </IconButton>
+            </Tooltip>
+            <Tooltip title="Open Profile">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <AccountCircleIcon
                   sx={{ width: "50px", height: "auto", color: indigo[500] }}

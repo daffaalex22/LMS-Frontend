@@ -29,7 +29,9 @@ import {
 } from "./SideBar.Hook";
 import axios from "axios";
 import { useParams } from "react-router";
-// import { useParams } from "react-router";
+import { GeneralContext } from "../contexts/GeneralContext";
+import { useContext } from "react";
+import VideoFormDialogue from "./VideoFormDialogue";
 
 const classes = {
   container: {
@@ -57,8 +59,8 @@ const classes = {
   buttonn: {
     backgroundColor: indigo[500],
     borderRadius: "50%",
-    width: "60px",
-    height: "60px",
+    maxWidth: "60px",
+    height: "64px",
   },
   button: {
     backgroundColor: indigo[600],
@@ -77,12 +79,24 @@ function refreshPage() {
 }
 
 const TitleSideBar = () => {
+  const { video, setVideo } = useContext(GeneralContext);
   const [anchorEl, setAnchorEl] = React.useState(null);
-  const [open, setOpen] = React.useState(false);
+  const {
+    openVideoForm,
+    setOpenVideoForm,
+    handleOpenVideoForm,
+    errorInput,
+    setErrorInput,
+    handleVideo,
+    isEditingVideo,
+    setIsEditingVideo,
+    error,
+    setError
+  } = useContext(GeneralContext);
   const [open1, setOpen1] = React.useState(false);
   const openin = Boolean(anchorEl);
   const [contentTitles, setContentTitles] = useState([]);
-  const { moduleId } = useParams();
+  const { moduleId, videoId } = useParams();
   // const [module, setModule] = useState([])
   const intModule = parseInt(moduleId);
 
@@ -98,34 +112,10 @@ const TitleSideBar = () => {
     order: 0,
   });
 
-  const [video, setVideo] = useState({
-    title: "",
-    moduleId: 0,
-    url: "",
-    caption: "",
-    order: 0,
-  });
-
-  const [errorInput, setErrorInput] = useState({
-    title: false,
-  });
-  const [error, setError] = useState(null);
-
   const handleReading = (e) => {
     console.log(reading);
     const { name, value } = e.target;
     setReading({ ...reading, [name]: value });
-    if (value !== "") {
-      setErrorInput({ ...errorInput, [name]: false });
-    }
-    if (value === "") {
-      setErrorInput({ ...errorInput, [name]: true });
-    }
-  };
-
-  const handleVideo = (e) => {
-    const { name, value } = e.target;
-    setVideo({ ...video, [name]: value });
     if (value !== "") {
       setErrorInput({ ...errorInput, [name]: false });
     }
@@ -142,7 +132,11 @@ const TitleSideBar = () => {
     console.log("order :", reading.order);
     axios
       .post("http://13.59.7.136:8080/api/v1/readings", {
-        ...reading,
+        // ...reading,
+        title: reading?.title,
+        moduleId: intModule,
+        content: reading?.content,
+        order: parseInt(reading?.order),
       })
       .then((resp) => {
         console.log(resp);
@@ -166,44 +160,85 @@ const TitleSideBar = () => {
       });
   };
 
-  const addNewVideos = (e) => {
+  const submitVideoForm = (e) => {
     e.preventDefault();
-    console.log("video Data: ", video);
-    console.log("order :", video.order);
-    axios
-      .post("http://13.59.7.136:8080/api/v1/videos", {
-        ...video,
-      })
-      .then((resp) => {
-        console.log(resp);
-        if (resp.data.meta.status !== 200) {
-          setError(resp.data.meta.messages);
-          setVideo({
-            title: "",
-            moduleId,
-            url: "",
-            caption: "",
-            order: 0,
-          });
-          setOpen(false);
-        }
-      })
-      .catch((e) => {
-        console.error(e);
-        if (e.response) {
-          console.log(e.response);
-        } else if (e.request) {
-          console.log(e.request);
-        }
-      });
+    if (!video?.title) {
+      setErrorInput({ ...errorInput, title: true })
+    } else if (!video?.url) {
+      setErrorInput({ ...errorInput, url: true })
+    } else if (!video?.order) {
+      setErrorInput({ ...errorInput, order: true })
+    } else if (isEditingVideo) {
+      axios
+        .put("http://13.59.7.136:8080/api/v1/videos/" + videoId, {
+          title: video?.title,
+          moduleId: intModule,
+          url: video?.url,
+          caption: video?.caption,
+          order: parseInt(video?.order),
+          attachment: video?.attachment,
+          quiz: video?.quiz
+        })
+        .then((resp) => {
+          console.log(resp);
+          if (resp.data.meta.status !== 200) {
+            setError(resp.data.meta.messages);
+            setVideo({
+              title: "",
+              moduleId,
+              url: "",
+              caption: "",
+              order: 0,
+            });
+          }
+          setOpenVideoForm(false);
+          refreshPage()
+        })
+        .catch((e) => {
+          console.error(e);
+          if (e.response) {
+            console.log(e.response);
+          } else if (e.request) {
+            console.log(e.request);
+          }
+        });
+    } else {
+      axios
+        .post("http://13.59.7.136:8080/api/v1/videos", {
+          title: video?.title,
+          moduleId: intModule,
+          url: video?.url,
+          caption: video?.caption,
+          order: parseInt(video?.order),
+          attachment: video?.attachment,
+          quiz: video?.quiz
+        })
+        .then((resp) => {
+          console.log(resp);
+          if (resp.data.meta.status !== 200) {
+            setError(resp.data.meta.messages);
+            setVideo({
+              title: "",
+              moduleId,
+              url: "",
+              caption: "",
+              order: 0,
+            });
+          }
+          setOpenVideoForm(false);
+          refreshPage()
+        })
+        .catch((e) => {
+          console.error(e);
+          if (e.response) {
+            console.log(e.response);
+          } else if (e.request) {
+            console.log(e.request);
+          }
+        });
+    }
   };
 
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-  const handleClickClose = () => {
-    setOpen(false);
-  };
   const handleClickOpen1 = () => {
     setOpen1(true);
   };
@@ -220,7 +255,6 @@ const TitleSideBar = () => {
   let dataContent = [];
 
   useEffect(() => {
-
     let length = dataRead.length >= dataVideo.length ? dataRead.length : dataVideo.length
     if (dataRead && dataVideo) {
       for (let i = 0; i < length; i++) {
@@ -311,91 +345,11 @@ const TitleSideBar = () => {
                 <Button
                   variant="text"
                   sx={{ color: "black" }}
-                  onClick={handleClickOpen}
+                  onClick={handleOpenVideoForm}
                 >
                   Create Video
                 </Button>
-                <Dialog open={open} onClose={handleClickClose}>
-                  <Grid
-                    item
-                    xs={12}
-                    md={12}
-                    sx={{
-                      backgroundColor: indigo[500],
-                    }}
-                  >
-                    <DialogTitle>
-                      <Typography
-                        variant="h4"
-                        sx={{
-                          fontWeight: 500,
-                          color: "#fff",
-                        }}
-                      >
-                        Create Video
-                      </Typography>
-                    </DialogTitle>
-                    <DialogContent>
-                      <TextField
-                        id="title"
-                        label="title"
-                        type="title"
-                        multiline
-                        margin="dense"
-                        fullWidth
-                        value={video?.title}
-                        name="title"
-                        error={errorInput.title}
-                        helperText={
-                          errorInput.title ? "please fill the title" : ""
-                        }
-                        onChange={handleVideo}
-                      />
-
-                      <TextField
-                        id="order"
-                        label="order"
-                        type="order"
-                        multiline
-                        margin="dense"
-                        fullWidth
-                        value={video?.order}
-                        name="order"
-                        onChange={handleVideo}
-                      />
-                      <TextField
-                        id="url"
-                        label="url"
-                        type="url"
-                        multiline
-                        margin="dense"
-                        fullWidth
-                        value={video?.url}
-                        name="url"
-                        onChange={handleVideo}
-                      />
-                      <TextField
-                        id="caption"
-                        label="caption"
-                        type="caption"
-                        multiline
-                        margin="dense"
-                        fullWidth
-                        value={video?.caption}
-                        name="caption"
-                        onChange={handleVideo}
-                      />
-                    </DialogContent>
-                    <DialogActions>
-                      <Button onClick={handleClickClose} sx={classes.button}>
-                        Cancel
-                      </Button>
-                      <Button onClick={addNewVideos} sx={classes.button}>
-                        Submit
-                      </Button>
-                    </DialogActions>
-                  </Grid>
-                </Dialog>
+                <VideoFormDialogue />
               </MenuItem>
               <MenuItem>
                 <Button

@@ -11,11 +11,16 @@ import YouTube from 'react-youtube';
 import useWindowDimensions from '../../customHooks/useWindowDimensions';
 import { Link } from 'react-router-dom'
 import './VideosPage.css'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Discussion from '../../components/Discussion';
 import { useLocation } from 'react-router';
 import useFetch from '../../customHooks/useFetch';
 import { useParams } from 'react-router';
+import FilesDescription from '../../components/FilesDescription';
+import YellowBarContent from '../../components/YellowBarContent';
+import { GeneralContext } from "../../contexts/GeneralContext";
+import { useContext } from 'react';
+import VideoFormDialogue from "../../components/VideoFormDialogue";
 
 const classes = {
     yellowBar: {
@@ -32,6 +37,8 @@ const classes = {
 }
 
 const VideosPage = () => {
+    const { video, setVideo, isEditingVideo, setIsEditingVideo } = useContext(GeneralContext);
+    const [isTeacher, setIsTeacher] = useState(false);
     const location = useLocation()
     const { videoId } = useParams();
     const {
@@ -64,8 +71,11 @@ const VideosPage = () => {
         },
     };
 
-    console.log("videoData", videoData)
-    console.log("videoId", videoId)
+    useEffect(() => {
+        if (videoData) {
+            setVideo(videoData?.data)
+        }
+    }, [videoData]);
 
     return (
         <>
@@ -113,159 +123,20 @@ const VideosPage = () => {
                                 null
                             }
                         </Grid>
-                        <Grid
-                            item
-                            xs={12}
-                            container
-                            spacing={1}
-                        >
-                            <Grid
-                                item
-                                xs={12}
-                            >
-                                <Paper
-                                    sx={classes.yellowBar}
-                                >
-                                    <Grid
-                                        container
-                                        spacing={1}
-                                        columns={{ xs: 12, sm: 16, md: 18 }}
-                                    >
-                                        <Grid
-                                            item
-                                            xs={4}
-                                            sm={4}
-                                            md={3}
-                                        >
-                                            <Typography
-                                                variant="h5"
-                                                sx={classes.yellowBarTitle}
-                                            >
-                                                <Link to="#" onClick={handleOpenDesc}>
-                                                    Description
-                                                </Link>
-                                            </Typography>
-                                        </Grid>
-                                        <Grid
-                                            item
-                                            xs={4}
-                                            sm={3}
-                                            md={3}
-                                        >
-                                            <Typography
-                                                variant="h5"
-                                                sx={classes.yellowBarTitle}
-                                            >
-                                                <Link to="#" onClick={handleOpenFiles}>
-                                                    Files
-                                                </Link>
-                                            </Typography>
-                                        </Grid>
-                                    </Grid>
-                                </Paper>
-                            </Grid>
-                        </Grid>
-                        {openFiles ?
-                            <Grid
-                                item
-                                xs={12}
-                                container
-                                spacing={1}
-                                justifyContent="center"
-                                sx={{
-                                    marginTop: '15px',
-                                    marginBottom: '28px'
-                                }}
-                            >
-                                {videoData?.data?.attachment ?
-                                    <Grid
-                                        item
-                                        xs={12}
-                                        md={6}
-                                    >
-                                        <Paper
-                                            sx={{
-                                                height: 'auto',
-                                                width: '100%',
-                                                borderRadius: '10px',
-                                                backgroundColor: yellow[400],
-                                                paddingTop: '1px',
-                                                paddingBottom: '1px'
-                                            }}
-                                        >
-                                            <Typography
-                                                variant="h6"
-                                                sx={{
-                                                    margin: '15px auto 15px auto',
-                                                    width: 'fit-content',
-                                                    fontWeight: "regular"
-                                                }}
-                                                textAlign="center"
-                                            >
-                                                <Link to={videoData?.data?.attachment}>
-                                                    Slides
-                                                </Link>
-                                            </Typography>
-                                        </Paper>
-                                    </Grid>
-                                    : null
-                                }
-                                {videoData?.data?.quiz ?
-                                    <Grid
-                                        item
-                                        xs={12}
-                                        md={6}
-                                    >
-                                        <Paper
-                                            sx={{
-                                                height: 'auto',
-                                                width: '100%',
-                                                borderRadius: '10px',
-                                                backgroundColor: yellow[400],
-                                                paddingTop: '1px',
-                                                paddingBottom: '1px'
-                                            }}
-                                        >
-                                            <Typography
-                                                variant="h6"
-                                                sx={{
-                                                    margin: '15px auto 15px auto',
-                                                    width: 'fit-content',
-                                                    fontWeight: "regular"
-                                                }}
-                                                textAlign="center"
-                                            >
-                                                <Link to={videoData?.data?.quiz}>
-                                                    Quiz
-                                                </Link>
-                                            </Typography>
-                                        </Paper>
-                                    </Grid>
-                                    : null
-                                }
-                            </Grid>
-                            :
-                            <Grid
-                                item
-                                xs={12}
-                                container
-                                spacing={1}
-                            >
-                                <Typography
-                                    variant="h5"
-                                    fontWeight="light"
-                                    margin="40px 20px"
-                                    lineHeight="1.5em"
-                                    textAlign="justify"
-                                >
-                                    {videoData?.data?.caption}
-                                </Typography>
-                            </Grid>
-                        }
+                        <YellowBarContent
+                            classes={classes}
+                            handleOpenDesc={handleOpenDesc}
+                            handleOpenFiles={handleOpenFiles}
+                        />
+                        <FilesDescription
+                            openFiles={openFiles}
+                            videoData={videoData}
+                        />
                         <Discussion />
                     </Grid>
                 </Container>
             </Box >
+            <VideoFormDialogue />
         </>
     );
 }

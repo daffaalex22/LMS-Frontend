@@ -1,5 +1,6 @@
 import FilterFields from "../components/FilterFields";
 import Box from "@mui/material/Box";
+import Container from "@mui/material/Container";
 import CourseCardList from "../components/listCard/CourseCardList";
 import { useNavigate } from "react-router";
 import { GeneralContext } from "../contexts/GeneralContext";
@@ -12,6 +13,7 @@ const CourseSearch = () => {
   const navigate = useNavigate()
   const location = useLocation()
   const [searchParams, setSearchParams] = useSearchParams();
+  const [courses, setCourses] = useState([]);
 
   const {
     searchQuery,
@@ -26,6 +28,8 @@ const CourseSearch = () => {
     loading: coursesLoading,
     error: coursesError },
     refetch] = useAxios("http://13.59.7.136:8080/api/v1/courses/search" + queryString)
+
+  console.log("coursesData", coursesData)
 
   useEffect(() => {
     navigate({
@@ -44,10 +48,18 @@ const CourseSearch = () => {
   useEffect(async () => {
     try {
       await refetch()
+      setCourses(coursesData?.data)
     } catch (e) {
       console.log('Error Refetch')
+      console.log(courses)
+      setCourses([])
     }
   }, [queryString])
+
+  useEffect(() => {
+    setCourses(coursesData?.data)
+  }, [coursesData]);
+
 
 
 
@@ -55,7 +67,8 @@ const CourseSearch = () => {
     <Box sx={{ padding: "70px 0" }}>
       <FilterFields />
       <CourseCardList
-        courses={coursesData?.data}
+        loading={coursesLoading}
+        courses={courses}
       />
     </Box>
   );
