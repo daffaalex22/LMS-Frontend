@@ -9,6 +9,7 @@ import Grid from "@mui/material/Grid";
 import axios from "axios";
 import { useState } from "react";
 import { Navigate } from "react-router";
+import { Link } from "@mui/material";
 
 const classes = {
   loginPage: {
@@ -46,9 +47,9 @@ export default function LoginStudent() {
       .then((resp) => {
         console.log(resp);
         if (resp.data.meta.status !== 200) {
-          setError("Email atau Password salah, mohon check kembali");
+          setError(["Email atau Password salah, mohon check kembali"]);
         } else {
-          setError("");
+          setError([]);
           localStorage.setItem("token", resp.data.data.token);
           localStorage.setItem("user", "Student");
           setSucessLogin(true);
@@ -57,10 +58,10 @@ export default function LoginStudent() {
       .catch((e) => {
         console.error(e);
         if (e.response) {
-          console.log(e.response);
+          setError(["Email atau Password salah, mohon check kembali"]);
         } else if (e.request) {
           //server didn't catched
-          setError("Server Down, coba lagi nanti");
+          setError(["Server Down, coba lagi nanti"]);
         }
       });
   };
@@ -117,6 +118,11 @@ export default function LoginStudent() {
                 error={error}
                 registerLink="/student/register"
               />
+              <Link href="/teacher/login" sx={{ textAlign: "right" }}>
+                <Typography variant="body2" textAlign="center">
+                  Are you a teacher?
+                </Typography>
+              </Link>
               <Typography variant="body2" color="textSecondary">
                 Copyright ©InEdu 2021
               </Typography>

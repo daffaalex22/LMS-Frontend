@@ -1,5 +1,6 @@
 import { Box, Typography, Breadcrumbs, Link } from "@mui/material";
 import React, { useState } from "react";
+import { useEffect } from "react";
 import NavSidebar from "../../components/navSideBar/NavSide";
 import FormEdit from "./FormEdit";
 import { useGetStudentData } from "./StudentHook";
@@ -10,6 +11,8 @@ export default function StudentProfile() {
   const [refresh, setRefresh] = useState(1);
 
   const { studentData, errorResponse } = useGetStudentData(refresh);
+
+  useEffect(() => console.log(refresh), [refresh]);
 
   return (
     <Box sx={{ minHeight: "100vh", bgcolor: "secondary.200" }}>
@@ -39,7 +42,11 @@ export default function StudentProfile() {
             <Typography color="text.primary">Profile</Typography>
           </Breadcrumbs>
           <Box sx={{ marginLeft: "17px", marginTop: "30px" }}>
-            <FormEdit teacher={studentData} />
+            <FormEdit
+              teacher={studentData}
+              refresh={refresh}
+              setRefresh={setRefresh}
+            />
           </Box>
         </Box>
       </NavSidebar>

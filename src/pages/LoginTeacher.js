@@ -1,7 +1,6 @@
 import Box from "@mui/material/Box";
 import { indigo, yellow } from "@mui/material/colors";
 import logoInEdu from "../assets/images/logoInEdu.png";
-import login from "../assets/images/login.png";
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 import LoginForm from "../components/LoginForm";
@@ -9,6 +8,7 @@ import Grid from "@mui/material/Grid";
 import { useState } from "react";
 import axios from "axios";
 import { Navigate } from "react-router";
+import { Link } from "@mui/material";
 
 const classes = {
   loginPage: {
@@ -45,9 +45,9 @@ const LoginStudent = () => {
       .then((resp) => {
         console.log(resp);
         if (resp.data.meta.status !== 200) {
-          setError("Email atau Password salah, mohon check kembali");
+          setError(["Email atau Password salah, mohon check kembali"]);
         } else {
-          setError("");
+          setError([]);
           localStorage.setItem("token", resp.data.data.token);
           localStorage.setItem("user", "Teacher");
           setSucessLogin(true);
@@ -56,11 +56,10 @@ const LoginStudent = () => {
       .catch((e) => {
         console.error(e);
         if (e.response) {
-          console.log("If masuk");
-          console.log(e.response);
+          setError(["Email atau Password salah, mohon check kembali"]);
         } else if (e.request) {
           //server didn't catched
-          setError("Server Down, coba lagi nanti");
+          setError(["Server Down, coba lagi nanti"]);
         }
       });
   };
@@ -117,6 +116,11 @@ const LoginStudent = () => {
                 handleSubmit={handleSubmit}
                 error={error}
               />
+              <Link href="/student/login" sx={{ textAlign: "right" }}>
+                <Typography variant="body2" textAlign="center">
+                  Are you a student?
+                </Typography>
+              </Link>
               <Typography variant="body2" color="textSecondary">
                 Copyright ©InEdu 2021
               </Typography>

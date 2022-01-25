@@ -44,9 +44,6 @@ const LoginFormStudent = (props) => {
     password: false,
   });
 
-  const emailRegex =
-    /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
-
   const handleClickShowPassword = () => {
     setShowPassword(!showPassword);
   };
@@ -56,14 +53,6 @@ const LoginFormStudent = (props) => {
     setLoginData({ ...loginData, [name]: value });
     if (value !== "") {
       setError({ ...error, [name]: false });
-      // if (name === "email") {
-      //   let errorCheck = emailRegex.test(value);
-      //   if (!errorCheck) {
-      //     setError({ ...error, [name]: true });
-      //   }
-      // }
-
-      //password minimum length
       if (name === "password") {
         let panjang = value.length;
         if (panjang < 6) {
@@ -125,14 +114,11 @@ const LoginFormStudent = (props) => {
         )}
       </FormControl>
       <br />
-      <Typography color="red" marginBottom="5px">
-        {props.error}
-      </Typography>
-      {/* {props.error?.map((item, key) => (
+      {props.error?.map((item, key) => (
         <Typography color="red" key={key} marginBottom="5px">
           {item}
         </Typography>
-      ))} */}
+      ))}
       <Button
         disabled={
           loginData.email === "" ||

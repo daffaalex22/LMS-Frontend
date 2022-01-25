@@ -90,6 +90,8 @@ export default function FormEdit(props) {
       })
       .catch((e) => {
         console.error(e);
+        setErrorAlert(true);
+        setErrorResponse("Error Update, Please Check Your Requirement");
         if (e.response) {
           console.log(e.response);
         } else if (e.request) {
