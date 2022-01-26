@@ -141,5 +141,5 @@ export const useReadData = () => {
     };
     getData();
   }, []);
-  return { readData, errorResponse };
+  return { readData, errorResponse, id };
 };
