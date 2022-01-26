@@ -9,8 +9,9 @@ import Star from "../assets/images/star.svg"
 import { yellow, indigo } from "@mui/material/colors";
 import { useState } from "react";
 import EnrolledModal from "./EnrolledModal";
-import { useNavigate } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import LaunchIcon from '@mui/icons-material/Launch';
+import axios from "axios";
 
 const classes = {
     thumbnail: {
@@ -41,14 +42,43 @@ const classes = {
     },
 }
 
-const CourseOverview = ({ course, enroll, enrolled, setEnrolled, modulesRef }) => {
+const CourseOverview = ({ course, enroll, enrolled, setEnrolled, modulesRef, studentId }) => {
     const navigate = useNavigate()
+    const { id } = useParams()
+
+    function refreshPage() {
+        setTimeout(() => {
+            window.location.reload(false);
+        }, 500);
+        console.log("page to reload");
+    }
 
     const [open, setOpen] = useState(false);
     const handleOpen = () => {
         if (!enrolled) {
             setOpen(true)
             setEnrolled(true)
+            axios
+                .post("http://13.59.7.136:8080/api/v1/enrollments", {
+                    courseId: parseInt(id),
+                    studentId: studentId,
+                })
+                .then((resp) => {
+                    console.log(resp);
+                    if (resp.data.meta.status !== 200) {
+                        console.log("Error:", resp.data.meta.messages)
+                    } else {
+                        // refreshPage();
+                    }
+                })
+                .catch((e) => {
+                    console.error(e);
+                    if (e.response) {
+                        console.log(e.response);
+                    } else if (e.request) {
+                        console.log(e.request);
+                    }
+                });
         } else {
             modulesRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' })
         }
