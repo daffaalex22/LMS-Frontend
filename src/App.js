@@ -9,14 +9,13 @@ import {
   responsiveFontSizes,
   ThemeProvider,
 } from "@mui/material/styles";
-import CourseEnroll from "./pages/courseEnroll/CourseEnroll";
+import ContentTeacher from "./components/ContentTeacher";
 import Layout from "./components/Layout";
 import Content from "./components/Content";
 import GeneralContextProvider from "./contexts/GeneralContext";
 import TeacherCourse from "./pages/teacherCourse/TeacherCourse";
 import TeacherProfile from "./pages/teacherProfile/TeacherProfile";
 import InternalServerError from "./pages/internalServerError/InternalServerError";
-import { storage } from "./firebase/firebase";
 import StudentCourse from "./pages/studentCourse/StudentCourse";
 import StudentProfile from "./pages/studentProfile/StudentProfile";
 import RequestMail from "./pages/requestMail/RequestMail";
@@ -31,7 +30,7 @@ let theme = createTheme({
       600: "#3949ab",
       700: "#303f9f",
       800: "#283593",
-      900: "#1a237e"
+      900: "#1a237e",
     },
     secondary: {
       100: "#FFF9C4",
@@ -76,9 +75,26 @@ function App() {
               <Route path="/student/request" element={<RequestMail />} />
               <Route path="/teacher/request" element={<RequestMail />} />
               <Route path="/help-faq" element={<Layout />} />
-              <Route path="/modules/:moduleId/videos/:videoId" element={<Content />} />
+              <Route
+                path="/modules/:moduleId/videos/:videoId"
+                element={<Content />}
+              />
               <Route path="/server-error" element={<InternalServerError />} />
-              <Route exact path="/modules/:moduleId/readings/:id" element={<Content />} />
+              <Route
+                exact
+                path="/modules/:moduleId/readings/:id"
+                element={<Content />}
+              />
+              <Route
+                exact
+                path="/modules/:moduleId/readings-teacher/:id"
+                element={<ContentTeacher />}
+              />
+              <Route
+                exact
+                path="/modules/:moduleId/readings-teacher"
+                element={<ContentTeacher />}
+              />
             </Routes>
           </BrowserRouter>
         </div>

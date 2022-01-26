@@ -1,6 +1,5 @@
 import Box from "@mui/material/Box";
 import Tabs from "@mui/material/Tabs";
-import Tab from "@mui/material/Tab";
 import Button from "@mui/material/Button";
 import { useState } from "react";
 import { yellow, indigo } from "@mui/material/colors";
@@ -58,12 +57,8 @@ function a11yProps(index) {
   };
 }
 
-
-
-
-
 export default function Layout() {
-  const { width, height } = useWindowDimensions()
+  const { width, height } = useWindowDimensions();
 
   const classes = {
     buttonn: {
@@ -72,9 +67,9 @@ export default function Layout() {
       padding: "14px",
       width: "60px",
       height: "64px",
-      position: 'relative',
-      top: '128px',
-      left: width >= 1200 ? '13vw' : '25px'
+      position: "relative",
+      top: "128px",
+      left: width >= 1200 ? "13vw" : "25px",
     },
   };
 
@@ -89,7 +84,6 @@ export default function Layout() {
     }
   }, [location]);
 
-
   return (
     <>
       <ResponsiveAppBar />
@@ -97,10 +91,7 @@ export default function Layout() {
         <Button variant="contained" sx={classes.buttonn}>
           <SideBar />
         </Button>
-        {openReadings ?
-          <StudentReading /> :
-          <VideosPage />
-        }
+        {openReadings ? <StudentReading /> : <VideosPage />}
       </Box>
       <FooterDashboard />
     </>
