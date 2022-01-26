@@ -21,8 +21,10 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      - name: Install yarn
-        run: npm install
+      - name: Install nodejs
+        run: sudo apt install nodejs
+      - name: Install npm
+        run: sudo apt install npm
       #       env:
       #         CI: true
 
