@@ -1,5 +1,6 @@
-import { Button, Grid } from "@mui/material";
 import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 import { yellow, indigo } from "@mui/material/colors";
@@ -23,6 +24,7 @@ const classes = {
     width: "100%",
     borderRadius: "10px",
     backgroundColor: yellow[300],
+    marginTop: '50px'
   },
   yellowBarTitle: {
     padding: "20px 30px",
@@ -31,7 +33,6 @@ const classes = {
   description: {
     fontWeight: 300,
     padding: "20px 30px",
-    marginTop: "30px",
     lineHeight: "1.5em",
   },
 };
@@ -67,6 +68,7 @@ const ReadingDescription = ({ description }) => {
         }
       });
   };
+  const user = localStorage.getItem("user");
 
   return (
     <>
@@ -82,7 +84,7 @@ const ReadingDescription = ({ description }) => {
               <Button
                 variant="contained"
                 endIcon={<ModeEditIcon />}
-                href={`/module/${moduleId}/readings-teacher/${id}`}
+                href={`/modules/${moduleId}/readings-teacher/${id}`}
               >
                 Edit
               </Button>
@@ -113,62 +115,65 @@ const ReadingDescription = ({ description }) => {
                   </Typography>
                 </Grid>
               </Grid>
-              <Grid
-                item
-                xs={4}
-                sm={2}
-                md={2}
-                container
-                justifyContent="flex-end"
-                alignItems="center"
-                direction="row"
-                spacing={0}
-              >
+              {user == "Teacher" ?
                 <Grid
                   item
-                  xs={6}
-                  // sm={5}
-                  md={6}
-                  lg={5}
+                  xs={4}
+                  sm={2}
+                  md={2}
                   container
+                  justifyContent="flex-end"
+                  alignItems="center"
+                  direction="row"
+                  spacing={0}
                 >
-                  <IconButton
-                    sx={{
-                      height: "50px",
-                      width: "50px",
-                      color: "#4fc3f7",
-                    }}
-                    component={Link}
-                    to={`/module/${moduleId}/readings-teacher/${id}`}
+                  <Grid
+                    item
+                    xs={6}
+                    // sm={5}
+                    md={6}
+                    lg={5}
+                    container
                   >
-                    <EditIcon
+                    <IconButton
                       sx={{
-                        height: "100%",
-                        width: "100%",
+                        height: "50px",
+                        width: "50px",
                         color: "#4fc3f7",
                       }}
-                    />
-                  </IconButton>
-                </Grid>
-                <Grid item xs={6} md={6} lg={5} container>
-                  <IconButton
-                    sx={{
-                      height: "50px",
-                      width: "50px",
-                      color: "red",
-                    }}
-                    onClick={onDelete}
-                  >
-                    <DeleteForeverIcon
+                      component={Link}
+                      to={`/modules/${moduleId}/readings-teacher/${id}`}
+                    >
+                      <EditIcon
+                        sx={{
+                          height: "100%",
+                          width: "100%",
+                          color: "#4fc3f7",
+                        }}
+                      />
+                    </IconButton>
+                  </Grid>
+                  <Grid item xs={6} md={6} lg={5} container>
+                    <IconButton
                       sx={{
-                        height: "100%",
-                        width: "100%",
+                        height: "50px",
+                        width: "50px",
                         color: "red",
                       }}
-                    />
-                  </IconButton>
+                      onClick={onDelete}
+                    >
+                      <DeleteForeverIcon
+                        sx={{
+                          height: "100%",
+                          width: "100%",
+                          color: "red",
+                        }}
+                      />
+                    </IconButton>
+                  </Grid>
                 </Grid>
-              </Grid>
+                : null
+              }
             </Grid>
           </Paper>
         </Grid>

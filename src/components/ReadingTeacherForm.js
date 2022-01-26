@@ -1,5 +1,6 @@
 import { indigo } from "@mui/material/colors";
-import { Button, Grid } from "@mui/material";
+import Button from "@mui/material/Button";
+import Grid from "@mui/material/Grid";
 import SideBar from "./SideBar";
 import AddEdit from "./AddEditReadingTeacher";
 import { useParams } from "react-router";

@@ -2,7 +2,7 @@ import ReadingTeacherForm from "../components/ReadingTeacherForm";
 import Title from "../components/Title";
 import Discussion from "../components/Discussion";
 import ReactLoading from "react-loading";
-import { Grid } from "@mui/material";
+import Grid from "@mui/material/Grid";
 import Container from "@mui/material/Container";
 import useFetch from "../customHooks/useFetch";
 import { indigo } from "@mui/material/colors";

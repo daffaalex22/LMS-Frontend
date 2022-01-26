@@ -8,7 +8,7 @@ import Grid from "@mui/material/Grid";
 import { useState } from "react";
 import axios from "axios";
 import { Navigate } from "react-router";
-import { Link } from "@mui/material";
+import Link from "@mui/material/Link";
 
 const classes = {
   loginPage: {

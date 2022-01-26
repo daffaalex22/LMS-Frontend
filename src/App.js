@@ -75,26 +75,11 @@ function App() {
               <Route path="/student/request" element={<RequestMail />} />
               <Route path="/teacher/request" element={<RequestMail />} />
               <Route path="/help-faq" element={<Layout />} />
-              <Route
-                path="/modules/:moduleId/videos/:videoId"
-                element={<Content />}
-              />
+              <Route path="/modules/:moduleId/videos/:videoId" element={<Content />} />
               <Route path="/server-error" element={<InternalServerError />} />
-              <Route
-                exact
-                path="/modules/:moduleId/readings/:id"
-                element={<Content />}
-              />
-              <Route
-                exact
-                path="/modules/:moduleId/readings-teacher/:id"
-                element={<ContentTeacher />}
-              />
-              <Route
-                exact
-                path="/modules/:moduleId/readings-teacher"
-                element={<ContentTeacher />}
-              />
+              <Route exact path="/modules/:moduleId/readings/:id" element={<Content />} />
+              <Route exact path="/modules/:moduleId/readings-teacher/:id" element={<ContentTeacher />} />
+              <Route exact path="/modules/:moduleId/readings-teacher" element={<ContentTeacher />} />
             </Routes>
           </BrowserRouter>
         </div>

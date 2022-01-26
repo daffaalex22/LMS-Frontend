@@ -10,6 +10,8 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import LaunchIcon from '@mui/icons-material/Launch';
 import { useNavigate } from "react-router";
+import { useState } from "react";
+import EnrollmentsTable from "./EnrollmentsTable";
 
 const classes = {
     yellowBar: {
@@ -42,6 +44,13 @@ const classes = {
 
 const CourseDescription = ({ description, modules, enrolled, setEnrolled, modulesRef }) => {
     const navigate = useNavigate()
+    const [openTables, setOpenTables] = useState(false);
+    const user = localStorage.getItem("user");
+    const handleOpenTables = () => {
+        let currentValue = openTables;
+        setOpenTables(!currentValue)
+        console.log(openTables)
+    }
 
     return (
         <>
@@ -71,63 +80,112 @@ const CourseDescription = ({ description, modules, enrolled, setEnrolled, module
                 xs={12}
             >
                 <Paper
-                    sx={classes.yellowBar}
+                    sx={{
+                        ...classes.yellowBar,
+                    }}
                     ref={modulesRef}
                 >
-                    <Typography
-                        variant="h4"
-                        sx={classes.yellowBarTitle}
+                    <Grid
+                        container
+                        spacing={1}
                     >
-                        This Course Includes
-                    </Typography>
+                        <Grid
+                            item
+                            xs={12}
+                            sm={6}
+                            md={5}
+                            lg={4}
+                        >
+                            <Typography
+                                variant="h4"
+                                sx={{
+                                    ...classes.yellowBarTitle,
+                                }}
+                            >
+                                This Course Includes
+                            </Typography>
+                        </Grid>
+                        {user == "Teacher" ?
+                            <Grid
+                                item
+                                xs={12}
+                                sm={6}
+                                md={4}
+                            >
+                                <Typography
+                                    variant="h4"
+                                    sx={{
+                                        ...classes.yellowBarTitle,
+                                        '&:hover': {
+                                            color: indigo[800],
+                                            textDecoration: 'underline',
+                                            cursor: 'pointer'
+                                        }
+                                    }}
+                                    onClick={handleOpenTables}
+                                >
+                                    Students Enrolled
+                                </Typography>
+                            </Grid>
+                            :
+                            null
+                        }
+                    </Grid>
                 </Paper>
+
                 <br />
                 <br />
                 <Box>
-                    {modules?.map((module) => (
-                        <Accordion
-                            sx={classes.accordion}
-                            key={module?.id}
-                        >
-                            <AccordionSummary
-                                expandIcon={<ExpandMoreIcon sx={{ color: 'black' }} />}
-                                aria-controls={"panel" + module?.id + "a-content"}
-                                id={"panel" + module?.id + "a-header"}
-                            >
+                    {openTables ?
+                        <EnrollmentsTable />
+                        :
+                        <>
+                            {modules?.map((module) => (
+                                <Accordion
+                                    sx={classes.accordion}
+                                    key={module?.id}
+                                >
+                                    <AccordionSummary
+                                        expandIcon={<ExpandMoreIcon sx={{ color: 'black' }} />}
+                                        aria-controls={"panel" + module?.id + "a-content"}
+                                        id={"panel" + module?.id + "a-header"}
+                                    >
 
-                                <Typography
-                                    variant="h6"
-                                    fontWeight="medium"
-                                >
-                                    {module?.title}
-                                </Typography>
-                            </AccordionSummary>
-                            <AccordionDetails>
-                                <Button
-                                    sx={{
-                                        width: '100%',
-                                        height: '45px',
-                                        color: 'white',
-                                        backgroundColor: indigo[500],
-                                        '&:hover': {
-                                            color: 'white',
-                                            backgroundColor: indigo[400],
-                                        },
-                                        '&:disabled': {
-                                            backgroundColor: indigo[100]
-                                        }
-                                    }}
-                                    disabled={enrolled ? false : true}
-                                    onClick={() => {
-                                        navigate("/modules/" + module?.id + "/readings/1")
-                                    }}
-                                >
-                                    <LaunchIcon sx={{ marginRight: '12px' }} />
-                                    {`Open ${module?.title}`}
-                                </Button>
-                            </AccordionDetails>
-                        </Accordion>
-                    ))}
+                                        <Typography
+                                            variant="h6"
+                                            fontWeight="medium"
+                                        >
+                                            {module?.title}
+                                        </Typography>
+                                    </AccordionSummary>
+                                    <AccordionDetails>
+                                        <Button
+                                            sx={{
+                                                width: '100%',
+                                                height: '45px',
+                                                color: 'white',
+                                                backgroundColor: indigo[500],
+                                                '&:hover': {
+                                                    color: 'white',
+                                                    backgroundColor: indigo[400],
+                                                },
+                                                '&:disabled': {
+                                                    backgroundColor: indigo[100]
+                                                }
+                                            }}
+                                            disabled={enrolled ? false : true}
+                                            onClick={() => {
+                                                navigate("/modules/" + module?.id + "/readings/1")
+                                            }}
+                                        >
+                                            <LaunchIcon sx={{ marginRight: '12px' }} />
+                                            {`Open ${module?.title}`}
+                                        </Button>
+                                    </AccordionDetails>
+                                </Accordion>
+                            ))}
+                        </>
+                    }
                 </Box>
 
 

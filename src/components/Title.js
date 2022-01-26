@@ -1,4 +1,5 @@
-import { Button, Grid } from "@mui/material";
+import Button from "@mui/material/Button";
+import Grid from "@mui/material/Grid";
 import SideBar from "../components/SideBar";
 import Typography from "@mui/material/Typography";
 import { yellow, indigo } from "@mui/material/colors";

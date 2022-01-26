@@ -1,7 +1,8 @@
 import * as React from "react";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-import { Button, Grid } from "@mui/material";
+import Button from "@mui/material/Button";
+import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import { yellow, indigo, white } from "@mui/material/colors";
 import AddIcon from "@mui/icons-material/Add";
@@ -32,6 +33,7 @@ import { useParams } from "react-router";
 import { GeneralContext } from "../contexts/GeneralContext";
 import { useContext } from "react";
 import VideoFormDialogue from "./VideoFormDialogue";
+import { useNavigate } from "react-router";
 
 const classes = {
   container: {
@@ -79,6 +81,7 @@ function refreshPage() {
 }
 
 const TitleSideBar = () => {
+  const navigate = useNavigate()
   const { video, setVideo } = useContext(GeneralContext);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const {
@@ -99,6 +102,7 @@ const TitleSideBar = () => {
   const { moduleId, videoId } = useParams();
   // const [module, setModule] = useState([])
   const intModule = parseInt(moduleId);
+  const user = localStorage.getItem("user");
 
   // Get Data
   const { readingsData: dataRead } = useReadingData();
@@ -240,7 +244,8 @@ const TitleSideBar = () => {
   };
 
   const handleClickOpen1 = () => {
-    setOpen1(true);
+    navigate("/modules/" + intModule + "/readings-teacher")
+    // setOpen1(true);
   };
   const handleClickClose1 = () => {
     setOpen1(false);
@@ -322,116 +327,119 @@ const TitleSideBar = () => {
             {dataModule?.title}
           </Typography>
         </Grid>
-        <Grid item xs={4} md={4}>
-          <Button variant="contained" sx={classes.buttonn}>
-            <AddIcon
-              id="basic-button"
-              aria-controls="basic-menu"
-              aria-haspopup="true"
-              aria-expanded={openin ? "true" : undefined}
-              onClick={handleClick}
-            />
-            <Menu
-              id="basic-menu"
-              anchorEl={anchorEl}
-              open={openin}
-              onClose={handleClose}
-              MenuListProps={{
-                "aria-labelledby": "basic-button",
-                color: indigo,
-              }}
-            >
-              <MenuItem>
-                <Button
-                  variant="text"
-                  sx={{ color: "black" }}
-                  onClick={handleOpenVideoForm}
-                >
-                  Create Video
-                </Button>
-                <VideoFormDialogue />
-              </MenuItem>
-              <MenuItem>
-                <Button
-                  variant="text"
-                  sx={{ color: "black" }}
-                  onClick={handleClickOpen1}
-                >
-                  Create Reading
-                </Button>
-                <Dialog open={open1} onClose={handleClickClose1}>
-                  <Grid
-                    item
-                    xs={12}
-                    md={12}
-                    sx={{
-                      backgroundColor: indigo[500],
-                    }}
+        {user == "Teacher" ?
+          <Grid item xs={4} md={4}>
+            <Button variant="contained" sx={classes.buttonn}>
+              <AddIcon
+                id="basic-button"
+                aria-controls="basic-menu"
+                aria-haspopup="true"
+                aria-expanded={openin ? "true" : undefined}
+                onClick={handleClick}
+              />
+              <Menu
+                id="basic-menu"
+                anchorEl={anchorEl}
+                open={openin}
+                onClose={handleClose}
+                MenuListProps={{
+                  "aria-labelledby": "basic-button",
+                  color: indigo,
+                }}
+              >
+                <MenuItem>
+                  <Button
+                    variant="text"
+                    sx={{ color: "black" }}
+                    onClick={handleOpenVideoForm}
                   >
-                    <DialogTitle>
-                      <Typography
-                        variant="h4"
-                        sx={{
-                          fontWeight: 500,
-                          color: "#fff",
-                        }}
-                      >
-                        Create Reading
-                      </Typography>
-                    </DialogTitle>
-                    <DialogContent>
-                      <TextField
-                        id="title"
-                        label="title"
-                        type="title"
-                        multiline
-                        margin="dense"
-                        fullWidth
-                        value={reading?.title}
-                        name="title"
-                        error={errorInput.title}
-                        helperText={
-                          errorInput.title ? "please fill the title" : ""
-                        }
-                        onChange={handleReading}
-                      />
-                      <TextField
-                        id="order"
-                        label="order"
-                        type="order"
-                        multiline
-                        margin="dense"
-                        fullWidth
-                        value={reading?.order}
-                        name="order"
-                        onChange={handleReading}
-                      />
-                      <TextField
-                        id="content"
-                        label="content"
-                        type="content"
-                        multiline
-                        margin="dense"
-                        fullWidth
-                        value={reading?.content}
-                        name="content"
-                        onChange={handleReading}
-                      />
-                    </DialogContent>
-                    <DialogActions>
-                      <Button onClick={handleClickClose1} sx={classes.button}>
-                        Cancel
-                      </Button>
-                      <Button onClick={addNewReading} sx={classes.button}>
-                        Submit
-                      </Button>
-                    </DialogActions>
-                  </Grid>
-                </Dialog>
-              </MenuItem>
-            </Menu>
-          </Button>
-        </Grid>
+                    Create Video
+                  </Button>
+                  <VideoFormDialogue />
+                </MenuItem>
+                <MenuItem>
+                  <Button
+                    variant="text"
+                    sx={{ color: "black" }}
+                    onClick={handleClickOpen1}
+                  >
+                    Create Reading
+                  </Button>
+                  <Dialog open={open1} onClose={handleClickClose1}>
+                    <Grid
+                      item
+                      xs={12}
+                      md={12}
+                      sx={{
+                        backgroundColor: indigo[500],
+                      }}
+                    >
+                      <DialogTitle>
+                        <Typography
+                          variant="h4"
+                          sx={{
+                            fontWeight: 500,
+                            color: "#fff",
+                          }}
+                        >
+                          Create Reading
+                        </Typography>
+                      </DialogTitle>
+                      <DialogContent>
+                        <TextField
+                          id="title"
+                          label="title"
+                          type="title"
+                          multiline
+                          margin="dense"
+                          fullWidth
+                          value={reading?.title}
+                          name="title"
+                          error={errorInput.title}
+                          helperText={
+                            errorInput.title ? "please fill the title" : ""
+                          }
+                          onChange={handleReading}
+                        />
+                        <TextField
+                          id="order"
+                          label="order"
+                          type="order"
+                          multiline
+                          margin="dense"
+                          fullWidth
+                          value={reading?.order}
+                          name="order"
+                          onChange={handleReading}
+                        />
+                        <TextField
+                          id="content"
+                          label="content"
+                          type="content"
+                          multiline
+                          margin="dense"
+                          fullWidth
+                          value={reading?.content}
+                          name="content"
+                          onChange={handleReading}
+                        />
+                      </DialogContent>
+                      <DialogActions>
+                        <Button onClick={handleClickClose1} sx={classes.button}>
+                          Cancel
+                        </Button>
+                        <Button onClick={addNewReading} sx={classes.button}>
+                          Submit
+                        </Button>
+                      </DialogActions>
+                    </Grid>
+                  </Dialog>
+                </MenuItem>
+              </Menu>
+            </Button>
+          </Grid>
+          : null
+        }
       </Grid>
       <Box sx={{ width: "100%", maxWidth: 360, bgcolor: yellow[600] }}>
         <nav aria-label="main mailbox folders">

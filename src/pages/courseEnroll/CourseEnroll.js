@@ -13,6 +13,7 @@ import ReactLoading from "react-loading";
 import CourseOverview from "../../components/CourseOverview";
 import { useState, useEffect, useRef } from "react";
 import { useParams } from "react-router";
+import jwt_decode from "jwt-decode";
 
 const classes = {
   thumbnail: {
@@ -71,10 +72,18 @@ const CourseEnroll = () => {
   const { id } = useParams()
   const [filterReview, setFilterReview] = useState(0);
   const [enrollments, setEnrollments] = useState([]);
-  const [course, setCourse] = useState({})
-  const [courses, setCourses] = useState([])
+  const [course, setCourse] = useState({});
+  const [courses, setCourses] = useState([]);
   const [reviewItems, setReviewItems] = useState(3);
-  const [enrolled, setEnrolled] = useState(false)
+  const [enrolled, setEnrolled] = useState(false);
+
+  let decode = jwt_decode(localStorage.getItem("token"));
+
+  useEffect(() => {
+    decode = jwt_decode(localStorage.getItem("token"));
+    console.log("decode", decode)
+  }, []);
+
 
   const {
     data: courseData,
@@ -98,11 +107,24 @@ const CourseEnroll = () => {
   } = useFetch("http://13.59.7.136:8080/api/v1/courses/" + id + "/modules");
 
 
-  useEffect(() => {
+  useEffect(async () => {
     if (enrollData) {
-      setEnrollments(enrollData?.data);
+      await setEnrollments(enrollData?.data);
     }
   }, [enrollData]);
+
+  useEffect(() => {
+    if (enrollments) {
+      console.log("kedetect conditional", enrollments[0]?.studentId, decode?.id)
+      for (let i = 0; i < enrollments?.length; i++) {
+        if (enrollments[i]?.studentId == decode?.id) {
+          setEnrolled(true)
+          console.log("Kedetect Trerenroll")
+        }
+      }
+    }
+  }, [enrollments]);
+
 
   useEffect(() => {
     if (coursesData) {
@@ -148,6 +170,7 @@ const CourseEnroll = () => {
                 enroll={enrollments}
                 enrolled={enrolled}
                 setEnrolled={setEnrolled}
+                studentId={decode?.id}
               />
               <CourseDescription
                 modulesRef={modulesRef}
