@@ -45,7 +45,7 @@ const classes = {
 const CourseDescription = ({ description, modules, enrolled, setEnrolled, modulesRef }) => {
     const navigate = useNavigate()
     const [openTables, setOpenTables] = useState(false);
-
+    const user = localStorage.getItem("user");
     const handleOpenTables = () => {
         let currentValue = openTables;
         setOpenTables(!currentValue)
@@ -105,27 +105,31 @@ const CourseDescription = ({ description, modules, enrolled, setEnrolled, module
                                 This Course Includes
                             </Typography>
                         </Grid>
-                        <Grid
-                            item
-                            xs={12}
-                            sm={6}
-                            md={4}
-                        >
-                            <Typography
-                                variant="h4"
-                                sx={{
-                                    ...classes.yellowBarTitle,
-                                    '&:hover': {
-                                        color: indigo[800],
-                                        textDecoration: 'underline',
-                                        cursor: 'pointer'
-                                    }
-                                }}
-                                onClick={handleOpenTables}
+                        {user == "Teacher" ?
+                            <Grid
+                                item
+                                xs={12}
+                                sm={6}
+                                md={4}
                             >
-                                Students Enrolled
-                            </Typography>
-                        </Grid>
+                                <Typography
+                                    variant="h4"
+                                    sx={{
+                                        ...classes.yellowBarTitle,
+                                        '&:hover': {
+                                            color: indigo[800],
+                                            textDecoration: 'underline',
+                                            cursor: 'pointer'
+                                        }
+                                    }}
+                                    onClick={handleOpenTables}
+                                >
+                                    Students Enrolled
+                                </Typography>
+                            </Grid>
+                            :
+                            null
+                        }
                     </Grid>
                 </Paper>
 
