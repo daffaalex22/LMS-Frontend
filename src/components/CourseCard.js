@@ -4,18 +4,16 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import { yellow, indigo } from "@mui/material/colors";
-import {
-  Button,
-  CardActionArea,
-  CardActions,
-  Dialog,
-  DialogActions,
-  DialogContent,
-  DialogContentText,
-  DialogTitle,
-  Grid,
-  IconButton,
-} from "@mui/material";
+import Button from "@mui/material/Button"
+import CardActionArea from "@mui/material/CardActionArea"
+import CardActions from "@mui/material/CardActions"
+import Dialog from "@mui/material/Dialog"
+import DialogActions from "@mui/material/DialogActions"
+import DialogContent from "@mui/material/DialogContent"
+import DialogContentText from "@mui/material/DialogContentText"
+import DialogTitle from "@mui/material/DialogTitle"
+import Grid from "@mui/material/Grid"
+import IconButton from "@mui/material/IconButton"
 import StarRoundedIcon from "@mui/icons-material/StarRounded";
 import { GeneralContext } from "../contexts/GeneralContext";
 import { useContext } from "react";

@@ -3,7 +3,7 @@ import Tabs from "@mui/material/Tabs";
 import Button from "@mui/material/Button";
 import { useState } from "react";
 import { yellow, indigo } from "@mui/material/colors";
-import { Grid } from "@mui/material";
+import Grid from "@mui/material/Grid";
 import { useEffect } from "react";
 import { useNavigate } from "react-router";
 import useWindowDimensions from "../customHooks/useWindowDimensions";

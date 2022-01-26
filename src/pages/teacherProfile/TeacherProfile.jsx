@@ -3,9 +3,19 @@ import React, { useState } from "react";
 import NavSidebar from "../../components/navSideBar/NavSide";
 import FormEdit from "./FormEdit";
 import { useGetTeacherData } from "./TeacherHook";
+import { useNavigate } from "react-router";
+import { useEffect } from "react";
 
 export default function TeacherProfile() {
   document.title = "Teacher - Profile";
+  const user = localStorage.getItem("user");
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (user != "Teacher") {
+      navigate("/teacher/login")
+    }
+  }, []);
 
   const [refresh, setRefresh] = useState(1);
 

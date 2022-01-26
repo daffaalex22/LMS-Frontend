@@ -11,6 +11,7 @@ import { GeneralContext } from "../contexts/GeneralContext";
 import { useContext } from 'react';
 
 const YellowBarContent = ({ handleOpenDesc, handleOpenFiles, classes }) => {
+    const user = localStorage.getItem("user");
     const {
         isEditingVideo,
         setIsEditingVideo,
@@ -80,67 +81,70 @@ const YellowBarContent = ({ handleOpenDesc, handleOpenFiles, classes }) => {
                                 </Typography>
                             </Grid>
                         </Grid>
-                        <Grid
-                            item
-                            xs={4}
-                            sm={2}
-                            md={2}
-                            container
-                            justifyContent="flex-end"
-                            alignItems="center"
-                            direction="row"
-                            spacing={0}
-                        >
+                        {user == "Teacher" ?
                             <Grid
                                 item
-                                xs={6}
-                                // sm={5}
-                                md={6}
-                                lg={5}
+                                xs={4}
+                                sm={2}
+                                md={2}
                                 container
+                                justifyContent="flex-end"
+                                alignItems="center"
+                                direction="row"
+                                spacing={0}
                             >
-                                <IconButton
-                                    sx={{
-                                        height: '50px',
-                                        width: '50px',
-                                        color: '#4fc3f7'
-                                    }}
-                                    onClick={handleEdit}
+                                <Grid
+                                    item
+                                    xs={6}
+                                    // sm={5}
+                                    md={6}
+                                    lg={5}
+                                    container
                                 >
-                                    <EditIcon
+                                    <IconButton
                                         sx={{
-                                            height: '100%',
-                                            width: '100%',
+                                            height: '50px',
+                                            width: '50px',
                                             color: '#4fc3f7'
                                         }}
-                                    />
-                                </IconButton>
-                            </Grid>
-                            <Grid
-                                item
-                                xs={6}
-                                // sm={5}
-                                md={6}
-                                lg={5}
-                                container
-                            >
-                                <IconButton
-                                    sx={{
-                                        height: '50px',
-                                        width: '50px',
-                                        color: 'red'
-                                    }}
+                                        onClick={handleEdit}
+                                    >
+                                        <EditIcon
+                                            sx={{
+                                                height: '100%',
+                                                width: '100%',
+                                                color: '#4fc3f7'
+                                            }}
+                                        />
+                                    </IconButton>
+                                </Grid>
+                                <Grid
+                                    item
+                                    xs={6}
+                                    // sm={5}
+                                    md={6}
+                                    lg={5}
+                                    container
                                 >
-                                    <DeleteForeverIcon
+                                    <IconButton
                                         sx={{
-                                            height: '100%',
-                                            width: '100%',
+                                            height: '50px',
+                                            width: '50px',
                                             color: 'red'
                                         }}
-                                    />
-                                </IconButton>
+                                    >
+                                        <DeleteForeverIcon
+                                            sx={{
+                                                height: '100%',
+                                                width: '100%',
+                                                color: 'red'
+                                            }}
+                                        />
+                                    </IconButton>
+                                </Grid>
                             </Grid>
-                        </Grid>
+                            : null
+                        }
                     </Grid>
                 </Paper>
             </Grid>

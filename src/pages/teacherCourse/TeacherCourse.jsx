@@ -17,11 +17,13 @@ import { useTeacherCourseData } from "./Course.hook";
 import AddEditCard from "./AddEditCard";
 import axios from "axios";
 import NavSidebar from "../../components/navSideBar/NavSide";
+import { useNavigate } from "react-router";
 
 export default function TeacherCourse() {
   document.title = "Teacher - Courses";
 
   const mobileVersion = useMediaQuery("(min-width:600px)");
+  const navigate = useNavigate();
 
   const [refresh, setRefresh] = useState(1);
   const [errorAlert, setErrorAlert] = useState(false);
@@ -64,6 +66,15 @@ export default function TeacherCourse() {
         }
       });
   };
+
+  const user = localStorage.getItem("user");
+
+  useEffect(() => {
+    if (user != "Teacher") {
+      navigate("/teacher/login")
+    }
+  }, []);
+
 
   useEffect(() => {
     setErrorAlert(true);

@@ -11,7 +11,6 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import AssignmentIndIcon from "@mui/icons-material/AssignmentInd";
@@ -71,7 +70,7 @@ function NavSidebar(props) {
           sx={{
             bgcolor:
               location.pathname === "/teacher/profile" ||
-              location.pathname === "/student/profile"
+                location.pathname === "/student/profile"
                 ? "primary.main"
                 : "",
           }}
@@ -81,7 +80,7 @@ function NavSidebar(props) {
             underline="none"
             color={
               location.pathname === "/teacher/profile" ||
-              location.pathname === "/student/profile"
+                location.pathname === "/student/profile"
                 ? "white"
                 : "black"
             }
@@ -92,7 +91,7 @@ function NavSidebar(props) {
                   sx={{
                     color:
                       location.pathname === "/teacher/profile" ||
-                      location.pathname === "/student/profile"
+                        location.pathname === "/student/profile"
                         ? "white"
                         : "",
                   }}
@@ -109,7 +108,7 @@ function NavSidebar(props) {
           sx={{
             bgcolor:
               location.pathname === "/teacher/courses" ||
-              location.pathname === "/student/courses"
+                location.pathname === "/student/courses"
                 ? "primary.main"
                 : "",
           }}
@@ -119,7 +118,7 @@ function NavSidebar(props) {
             underline="none"
             color={
               location.pathname === "/teacher/courses" ||
-              location.pathname === "/student/courses"
+                location.pathname === "/student/courses"
                 ? "white"
                 : "black"
             }
@@ -130,7 +129,7 @@ function NavSidebar(props) {
                   sx={{
                     color:
                       location.pathname === "/teacher/courses" ||
-                      location.pathname === "/student/courses"
+                        location.pathname === "/student/courses"
                         ? "white"
                         : "",
                   }}
@@ -148,7 +147,7 @@ function NavSidebar(props) {
           sx={{
             bgcolor:
               location.pathname === "/teacher/request" ||
-              location.pathname === "/student/request"
+                location.pathname === "/student/request"
                 ? "primary.main"
                 : "",
           }}
@@ -158,7 +157,7 @@ function NavSidebar(props) {
             underline="none"
             color={
               location.pathname === "/teacher/request" ||
-              location.pathname === "/student/request"
+                location.pathname === "/student/request"
                 ? "white"
                 : "black"
             }
@@ -169,7 +168,7 @@ function NavSidebar(props) {
                   sx={{
                     color:
                       location.pathname === "/teacher/request" ||
-                      location.pathname === "/student/request"
+                        location.pathname === "/student/request"
                         ? "white"
                         : "",
                   }}
