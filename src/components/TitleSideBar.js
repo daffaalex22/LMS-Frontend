@@ -33,6 +33,7 @@ import { useParams } from "react-router";
 import { GeneralContext } from "../contexts/GeneralContext";
 import { useContext } from "react";
 import VideoFormDialogue from "./VideoFormDialogue";
+import { useNavigate } from "react-router";
 
 const classes = {
   container: {
@@ -80,6 +81,7 @@ function refreshPage() {
 }
 
 const TitleSideBar = () => {
+  const navigate = useNavigate()
   const { video, setVideo } = useContext(GeneralContext);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const {
@@ -242,7 +244,8 @@ const TitleSideBar = () => {
   };
 
   const handleClickOpen1 = () => {
-    setOpen1(true);
+    navigate("/modules/" + intModule + "/readings-teacher")
+    // setOpen1(true);
   };
   const handleClickClose1 = () => {
     setOpen1(false);
