@@ -3,8 +3,7 @@ name: Build and Deploy
 on:
   push:
     branches:
-      - main
-      - fix/CI-CD
+      - master
 
 jobs:
   build:
@@ -21,6 +20,11 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
+      - name: Upgrade NPM
+        run: npm install -g npm
+      - name: Install dependencies
+        run: npm ci
+
       - name: Login to DockerHub
         uses: docker/login-action@v1
         with:
@@ -32,7 +36,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: krisnadwi/lms-frontend
+          tags: krisnadwipayana/lms-frontend
 
   deploy:
     runs-on: ubuntu-latest
@@ -46,6 +50,6 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             docker rm -f lms-frontend; \
-            docker rmi krisnadwi/lms-frontend:latest; \
-            docker pull krisnadwi/lms-frontend; \
-            docker run -d -p 80:80 --name lms-frontend krisnadwi/lms-frontend
+            docker rmi krisnadwipayana/lms-frontend:latest; \
+            docker pull krisnadwipayana/lms-frontend; \
+            docker run -d -p 80:80 --name lms-frontend krisnadwipayana/lms-frontend
