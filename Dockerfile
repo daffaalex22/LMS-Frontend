@@ -17,6 +17,7 @@ RUN npm install
 # RUN npm install react-scripts@3.4.1 -g --silent --force
 RUN npm install draft-js 
 RUN npm install styled-components
+RUN npm install html-react-parser
 
 # add app
 COPY . ./
