@@ -11,6 +11,7 @@ import EditIcon from "@mui/icons-material/Edit";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import parse from 'html-react-parser';
 
 const classes = {
   yellowBar: {
@@ -179,7 +180,7 @@ const ReadingDescription = ({ description }) => {
         </Grid>
         <Box sx={classes.yellowContent}>
           <Typography variant="h6" sx={classes.description}>
-            {description}
+            {parse(description)}
           </Typography>
         </Box>
       </Grid>
