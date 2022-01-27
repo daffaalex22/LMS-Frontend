@@ -139,7 +139,7 @@ const ReadingDescription = ({ description }) => {
                       color: "#4fc3f7",
                     }}
                     component={Link}
-                    to={`/module/${moduleId}/readings-teacher/${id}`}
+                    to={`/modules/${moduleId}/readings-teacher/${id}`}
                   >
                     <EditIcon
                       sx={{
