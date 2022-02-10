@@ -31,7 +31,7 @@ const CourseCard = ({ course, role, openEdit, onDelete }) => {
     data: enrollData,
     isPending: enrollmentsPending,
     error: enrollmentsError,
-  } = useFetch("http://13.59.7.136:8080/api/v1/courses/" + 1 + "/enrollments");
+  } = useFetch("http://52.14.19.229:8080/api/v1/courses/" + 1 + "/enrollments");
 
   const handleClickCard = () => {
     navigate("/courses/enroll/" + course?.id);

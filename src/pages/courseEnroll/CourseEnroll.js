@@ -89,22 +89,22 @@ const CourseEnroll = () => {
     data: courseData,
     isPending: coursePending,
     error: courseError,
-  } = useFetch("http://13.59.7.136:8080/api/v1/courses/" + id);
+  } = useFetch("http://52.14.19.229:8080/api/v1/courses/" + id);
   const {
     data: coursesData,
     isPending: coursesPending,
     error: coursesError,
-  } = useFetch("http://13.59.7.136:8080/api/v1/courses/");
+  } = useFetch("http://52.14.19.229:8080/api/v1/courses/");
   const {
     data: enrollData,
     isPending: enrollmentsPending,
     error: enrollmentsError,
-  } = useFetch("http://13.59.7.136:8080/api/v1/courses/" + id + "/enrollments");
+  } = useFetch("http://52.14.19.229:8080/api/v1/courses/" + id + "/enrollments");
   const {
     data: modulesData,
     isPending: modulesPending,
     error: modulesError,
-  } = useFetch("http://13.59.7.136:8080/api/v1/courses/" + id + "/modules");
+  } = useFetch("http://52.14.19.229:8080/api/v1/courses/" + id + "/modules");
 
 
   useEffect(async () => {

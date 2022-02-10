@@ -163,7 +163,7 @@ const AddEditReadingTeacher = (props) => {
     e.preventDefault();
     if (props.title === "Create") {
       axios
-        .post("http://13.59.7.136:8080/api/v1/readings", {
+        .post("http://52.14.19.229:8080/api/v1/readings", {
           title: data?.title,
           moduleId: moduleInt,
           order: parseInt(data?.order),
@@ -195,7 +195,7 @@ const AddEditReadingTeacher = (props) => {
         });
     } else {
       axios
-        .put("http://13.59.7.136:8080/api/v1/readings/" + id, {
+        .put("http://52.14.19.229:8080/api/v1/readings/" + id, {
           title: data?.title,
           moduleId: moduleInt,
           order: parseInt(data?.order),

@@ -6,7 +6,7 @@ export const useInsertNewCourse = async (data) => {
   let feedback;
   try {
     feedback = await Axios.post(
-      "http://13.59.7.136:8080/api/v1/students/login",
+      "http://52.14.19.229:8080/api/v1/students/login",
       data
     );
   } catch (e) {

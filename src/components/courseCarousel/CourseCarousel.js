@@ -35,7 +35,7 @@ const CourseCarousel = ({ title }) => {
         data: courses,
         isPending: coursesPending,
         error: coursesError,
-    } = useFetch("http://13.59.7.136:8080/api/v1/courses");
+    } = useFetch("http://52.14.19.229:8080/api/v1/courses");
 
     return (
         <Grid

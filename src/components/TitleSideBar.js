@@ -135,7 +135,7 @@ const TitleSideBar = () => {
     console.log("Reading Data moduke: ", moduleId);
     console.log("order :", reading.order);
     axios
-      .post("http://13.59.7.136:8080/api/v1/readings", {
+      .post("http://52.14.19.229:8080/api/v1/readings", {
         // ...reading,
         title: reading?.title,
         moduleId: intModule,
@@ -174,7 +174,7 @@ const TitleSideBar = () => {
       setErrorInput({ ...errorInput, order: true })
     } else if (isEditingVideo) {
       axios
-        .put("http://13.59.7.136:8080/api/v1/videos/" + videoId, {
+        .put("http://52.14.19.229:8080/api/v1/videos/" + videoId, {
           title: video?.title,
           moduleId: intModule,
           url: video?.url,
@@ -208,7 +208,7 @@ const TitleSideBar = () => {
         });
     } else {
       axios
-        .post("http://13.59.7.136:8080/api/v1/videos", {
+        .post("http://52.14.19.229:8080/api/v1/videos", {
           title: video?.title,
           moduleId: intModule,
           url: video?.url,

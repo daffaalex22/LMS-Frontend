@@ -59,7 +59,7 @@ const CourseOverview = ({ course, enroll, enrolled, setEnrolled, modulesRef, stu
             setOpen(true)
             setEnrolled(true)
             axios
-                .post("http://13.59.7.136:8080/api/v1/enrollments", {
+                .post("http://52.14.19.229:8080/api/v1/enrollments", {
                     courseId: parseInt(id),
                     studentId: studentId,
                 })

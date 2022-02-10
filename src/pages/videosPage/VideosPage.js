@@ -45,7 +45,7 @@ const VideosPage = () => {
         data: videoData,
         isPending: videoPending,
         error: videoError,
-    } = useFetch("http://13.59.7.136:8080/api/v1/videos/" + videoId);
+    } = useFetch("http://52.14.19.229:8080/api/v1/videos/" + videoId);
     const { width, height } = useWindowDimensions()
     const [openFiles, setOpenFiles] = useState(false)
 

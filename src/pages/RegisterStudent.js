@@ -41,7 +41,7 @@ const RegisterStudent = () => {
   const handleSubmit = (e, data) => {
     e.preventDefault();
     axios
-      .post("http://13.59.7.136:8080/api/v1/students/register", data)
+      .post("http://52.14.19.229:8080/api/v1/students/register", data)
       .then((resp) => {
         console.log(resp);
         if (resp.data.meta.status !== 200) {

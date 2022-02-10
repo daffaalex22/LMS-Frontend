@@ -17,7 +17,7 @@ export const useTeacherCourseData = (refresh) => {
       let newDatas;
       try {
         newDatas = await Axios.get(
-          "http://13.59.7.136:8080/api/v1/teachers/courses",
+          "http://52.14.19.229:8080/api/v1/teachers/courses",
           config
         );
       } catch (e) {
@@ -54,7 +54,7 @@ export const useGetAllCategoryData = () => {
     const getData = async () => {
       let newDatas;
       try {
-        newDatas = await Axios.get("http://13.59.7.136:8080/api/v1/categories");
+        newDatas = await Axios.get("http://52.14.19.229:8080/api/v1/categories");
       } catch (e) {
         console.error(e);
         if (e.response) {
@@ -84,7 +84,7 @@ export const useGetAllDifficultiesData = () => {
     const getData = async () => {
       let newDatas;
       try {
-        newDatas = await Axios.get("http://13.59.7.136:8080/api/v1/difficulties");
+        newDatas = await Axios.get("http://52.14.19.229:8080/api/v1/difficulties");
       } catch (e) {
         console.error(e);
         if (e.response) {

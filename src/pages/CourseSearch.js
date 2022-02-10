@@ -27,7 +27,7 @@ const CourseSearch = () => {
     data: coursesData,
     loading: coursesLoading,
     error: coursesError },
-    refetch] = useAxios("http://13.59.7.136:8080/api/v1/courses/search" + queryString)
+    refetch] = useAxios("http://52.14.19.229:8080/api/v1/courses/search" + queryString)
 
   console.log("coursesData", coursesData)
 

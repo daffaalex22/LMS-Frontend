@@ -19,12 +19,12 @@ export const useGetRequestUser = (refresh) => {
       try {
         if (user === "Student") {
           newDatas = await Axios.get(
-            "http://13.59.7.136:8080/api/v1/students/requests",
+            "http://52.14.19.229:8080/api/v1/students/requests",
             config
           );
         } else {
           newDatas = await Axios.get(
-            "http://13.59.7.136:8080/api/v1/teachers/requests",
+            "http://52.14.19.229:8080/api/v1/teachers/requests",
             config
           );
         }
