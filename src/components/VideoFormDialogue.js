@@ -34,7 +34,7 @@ const VideoFormDialogue = () => {
         data: videoData,
         isPending: videoPending,
         error: videoError,
-    } = useFetch("http://13.59.7.136:8080/api/v1/videos/" + videoId);
+    } = useFetch("https://inedu-backend.onrender.com/api/v1/videos/" + videoId);
 
     const {
         video,
@@ -68,7 +68,7 @@ const VideoFormDialogue = () => {
             setErrorInput({ ...errorInput, order: true })
         } else if (isEditingVideo) {
             axios
-                .put("http://13.59.7.136:8080/api/v1/videos/" + videoId, {
+                .put("https://inedu-backend.onrender.com/api/v1/videos/" + videoId, {
                     title: video?.title,
                     moduleId: intModule,
                     url: video?.url,
@@ -102,7 +102,7 @@ const VideoFormDialogue = () => {
                 });
         } else {
             axios
-                .post("http://13.59.7.136:8080/api/v1/videos", {
+                .post("https://inedu-backend.onrender.com/api/v1/videos", {
                     title: video?.title,
                     moduleId: intModule,
                     url: video?.url,

@@ -48,7 +48,7 @@ const ReadingDescription = ({ description }) => {
   const { moduleId, id } = useParams();
   const onDelete = () => {
     axios
-      .delete(`http://13.59.7.136:8080/api/v1/readings/${id}`)
+      .delete(`https://inedu-backend.onrender.com/api/v1/readings/${id}`)
       .then((resp) => {
         console.log(resp);
         refreshPage();

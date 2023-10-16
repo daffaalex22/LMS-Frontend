@@ -55,7 +55,7 @@ const EnrollmentsTable = () => {
         data: enrollData,
         isPending: enrollmentsPending,
         error: enrollmentsError,
-    } = useFetch("http://13.59.7.136:8080/api/v1/courses/" + id + "/enrollments");
+    } = useFetch("https://inedu-backend.onrender.com/api/v1/courses/" + id + "/enrollments");
 
     useEffect(async () => {
         if (enrollData) {

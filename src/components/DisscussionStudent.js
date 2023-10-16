@@ -32,7 +32,7 @@ const classes = {
 }
 
 const DiscussionItems = ({ thread }) => {
-    const { data: student, isPending: studentPending, error: studentError } = useFetch('http://localhost:8000/students/' + thread.userId)
+    const { data: student, isPending: studentPending, error: studentError } = useFetch('https://inedu-backend.onrender.com/students/' + thread.userId)
     return (
         <Grid container spacing={1}>
             <Grid

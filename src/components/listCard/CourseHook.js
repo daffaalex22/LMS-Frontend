@@ -10,7 +10,7 @@ export const useGetCourseData = (refresh, query) => {
     const getData = async () => {
       let newDatas;
       try {
-        newDatas = await Axios.get("http://13.59.7.136:8080/api/v1/courses" + query);
+        newDatas = await Axios.get("https://inedu-backend.onrender.com/api/v1/courses" + query);
       } catch (e) {
         console.error(e);
         if (e.response) {

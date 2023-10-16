@@ -17,7 +17,7 @@ export const useTeacherCourseData = (refresh) => {
       let newDatas;
       try {
         newDatas = await Axios.get(
-          "http://13.59.7.136:8080/api/v1/students/courses",
+          "https://inedu-backend.onrender.com/api/v1/students/courses",
           config
         );
       } catch (e) {

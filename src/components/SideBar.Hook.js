@@ -15,7 +15,7 @@ export const useVideoData = () => {
       let newDatas;
       try {
         newDatas = await Axios.get(
-          `http://13.59.7.136:8080/api/v1/modules/${moduleId}/videos`
+          `https://inedu-backend.onrender.com/api/v1/modules/${moduleId}/videos`
         );
       } catch (e) {
         console.error(e);
@@ -55,7 +55,7 @@ export const useReadingData = () => {
       let newDatas;
       try {
         newDatas = await Axios.get(
-          `http://13.59.7.136:8080/api/v1/modules/${moduleId}/readings`
+          `https://inedu-backend.onrender.com/api/v1/modules/${moduleId}/readings`
         );
       } catch (e) {
         console.error(e);
@@ -89,7 +89,7 @@ export const useModuleData = () => {
       let newDatas;
       try {
         newDatas = await Axios.get(
-          `http://13.59.7.136:8080/api/v1/modules/${moduleId}`
+          `https://inedu-backend.onrender.com/api/v1/modules/${moduleId}`
         );
       } catch (e) {
         console.error(e);
@@ -122,7 +122,7 @@ export const useReadData = () => {
       let newDatas;
       try {
         newDatas = await Axios.get(
-          `http://13.59.7.136:8080/api/v1/readings/${id}`
+          `https://inedu-backend.onrender.com/api/v1/readings/${id}`
         );
       } catch (e) {
         console.error(e);

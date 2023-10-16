@@ -38,10 +38,10 @@ export default function CreateRequest(props) {
 
   const [error, setError] = useState(null);
   const { jsonData: courseData } = useGetJsonData(
-    "http://13.59.7.136:8080/api/v1/courses"
+    "https://inedu-backend.onrender.com/api/v1/courses"
   );
   const { jsonData: typeData } = useGetJsonData(
-    "http://13.59.7.136:8080/api/v1/types"
+    "https://inedu-backend.onrender.com/api/v1/types"
   );
 
   const closeOnly = () => {
@@ -62,7 +62,7 @@ export default function CreateRequest(props) {
   const handleSave = (e) => {
     e.preventDefault();
     axios
-      .post("http://13.59.7.136:8080/api/v1/requests", data)
+      .post("https://inedu-backend.onrender.com/api/v1/requests", data)
       .then((resp) => {
         console.log(resp);
         if (resp.data.meta.status !== 200) {

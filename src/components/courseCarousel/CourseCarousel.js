@@ -35,7 +35,7 @@ const CourseCarousel = ({ title }) => {
         data: courses,
         isPending: coursesPending,
         error: coursesError,
-    } = useFetch("http://13.59.7.136:8080/api/v1/courses");
+    } = useFetch("https://inedu-backend.onrender.com/api/v1/courses");
 
     return (
         <Grid

@@ -46,7 +46,7 @@ export default function TeacherCourse() {
     // console.log(id);
     setRefresh(refresh + 1);
     axios
-      .delete(`http://13.59.7.136:8080/api/v1/courses/${courseId}`)
+      .delete(`https://inedu-backend.onrender.com/api/v1/courses/${courseId}`)
       .then((resp) => {
         console.log(resp);
         setRefresh(refresh + 1);

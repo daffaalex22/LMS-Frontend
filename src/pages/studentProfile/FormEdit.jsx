@@ -74,7 +74,7 @@ export default function FormEdit(props) {
   const handleSave = () => {
     setOpenAlert(false);
     axios
-      .put(`http://13.59.7.136:8080/api/v1/students/profile`, data, config)
+      .put(`https://inedu-backend.onrender.com/api/v1/students/profile`, data, config)
       .then((resp) => {
         setRefresh(refresh + 1);
         console.log(resp);

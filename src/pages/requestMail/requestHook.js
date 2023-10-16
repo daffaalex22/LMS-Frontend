@@ -19,12 +19,12 @@ export const useGetRequestUser = (refresh) => {
       try {
         if (user === "Student") {
           newDatas = await Axios.get(
-            "http://13.59.7.136:8080/api/v1/students/requests",
+            "https://inedu-backend.onrender.com/api/v1/students/requests",
             config
           );
         } else {
           newDatas = await Axios.get(
-            "http://13.59.7.136:8080/api/v1/teachers/requests",
+            "https://inedu-backend.onrender.com/api/v1/teachers/requests",
             config
           );
         }

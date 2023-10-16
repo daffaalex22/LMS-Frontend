@@ -16,7 +16,7 @@ const StudentReading = (props) => {
   const [reviewItems, setReviewItems] = useState(3);
 
   const { data: threadsData, isPending: threadsPending } = useFetch(
-    "http://localhost:8000/threads"
+    "https://inedu-backend.onrender.com/threads"
   );
 
   useEffect(() => {

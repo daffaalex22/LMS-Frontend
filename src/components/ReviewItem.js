@@ -38,7 +38,7 @@ const ReviewItem = ({ enroll }) => {
   //   data: student,
   //   isPending: studentPending,
   //   error: studentError,
-  // } = useFetch("http://13.59.7.136:8080/api/v1/students/" + enroll?.studentId);
+  // } = useFetch("https://inedu-backend.onrender.com/api/v1/students/" + enroll?.studentId);
 
   return (
     <Grid container spacing={1}>

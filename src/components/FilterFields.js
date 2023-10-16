@@ -23,13 +23,13 @@ const FilterFields = () => {
         data: categoriesData,
         isPending: categoriesPending,
         error: categoriesError,
-    } = useFetch("http://13.59.7.136:8080/api/v1/categories");
+    } = useFetch("https://inedu-backend.onrender.com/api/v1/categories");
 
     const {
         data: difficultiesData,
         isPending: difficultiesPending,
         error: difficultiesError,
-    } = useFetch("http://13.59.7.136:8080/api/v1/difficulties");
+    } = useFetch("https://inedu-backend.onrender.com/api/v1/difficulties");
 
     const {
         searchQuery,

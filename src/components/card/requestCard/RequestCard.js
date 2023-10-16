@@ -9,7 +9,7 @@ export default function RequestCard(props) {
 
   const updateReq = (status) => {
     axios
-      .put(`http://13.59.7.136:8080/api/v1/requests/` + props.data.id, {
+      .put(`https://inedu-backend.onrender.com/api/v1/requests/` + props.data.id, {
         status: status,
       })
       .then((resp) => {
