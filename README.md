@@ -1,70 +1,63 @@
-# Getting Started with Create React App
+# Contents
+- [Overview](https://github.com/daffaalex22/LMS-Frontend/edit/main/README.md#overview)
+  - [🌐 Live Preview](https://github.com/daffaalex22/LMS-Frontend/edit/main/README.md#-live-preview)
+  - [📽️ Demo Video](https://github.com/daffaalex22/LMS-Frontend/edit/main/README.md#%EF%B8%8F-demo-video)
+  - [🎨 Design](https://github.com/daffaalex22/LMS-Frontend/edit/main/README.md#-design)
+- [Technical](https://github.com/daffaalex22/LMS-Frontend/edit/main/README.md#technical)
+  - [📚 Libraries & 3rd Parties](https://github.com/daffaalex22/LMS-Frontend/edit/main/README.md#overview)
+  - [🤖 Deployment](https://github.com/daffaalex22/LMS-Frontend/edit/main/README.md#overview)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Overview
 
-## Available Scripts
+## 🌐 Live Preview
+> Notes: Kindly be patient with the latency. The whole full-stack app is deployed using a free service so it might take some time to load.
 
-In the project directory, you can run:
+🔗This project is accessible at [https://inedu-frontend.vercel.app
+](https://inedu-frontend.vercel.app)
 
-### `npm start`
+### Credential
+> 
+> _Teacher Account_
+> 
+>   email: alex@teacher.com
+> 
+>   password: 12345678
+> 
+> _Student Account_
+> 
+>   email: alex@google.com
+> 
+>   password: 12345678
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## 📽️ Demo Video
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+In the case that the Live Preview of the project is not accessible via the previous link, the following is a demonstration video of the project that I've made. This might help employers assess my capability of building a Full-stack Application.
 
-### `npm test`
+#### VIDEO HERE
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🎨 Design
+The whole project's design is made by me and my team. We **DID NOT** copy from existing designs available from websites such as Dribble. That said, the designs are inspired by other websites such as Udemy and Coursera.
 
-### `npm run build`
+### Figma Links
+- [The Final User Interface](https://www.figma.com/file/LiNhF4XjN2T8ZB9bToe9Qf/InEdu?type=design&node-id=24-30&mode=design)
+> The Final UI Design showcases the design used as a reference in the project seen in the Live Preview and Demo.
+- [The Early Prototype](https://www.figma.com/file/LiNhF4XjN2T8ZB9bToe9Qf/InEdu?type=design&node-id=0-1&mode=design)
+> Above is the board we used as a team during the development. It looks messy because we want to showcase how we're working. The Pages with bright colors are leftovers that are yet to be implemented in our code.
+- [User Persona, MVP](https://www.figma.com/file/LiNhF4XjN2T8ZB9bToe9Qf/InEdu?type=design&node-id=61-2&mode=design)
+> During the earliest phase of development, we determine the MVP from User Persona. This board describes how our team works through that process.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# Technical
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 📚 Libraries & 3rd Parties
+We used a couple of NPM modules for our project, such as:
+- [ReactJs](https://react.dev/)
+- [Material UI](https://mui.com/)     : A UI library developed based on Google's Material Design
+- [React WYSIWYG Editor](https://github.com/jpuri/react-draft-wysiwyg) & [HTML Parser](https://www.npmjs.com/package/html-react-parser)  : Used for text editing
+- [Firebase](https://firebase.google.com/)                            : Used for storing images and documents
+- [JsPDF](https://www.npmjs.com/package/jspdf)                               : Used for generating a PDF
+- [react-youtube](https://www.npmjs.com/package/react-youtube)                       : Used for embedding a Youtube Video                          
 
-### `npm run eject`
+## 🤖 Deployment
+The Live Preview of the project is deployed using the Free version of Vercel.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
