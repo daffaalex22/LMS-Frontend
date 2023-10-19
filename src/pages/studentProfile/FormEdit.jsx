@@ -333,9 +333,9 @@ export default function FormEdit(props) {
                 type="file"
                 onChange={(e) => handleFile(e)}
               />
-              <Button variant="contained" component="span">
+              {/* <Button variant="contained" component="span">
                 Upload
-              </Button>
+              </Button> */}
             </label>
           </Box>
           <Button
@@ -362,8 +362,10 @@ export default function FormEdit(props) {
         title="Save Change"
         description={
           <>
-            Please fill the password before change the data
-            <Box p="10px">
+            Please Fill The Password to Confirm
+            <Box 
+              p="10px"
+            >
               <PasswordInput
                 label="password"
                 name="password"

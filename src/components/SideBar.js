@@ -6,7 +6,22 @@ import MenuIcon from "@mui/icons-material/Menu";
 import TitleSideBar from "./TitleSideBar";
 import { yellow, indigo } from "@mui/material/colors";
 
+import { useParams } from 'react-router';
+import useFetch from './../customHooks/useFetch';
+import { useOneVideoData, useModuleData, useReadData } from './SideBar.Hook';
+
 const SideBar = () => {
+  const { readData: dataRead, errorResponse: errorReadData } = useReadData();
+  const { videoData: dataVideo, errorResponse: errorVideoData } = useOneVideoData();
+  const { moduleData: dataModule } = useModuleData();
+  
+  const readingName = dataRead?.title
+  const videoName = dataVideo?.title
+
+  const moduleName = dataModule?.title
+  const courseName = dataModule?.course?.title
+  const courseId = dataModule?.course?.id
+
   const [state, setState] = React.useState({
     left: false,
   });
@@ -28,7 +43,13 @@ const SideBar = () => {
       onKeyDown={toggleDrawer(anchor, false)}
       padding={"20px"}
     >
-      <BreadCrumbs></BreadCrumbs>
+      <BreadCrumbs 
+        courseName={courseName}
+        moduleName={moduleName}
+        readingName={readingName}
+        videoName={videoName}
+        courseId={courseId}
+      />
     </Box>
   );
 

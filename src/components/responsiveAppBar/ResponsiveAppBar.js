@@ -22,11 +22,8 @@ import { useNavigate } from "react-router";
 const classes = {
   menuPaper: {
     mt: "45px",
-    "&.MuiMenu-paper": {
-      backgroundColor: indigo[300],
-    },
-    "&.MuiMenu-list": {
-      backgroundColor: indigo[300],
+    "& .MuiMenu-paper": {
+      backgroundColor: yellow[500],
     },
   },
 };
@@ -96,11 +93,15 @@ const ResponsiveAppBar = () => {
             component="div"
             sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
           >
-            <img
-              src={logoInEdu}
-              style={{ maxWidth: "20vw" }}
-              alt="logo InEdu"
-            />
+            <Link
+              to={"/home"}
+            >
+              <img
+                src={logoInEdu}
+                style={{ maxWidth: "20vw" }}
+                alt="logo InEdu"
+              />
+            </ Link>
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}></Box>
@@ -166,7 +167,7 @@ const ResponsiveAppBar = () => {
                     backgroundColor: indigo[500],
                     color: "white",
                     "&:hover": {
-                      backgroundColor: yellow[500],
+                      backgroundColor: "secondary.main",
                       color: "primary.main",
                     },
                   }}
@@ -191,7 +192,7 @@ const ResponsiveAppBar = () => {
                     backgroundColor: indigo[500],
                     color: "white",
                     "&:hover": {
-                      backgroundColor: yellow[500],
+                      backgroundColor: "secondary.main",
                       color: "primary.main",
                     },
                   }}

@@ -83,7 +83,7 @@ const HelpFAQ = () => {
                                 variant="h6"
                                 fontWeight="medium"
                             >
-                                Accordion 1
+                                What is InEdu?
                             </Typography>
                         </AccordionSummary>
                         <AccordionDetails>
@@ -91,8 +91,7 @@ const HelpFAQ = () => {
                                 variant="h6"
                                 fontWeight="light"
                             >
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-                                malesuada lacus ex, sit amet blandit leo lobortis eget.
+                                InEdu's mission is to create new possibilities for people and organizations everywhere. Our service provides high quality educational resources For Free. For Everyone. Forever. You can take courses across a wide range of categories, some of which include: business & entrepreneurship, programming, academics, the arts, health & fitness, language, music, and more!
                             </Typography>
                         </AccordionDetails>
                     </Accordion>
@@ -108,7 +107,7 @@ const HelpFAQ = () => {
                                 variant="h6"
                                 fontWeight="medium"
                             >
-                                Accordion 2
+                                Is InEdu ACTUALLY Free?
                             </Typography>
                         </AccordionSummary>
                         <AccordionDetails>
@@ -116,8 +115,7 @@ const HelpFAQ = () => {
                                 variant="h6"
                                 fontWeight="light"
                             >
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-                                malesuada lacus ex, sit amet blandit leo lobortis eget.
+                                Yes InEdu is completely free to use. You can enroll to any available courses you want. The catches here is to make sure you provide feedback in the form of rating to a course at the time you finish the course or in the process of completing one.
                             </Typography>
                         </AccordionDetails>
                     </Accordion>
@@ -133,7 +131,7 @@ const HelpFAQ = () => {
                                 variant="h6"
                                 fontWeight="medium"
                             >
-                                Accordion 2
+                                How do I create a Course in InEdu?
                             </Typography>
                         </AccordionSummary>
                         <AccordionDetails>
@@ -141,8 +139,7 @@ const HelpFAQ = () => {
                                 variant="h6"
                                 fontWeight="light"
                             >
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-                                malesuada lacus ex, sit amet blandit leo lobortis eget.
+                                To create a course in InEdu, you can sign-up as a InEdu Teacher from the Teacher's page. On teacher's page, you can upload your own courses with materials that includes readings, videos, assignments and quizzes.                                           
                             </Typography>
                         </AccordionDetails>
                     </Accordion>
@@ -158,7 +155,7 @@ const HelpFAQ = () => {
                                 variant="h6"
                                 fontWeight="medium"
                             >
-                                Accordion 2
+                                Do I have to start or complete my course by a certain time?
                             </Typography>
                         </AccordionSummary>
                         <AccordionDetails>
@@ -166,8 +163,7 @@ const HelpFAQ = () => {
                                 variant="h6"
                                 fontWeight="light"
                             >
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-                                malesuada lacus ex, sit amet blandit leo lobortis eget.
+                                No. Our courses are completely free and you can start or end any course anytime you want. Make sure you add add review to a Course so it helps other people to find a good course that might helps them as well.
                             </Typography>
                         </AccordionDetails>
                     </Accordion>

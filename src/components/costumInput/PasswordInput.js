@@ -48,9 +48,9 @@ export default function PasswordInput(props) {
         {props.error && (
           <FormHelperText
             id="outlined-adornment-password"
-            sx={{ color: "error.main" }}
+            sx={{ color: "error.main", textAlign: "left", marginLeft: 0, marginRight: 0}}
           >
-            please fill password minimum 6 length
+            Please Fill Password with Minimum 6 Characters
           </FormHelperText>
         )}
       </FormControl>

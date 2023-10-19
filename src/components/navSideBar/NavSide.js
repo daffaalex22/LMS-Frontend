@@ -21,6 +21,8 @@ import { Avatar, Grid, Link } from "@mui/material";
 import { useLocation } from "react-router";
 import { useGetUserData } from "./getDataUser";
 import { GeneralContext } from "../../contexts/GeneralContext";
+import { Link as LinkRouter} from 'react-router-dom';
+
 
 const drawerWidth = 240;
 
@@ -39,7 +41,11 @@ function NavSidebar(props) {
   const drawer = (
     <Box>
       <Box m="5px">
-        <img src="/assets/images/logoInEdu.svg" alt="logo LMS" width="50%" />
+        <LinkRouter
+          to={"/home"}
+        >
+          <img src="/assets/images/logoInEdu.svg" alt="logo LMS" width="50%" />
+        </LinkRouter>
       </Box>
       <Box m="40px">
         <Typography variant="h5" component="h2" textAlign="center">
