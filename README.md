@@ -11,6 +11,7 @@
 
 ## 🌐 Live Preview
 > Notes: Kindly be patient with the latency. The whole full-stack app is deployed using a free service so it might take some time to load.
+> If you still have trouble accessing the Live Preview, kindly email me at daffaalex22@gmail.com/daffaalexander.work@gmail.com
 
 🔗This project is accessible at [https://inedu-frontend.vercel.app
 ](https://inedu-frontend.vercel.app)
