@@ -46,6 +46,10 @@ const CourseOverview = ({ course, enroll, enrolled, setEnrolled, modulesRef, stu
     const navigate = useNavigate()
     const { id } = useParams()
 
+    const numOfReviews = enroll?.filter((enroll) => {
+        return !(enroll?.rating == 0 && enroll?.reviews == "") && enroll
+    }).length ?? "0"
+
     function refreshPage() {
         setTimeout(() => {
             window.location.reload(false);
@@ -139,7 +143,7 @@ const CourseOverview = ({ course, enroll, enrolled, setEnrolled, modulesRef, stu
                             variant="h5"
                             sx={classes.reviewCount}
                         >
-                            {"(" + enroll?.length + " Reviews)"}
+                            {"(" + numOfReviews + " Reviews)"}
                         </Typography>
                     </Typography>
                 </Box>

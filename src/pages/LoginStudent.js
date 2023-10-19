@@ -47,7 +47,7 @@ export default function LoginStudent() {
       .then((resp) => {
         console.log(resp);
         if (resp.data.meta.status !== 200) {
-          setError(["Email atau Password salah, mohon check kembali"]);
+          setError(["Wrong Email or Password. Check Again!"]);
         } else {
           setError([]);
           localStorage.setItem("token", resp.data.data.token);
@@ -58,7 +58,7 @@ export default function LoginStudent() {
       .catch((e) => {
         console.error(e);
         if (e.response) {
-          setError(["Email atau Password salah, mohon check kembali"]);
+          setError(["Wrong Email or Password. Check Again!"]);
         } else if (e.request) {
           //server didn't catched
           setError(["Server Down, coba lagi nanti"]);
@@ -124,7 +124,7 @@ export default function LoginStudent() {
                 </Typography>
               </Link>
               <Typography variant="body2" color="textSecondary">
-                Copyright ©InEdu 2021
+                Copyright ©InEdu {new Date().getFullYear()}
               </Typography>
             </Paper>
           </Grid>

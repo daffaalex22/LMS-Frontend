@@ -143,3 +143,36 @@ export const useReadData = () => {
   }, []);
   return { readData, errorResponse, id };
 };
+
+export const useOneVideoData = () => {
+  const { videoId: id } = useParams();
+  const [videoData, setVideoData] = useState([]);
+  const [errorResponse, setErrorResponse] = useState(null);
+
+  useEffect(() => {
+    console.log("Getting Video By Id");
+    const getData = async () => {
+      let newDatas;
+      try {
+        newDatas = await Axios.get(
+          `https://inedu-backend.onrender.com/api/v1/videos/${id}`
+        );
+      } catch (e) {
+        console.error(e);
+        if (e.response) {
+          console.log(e.response);
+          setErrorResponse(e.response.data.message);
+        } else if (e.request) {
+          console.log(e.request);
+          setErrorResponse("Server Error");
+        }
+      }
+      if (newDatas) {
+        console.log(newDatas);
+        setVideoData(newDatas.data.data);
+      }
+    };
+    getData();
+  }, []);
+  return { videoData, errorResponse, id };
+};

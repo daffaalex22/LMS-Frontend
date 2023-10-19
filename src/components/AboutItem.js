@@ -23,7 +23,7 @@ const classes = {
     }
 }
 
-const AboutIlham = ({ name, school, about }) => {
+const AboutItem = ({ name, school, about, developer }) => {
     const { height, width } = useWindowDimensions();
 
     return (
@@ -54,7 +54,7 @@ const AboutIlham = ({ name, school, about }) => {
                     <Grid
                         item
                     >
-                        <img src={Developer} alt="Muka Ilham" />
+                        <img src={developer} alt="Developer's Face" />
                     </Grid>
                 </Grid>
                 <Grid
@@ -119,4 +119,4 @@ const AboutIlham = ({ name, school, about }) => {
     );
 }
 
-export default AboutIlham;
+export default AboutItem;

@@ -78,7 +78,7 @@ const StudentsFeedback = ({ setFilterReview, course }) => {
                             ...classes.yellowBarTitle,
                         }}
                     >
-                        Student Feedback
+                        Students Feedback
                     </Typography>
                 </Grid>
                 <Grid

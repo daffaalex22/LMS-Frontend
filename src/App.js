@@ -45,6 +45,24 @@ let theme = createTheme({
       main: "#F44336",
     },
   },
+  components: {
+    MuiTextField: {
+      styleOverrides: {
+        root: {
+          input: {
+            "&:-webkit-autofill": {
+              WebkitBoxShadow: "0 0 0 100px #FFF176 inset",
+              WebkitTextFillColor: "default",
+            },
+            "&:-webkit-autofill:focus": {
+              WebkitBoxShadow: "0 0 0 100px #FFF176 inset",
+              WebkitTextFillColor: "default",
+            },
+          },
+        },
+      },
+    },
+  },
 });
 theme = responsiveFontSizes(theme);
 

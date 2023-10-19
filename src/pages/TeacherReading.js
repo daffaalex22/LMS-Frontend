@@ -9,7 +9,7 @@ import { indigo } from "@mui/material/colors";
 import { useState, useEffect } from "react";
 import { useReadData } from "../components/SideBar.Hook";
 
-const StudentReading = (props) => {
+const TeacherReading = (props) => {
   const { readData: dataRead, errorResponse } = useReadData();
   const [filterReview, setFilterReview] = useState(0);
   const [threads, setThreads] = useState(null);
@@ -63,4 +63,4 @@ const StudentReading = (props) => {
   );
 };
 
-export default StudentReading;
+export default TeacherReading;

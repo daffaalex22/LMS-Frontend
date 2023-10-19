@@ -7,6 +7,7 @@ import Typography from "@mui/material/Typography";
 import FacebookRoundedIcon from '@mui/icons-material/FacebookRounded';
 import WhatsappRoundedIcon from '@mui/icons-material/WhatsappRounded';
 import InstagramIcon from '@mui/icons-material/Instagram';
+import { Link } from 'react-router-dom';
 
 const FooterDashboard = () => {
     return (
@@ -15,7 +16,11 @@ const FooterDashboard = () => {
                 <Grid container spacing={3} direction="row" justifyContent="space-around">
                     <Grid item xs={9} sm={6} md={4} lg={4} container spacing={2} direction="column">
                         <Grid item xs={1}>
-                            <img src={logoInEdu} style={{ maxWidth: '70vw' }} />
+                            <Link
+                                to={"/home"}
+                            >
+                                <img src={logoInEdu} style={{ maxWidth: '70vw' }} />
+                            </ Link>
                         </Grid>
                         <Grid item xs={1}>
                             <Typography variant="body1" textAlign="justify">

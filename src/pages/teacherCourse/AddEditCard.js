@@ -163,10 +163,11 @@ export default function AddEditCard(props) {
               name="thumbnail"
               onChange={handleChange}
             />
-            helper: can upload image{" "}
+            Note: You can upload your image {" "}
             <a href="https://id.imgbb.com/" target="_blank">
               here
             </a>
+            .
           </Typography>
           <Typography variant="body1" component="h2">
             Description :
