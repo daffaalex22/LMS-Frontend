@@ -1,13 +1,15 @@
+![Logo InEdu](https://user-images.githubusercontent.com/74149436/151357103-e850a849-e677-4a84-b43d-15eb994ef6ed.jpeg)
+
 # Contents
-- [Overview](https://github.com/daffaalex22/LMS-Frontend/edit/main/README.md#overview)
+- [🎡 Overview](https://github.com/daffaalex22/LMS-Frontend/edit/main/README.md#overview)
   - [🌐 Live Preview](https://github.com/daffaalex22/LMS-Frontend/edit/main/README.md#-live-preview)
   - [📽️ Demo Video](https://github.com/daffaalex22/LMS-Frontend/edit/main/README.md#%EF%B8%8F-demo-video)
   - [🎨 Design](https://github.com/daffaalex22/LMS-Frontend/edit/main/README.md#-design)
-- [Technical](https://github.com/daffaalex22/LMS-Frontend/edit/main/README.md#technical)
+- [🪛 Technical](https://github.com/daffaalex22/LMS-Frontend/edit/main/README.md#technical)
   - [📚 Libraries & 3rd Parties](https://github.com/daffaalex22/LMS-Frontend/edit/main/README.md#overview)
   - [🤖 Deployment](https://github.com/daffaalex22/LMS-Frontend/edit/main/README.md#overview)
 
-# Overview
+# 🎡 Overview
 
 ## 🌐 Live Preview
 > Notes: Kindly be patient with the latency. The whole full-stack app is deployed using a free service so it might take some time to load.
@@ -48,7 +50,7 @@ The whole project's design is made by me and my team. We **DID NOT** copy from e
 > During the earliest phase of development, we determine the MVP from User Persona. This board describes how our team works through that process.
 
 
-# Technical
+# 🪛 Technical
 
 ## 📚 Libraries & 3rd Parties
 We used a couple of NPM modules for our project, such as:
