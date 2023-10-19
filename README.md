@@ -62,5 +62,5 @@ We used a couple of NPM modules for our project, such as:
 - [react-youtube](https://www.npmjs.com/package/react-youtube)                       : Used for embedding a Youtube Video                          
 
 ## 🤖 Deployment
-The Live Preview of the project is deployed using the Free version of Vercel.
+The Live Preview of the project is deployed using the Free version of [Vercel](https://vercel.com/)https://vercel.com/.
 
