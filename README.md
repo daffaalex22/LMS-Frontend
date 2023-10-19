@@ -18,13 +18,13 @@
 
 ### Credential
 > 
-> _Teacher Account_
+> **_Teacher Account_**
 > 
 >   email: alex@teacher.com
 > 
 >   password: 12345678
 > 
-> _Student Account_
+> **_Student Account_**
 > 
 >   email: alex@google.com
 > 
